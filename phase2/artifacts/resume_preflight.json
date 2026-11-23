@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "parent": "J_balanced_dice_patch",
+  "parent_state_sha256": "73fa8031ea9565b83ee0bae3be8fd0b4adb523eb01b59b5cc9cadbae58e7f59b",
+  "parent_config_sha256": "8cdee23d68efc0809272873ffe37f502f20ce0c9348a7db427afebe7f4f3eb9d",
+  "partition_sha256": "97135138fcb09211c850dc2a16e0ae1deadd3088d342fdccf0c9f9d6b04559f0",
+  "two_successful_updates_each_path": true,
+  "losses_identical": true,
+  "actual_two_update_losses": [
+    0.594646155834198,
+    0.5651810169219971
+  ],
+  "weights_adam_and_scaler_identical": true,
+  "parent_unchanged": true,
+  "scope": "mechanical resume equivalence on real training crops; not an accuracy experiment"
+}

@@ -1,0 +1,6 @@
+{
+  "executed_review_script_sha256": "b0ac227cd8e432c29e9f1667fed1f275cf40fd102550e83f991e49036c8d55c7",
+  "current_reproduction_script_sha256": "1b7cc0eddd5957222efd528bde188538f1193603dc65817605d5d3e964bebdfb",
+  "change": "Future reproductions use quantitative values from their own metrics and skip original visual notes if checkpoint/image IDs differ. Actual study notes and measurements remain unchanged.",
+  "locked_checkpoint_sha256": "0ce6c174d27fff24551faa7ce94f7a2ec7f9a98294a0eac7746a8c61b89eed59"
+}

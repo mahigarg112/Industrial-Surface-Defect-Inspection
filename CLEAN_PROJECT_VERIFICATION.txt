@@ -1,0 +1,126 @@
+CLEAN PROJECT VERIFICATION — 20 NOVEMBER 2026
+Evaluation: Monday23 November2026,8-minute demo +4-minute viva.
+
+MODEL CHECKPOINT VERIFIED: YES
+GUI VERIFIED: YES — actual Streamlit AppTest AND installed Edge browser.
+FINAL RESULT:21 unit/AppTest cases +11 grouped integration/integrity checks
+passed;0 unresolved failed checks. Earlier harness failures are retained below.
+No training, package installation, full-dataset inference or new accuracy
+estimation was performed. Saved research metrics were reused and checked.
+
+UNIT / APPTEST (21 distinct cases)
+Command from this clean folder:
+  .\.venv\Scripts\python.exe -B -m unittest phase2.release.test_release phase2.test_pipeline phase2.test_evaluation phase2.test_sampling -v
+Evidence: verification/unit_tests.log and unit_tests.json.
+7 release cases: valid decode/rejections; native coordinates and PNG/JSON;
+checksum rejection; actual offline CPU/Auto fallback; explicitly simulated
+GPU-memory fallback; actual GUI inference/threshold-cache/six download controls/
+CPU switch; visible invalid-input/inference-error paths.
+6 pipeline cases: known/invalid RLE; independent four-channel RLE roundtrip;
+native crop/stitch edge alignment; small/odd coverage; int64 metrics/undefined
+ratios; batched prediction coordinates.
+5 evaluation cases: balanced/present Dice/weighted loss gradients and edge
+cases, threshold tuning and component size conventions (see named log cases).
+3 sampling cases: negative/uniform behavior and rare-class aligned crops.
+
+GROUPED INTEGRATION / INTEGRITY CHECKS (11)
+1. Standalone imports: common/model/dataset_utils/data/patches/train/objectives/
+   evaluate/metrics/infer/finalize/audit all resolve inside the clean root.
+   No dataset folder/junction exists; application imports do not need one.
+   The externally installed Python environment supplies third-party packages.
+2. Strict checkpoint + architecture:482788 parameters, class mapping, strict
+   state dict and49 actual leaf operations verified by live CPU forward hooks;
+   native patch output1x4x256x256. Verified leaf JSON/table are archived.
+3. Real sample preprocessing/reconstruction: local bundled image and its CSV
+   RLE row produce3x256x256 float32 RGB/255 and4 aligned masks.12 patches,
+   final box(0,1344,256,1600); reconstruct original masks within4e-7.
+4. Actual CPU inference: final model on0007a71bf.jpg ->4x256x1600 finite[0,1]
+   probabilities; observed tensor matches RGB/255; native overlay/four binary
+   PNGs/JSON exported and reopened; thresholds rerender without a forward pass.
+5. Actual CUDA inference: RTX3050 Laptop6GB, same native shape/range and
+   threshold behavior. Corrected targeted recheck passed, see cuda_recheck.json.
+6. Independent saved-evidence arithmetic: all10 existing evaluations use the
+   same1006 test IDs; independent RLE areas matchTP+FN; per-image int64 counts
+   reproduce all class/macro scores; locked source hashes/checkpoint reload
+   and saved native NPZ/PNG thresholds agree. No dataset inference rerun.
+7. HTTP startup/teardown: Streamlit loopback health and page HTTP200 from this
+   release; only the owned subprocess stopped afterward. Dynamic unused port.
+8. Actual Edge browser: real upload, inference/four areas/masks/overlay, native
+   slider movement, six real downloads (overlay+four binary masks+JSON),
+   exploratory JSON and corrupt/empty upload errors. External HTTPS blocked.
+   All mask downloads are grayscale1600x256 with only0/255 values. Owning
+   server stopped. Screenshot visually inspected after automated checks.
+9. Safe exercises: changed overlay alpha leaves masks/background unchanged;
+   evaluation bucket temporarily edited1024->512 in clean evaluate.py and
+   tested on a600-pixel synthetic component; source restored byte-identically.
+   Threshold mask change/cache/restoration is covered by AppTest.
+10. Original preservation:733 captured original files rehashed,0 missing or
+   changed. Includes Phase I/II source/logs/results/checkpoints/root reports,
+   original annotation CSV and old submission manifest. Dataset images were
+   not rehashed; no operation modified/deleted original images or annotations.
+   Clean model/RLE sources and final checkpoint/lock match original bytes.
+11. Release manifest: all listed clean files independently rehashed after
+   documentation completion; result in verification/release_manifest_check.json.
+   The manifest excludes itself, its own verification result and the derived
+   final_verification.json to avoid self-referential digests; later user-generated
+   outputs are outside its scope.
+
+PRIMARY FRESH EVIDENCE
+- verification/run_20261120T105823_408642Z/: original7-group integration record,
+  leaf hooks/table, actual CPU exports, arithmetic and server startup log.
+- verification/cuda_recheck.json: affected CUDA check rerun successfully.
+- verification/final_verification.json: resolved final status and check counts.
+- phase2/release/evidence/browser_20261120T110811_830369Z/browser_smoke.json,
+  browser_downloads/,application_locked.png,application.png,lifecycle.json.
+- verification/live_exercises.json,original_preservation_result.json,
+  ORIGINAL_PRESERVATION_BASELINE.json,COPY_PROVENANCE.json,
+  CHECKPOINT_INVENTORY.json and release_manifest_check.json.
+
+HARNESS FAILURES / CORRECTIONS, NOT HIDDEN
+- First CUDA preprocessing assertion demanded bitwise CPU/NumPy-versus-CUDA
+  division equality. Max difference5.960464477539063e-8 is float32 rounding.
+  verify_clean.py now uses absolute tolerance1e-7 with relative tolerance0;
+  only the affected real CUDA check was repeated. Original failed record stays.
+  Network/weights/preprocessing were not altered to satisfy the check.
+- First Edge debugger launch failed in the restricted Windows renderer context.
+  The same installed local Edge test passed in the approved execution context;
+  no browser, driver, dependency or network model was downloaded. Initial logs
+  remain under phase2/release/evidence/clean_browser/. No approval rejection.
+- PowerShell wrapped unittest stderr as NativeCommandError text despite the
+  actual runner reporting "Ran21 tests / OK". unit_tests.json records the suite
+  result explicitly; wrapper text is retained, not misreported as a unit failure.
+- A documentation-assembly read assumed UTF8 for PowerShell's UTF16 log and
+  failed; reader corrected. A source-inspection command initially used unsupported
+  shell brace syntax, then was corrected. These were command/encoding issues.
+No unresolved product test failure remains. Repeated checks were targeted to
+the affected behavior; no additional full evaluation was used to hide failures.
+
+CHECKPOINT / PATH INTEGRITY
+phase2/artifacts/final/model.pt SHA256:
+0ce6c174d27fff24551faa7ce94f7a2ec7f9a98294a0eac7746a8c61b89eed59
+Original lock SHA256:
+e51bbf734f10a3269a435c571d0660a0b7efa25c991515605fcde038eabc312b
+Exact thresholds:[0.949999988079071,0.9750000238418579,0.5,0.949999988079071].
+No original source/checkpoint/evidence modified. Clean app has direct local
+model/RLE imports, named overlay alpha0.4 and four additional PNG controls.
+No source symlink/hardlink is needed. The optional dataset junction is explicit,
+unused during checks and needed only if supplied data is used for research.
+
+REPRODUCTION LIMITS / CRITICAL SUBMISSION ISSUES
+- Official evaluation PDFs were read and bundled; full separate Project02
+  brief remains unavailable, so project-specific compliance is unresolved.
+  C++/Java integration is not implemented; these PDFs do not require a bridge.
+- Student must understand the implementation, disclose assistance, review/sign
+  originality personally, and attend the assigned slot (not supplied here).
+- Research reliability limits remain: class2 Dice0.082752,452/472 GT-empty
+  any-pixel alarms, single seed, no near/coil duplicate or external-domain proof.
+- The opened test cannot select new improvements. Different user thresholds
+  have no evaluated performance claim. Demo examples are reused, not unseen.
+- App needs no internet/data corpus after dependency setup; full training needs
+  authorized original images supplied explicitly. Nonselected checkpoints remain
+  referenced in original storage; all saved essential results are bundled.
+- Private demo approval recorded earlier does not establish public data/source/
+  weight redistribution rights. No licensing or faculty acceptance invented.
+
+Launch and navigation: README.md. Technical/code blockers for the tested local
+prototype demo: none. Test servers are stopped; launch when ready.

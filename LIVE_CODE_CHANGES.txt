@@ -1,0 +1,64 @@
+THREE SAFE LIVE EXERCISES — CLEAN RELEASE ONLY
+Do one if asked. No training, checkpoint/lock edits or evidence regeneration.
+All edits below are rehearsal instructions; they were not left enabled.
+Use version-control diff or an editor undo to revert only your own temporary edit.
+
+A. CHANGE A CLASS THRESHOLD AND EXPLAIN MASK DIFFERENCE
+File/function: phase2/release/app.py module threshold widgets;
+phase2/release/inference.py:render performs probability>=thresholds[:,None,None].
+Exact setting: enable Adjust thresholds, change Class3 from0.500 to0.990.
+Effect: a subset of pixels remains positive; raising a cutoff cannot add positives
+for fixed probabilities. Recall may fall; precision need not improve every time.
+Test: load0007a71bf.jpg, Inspect image, note Class3 area, move slider and show
+mask/area reduction. network_runs in AppTest stays1. JSON labels settings
+exploratory. Existing unit test AppTests.test_inspect_threshold_cache_downloads_and_cpu_mode
+verifies no new forward pass and restoration. Do not edit lock.json.
+Revert: disable Adjust thresholds. The exact original float thresholds return.
+If panel insists on source navigation, point to render's comparison and app's
+slider value; changing the displayed operating point is an authentic code path.
+
+B. CHANGE ONLY OVERLAY OPACITY
+File/function: phase2/release/inference.py:render.
+Exact setting near COLORS: OVERLAY_ALPHA=0.4. Temporarily set0.7.
+Formula: overlay=(1-alpha)*image+alpha*average_active_class_color on active
+pixels. With0.7 the color is stronger and underlying texture less visible.
+Binary masks, probability, area, checkpoint and inference result are unchanged.
+Test: save, let Streamlit rerun, or stop/restart if module changes are not
+detected. Load the same image and Inspect image, then compare overlay while
+checking identical areas/masks. Restarting can reload the model; this is not
+retraining. GUI export should have the stronger foreground color, same dimensions.
+Optional terminal check (from clean root, installed interpreter as in README):
+  python -B -c "import numpy as np; from phase2.release import inference as i; x=np.full((16,16,3),100,np.uint8); p=np.zeros((4,16,16),np.float32); p[0,0,0]=1; a=i.render(x,p,[0.5]*4); i.OVERLAY_ALPHA=0.7; b=i.render(x,p,[0.5]*4); assert np.array_equal(a['masks'],b['masks']); assert a['overlay'][0,0].tolist()!=b['overlay'][0,0].tolist(); assert np.array_equal(a['overlay'][1,1],b['overlay'][1,1]); print('Only active-pixel appearance changed')"
+Run that command with the source at default0.4. The runtime assignment is local
+to the process and leaves the file unchanged.
+Revert source: OVERLAY_ALPHA=0.4; save/restart and verify normal appearance.
+Never change sigmoid, checkpoint or thresholds to make an overlay look convincing.
+
+C. CHANGE AN EVALUATION SIZE BUCKET ON SYNTHETIC DATA
+File/function: phase2/evaluate.py:size_stats, the size-bucket selection loop.
+Exact current settings:
+  ('small',areas<=1024)
+  ('medium',(areas>1024)&(areas<=8192))
+  ('large',areas>8192)
+Temporarily change BOTH1024 boundaries to512, leaving8192 unchanged.
+Effect: connected GT components of513..1024 pixels move from small to medium.
+Pixel Dice/IoU and network output do not change; bucket interpretation changes.
+Keep paired boundaries consistent so there is no gap/overlap. This is an
+exploratory evaluation definition, not a new improved reported result.
+
+Test with a single artificial20x30=600-pixel component, no real dataset:
+  python -B -c "import numpy as np; from phase2.evaluate import size_stats; y=np.zeros((4,32,32),bool); y[0,:20,:30]=True; s=size_stats(y,y); print({k:v[0].tolist() for k,v in s.items()})"
+Before edit: small[1,1,600,600],medium[0,0,0,0],large[0,0,0,0].
+After edit: small[0,0,0,0],medium[1,1,600,600],large[0,0,0,0].
+Each vector is objects,detected objects,GT pixels,recovered GT pixels. Detection
+requires>=10% of GT recovered; the perfect synthetic prediction recovers all.
+Revert BOTH512 boundaries to1024. Rerun the toy command: component returns small.
+Never run evaluate.main,finalize,threshold tuning or rewrite stored research
+metrics for this exercise. No model retraining is needed.
+
+REHEARSAL VERIFICATION
+The overlay-invariance and bucket commands are tested in verification/
+live_exercises.json. Actual source remains at alpha0.4 and original1024/8192
+boundaries. Threshold/cache restoration is tested through real Streamlit AppTest.
+All commands marked python should use ..\.venv-phase2\Scripts\python.exe on
+this machine, or .\.venv\Scripts\python.exe after standalone environment setup.

@@ -1,0 +1,80 @@
+CODE NAVIGATION FOR THE FACULTY VIVA
+All paths are relative to Phase_II_Clean_Project. K remains official. No training is needed during the demonstration.
+
+FIVE FILES TO OPEN FIRST: phase2/model.py; phase2/patches.py; phase2/release/inference.py; phase2/data.py; phase2/train.py.
+Entry point: phase2/release/app.py. Runtime chain: app -> inference.Inspector -> common.load_model -> model.SmallUNet -> patches.predict -> inference.render/report export.
+App dependencies: Python,PyTorch,NumPy,Pillow,Streamlit. Training/evaluation also need SciPy; plotting/research reproduction uses Matplotlib. Exact environment pins remain in requirements*.txt/RELEASE_ENVIRONMENT.json. No torchvision or network model download is required.
+Model/samples/source paths resolve from common.ROOT inside this release, not from the working directory or parent repository. The existing external venv supplies installed third-party libraries only. Full training requires an explicitly supplied authorized dataset; it is not bundled.
+
+phase2/release/app.py:18 (get_inspector)
+Does/why: Streamlit entry and cached resource; module body handles upload, Inspect Image, cached probability state and controls.
+Show: Show st.file_uploader, input hash invalidation, Inspect Image and the collapsed threshold expander.
+Safe live exercise: Change the research subtitle text only; reload once, then undo. Predictions and thresholds stay unchanged.
+
+phase2/model.py:38 (SmallUNet.forward)
+Does/why: Actual encoder16/32/64,bottleneck128,skip concatenations,decoder and four raw logits. ConvBlock provides two3x3 Conv-BN-ReLU operations.
+Show: Show tensor variables e1,e2,e3,center,d3,d2,d1; explain1x3x256x256 ->1x4x256x256 and482788 parameters.
+Safe live exercise: Add a temporary shape print in a CPU scratch forward, then remove it. Do not edit layer widths, kernels or checkpoint keys.
+
+phase2/common.py:58 (load_model)
+Does/why: Release-relative paths, strict state_dict/class mapping, model device and eval mode. Prevents hidden parent-source dependencies.
+Show: Show direct .model/.dataset_utils imports and strict loading; Inspector checks the pinned SHA before this call.
+Safe live exercise: Call load_model with device="cpu" instead of"cuda" in scratch code; no weight change.
+
+phase2/dataset_utils.py:18 (decode_rle)
+Does/why: Inherited1-based column-major RLE decoder and original dataset loader; retained for training/audit/Phase I reproduction.
+Show: Decode a tiny start/length example, subtract1 and reshape order F; image and mask use identical coordinates.
+Safe live exercise: Change only a toy RLE string in an offline example; inspect the decoded coordinates and restore the example.
+
+phase2/data.py:42 (TrainDataset.__getitem__)
+Does/why: records/native load frozen split,RGB image and four masks. Training crops use the same box for image and mask; K focuses its rarest present class.
+Show: Show RGB/255,seed/epoch/index crop RNG,foreground focus and uniform negative-source sampling.
+Safe live exercise: Change seed42->43 in a scratch TrainDataset call and compare crop positions; do not rewrite split/config files or run training.
+
+phase2/train.py:20 (main)
+Does/why: Training CLI,preflight gates,Adam,AMP,loss dispatch,backward/step,validation,best checkpoint and early stopping. It refuses existing run directories.
+Show: Show Adam LR0.001,zero_grad,balanced_present_dice_loss dispatch,GradScaler.backward/step/update and best-validation comparison. K resumes J to9 total epochs.
+Safe live exercise: Change progress-log wording or reporting interval in the editor and undo; do not execute main or change optimizer settings during the viva.
+
+phase2/objectives.py:34 (balanced_present_dice_loss)
+Does/why: K loss:0.5 unweighted BCE +0.5 inverse-training-positive-pair-frequency Dice; GT-empty Dice terms zero, smoothing1,mean B*C.
+Show: Explain logits.float(),sigmoid,positive target area and the four training-derived Dice weights. Distinguish weighted Dice from weighted BCE.
+Safe live exercise: Use different toy logits in an offline4x4 loss calculation and inspect backward gradients; do not change the locked objective/config.
+
+phase2/patches.py:17 (boxes)
+Does/why: starts/boxes enumerate native256-square tiles at stride128; final x1344 covers image edge.
+Show: Show12 tiles for256x1600,half-open coordinates and identical crop geometry.
+Safe live exercise: Call boxes(256,1600,stride=256) in scratch code and compare tile count; restore128 for real inference.
+
+phase2/patches.py:22 (weight_window)
+Does/why: Positive Hann window and blend normalize overlapping per-class probabilities. predict batches crops,edge-pads small inputs,divides RGB by255 and applies logits.float().sigmoid().
+Show: Show probabilities summed with weights and divided by coverage before thresholding; no softmax or GT-guided inference.
+Safe live exercise: Compare kind="uniform" and"hann" using synthetic constant patch probabilities only; do not alter the GUI lock or published evaluation.
+
+phase2/metrics.py:12 (summarize)
+Does/why: counts produces int64 TP/FP/FN; summarize calculates each class Dice/IoU/precision/recall,then equal-class macro.
+Show: Use TP2,FP1,FN1 -> Dice4/6,IoU2/4. Undefined ratios are null,not fabricated perfect scores.
+Safe live exercise: Change only toy FN1->2 and recalculate; do not edit saved metric JSON/CSV.
+
+phase2/evaluate.py:71 (size_stats)
+Does/why: evaluate performs native probability inference and independent thresholds;tune is validation-only historical threshold selection; size_stats measures labeled component sensitivity.
+Show: Show<=1024 small,<=8192 medium,8-connectivity and>=10% correct-class recovery. Explain permissive proxy limitations.
+Safe live exercise: On a synthetic600-pixel component,temporarily compare small cutoff1024 vs512 and undo; never rerun old-test selection.
+
+phase2/release/inference.py:121 (render)
+Does/why: decode_upload validates/orients RGB; Inspector.probabilities stitches genuine K outputs. render thresholds four channels,averages overlap colors,keeps background unchanged and computes area.
+Show: Show OVERLAY_ALPHA=0.4,independent masks,affected pixels/total pixels,PNG encoding and inspection_report/report_bytes with accuracy=null.
+Safe live exercise: Change OVERLAY_ALPHA0.4->0.25,rerender cached probabilities and confirm masks/counts identical; revert0.4. Threshold exploration is a separate safe cached-probability exercise.
+
+phase2/verify_evidence.py:15 (verify)
+Does/why: Arithmetic verification of saved historical counts,immutable locked source and checkpoint hashes; no fresh model selection.
+Show: Show that archived final/source files satisfy lock hashes,including retained profiling snapshots after duplicate active copies were removed.
+Safe live exercise: Print one already saved score in scratch code; never rewrite historical evidence.
+
+REPRODUCTION AND EVIDENCE SUPPORT
+phase2/audit.py:prepare/verify maintains the manifest/leakage checks; phase2/smoke.py:loss_fn supplies the original baseline objective imported by train. weighted_smoke/resume_smoke are historical preflight dependencies; retained,not executed during freeze.
+phase2/finalize.py:main and report.generate are historical selection/report orchestration. Never run --stage test or retrain during the demo. Research comparison is FINAL_RESEARCH_SUMMARY.txt,with exact saved extracts in verification/final_freeze/research_comparison.json.
+Current main screen is already minimal. No model switching,developer metrics or JSON preview is exposed. The original K checksum/default threshold guards remain active.
+Safe threshold exercise: Advanced: Explore Prediction Thresholds -> Adjust thresholds -> Class3 0.99; verify changed mask with no added network run; disable toggle to restore exact locked values. Exploratory settings are not independently validated.
+Verification: use the exact commands in README/SIMPLE_DEMO_COMMANDS; the fresh freeze record is verification/final_freeze/verification.json. Do not confuse research snapshots under artifacts/final/source with the active phase2/model.py/package.
+19 core application/training/evaluation files are listed in CLEANUP_SUMMARY.txt. Additional retained Python files are tests,preflight/reproduction helpers or archival evidence; do not delete needed code to hit an arbitrary count.

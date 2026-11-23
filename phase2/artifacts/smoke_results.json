@@ -1,0 +1,58 @@
+{
+  "passed": true,
+  "partition_sha256": "97135138fcb09211c850dc2a16e0ae1deadd3088d342fdccf0c9f9d6b04559f0",
+  "tests_passed": true,
+  "modes": {
+    "whole": {
+      "optimizer_steps": 8,
+      "batch_size": 8,
+      "amp": true,
+      "losses": [
+        0.8300185203552246,
+        0.8035905361175537,
+        0.809272289276123,
+        0.7940949201583862,
+        0.7969658374786377,
+        0.7839305996894836,
+        0.7870438098907471,
+        0.7745488882064819
+      ],
+      "duration_seconds": 5.689211200002319,
+      "peak_allocated_bytes": 415151616,
+      "peak_reserved_bytes": 524288000,
+      "checkpoint_reload": true,
+      "native_prediction_shape": [
+        4,
+        256,
+        1600
+      ],
+      "parameters": 482788
+    },
+    "patch": {
+      "optimizer_steps": 8,
+      "batch_size": 8,
+      "amp": true,
+      "losses": [
+        0.8290842771530151,
+        0.8044964075088501,
+        0.8084782361984253,
+        0.7966609001159668,
+        0.7997549176216125,
+        0.7882667779922485,
+        0.7915138006210327,
+        0.7800848484039307
+      ],
+      "duration_seconds": 2.4938182000005327,
+      "peak_allocated_bytes": 404252672,
+      "peak_reserved_bytes": 476053504,
+      "checkpoint_reload": true,
+      "native_prediction_shape": [
+        4,
+        256,
+        1600
+      ],
+      "parameters": 482788
+    }
+  },
+  "warning": "Eight steps per mode on 16 images; verifies mechanics, not accuracy or convergence."
+}

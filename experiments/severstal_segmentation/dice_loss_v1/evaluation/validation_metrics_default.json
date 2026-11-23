@@ -1,0 +1,55 @@
+{
+  "split": "val",
+  "images": 2514,
+  "evaluation": "default threshold 0.5",
+  "validation_loss_bce_plus_soft_dice": 0.14005888051344317,
+  "macro_dice": 0.11825690418481827,
+  "macro_iou": 0.07744534313678741,
+  "per_class": {
+    "1": {
+      "name": "class_1",
+      "threshold": 0.5,
+      "dice": 0.0,
+      "iou": 0.0,
+      "precision": null,
+      "recall": 0.0,
+      "true_positive_pixels": 0,
+      "false_positive_pixels": 0,
+      "missed_defect_pixels": 129177
+    },
+    "2": {
+      "name": "class_2",
+      "threshold": 0.5,
+      "dice": 0.0,
+      "iou": 0.0,
+      "precision": null,
+      "recall": 0.0,
+      "true_positive_pixels": 0,
+      "false_positive_pixels": 0,
+      "missed_defect_pixels": 27727
+    },
+    "3": {
+      "name": "class_3",
+      "threshold": 0.5,
+      "dice": 0.47302761673927307,
+      "iou": 0.30978137254714966,
+      "precision": 0.4135233163833618,
+      "recall": 0.5525351762771606,
+      "true_positive_pixels": 2207473,
+      "false_positive_pixels": 3130734,
+      "missed_defect_pixels": 1787699
+    },
+    "4": {
+      "name": "class_4",
+      "threshold": 0.5,
+      "dice": 0.0,
+      "iou": 0.0,
+      "precision": null,
+      "recall": 0.0,
+      "true_positive_pixels": 0,
+      "false_positive_pixels": 0,
+      "missed_defect_pixels": 859080
+    }
+  },
+  "note": "All results use the held-out validation split. Threshold-tuned metrics were optimized on this same split and may be optimistic."
+}

@@ -1,0 +1,87 @@
+PHASE II IMPROVEMENT SPRINT — REAL VALIDATION RESULTS
+
+Completed: Stage1 protection/CUDA/state/GUI checks; Stage2 seven prespecified settings; Stage3 low-LR K fine-tuning.
+Stage4 one-epoch Class2 quota/context pilot completed.
+No old-test evaluation/selection, external pretrained weights, new GUI or clean-release changes.
+
+VALIDATION COMPARISON (2514 identical native-resolution images; four-class macro pixel totals)
+K_threshold_05: Dice=0.180396, IoU=0.106314; class Dice=[0.098856, 0.034767, 0.41017, 0.177793]; normal alarms=1141/1180; safeguards={'passed': False, 'reasons': ['macro Dice gain below0.002', 'class2 precision loss', 'normal-image false-alarm rate increase']}
+K_locked: Dice=0.239229, IoU=0.141876; class Dice=[0.193465, 0.062291, 0.41017, 0.29099]; normal alarms=1130/1180; safeguards={'passed': False, 'reasons': ['macro Dice gain below0.002']}
+K_area_16: Dice=0.239537, IoU=0.142098; class Dice=[0.19364, 0.062367, 0.410817, 0.291322]; normal alarms=1121/1180; safeguards={'passed': False, 'reasons': ['macro Dice gain below0.002']}
+K_area_64: Dice=0.240571, IoU=0.142826; class Dice=[0.194421, 0.062878, 0.412795, 0.292191]; normal alarms=1101/1180; safeguards={'passed': False, 'reasons': ['macro Dice gain below0.002', 'class4 small object_recall loss', 'localized positive-image recall loss']}
+K_area_256: Dice=0.242048, IoU=0.144068; class Dice=[0.189953, 0.063435, 0.418784, 0.29602]; normal alarms=1055/1180; safeguards={'passed': False, 'reasons': ['class1 pixel recall loss', 'class1 small object_recall loss', 'class1 small pixel_recall loss', 'class2 pixel recall loss', 'class2 small object_recall loss', 'class2 small pixel_recall loss', 'class3 small object_recall loss', 'class4 small object_recall loss', 'class4 small pixel_recall loss', 'localized positive-image recall loss']}
+K_area_classwise: Dice=0.240248, IoU=0.142638; class Dice=[0.19364, 0.062367, 0.412795, 0.292191]; normal alarms=1101/1180; safeguards={'passed': False, 'reasons': ['macro Dice gain below0.002', 'class4 small object_recall loss']}
+K_area16_component_probability: Dice=0.247774, IoU=0.147872; class Dice=[0.196008, 0.064738, 0.418849, 0.3115]; normal alarms=1082/1180; safeguards={'passed': False, 'reasons': ['class1 small object_recall loss', 'class2 pixel recall loss', 'class3 small object_recall loss', 'class4 pixel recall loss', 'class4 small object_recall loss', 'class4 small pixel_recall loss', 'localized positive-image recall loss']}
+L_low_lr_05: Dice=0.196497, IoU=0.117195; class Dice=[0.095119, 0.035185, 0.429174, 0.226512]; normal alarms=1145/1180; safeguards={'passed': False, 'reasons': ['macro Dice gain below0.002', 'class2 precision loss', 'normal-image false-alarm rate increase']}
+L_low_lr_locked: Dice=0.255732, IoU=0.153225; class Dice=[0.19589, 0.077153, 0.429174, 0.320712]; normal alarms=1141/1180; safeguards={'passed': False, 'reasons': ['class4 small object_recall loss', 'normal-image false-alarm rate increase']}
+M_class2_quota_05: Dice=0.173074, IoU=0.102207; class Dice=[0.0666, 0.026295, 0.401901, 0.197501]; normal alarms=1163/1180; safeguards={'passed': False, 'reasons': ['macro Dice gain below0.002', 'class2 precision loss', 'normal-image false-alarm rate increase']}
+M_class2_quota_locked: Dice=0.229372, IoU=0.135868; class Dice=[0.161117, 0.055072, 0.401901, 0.299398]; normal alarms=1163/1180; safeguards={'passed': False, 'reasons': ['macro Dice gain below0.002', 'class4 pixel recall loss', 'class2 precision loss', 'normal-image false-alarm rate increase']}
+
+TRAINING / RESOURCE RECORDS
+L_low_lr: additional epochs=3; training wall seconds=285.31; validation/metrics seconds=1555.02; total run seconds=1841.04; peak allocated/reserved bytes=404252672/476053504; successful updates=3392; see history.csv for every train loss/native-val loss/Dice/class Dice/LR.
+M_class2_quota: additional epochs=1; training wall seconds=96.71; validation/metrics seconds=480.81; total run seconds=577.76; peak allocated/reserved bytes=404252672/476053504; successful updates=1131; see history.csv for every train loss/native-val loss/Dice/class Dice/LR.
+
+Original K locked validation Dice/IoU: 0.239229/0.141876
+Selected candidate: K_locked; validation Dice/IoU=0.239229/0.141876
+Highest-scoring new development candidate: L_low_lr_locked; safeguards={'passed': False, 'reasons': ['class4 small object_recall loss', 'normal-image false-alarm rate increase']}
+
+PER-CLASS TRADEOFFS, PRODUCTION SELECTION
+Production selection remains original K; its metrics are unchanged. New candidate changes follow separately.
+
+HIGHEST-SCORING NEW MODEL/POLICY VERSUS ORIGINAL (even if rejected for promotion)
+Class1: Dice 0.193465->0.195890; precision 0.194451->0.170752; recall 0.192489->0.229707; FP pixels 643159->899759; small: {'objects': 364, 'detected': 166, 'object_recall': 0.45604395604395603, 'gt_pixels': 234040, 'recovered_pixels': 57902, 'pixel_recall': 0.24740215347803796} -> {'objects': 364, 'detected': 191, 'object_recall': 0.5247252747252747, 'gt_pixels': 234040, 'recovered_pixels': 67381, 'pixel_recall': 0.2879037771321142}
+Class2: Dice 0.062291->0.077153; precision 0.042245->0.043033; recall 0.118542->0.372556; FP pixels 470229->1449597; small: {'objects': 8, 'detected': 2, 'object_recall': 0.25, 'gt_pixels': 4952, 'recovered_pixels': 443, 'pixel_recall': 0.08945880452342488} -> {'objects': 8, 'detected': 7, 'object_recall': 0.875, 'gt_pixels': 4952, 'recovered_pixels': 2939, 'pixel_recall': 0.593497576736672}
+Class3: Dice 0.410170->0.429174; precision 0.401231->0.375018; recall 0.419515->0.501610; FP pixels 15630217->20870557; small: {'objects': 435, 'detected': 355, 'object_recall': 0.8160919540229885, 'gt_pixels': 191241, 'recovered_pixels': 125240, 'pixel_recall': 0.6548804911080783} -> {'objects': 435, 'detected': 386, 'object_recall': 0.8873563218390804, 'gt_pixels': 191241, 'recovered_pixels': 143822, 'pixel_recall': 0.7520458479091826}
+Class4: Dice 0.290990->0.320712; precision 0.265164->0.334223; recall 0.322388->0.308252; FP pixels 4796337->3296510; small: {'objects': 36, 'detected': 17, 'object_recall': 0.4722222222222222, 'gt_pixels': 21129, 'recovered_pixels': 5502, 'pixel_recall': 0.2604003975578589} -> {'objects': 36, 'detected': 16, 'object_recall': 0.4444444444444444, 'gt_pixels': 21129, 'recovered_pixels': 5667, 'pixel_recall': 0.26820956978560273}
+
+MATCHED STAGE4 SAMPLER COMPARISON
+{
+  "reference": "L_low_lr epoch10",
+  "intervention": "M_class2_quota epoch10",
+  "matched_budget": "9048 draws /1131 attempts; K epoch9 initialization, Adam/scaler/RNG, LR1e-4, loss, batch, val and thresholds fixed",
+  "delta_macro_dice": -0.00603783933879265,
+  "delta_macro_iou": -0.0035015239533685294,
+  "delta_class2_dice": -0.015626195343449098,
+  "delta_class2_precision": -0.009630443845520961,
+  "delta_class2_recall": 0.07517989106517231,
+  "delta_normal_false_alarm_images": 0,
+  "claim_scope": "One-seed one-epoch sampler-policy comparison; quota and extra-crop jitter are not individually isolated; comparison against L best epoch11/12 is budget-confounded."
+}
+All4250 normal source draws retained. Two extra C2 draws/source replace354 pure-Class3 slots, with repetition cap3 and native aligned context jitter. Other-class and normal tradeoffs are measured, not assumed.
+
+False alarms: 1130/1180 -> 1130/1180
+Localized image recall: 0.974513->0.974513
+Best selected checkpoint: phase2\artifacts\final\model.pt
+Separate mechanically verified candidate package: phase2\improvement_sprint\candidate_package\model.pt; candidate=L_low_lr_locked; SHA256=45b8953a847452bf4e91fae234784ba9c67c4cb7b0dc95440eb4aa922cf8893f. A rejected candidate is packaged for review, not approval.
+Recommend replacing K: False. No working GUI/lock/clean file was replaced.
+The original GUI pins K's hash. Any later promotion needs explicit loader/package integration and GUI rechecks; compatible four-channel weights alone do not update that guard.
+
+LIMITATIONS AND INTERPRETATION
+Validation has been used extensively, including earlier K epoch/threshold selection. These are development-validation improvements, not independent generalization estimates.
+The previously opened1006-image test was not evaluated or used to select anything in this sprint. Historical test scores remain historical, not scores for the new candidate.
+Fixed K validation thresholds apply to all fine-tuned checkpoints; no new threshold sweep. Candidate ranking and minority-recall/small-component/false-alarm safeguards were frozen before validation.
+K Adam moments/scaler were retained and weights/state matched epoch9. LR intentionally changed0.001->0.0001; describe as fine-tuning continuation, not an unchanged exact resumption. BatchNorm state was retained; train/eval modes used normally.
+Train loss uses one foreground-aware crop/source; validation loss averages the same K objective over all12 native grid crops/image. Their sample distributions differ; do not interpret their absolute gap alone as overfitting.
+Component detection means >=10% of an8-connected GT component recovered. Small<=1024px. Any-alarm image recall can be inflated by false alarms; localized recall requires correct-class pixel overlap and is reported separately.
+Postprocessing wall time=7414.57s includes a long interruption between images2300/2400 (676s->7360s in the console). It is not an uninterrupted GPU speed measurement; five-image inference-only estimate is recorded separately in preflight.json.
+K's copied config retains historical J initialization metadata; L_low_lr/initialization_provenance.json records the actual direct K training-state path/hash. K weights, Adam moments and scaler were loaded from that direct matching epoch9 state.
+Generalization, calibration, acquisition/coil separation and industrial reliability remain unestablished. The0.30 stretch target was never promised.
+Stage5 augmentation skipped to keep interventions interpretable and limit extra validation search.
+Implementation checks passed: original GUI AppTest, native loss-hook prediction equivalence, area/confidence filter smokes, six exact int64 metric-equivalence cases and20 rare-crop alignment cases. Initial synthetic smoke found float-valued bincount totals being added to int64; explicit casting fixed it before the measured validation pass.
+L best inference weights are epoch11; its last full training state is epoch12. If these epochs differ, do not pair last-state optimizer with best weights as an exact resumption. K's epoch9 full state matched its selected weights; M's single-epoch last state matches epoch10.
+All1026 protected hashes unchanged; no dataset copy or permanent evidence deletion. AI assistance implemented this sprint and its reporting; student must review/disclose it.
+
+EXACT POWERSHELL REPRODUCTION (from original repository root; fresh outputs)
+.\.venv-phase2\Scripts\python.exe -B -m phase2.improvement_sprint.sprint protocol --output-dir phase2/improvement_sprint/reproduction_001
+.\.venv-phase2\Scripts\python.exe -B -m phase2.improvement_sprint.sprint postprocess --output-dir phase2/improvement_sprint/reproduction_001
+.\.venv-phase2\Scripts\python.exe -B -m phase2.improvement_sprint.sprint train --output-dir phase2/improvement_sprint/reproduction_001
+Copy-Item -LiteralPath phase2/improvement_sprint/class2_protocol.json -Destination phase2/improvement_sprint/reproduction_001/class2_protocol.json
+.\.venv-phase2\Scripts\python.exe -B -m phase2.improvement_sprint.sprint rare --output-dir phase2/improvement_sprint/reproduction_001
+.\.venv-phase2\Scripts\python.exe -B phase2/improvement_sprint/finish.py --run-dir phase2/improvement_sprint/reproduction_001
+Choose an unused reproduction number. Existing output guards prevent overwriting completed runs. Model/data are read from preserved originals; no dataset copy is needed.
+The preflight environment and exact original state hash are in preflight.json; frozen settings in protocol.json; source hashes in run configs; all per-epoch validation records, exposure, console logs, comparison.csv and learning_curves.png are adjacent.
+
+Comparison CSV includes descending raw macro-Dice rank alongside safeguard failures; raw rank does not override safeguards. Learning curves use markers for the single-epoch pilot.
+Qualitative review of fixed validation example0007a71bf: the new candidate produces extra regions outside the GT and partial coverage. This example does not demonstrate resolution of the false-positive problem; panel layout is input/GT/prediction.
+
+Final independent checks: metric arithmetic across15 validation metric records, all30168 native patches/pass, actual531 C2 patch exposures, ranked12-row CSV, CPU/CUDA package/hash, PNG validity and all1026 protected files passed. Existing GUI health HTTP200. See final_checks.json.

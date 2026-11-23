@@ -1,0 +1,16 @@
+{
+  "positive_pixels_by_class": [
+    446086,
+    94716,
+    15260898,
+    3203185
+  ],
+  "positive_samples_by_class": [
+    645,
+    177,
+    3707,
+    577
+  ],
+  "samples": 9048,
+  "input_pixels": 592969728
+}

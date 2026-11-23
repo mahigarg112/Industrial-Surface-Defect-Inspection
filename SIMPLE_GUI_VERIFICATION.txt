@@ -1,0 +1,114 @@
+SIMPLE GUI — CURRENT VERIFICATION, 20 NOVEMBER 2026
+
+FINAL GUI RESULT: PASS. No unresolved product-test failure.
+MODEL: original K,482788 parameters,4 independent sigmoid channels.
+No L/N model switch, new filtering or performance selection in the GUI.
+
+ACTUAL CLEAN-PROJECT CHANGES
+- phase2/release/app.py: minimal screen, one Inspect Image button; direct demo
+  selection without a Load button; no sidebar/device/model switching or benchmark
+  metadata. Original/overlay,4 masks/areas,time and PNG/JSON remain.
+- Advanced: Explore Prediction Thresholds is collapsed. Default exact locked
+  values remain; exploration rerenders cached probabilities and is labeled
+  independently unvalidated. Downloads ignore reruns. Four mask downloads are
+  preserved in their own collapsed section.
+- Visible Research Prototype — Not Validated for Industrial Use notice uses
+  the requested academic-only/false-alarm/missed-defect/accept-reject-certify text.
+  About / Limitations discloses Severstal,anonymous classes,Class2 weakness,
+  false positives,no calibrated confidence and no other-domain validation.
+- Neutral predicted-regions and empty-mask wording; no whole-sheet PASS/REJECT
+  verdict. Empty predictions do not guarantee defect-free steel.
+- phase2/release/inference.py: requested disclaimer and consistent EXIF
+  orientation for tagged uploads. Model loading/hash/validation/fallback,
+  sigmoid,stitching,thresholding,colors and rendering math remain intact.
+- test_release.py, browser_smoke.py, verification/run_browser_check.py:
+  updated controls/orientation/empty-state tests and bounded browser lifecycle.
+- README.md points to SIMPLE_DEMO_COMMANDS.txt; Source and Contribution Log has
+  an appended disclosure. Current release manifest refreshed; old versions are
+  preserved under parent phase2/precision_balance/gui_before/.
+- Added this verification,concise demo instructions and actual QA evidence.
+  Historical model card,research metrics/checkpoints and training sources remain.
+
+TESTS ACTUALLY RUN
+1.9 distinct backend/AppTest cases PASS: real sample inference,four masks,
+  six download controls,threshold cache/reversion,new-image invalidation,
+  visible invalid-input/inference-error handling,empty-state wording,
+  collapsed advanced section,no sidebar,EXIF orientation,overlap averaging,
+  background preservation,PNG/JSON,checksum rejection,offline CPU fallback and
+  explicitly simulated GPU-OOM fallback. Empty/overlap fixtures are unit tests,
+  not fabricated demonstration outputs. Tests completed in8.318s.
+2.Affected cache/download AppTest repeated after downloads were set to ignore
+  reruns:PASS. Other passed cases were not unnecessarily repeated.
+3.Four real inferences:2 existing authorized JPEGs x CPU/CUDA PASS.
+  Each output4x256x1600,finite[0,1],482788 parameters,strict pinned model load.
+  Captured patch logits were independently sigmoid-transformed and Hann-stitched
+  to reproduce actual probabilities: no softmax or fabricated masks.
+  Binary thresholds,pixel counts,areas,overlay/background and native PNGs/JSON
+  checked. Reusing probabilities does not increase forward-run count.
+4.Real installed-Edge browser:PASS. Upload/inspect both images,4 masks/areas,
+  native threshold interaction,actual overlay+4 masks+JSON downloads and invalid/
+  empty input handling. External HTTPS blocked. Final own server stopped and
+  health endpoint unavailable afterward. Browser exit0; shutdown verified.
+5.Fixed labeled0007a71bf panel uses real RLE ground truth; input/GT/K prediction.
+  The existing example is not a representative or independent accuracy claim.
+6.Model/lock integrity,authorized clean-only source changes,current manifest
+  and protected historical hashes verified. See final_integrity.json/manifest.
+
+EVIDENCE
+- verification/simple_gui/unit_tests.json +.log,download_change_recheck.json,
+  mechanical.json, two-image CPU/CUDA overlays/reports/four masks per image,
+  fixed_validation_input_gt_K_prediction.png and final_integrity.json.
+- phase2/release/evidence/browser_20261120T151903_525747Z/: final passed
+  browser_smoke.json,lifecycle.json,download_events.json,browser_downloads/,
+  application_locked.png,application.png (exploration),application_second.png.
+  These are actual K inference screenshots, not mockups or edited masks.
+
+EARLIER HARNESS FAILURES — RECORDED, RESOLVED
+- First functional browser run passed uploads/downloads but Edge process wait
+  timed out during cleanup. Bounded cleanup now stops only its owned process
+  tree. Startup/shutdown-only recheck and final full run passed. No leftover
+  process matching that first private profile was found.
+- Immediate download attempts during a threshold rerun failed. Event tracing
+  showed the previous media URL being requested as masks/exports updated.
+  The harness now waits for changed affected area and idle rendering, then
+  performs native mouse clicks. All six real downloads passed afterward.
+  Initial logs/screenshots remain; no model logic or thresholds were bypassed.
+- Intermediate QA folders are preserved outside the clean release under parent
+  phase2/precision_balance/gui_qa_history/. Only folders created during this
+  update were moved; preexisting evidence and the final passed folder remain.
+- Downloads now avoid reruns. Browser profiles are private and their resolved
+  paths checked before temporary cleanup. No browser/dependency installed.
+
+DID PREDICTION MASKS CHANGE?
+NO for both existing authorized inputs, at the same device/precision and locked
+thresholds: masks,overlay,pixel counts and areas exactly match the prior renderer.
+CPU vs CUDA may differ slightly (sample Class3:6553 vs6555 pixels),as expected
+from FP32 vs AMP; this is not a GUI change. EXIF-tagged new uploads are now
+oriented correctly before both display and inference. Nonstudy geometry has
+unverified accuracy. Exploratory thresholds intentionally alter displayed masks.
+
+HISTORICAL WEIGHTS / THRESHOLDS
+K checkpoint SHA256 unchanged:
+0ce6c174d27fff24551faa7ce94f7a2ec7f9a98294a0eac7746a8c61b89eed59
+lock.json SHA256 unchanged:
+e51bbf734f10a3269a435c571d0660a0b7efa25c991515605fcde038eabc312b
+Exact cutoffs:[0.949999988079071,0.9750000238418579,0.5,0.949999988079071].
+Original GUI/research sources,PhaseI weights and prior improvement logs were
+not rewritten. Old clean GUI sources/docs/manifests are preserved in gui_before.
+
+SEPARATE AUTHORIZED LOSS EXPERIMENT
+This turn also ran ONE requested experiment outside this clean GUI:
+0.75BCE+0.25 existing weighted Dice vs matched L0.5+0.5. Same K initialization,
+Adam/scaler/RNG,LR,batch,crops,split and stopping rule. It early-stopped after2
+additional epochs. Best validation Dice/IoU0.216051/0.127814 vs K0.239229/0.141876
+and matched L0.255732/0.153225. Class2 precision improved, but recall/small-defect
+safeguards failed,especially Class4. Candidate rejected; GUI remains K.
+All9 prespecified labeled validation panels were saved for K/L/N. Old held-out
+test was not evaluated. Read parent phase2/precision_balance/
+FINAL_PREDICTION_IMPROVEMENT.txt. GUI tests themselves did not train or tune.
+
+REMAINING ISSUES
+Known Class2 weakness and false alarms remain; no industrial reliability,
+calibrated confidence or unseen-domain accuracy claim. No unresolved GUI test
+blocker. Optional K/L comparison mode skipped to keep the default demo simple.
+Follow SIMPLE_DEMO_COMMANDS.txt for the exact PowerShell launch and controls.

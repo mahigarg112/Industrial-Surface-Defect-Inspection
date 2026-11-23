@@ -1,0 +1,6 @@
+{
+  "loss": [
+    "0.5 BCE + 0.5 per-image per-class soft Dice, smoothing=1 (Phase I formula)",
+    "0.5 unchanged BCE + 0.5 soft Dice over GT-positive image/class pairs only; smoothing=1; empty batch Dice term=0"
+  ]
+}

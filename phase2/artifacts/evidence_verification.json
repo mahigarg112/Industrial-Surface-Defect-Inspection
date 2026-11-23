@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "evaluations_checked": 10,
+  "images_per_evaluation": 1006,
+  "independent_native_rle_area_check": true,
+  "per_image_counts_reproduce_all_metrics": true,
+  "archived_source_hashes_match_lock": true,
+  "final_checkpoint_strict_cpu_reload": true,
+  "new_image_masks_match_locked_thresholds_and_pngs": true,
+  "checkpoint_sha256": "0ce6c174d27fff24551faa7ce94f7a2ec7f9a98294a0eac7746a8c61b89eed59"
+}

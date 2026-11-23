@@ -1,0 +1,70 @@
+{
+  "passed": true,
+  "prior_sha256": "128da1e4c4c72c4bf8818834fa8dc425a40550a6d7e2e2e46e674238f007f4e0",
+  "partition_sha256": "97135138fcb09211c850dc2a16e0ae1deadd3088d342fdccf0c9f9d6b04559f0",
+  "successful_steps": 8,
+  "attempted_steps": 9,
+  "skipped_steps": 1,
+  "scales": [
+    {
+      "before": 65536.0,
+      "after": 65536.0,
+      "finite_gradients": true
+    },
+    {
+      "before": 65536.0,
+      "after": 65536.0,
+      "finite_gradients": true
+    },
+    {
+      "before": 65536.0,
+      "after": 65536.0,
+      "finite_gradients": true
+    },
+    {
+      "before": 65536.0,
+      "after": 65536.0,
+      "finite_gradients": true
+    },
+    {
+      "before": 65536.0,
+      "after": 65536.0,
+      "finite_gradients": true
+    },
+    {
+      "before": 65536.0,
+      "after": 32768.0,
+      "finite_gradients": false
+    },
+    {
+      "before": 32768.0,
+      "after": 32768.0,
+      "finite_gradients": true
+    },
+    {
+      "before": 32768.0,
+      "after": 32768.0,
+      "finite_gradients": true
+    },
+    {
+      "before": 32768.0,
+      "after": 32768.0,
+      "finite_gradients": true
+    }
+  ],
+  "all_four_classes_in_targets": true,
+  "losses": [
+    3.015002727508545,
+    2.7319929599761963,
+    2.519930839538574,
+    2.341137647628784,
+    2.140559434890747,
+    2.143211603164673,
+    2.143211603164673,
+    1.8924307823181152,
+    1.7238218784332275
+  ],
+  "batch_size": 8,
+  "amp": true,
+  "note": "Positive crops intentionally selected to exercise every weighted channel; not an accuracy evaluation."
+}

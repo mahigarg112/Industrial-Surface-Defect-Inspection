@@ -1,0 +1,27 @@
+{
+  "recommend_promote": false,
+  "official_K_unchanged": true,
+  "checks": {
+    "against_K": {
+      "passed": false,
+      "reasons": [
+        "class4 small object_recall loss",
+        "normal-image false-alarm rate increase"
+      ]
+    },
+    "against_matched_L": {
+      "passed": true,
+      "reasons": []
+    },
+    "at_least_matched_L_Dice": true,
+    "same_successful_update_budget": true
+  },
+  "checkpoint": "phase2\\overlap_regularization_study\\P_overlap010\\best_model.pt",
+  "checkpoint_sha256": "c6320a8684bc639a5b6d2c4ad45011fa470f010d3d22bd5f7ed3b7ea9916a61b",
+  "best_epoch": 11,
+  "protected_files_unchanged": 1210,
+  "CPU_CUDA_native_inference_passed": true,
+  "fixed_panel_counts_match_validation": true,
+  "training_exposure_matches_L": true,
+  "historical_test_evaluated": false
+}

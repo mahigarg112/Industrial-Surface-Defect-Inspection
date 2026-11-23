@@ -1,0 +1,172 @@
+{
+  "macro_dice": 0.09181573527692939,
+  "macro_iou": 0.054641378664068936,
+  "per_class": {
+    "1": {
+      "dice": 0.005599490514271137,
+      "iou": 0.0028076058382651577,
+      "precision": 0.002861670435261244,
+      "recall": 0.12938110912410702,
+      "true_positive_pixels": 41311,
+      "false_positive_pixels": 14394663,
+      "false_negative_pixels": 277986
+    },
+    "2": {
+      "dice": 0.001278905506278972,
+      "iou": 0.0006398619146024075,
+      "precision": 0.0006436492802914416,
+      "recall": 0.09807712173309918,
+      "true_positive_pixels": 6646,
+      "false_positive_pixels": 10318853,
+      "false_negative_pixels": 61117
+    },
+    "3": {
+      "dice": 0.34000717166322475,
+      "iou": 0.20482448228640476,
+      "precision": 0.27422136772611444,
+      "recall": 0.4473192096170297,
+      "true_positive_pixels": 4921138,
+      "false_positive_pixels": 13024721,
+      "false_negative_pixels": 6080263
+    },
+    "4": {
+      "dice": 0.020377373423942715,
+      "iou": 0.010293564617003438,
+      "precision": 0.01084988405473677,
+      "recall": 0.16719073466413997,
+      "true_positive_pixels": 358903,
+      "false_positive_pixels": 32720068,
+      "false_negative_pixels": 1787765
+    }
+  },
+  "aggregation": "int64 pixel counts over entire split, then unweighted four-class macro; undefined ratios=null",
+  "images": 1006,
+  "thresholds": [
+    0.009999999776482582,
+    0.004999999888241291,
+    0.699999988079071,
+    0.02500000037252903
+  ],
+  "mode": "patch",
+  "stride": 128,
+  "blend": "hann",
+  "evaluation_size": [
+    256,
+    1600
+  ],
+  "partition_sha256": "97135138fcb09211c850dc2a16e0ae1deadd3088d342fdccf0c9f9d6b04559f0",
+  "parameters": 482788,
+  "peak_allocated_bytes": 119413248,
+  "peak_reserved_bytes": 153092096,
+  "latency_ms": {
+    "mean": 112.36712723646481,
+    "median": 115.69574999884935,
+    "p95": 140.22332499916956,
+    "scope": "native RGB array to native binary masks, CPU preparation + GPU + transfer + blending + thresholds; excludes disk decoding and metrics; 3 warmups"
+  },
+  "size_definition": "8-connected class components at original resolution; small<=1024 px, medium<=8192 px, large>8192 px; detected if >=10% GT component pixels recovered; thresholds fixed before test",
+  "performance_by_size": {
+    "small": {
+      "1": {
+        "objects": 139,
+        "detected_objects": 83,
+        "object_recall": 0.5971223021582733,
+        "pixel_recall": 0.12884780440279292,
+        "ground_truth_pixels": 86218,
+        "recovered_pixels": 11109
+      },
+      "2": {
+        "objects": 1,
+        "detected_objects": 0,
+        "object_recall": 0.0,
+        "pixel_recall": 0.048458149779735685,
+        "ground_truth_pixels": 454,
+        "recovered_pixels": 22
+      },
+      "3": {
+        "objects": 132,
+        "detected_objects": 78,
+        "object_recall": 0.5909090909090909,
+        "pixel_recall": 0.4223118576638303,
+        "ground_truth_pixels": 54294,
+        "recovered_pixels": 22929
+      },
+      "4": {
+        "objects": 18,
+        "detected_objects": 10,
+        "object_recall": 0.5555555555555556,
+        "pixel_recall": 0.3310289816538155,
+        "ground_truth_pixels": 7522,
+        "recovered_pixels": 2490
+      }
+    },
+    "medium": {
+      "1": {
+        "objects": 104,
+        "detected_objects": 67,
+        "object_recall": 0.6442307692307693,
+        "pixel_recall": 0.1292346355951565,
+        "ground_truth_pixels": 218850,
+        "recovered_pixels": 28283
+      },
+      "2": {
+        "objects": 21,
+        "detected_objects": 8,
+        "object_recall": 0.38095238095238093,
+        "pixel_recall": 0.09841180228498418,
+        "ground_truth_pixels": 67309,
+        "recovered_pixels": 6624
+      },
+      "3": {
+        "objects": 733,
+        "detected_objects": 594,
+        "object_recall": 0.810368349249659,
+        "pixel_recall": 0.4916683523282641,
+        "ground_truth_pixels": 2827772,
+        "recovered_pixels": 1390326
+      },
+      "4": {
+        "objects": 56,
+        "detected_objects": 36,
+        "object_recall": 0.6428571428571429,
+        "pixel_recall": 0.19888652760564585,
+        "ground_truth_pixels": 257393,
+        "recovered_pixels": 51192
+      }
+    },
+    "large": {
+      "1": {
+        "objects": 1,
+        "detected_objects": 1,
+        "object_recall": 1.0,
+        "pixel_recall": 0.1348654157003303,
+        "ground_truth_pixels": 14229,
+        "recovered_pixels": 1919
+      },
+      "2": {
+        "objects": 0,
+        "detected_objects": 0,
+        "object_recall": null,
+        "pixel_recall": null,
+        "ground_truth_pixels": 0,
+        "recovered_pixels": 0
+      },
+      "3": {
+        "objects": 279,
+        "detected_objects": 222,
+        "object_recall": 0.7956989247311828,
+        "pixel_recall": 0.43204067820825226,
+        "ground_truth_pixels": 8119335,
+        "recovered_pixels": 3507883
+      },
+      "4": {
+        "objects": 67,
+        "detected_objects": 38,
+        "object_recall": 0.5671641791044776,
+        "pixel_recall": 0.16220035254361226,
+        "ground_truth_pixels": 1881753,
+        "recovered_pixels": 305221
+      }
+    }
+  }
+}

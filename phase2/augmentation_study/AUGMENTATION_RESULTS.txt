@@ -1,0 +1,49 @@
+AUGMENTATION STUDY — REAL DEVELOPMENT-VALIDATION RESULTS
+
+Single change:50% training-only brightness/contrast jitter,independent factors uniform[0.9,1.1],clamp[0,1]. No flips,geometry/mask interpolation,synthetic defects or validation/test augmentation.
+Input:original K epoch9 weights plus matching full Adam/scaler/RNG state. Unchanged482788-param U-Net,4 sigmoid channels,K0.5BCE+0.5weighted positive-pair Dice,foreground crops,seed42,batch8,workers2,Adam LR0.0001.
+Matched reference:existing L epochs10–11. Both use2 additional epochs,2262 attempted updates,identical crop order/targets/negative exposure. No new control training needed. Same patience-two rule and fixed K thresholds.
+Candidate successful/skipped updates:2262/0; reference first2 epochs2262/0. Compare successful counts before claiming exact update equivalence.
+Six augmentation tests passed before training; diagnostic multilabel synthetic tests passed. Best candidate epoch11; total train+validation/diagnostic seconds=1411.12; peak allocated/reserved=400058368/476053504 bytes.
+
+VALIDATION:2514 same native images; int64 class pixel totals then four-class macro; no threshold tuning or filtering.
+Normal-image alarm means any predicted pixel on a GT-empty image. Small objects are 8-connected GT components <=1024 pixels; detected means >=10% correct-class pixels recovered. These are sensitivity measures, not full object-IoU detection scores.
+Safeguards vs K and L: class pixel recall drop <=0.02 (C2 <=0.01), each small-object/pixel recall drop <=0.02, C2 precision nondecrease, normal alarm increase <=0.005, localized image recall drop <=0.01; additional macro Dice gain >=0.002 required vs K.
+K: Dice/IoU=0.239229/0.141876; normal alarms=1130/1180; runtime={'mean_ms': 65.45725185181557, 'median_ms': 64.35739999869838, 'p95_ms': 76.96493000075861, 'runs': 27}
+  Class Dice=[0.193465, 0.062291, 0.41017, 0.29099]; FP/FN totals=21539942/18935844; localized positive-image recall=0.974512743628186
+L: Dice/IoU=0.255732/0.153225; normal alarms=1141/1180; runtime={'mean_ms': 62.64674074069868, 'median_ms': 62.22189999971306, 'p95_ms': 67.10966999817174, 'runs': 27}
+  Class Dice=[0.19589, 0.077153, 0.429174, 0.320712]; FP/FN totals=26516423/16887671; localized positive-image recall=0.987256371814093
+O: Dice/IoU=0.255040/0.152730; normal alarms=1145/1180; runtime={'mean_ms': 63.065422222280176, 'median_ms': 61.64340000032098, 'p95_ms': 75.88225999970746, 'runs': 27}
+  Class Dice=[0.195623, 0.076706, 0.428027, 0.319803]; FP/FN totals=26924856/16841407; localized positive-image recall=0.987256371814093
+
+PER-CLASS L -> AUGMENTATION O
+C1: Dice 0.195890->0.195623; precision 0.1707519607752781->0.16863974918838165; recall 0.229707->0.232886; FP 899759->925989; FN 621281->618717; O background/wrong-other FP=355220/570769; small object recall 0.5247252747252747->0.5302197802197802
+C2: Dice 0.077153->0.076706; precision 0.04303259478921719->0.04274305557827166; recall 0.372556->0.373408; FP 1449597->1463195; FN 109782->109633; O background/wrong-other FP=668774/794421; small object recall 0.875->0.875
+C3: Dice 0.429174->0.428027; precision 0.37501841280773796->0.3726301925733947; recall 0.501610->0.502772; FP 20870557->21133425; FN 12442938->12413927; O background/wrong-other FP=19584015/1549410; small object recall 0.8873563218390804->0.8896551724137931
+C4: Dice 0.320712->0.319803; precision 0.3342226494889293->0.3291632875868529; recall 0.308252->0.310960; FP 3296510->3402247; FN 3713670->3699130; O background/wrong-other FP=2965860/436387; small object recall 0.4444444444444444->0.4444444444444444
+
+DIAGNOSIS
+Full concise baseline diagnosis:DIAGNOSIS.txt; exact16x16 label-set tables and4x4 wrong-class pair counts are in baseline_diagnosis.json and best_validation.json.
+FP partitions are disjoint per predicted class: annotated background vs another GT class with own label absent. Cross-class pair tables can count multiple GT labels and must not be summed as unique errors.
+K background FP class vector=[239258, 88072, 14131083, 4228138]; wrong-other-class FP=[403901, 382157, 1499134, 568199].
+Largest wrong-class pair:GT C4->predicted C3, 978039 pixels. K C1/C2 wrong-other shares of FP=62.8%/81.3%.
+K C3/C4 background shares of FP=90.4%/88.2%; missed-interior shares of FN=81.8%/87.0%. Boundary refinement alone cannot explain these large interior misses.
+K annotated multi-label pixels=0; predicted multi-label pixels=2376611. Independent extra-class responses are measured as channel errors rather than forced into an argmax label.
+For K all four edge-band background FP rates are lower than interior rates. Edge concentration is not supported by this declared rate test; no border suppression was applied.
+Boundary proximity,16px image-edge bands and7x7 local-std texture strata were declared before evaluation. Rates use relevant background exposure,not raw counts alone. Texture association does not establish cause; model disagreement does not establish annotation error.
+All9 already frozen examples are saved: original/GT/K/O rows,identical thresholds and colors. No images hidden/reselected; genuine overlap,missed regions and false alarms remain visible. See fixed_validation_panels/manifest.json. Existing K/L/N nine-example failures are summarized separately.
+Existing nine-example failures: K,L and N each have7 positive images with some correct overlap but remaining errors,and2 annotated-empty false alarms. K C1 TP/FN=81/4676 and C2=880/9641; C1/C2 misses are substantial. L recovers more C2 pixels(TP3087) but adds C2 FP1811 versus K228. N reduces C4 FP to20 but increases C4 FN to15806 versus K9840. These fixed examples illustrate successes/failures,not representative whole-split rates.
+
+K safeguards:{'passed': False, 'reasons': ['class4 small object_recall loss', 'normal-image false-alarm rate increase']}
+Matched L safeguards:{'passed': False, 'reasons': ['class2 precision loss']}
+Recommendation:REJECT candidate; retain official K.
+Checkpoint:phase2/augmentation_study/O_photometric/best_model.pt; SHA256=a83407084f05a1ab25659428d43089beb00b5939cd4f09bfdee7bc7270e0db59
+All1161 protected files unchanged,including clean GUI,old checkpoints,research logs and earlier studies. No model promotion,GUI edit,new dataset or dependency installation.
+Repeatedly reused development validation and one seed limit generalization/causal strength. The historical held-out test had already been opened during earlier work; it was not evaluated or used for tuning in this study. These scores are not independent test accuracy. Runtime is a small interleaved resident-model check,not browser/cold-start throughput.
+Codex assisted this implementation/tests/analysis; existing architecture,RLE and metrics are reused. No newly invented augmentation/segmentation algorithm is claimed.
+
+Executed commands (repository root; output guards preserve existing results):
+.\.venv-phase2\Scripts\python.exe -B -m phase2.augmentation_study.diagnose
+.\.venv-phase2\Scripts\python.exe -B -m unittest phase2.augmentation_study.test_augmentation -v
+.\.venv-phase2\Scripts\python.exe -B -m phase2.augmentation_study.train
+.\.venv-phase2\Scripts\python.exe -B -m phase2.augmentation_study.finalize

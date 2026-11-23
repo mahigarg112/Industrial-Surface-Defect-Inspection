@@ -1,0 +1,20 @@
+{
+  "phase2_complete": true,
+  "stage": "held-out evaluation and required evidence completed",
+  "selected_candidate": "K_extended_patch",
+  "checkpoint_sha256": "0ce6c174d27fff24551faa7ce94f7a2ec7f9a98294a0eac7746a8c61b89eed59",
+  "heldout_macro_dice": 0.23399563084730005,
+  "heldout_macro_iou": 0.137936994497851,
+  "new_image_inference": true,
+  "all_four_classes_evaluated": true,
+  "limitations_documented": true,
+  "industrial_deployment_validated": false,
+  "zero_recall_classes": [],
+  "post_evaluation_review_completed": true,
+  "interleaved_runtime_benchmark_completed": true,
+  "normal_false_alarm_images": 452,
+  "normal_images": 472,
+  "four_class_industrial_reliability_achieved": false,
+  "phase1_files_unchanged": 507,
+  "functional_tests_passed": 14
+}

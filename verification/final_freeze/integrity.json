@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "original_protected_files_unchanged": 982,
+  "retained_preexisting_release_files_unchanged": 350,
+  "removed_release_duplicate_files": 39,
+  "archived_deleted_copy_hashes_verified": true,
+  "all_preexisting_Python_sources_unchanged_except_two_removed_unimported_profilers": true,
+  "all_Phase_I_release_evidence_and_checkpoints_unchanged": true,
+  "official_K_weights_lock_thresholds_unchanged": true,
+  "CPU_export_bitwise_comparison": {
+    "overlay.png": true,
+    "class_1.png": true,
+    "class_2.png": true,
+    "class_3.png": true,
+    "class_4.png": true
+  },
+  "temporary_candidate_removed": true,
+  "no_original_repository_files_deleted": true,
+  "no_training_full_validation_or_test_inference": true
+}

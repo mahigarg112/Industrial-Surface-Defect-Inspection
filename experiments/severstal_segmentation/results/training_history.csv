@@ -1,0 +1,2 @@
+epoch,train_loss,val_loss,dice_macro,iou_macro,dice_class_1,dice_class_2,dice_class_3,dice_class_4,iou_class_1,iou_class_2,iou_class_3,iou_class_4
+1,0.04800890913713551,0.029246704790344077,0.0054239840246737,0.0027417342644184828,0.0,0.0,0.0216959360986948,0.0,0.0,0.0,0.010966937057673931,0.0

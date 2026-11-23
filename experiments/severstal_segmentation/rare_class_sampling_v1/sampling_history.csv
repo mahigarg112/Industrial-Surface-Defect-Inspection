@@ -1,0 +1,6 @@
+epoch,seed,training_draws,defect_positive_draws,defect_free_draws,unique_positive_images,unique_defect_free_images_drawn,unique_source_images_used,repeat_draws_beyond_first_use,maximum_appearances_of_any_source_image,maximum_appearances_allowed,class_1_image_draws,class_2_image_draws,class_3_image_draws,class_4_image_draws
+1,42,10054,6535,3519,5332,3519,8851,1203,2,2,961,306,4855,846
+2,43,10054,6535,3519,5332,3519,8851,1203,2,2,947,308,4865,860
+3,44,10054,6535,3519,5332,3519,8851,1203,2,2,955,299,4851,872
+4,45,10054,6535,3519,5332,3519,8851,1203,2,2,971,314,4836,847
+5,46,10054,6535,3519,5332,3519,8851,1203,2,2,976,306,4854,844

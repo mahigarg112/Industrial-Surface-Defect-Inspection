@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "unit": {
+    "passed": true,
+    "tests": 23,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "integration_groups": 7,
+  "integration_record": "verification\\run_20261120T175655_520876Z/integration.json",
+  "owned_server_shutdown_port_closed": true,
+  "reproduction_imports": {
+    "phase2.phase1_eval": "C:\\Users\\shail\\OneDrive\\Desktop\\Projects\\Surface-Defect-Inspection\\Phase_II_Clean_Project\\phase2\\phase1_eval.py",
+    "phase2.weighted_smoke": "C:\\Users\\shail\\OneDrive\\Desktop\\Projects\\Surface-Defect-Inspection\\Phase_II_Clean_Project\\phase2\\weighted_smoke.py",
+    "phase2.resume_smoke": "C:\\Users\\shail\\OneDrive\\Desktop\\Projects\\Surface-Defect-Inspection\\Phase_II_Clean_Project\\phase2\\resume_smoke.py",
+    "phase2.report": "C:\\Users\\shail\\OneDrive\\Desktop\\Projects\\Surface-Defect-Inspection\\Phase_II_Clean_Project\\phase2\\report.py",
+    "phase2.post_review": "C:\\Users\\shail\\OneDrive\\Desktop\\Projects\\Surface-Defect-Inspection\\Phase_II_Clean_Project\\phase2\\post_review.py",
+    "phase2.inspect_architecture": "C:\\Users\\shail\\OneDrive\\Desktop\\Projects\\Surface-Defect-Inspection\\Phase_II_Clean_Project\\phase2\\inspect_architecture.py"
+  },
+  "scope": "Fresh subprocesses rooted at candidate/release; dependencies supplied by existing venv only. AppTest+backend uploads, actual CPU/CUDA inference and exports; HTTP startup/shutdown. No browser reinstall, training or full-validation inference."
+}

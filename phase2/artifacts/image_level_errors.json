@@ -1,0 +1,182 @@
+{
+  "B_whole": {
+    "normal_image_count": 472,
+    "normal_false_alarm_images": 400,
+    "normal_false_alarm_rate_any_predicted_pixel": 0.847457627118644,
+    "gt_positive_images_by_class": [
+      72,
+      20,
+      412,
+      64
+    ],
+    "complete_gt_miss_images_by_class": [
+      72,
+      20,
+      16,
+      64
+    ],
+    "definition": "normal false alarm = any predicted class pixel on a GT-empty image; complete class miss = zero recovered GT pixels on a class-positive image"
+  },
+  "C_patch": {
+    "normal_image_count": 472,
+    "normal_false_alarm_images": 470,
+    "normal_false_alarm_rate_any_predicted_pixel": 0.9957627118644068,
+    "gt_positive_images_by_class": [
+      72,
+      20,
+      412,
+      64
+    ],
+    "complete_gt_miss_images_by_class": [
+      3,
+      2,
+      10,
+      0
+    ],
+    "definition": "normal false alarm = any predicted class pixel on a GT-empty image; complete class miss = zero recovered GT pixels on a class-positive image"
+  },
+  "C_uniform_stride128": {
+    "normal_image_count": 472,
+    "normal_false_alarm_images": 471,
+    "normal_false_alarm_rate_any_predicted_pixel": 0.9978813559322034,
+    "gt_positive_images_by_class": [
+      72,
+      20,
+      412,
+      64
+    ],
+    "complete_gt_miss_images_by_class": [
+      3,
+      2,
+      5,
+      0
+    ],
+    "definition": "normal false alarm = any predicted class pixel on a GT-empty image; complete class miss = zero recovered GT pixels on a class-positive image"
+  },
+  "C_hann_stride256": {
+    "normal_image_count": 472,
+    "normal_false_alarm_images": 471,
+    "normal_false_alarm_rate_any_predicted_pixel": 0.9978813559322034,
+    "gt_positive_images_by_class": [
+      72,
+      20,
+      412,
+      64
+    ],
+    "complete_gt_miss_images_by_class": [
+      3,
+      2,
+      9,
+      0
+    ],
+    "definition": "normal false alarm = any predicted class pixel on a GT-empty image; complete class miss = zero recovered GT pixels on a class-positive image"
+  },
+  "E_weighted_patch": {
+    "normal_image_count": 472,
+    "normal_false_alarm_images": 472,
+    "normal_false_alarm_rate_any_predicted_pixel": 1.0,
+    "gt_positive_images_by_class": [
+      72,
+      20,
+      412,
+      64
+    ],
+    "complete_gt_miss_images_by_class": [
+      3,
+      2,
+      2,
+      0
+    ],
+    "definition": "normal false alarm = any predicted class pixel on a GT-empty image; complete class miss = zero recovered GT pixels on a class-positive image"
+  },
+  "F_present_dice_patch": {
+    "normal_image_count": 472,
+    "normal_false_alarm_images": 466,
+    "normal_false_alarm_rate_any_predicted_pixel": 0.9872881355932204,
+    "gt_positive_images_by_class": [
+      72,
+      20,
+      412,
+      64
+    ],
+    "complete_gt_miss_images_by_class": [
+      18,
+      4,
+      5,
+      0
+    ],
+    "definition": "normal false alarm = any predicted class pixel on a GT-empty image; complete class miss = zero recovered GT pixels on a class-positive image"
+  },
+  "G_present_dice_whole": {
+    "normal_image_count": 472,
+    "normal_false_alarm_images": 409,
+    "normal_false_alarm_rate_any_predicted_pixel": 0.8665254237288136,
+    "gt_positive_images_by_class": [
+      72,
+      20,
+      412,
+      64
+    ],
+    "complete_gt_miss_images_by_class": [
+      17,
+      12,
+      13,
+      3
+    ],
+    "definition": "normal false alarm = any predicted class pixel on a GT-empty image; complete class miss = zero recovered GT pixels on a class-positive image"
+  },
+  "H_foreground_patch": {
+    "normal_image_count": 472,
+    "normal_false_alarm_images": 447,
+    "normal_false_alarm_rate_any_predicted_pixel": 0.9470338983050848,
+    "gt_positive_images_by_class": [
+      72,
+      20,
+      412,
+      64
+    ],
+    "complete_gt_miss_images_by_class": [
+      7,
+      8,
+      4,
+      0
+    ],
+    "definition": "normal false alarm = any predicted class pixel on a GT-empty image; complete class miss = zero recovered GT pixels on a class-positive image"
+  },
+  "J_balanced_dice_patch": {
+    "normal_image_count": 472,
+    "normal_false_alarm_images": 468,
+    "normal_false_alarm_rate_any_predicted_pixel": 0.9915254237288136,
+    "gt_positive_images_by_class": [
+      72,
+      20,
+      412,
+      64
+    ],
+    "complete_gt_miss_images_by_class": [
+      4,
+      4,
+      3,
+      0
+    ],
+    "definition": "normal false alarm = any predicted class pixel on a GT-empty image; complete class miss = zero recovered GT pixels on a class-positive image"
+  },
+  "K_extended_patch": {
+    "normal_image_count": 472,
+    "normal_false_alarm_images": 452,
+    "normal_false_alarm_rate_any_predicted_pixel": 0.9576271186440678,
+    "gt_positive_images_by_class": [
+      72,
+      20,
+      412,
+      64
+    ],
+    "complete_gt_miss_images_by_class": [
+      11,
+      2,
+      2,
+      0
+    ],
+    "definition": "normal false alarm = any predicted class pixel on a GT-empty image; complete class miss = zero recovered GT pixels on a class-positive image"
+  }
+}

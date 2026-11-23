@@ -1,0 +1,35 @@
+SIMPLE FACULTY DEMO — ORIGINAL K MODEL
+
+PowerShell on this machine:
+# Run from the extracted project root (folder containing START_HERE.txt).
+$env:SDI_PHASE2_OUTPUT = $null
+.\.venv\Scripts\python.exe -B -m streamlit run phase2\release\app.py --server.address 127.0.0.1 --server.port 8501 --server.headless true --browser.gatherUsageStats false --server.maxUploadSize 20 --client.toolbarMode minimal
+Open http://127.0.0.1:8501. If the previous server is already running, refresh its
+page. Stop an interactive server with Ctrl+C in its owning terminal. For a port
+conflict use8502 and its corresponding URL; do not stop unrelated processes.
+
+1. Upload JPG/JPEG/PNG, or expand Use an existing demo sample and choose one.
+2. Click Inspect Image once. Show original, overlay and all four binary masks.
+3. Explain affected area as predicted pixels/total pixels, not confidence or
+   accuracy. Class masks may overlap. No whole-product accept/reject verdict.
+4. Show the visible research-only notice and About / Limitations.
+5. Download overlay PNG and inspection JSON. Expand Download individual masks
+   for all four native PNGs. Downloads do not trigger network inference.
+6. Optional: expand Advanced: Explore Prediction Thresholds, enable Adjust
+   thresholds and change Class3 to0.99. Cached probabilities redraw the masks.
+   These operating points have not been independently validated. Disable the
+   toggle to restore exact locked thresholds; weights/lock are never changed.
+
+Demo samples0007a71bf.jpg and000ccc2ac.jpg are existing authorized/rehearsed
+examples, not unseen accuracy tests. Use a suitable faculty-chosen upload for a
+fresh live input; its accuracy remains unknown without labels. EXIF orientation
+is honored consistently for original image and prediction. Other geometries
+are supported mechanically, with accuracy explicitly unverified.
+
+Runtime uses Auto with CPU fallback; no model switch is exposed. For an explicit
+CPU CLI fallback, choose a new output directory:
+.\.venv\Scripts\python.exe -B -m phase2.release.inference --image phase2\release\demo_inputs\0007a71bf.jpg --device cpu --output verification\NEW_cpu_demo
+
+Do not install packages, retrain, tune on the old test or overwrite checkpoints
+during the viva. L and N experiments are not the GUI model. Read
+SIMPLE_GUI_VERIFICATION.txt for current checks; earlier GUI reports are historical.

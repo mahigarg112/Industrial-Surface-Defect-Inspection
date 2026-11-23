@@ -1,0 +1,19 @@
+{
+  "positive_weights": [
+    null,
+    [
+      1000.0,
+      1000.0,
+      37.87235436589689,
+      184.13295835116278
+    ]
+  ],
+  "prior_sha256": [
+    null,
+    "128da1e4c4c72c4bf8818834fa8dc425a40550a6d7e2e2e46e674238f007f4e0"
+  ],
+  "loss": [
+    "0.5 BCE + 0.5 per-image per-class soft Dice, smoothing=1 (Phase I formula)",
+    "0.5 positive-weighted BCE + 0.5 unchanged per-image/class soft Dice, smoothing=1"
+  ]
+}

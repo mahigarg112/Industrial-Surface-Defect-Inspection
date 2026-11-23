@@ -1,0 +1,49 @@
+{
+  "mode": "patch",
+  "seed": 42,
+  "base_channels": 16,
+  "batch_size": 8,
+  "num_workers": 2,
+  "epochs": 9,
+  "learning_rate": 0.001,
+  "optimizer": "Adam",
+  "amp": "float16 forward / float32 loss",
+  "loss": "0.5 unchanged BCE + 0.5 positive-pair Dice weighted by inverse training positive-pair frequency; mean over B*C; empty Dice terms zero; smoothing=1",
+  "early_stopping_patience": 2,
+  "augmentation": null,
+  "gradient_clipping": null,
+  "scheduler": null,
+  "training_images": 9048,
+  "validation_images": 2514,
+  "whole_size": [
+    128,
+    512
+  ],
+  "patch_size": [
+    256,
+    256
+  ],
+  "stride": 128,
+  "blend": "hann",
+  "train_sampling": "one sample per source image; choose its rarest present class by training image count, then a uniform native grid patch containing that class; negatives keep uniform grid sampling",
+  "training_pixels_per_sample": 65536,
+  "partition_sha256": "97135138fcb09211c850dc2a16e0ae1deadd3088d342fdccf0c9f9d6b04559f0",
+  "selection": "highest full native-resolution validation macro Dice at threshold 0.5; first epoch wins ties",
+  "foreground_crops": true,
+  "foreground_focus_source_image_counts": [
+    645,
+    177,
+    3707,
+    577
+  ],
+  "dice_class_weights": [
+    14.027906976744186,
+    51.11864406779661,
+    2.580964153275649,
+    15.68110918544194
+  ],
+  "dice_prior_sha256": "fdce894cfe767ebff26bedf561fbc151350b7a4bcb869bc216d6f6993954e424",
+  "continuation_parent": "J_balanced_dice_patch",
+  "continuation_state_sha256": "73fa8031ea9565b83ee0bae3be8fd0b4adb523eb01b59b5cc9cadbae58e7f59b",
+  "continuation_start_epoch": 3
+}

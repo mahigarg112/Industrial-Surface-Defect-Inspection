@@ -1,0 +1,52 @@
+{
+  "split": "val",
+  "images": 2514,
+  "threshold": 0.5,
+  "validation_loss": 0.029246704822017935,
+  "dice_macro": 0.0054239840246737,
+  "iou_macro": 0.0027417342644184828,
+  "metric_aggregation": "pixel counts accumulated across the full validation split, then macro-averaged over four classes",
+  "per_class": {
+    "1": {
+      "name": "class_1",
+      "dice": 0.0,
+      "iou": 0.0,
+      "precision": null,
+      "recall": 0.0,
+      "pixel_true_positive": 0,
+      "pixel_false_positive": 0,
+      "pixel_false_negative": 129177
+    },
+    "2": {
+      "name": "class_2",
+      "dice": 0.0,
+      "iou": 0.0,
+      "precision": null,
+      "recall": 0.0,
+      "pixel_true_positive": 0,
+      "pixel_false_positive": 0,
+      "pixel_false_negative": 27727
+    },
+    "3": {
+      "name": "class_3",
+      "dice": 0.0216959360986948,
+      "iou": 0.010966937057673931,
+      "precision": 0.7226501703262329,
+      "recall": 0.011013292707502842,
+      "pixel_true_positive": 44000,
+      "pixel_false_positive": 16887,
+      "pixel_false_negative": 3951172
+    },
+    "4": {
+      "name": "class_4",
+      "dice": 0.0,
+      "iou": 0.0,
+      "precision": null,
+      "recall": 0.0,
+      "pixel_true_positive": 0,
+      "pixel_false_positive": 0,
+      "pixel_false_negative": 859080
+    }
+  },
+  "note": "Metrics are on resized validation masks; no Kaggle test images were evaluated."
+}

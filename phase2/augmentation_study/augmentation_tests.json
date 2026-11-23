@@ -1,0 +1,5 @@
+{
+  "passed": true,
+  "tests": 6,
+  "note": "Explicit zero-negative fixture and four real train image/mask crops checked"
+}

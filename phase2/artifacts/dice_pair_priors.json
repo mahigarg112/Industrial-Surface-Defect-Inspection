@@ -1,0 +1,22 @@
+{
+  "source_split": "train",
+  "source_run": "H_foreground_patch",
+  "training_draws": 27144,
+  "calibration_epochs": 3,
+  "positive_pairs_by_class": [
+    1935,
+    531,
+    10517,
+    1731
+  ],
+  "dice_class_weights": [
+    14.027906976744186,
+    51.11864406779661,
+    2.580964153275649,
+    15.68110918544194
+  ],
+  "partition_sha256": "97135138fcb09211c850dc2a16e0ae1deadd3088d342fdccf0c9f9d6b04559f0",
+  "source_config_sha256": "bb1a89e2bb76c31c77796b47f83233e73fd48e1f6d9d31d5cf0f5c185b84764b",
+  "policy": "training draw count / observed positive image-class pairs, per class; mean over all B*C pairs; BCE unchanged; GT-empty Dice terms zero",
+  "note": "Only deterministic training target exposure is used. No learned predictions, validation labels or test labels enter these weights."
+}

@@ -1,0 +1,12 @@
+{
+  "status": "completed",
+  "epochs_completed": 2,
+  "best_validation_macro_dice": 0.216050891293249,
+  "attempted_steps": 2262,
+  "successful_steps": 2262,
+  "skipped_steps": 0,
+  "duration_seconds": 1230.6429177999999,
+  "peak_allocated_bytes": 400058368,
+  "peak_reserved_bytes": 476053504,
+  "checkpoint_sha256": "4bc6d198df6d4777d3d068e5a12e477c57491b61e4ee5f72c4b5aee4ca3b0e17"
+}

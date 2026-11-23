@@ -1,0 +1,25 @@
+{
+  "promote_recommended": false,
+  "official_K_unchanged": true,
+  "against_K": {
+    "passed": false,
+    "reasons": [
+      "class4 small object_recall loss",
+      "normal-image false-alarm rate increase"
+    ]
+  },
+  "against_L": {
+    "passed": false,
+    "reasons": [
+      "class2 precision loss"
+    ]
+  },
+  "checkpoint": "phase2\\augmentation_study\\O_photometric\\best_model.pt",
+  "checkpoint_sha256": "a83407084f05a1ab25659428d43089beb00b5939cd4f09bfdee7bc7270e0db59",
+  "best_epoch": 11,
+  "epochs_completed": 2,
+  "protected_files_unchanged": 1161,
+  "CPU_CUDA_native_inference_passed": true,
+  "matched_crop_exposure_passed": true,
+  "test_evaluated": false
+}

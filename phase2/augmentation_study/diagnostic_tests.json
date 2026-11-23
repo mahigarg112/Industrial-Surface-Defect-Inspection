@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "exclusive_label_sets": true,
+  "background_vs_other_FP_partition": true,
+  "multilabel_pair_double_count_explicit": true,
+  "same_class_TP_not_penalized_for_overlap": true,
+  "boundary_and_edge_count_partitions": true
+}

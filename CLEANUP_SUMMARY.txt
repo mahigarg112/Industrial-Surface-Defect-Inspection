@@ -1,0 +1,33 @@
+FINAL CLEANUP SUMMARY
+
+Removed 39 confirmed redundant release copies (1844832 bytes). Original repository files were not deleted or changed.
+Before removal,each file was copied byte-for-byte to phase2/final_freeze_archive/release_history/ at the same relative path and SHA256 verified. This small archive contains only cleanup targets,not the dataset/repository. Documents before update are under documents_before_freeze/.
+A physically copied candidate under verification/final_freeze_candidate excluded all targets and passed23 unit/AppTest cases plus7 integration groups before deletion. After deletion,the actual release repeated the same focused checks successfully. The temporary candidate is removed after verification.
+Removed: two unimported profiling utilities; older browser QA folders browser_20261120T110811_830369Z and clean_browser; repeated old sample PNG exports from verification/simple_gui and the first integration run,and its old inspection JSON. Per-file paths,hashes,reference checks and archive mappings:verification/final_freeze/file_classification.csv.
+No app/training/loss/evaluation implementation was rewritten. Profiler names in final/lock.json refer to the immutable final/source snapshots,which remain. Active imports and full documented training preflight dependencies were checked. The profile utilities also remain in original phase2/ and in archived sources.
+Dated CLEAN_PROJECT_VERIFICATION/SIMPLE_GUI_VERIFICATION records retain their original evidence references. If an old QA output is absent here,resolve it in the release_history archive at the same relative path. The latest successful browser screenshots/downloads remain in the release. Current status is FINAL_CLEAN_RELEASE_STATUS.txt.
+Retained: K model/lock/thresholds,Phase I checkpoint and all Phase I source/evidence,split manifests,all configurations/histories/experiment metrics,contribution and AI logs,faculty PDFs,README,mathematics,viva questions,demo commands,model card,architecture figure/layer evidence and independent training/evaluation code. No unknown file was deleted.
+Original research paths: phase2/artifacts/,experiments/severstal_segmentation/,Phase_I_Final_Submission/,PHASE_I_EVIDENCE_2026-11-02_12-45/; newer comparisons under phase2/improvement_sprint/,precision_balance/,augmentation_study/,overlap_regularization_study/. The GUI does not depend on those parent research paths.
+No approval-required deletions are pending. Unknowns are retained. A currently mutable app-launch log is retained rather than assumed disposable. Optional future removal of remaining archival/evidence copies would require separate review; no such deletion is performed.
+Classification categories and references cover every pre-cleanup release file in file_classification.csv. Generated new freeze guides/QA records are submission/evaluation evidence; they are not runtime imports.
+
+CORE SOURCE WALKTHROUGH (19 files; support/tests/archival sources retained separately):
+phase2/__init__.py
+phase2/common.py
+phase2/model.py
+phase2/dataset_utils.py
+phase2/data.py
+phase2/patches.py
+phase2/objectives.py
+phase2/train.py
+phase2/smoke.py
+phase2/evaluate.py
+phase2/metrics.py
+phase2/audit.py
+phase2/finalize.py
+phase2/infer.py
+phase2/report.py
+phase2/verify_evidence.py
+phase2/release/__init__.py
+phase2/release/app.py
+phase2/release/inference.py

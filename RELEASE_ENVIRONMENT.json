@@ -1,0 +1,25 @@
+{
+  "created_utc": "2026-11-19T22:37:16.012371+00:00",
+  "python": "3.14.5 (tags/v3.14.5:5607950, May 10 2026, 10:43:50) [MSC v.1944 64 bit (AMD64)]",
+  "executable": "C:\\Users\\shail\\OneDrive\\Desktop\\Projects\\Surface-Defect-Inspection\\.venv-phase2\\Scripts\\python.exe",
+  "streamlit": "1.67.0",
+  "checkpoint_sha256": "0ce6c174d27fff24551faa7ce94f7a2ec7f9a98294a0eac7746a8c61b89eed59",
+  "locked_thresholds": [
+    0.949999988079071,
+    0.9750000238418579,
+    0.5,
+    0.949999988079071
+  ],
+  "disk_free_before_copy_bytes": 5715681280,
+  "package_source_bytes": 61804968,
+  "preservation": {
+    "passed": true,
+    "checked_sets": {
+      "phase1": 507,
+      "historical_artifact_manifest": 19,
+      "historical_test_inputs": 13,
+      "pretest_code": 23
+    },
+    "note": "Fixed saved hash sets checked; no new dataset audit or evaluation. Release files are new; original research files remain byte-identical."
+  }
+}

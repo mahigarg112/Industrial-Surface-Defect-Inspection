@@ -1,0 +1,20 @@
+{
+  "source_split": "train",
+  "images": 9048,
+  "positive_pixels": [
+    2786280,
+    591741,
+    95339242,
+    20018374
+  ],
+  "total_pixels_per_class": 3706060800,
+  "positive_weights": [
+    1000.0,
+    1000.0,
+    37.87235436589689,
+    184.13295835116278
+  ],
+  "policy": "min(negative_pixels / positive_pixels, 1000), fixed before training; all counts from native training masks only",
+  "partition_sha256": "97135138fcb09211c850dc2a16e0ae1deadd3088d342fdccf0c9f9d6b04559f0",
+  "rationale": "Historical Phase I and new B validation collapse to zero rare-class recall. Only BCE positive weights change; soft Dice, architecture, sampling, seed and optimizer stay fixed."
+}

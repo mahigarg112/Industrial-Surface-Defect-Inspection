@@ -1,0 +1,87 @@
+Final freeze update: CLEANUP_SUMMARY.txt and verification/final_freeze/file_classification.csv supersede the dated no-deletion statement below. Only39 tested redundant clean-release copies were removed; originals/unknowns/evidence remain preserved.
+
+PHASE II CLEAN RELEASE — 20 NOVEMBER 2026
+
+Scope: create a separate reviewable release. No original repository file was
+permanently deleted, moved or edited. Logical categories use the existing phase2
+package. A small number of packaging changes are disclosed below.
+
+KEEP
+- phase2/release/app.py: active Streamlit entry; inference.py: shared offline
+  validation/model/inference/render/export. test_release.py and optional browser
+  smoke support focused verification. Two existing demo JPEGs + provenance.
+- phase2/model.py: byte-identical copy of original model.py, now directly imported
+  by clean common.py. phase2/dataset_utils.py: byte-identical original dataset.py,
+  including RLE and historical loader. No architecture or tensor-key changes.
+- phase2/data.py, patches.py, train.py, objectives.py, smoke.py, evaluate.py,
+  metrics.py, common.py and their actual research/preflight dependencies.
+- phase2/artifacts/final/model.pt and unchanged lock.json; immutable final/source.
+  Only one selected K checkpoint in this release, copied physically for portability.
+- Original Phase I selected Dice checkpoint (~1.88 MiB), model/dataset source,
+  manifest and small configs/logs/results in experiments/severstal_segmentation/.
+  That directory is historical evidence/reproduction; active model source is
+  phase2/model.py. Historical source is intentionally not renamed or rewritten.
+- All eight candidate metadata/histories/exposure logs, held-out per-image counts,
+  threshold records, comparison/paired uncertainty/ablation records, curves,
+  architecture figure, qualitative/runtime analysis and training console logs.
+- Frozen split manifest and original RLE manifest, hashes, source/contribution
+  disclosures, environment pins, requirements, model card and research report.
+- All eight requested preparation documents; verification scripts/results;
+  faculty PDFs, originality template and project-brief gap explanation.
+
+EXCLUDE FROM RELEASE (originals retained)
+- Six-class NEU classifiers: notebooks/SDI/, baseline_cnn/, improved_cnn/,
+  new_dataset/ and unrelated legacy src/ utilities. Active imports do not use them.
+- industrial-surface-defect-inspection/, viva_simplified/ and its backup: parallel
+  Phase I app copies; no active clean import points to them.
+- .venv-phase2/ and any site-packages: install dependencies separately; launch can
+  use the already installed interpreter. No environment duplicated.
+- Complete data/ image corpus, raw/processed data copies: no dataset duplication.
+  Only two existing demonstration JPEGs bundled. Optional data junction is explicit.
+- Presentation backups, generated presentation copies, .publish-preparation/,
+  .viva_preparation/ scripts, caches, pyc, temporary browser profiles/downloads.
+- Repeated historical GUI QA/screenshots/restart records from the old release.
+  They remain in phase2/release/evidence/ in the original repository; fresh clean
+  checks are recorded here. Research metrics/source snapshots remain included.
+- phase2/release/build_submission.py and verify.py: old packaging/data-copy
+  utilities target the previous submission, so they are replaced by standalone
+  verify_clean.py for this release; actual app/training functions are reused.
+- Nonselected B/C/E/F/G/H/J/K training-state/duplicate best checkpoints and smoke
+  weights: original paths/hashes in CHECKPOINT_REFERENCES.json. The K state for
+  inference is already in final/model.pt. Retraining/other-network reevaluation
+  needs explicit referenced states or fresh runs. No implicit runtime dependency.
+- Nonselected Phase I BCE/rare-sampling weights: original checkpoint references
+  recorded in verification/CHECKPOINT_INVENTORY.json; their results remain here.
+- Entire Phase_II_Final_Submission copy and older Phase_I_Final_Submission copies
+  are not nested in this release. Exact reused/copied/excluded paths are recorded
+  in verification/COPY_PROVENANCE.json; source hashes identify reused content.
+
+OPTIONAL DELETE AFTER APPROVAL
+- No deletions proposed now. Generated __pycache__, obsolete downloaded duplicate
+  slide decks and disposable browser profiles could be reviewed later. None is
+  needed to reclaim space for this compact release. Do not delete evidence,
+  originals, environments, unknowns or the only checkpoint copy automatically.
+
+UNKNOWN — KEEP ORIGINAL UNTIL VERIFIED
+- Uninspected contents of unrelated legacy folders, root results/, old notebooks
+  and presentation archives; folder purpose does not authorize deleting every file.
+- Full official Project02 brief and any mandatory language/product integration.
+- Near-duplicate/acquisition/coil grouping and public redistribution rights.
+  These are unresolved facts, not technical cleanup targets.
+
+INTENTIONAL CLEAN-ONLY CODE CHANGES
+1. common.py directly imports local model/dataset utility copies. legacy_module
+   remains for optional historical audit/evaluation inside the release.
+2. inference.py names existing overlay coefficient OVERLAY_ALPHA=0.4; numerically
+   equivalent default, with no effect on probabilities or thresholds.
+3. app.py adds four direct PNG mask download controls. Existing appearance/flow
+   remains; test_release.py now expects six downloads rather than two.
+4. verify_clean.py adds focused standalone verification. Documentation explains
+   relocated sources and exact configurations. Locked source snapshots unchanged.
+
+The preexisting 482,788-parameter architecture, selected weights, split, research
+metrics, thresholds and historical training code are preserved. New clean files
+have a separate release manifest; no obsolete historical manifest is presented as
+covering the adapted release. Original protection covers 733 files hashed before
+cleanup, including Phase I and Phase II evidence and annotation CSV (not a fresh
+full-dataset image rehash). Final results are recorded in verification/.

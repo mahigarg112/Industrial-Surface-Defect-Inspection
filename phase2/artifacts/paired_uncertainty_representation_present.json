@@ -1,0 +1,11 @@
+{
+  "percentile_95_interval": [
+    -0.047227744650399306,
+    -0.03037676314545541
+  ],
+  "bootstrap_repeats": 2000,
+  "valid_repeats": 2000,
+  "seed": 42,
+  "scope": "Paired image bootstrap of fixed trained models, not training-seed uncertainty; no model choice uses this result.",
+  "delta_F_patch_minus_G_whole": -0.03849889303456759
+}

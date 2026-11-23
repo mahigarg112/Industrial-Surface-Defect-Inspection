@@ -1,0 +1,110 @@
+START HERE — PRIVATE FACULTY DEMONSTRATION PACKAGE (21 NOVEMBER 2026)
+
+This is a student research prototype, not an industrially validated acceptance system.
+Official model: K_extended_patch,epoch9,482788 parameters,4 independent sigmoid channels.
+No training, model promotion, threshold retuning or startup model downloads are required.
+
+1. COMPUTER AND PYTHON
+Use a64-bit Windows laptop. Recommended practical target: Windows11,x64 CPU,
+8GB RAM minimum/16GB preferable,and at least12GB free for Python/dependencies/outputs.
+These are setup recommendations,not benchmarks on a second laptop. NVIDIA GPU is optional.
+Tested environment:64-bit Python3.14.5,PyTorch2.11.0+cu128,Streamlit1.67.0.
+Install64-bit Python3.14 (tested patch3.14.5); select the Python launcher during setup.
+Python and dependency wheels are NOT bundled. Installation needs internet access or
+separately obtained compatible wheels. Inference works offline after installation.
+
+2. EXTRACT AND OPEN
+Extract the ZIP completely to a writable local location,for example Documents.
+Open Industrial_Surface_Defect_Inspection — the folder containing this file.
+Do not run from the ZIP viewer. In File Explorer,open PowerShell in this folder.
+Optional VS Code: File > Open Folder > choose this folder,then Terminal > New Terminal.
+If the code launcher is installed,you can use: code .
+Commands below start from this extracted project root; no original drive/path is needed.
+
+3. CREATE A FRESH ENVIRONMENT (DO NOT COPY .venv-phase2)
+py -3.14 -m venv .venv
+No activation or PowerShell execution-policy change is needed; commands use the full interpreter path.
+
+4A. CPU SETUP — DEFAULT FOR LAPTOPS WITHOUT NVIDIA GPU
+.\.venv\Scripts\python.exe -m pip install torch==2.11.0 --index-url https://download.pytorch.org/whl/cpu
+.\.venv\Scripts\python.exe -m pip install -r requirements-common-lock.txt
+.\.venv\Scripts\python.exe -m pip check
+
+4B. OPTIONAL NVIDIA CUDA SETUP — CHOOSE THIS INSTEAD OF4A
+Use a separate fresh environment and an NVIDIA driver compatible with the CUDA12.8 build.
+The CUDA12.8 wheel contains its runtime; a separate full CUDA toolkit is not needed for inference.
+.\.venv\Scripts\python.exe -m pip install torch==2.11.0+cu128 --index-url https://download.pytorch.org/whl/cu128
+.\.venv\Scripts\python.exe -m pip install -r requirements-common-lock.txt
+.\.venv\Scripts\python.exe -m pip check
+.\.venv\Scripts\python.exe -c "import torch; print(torch.__version__); print(torch.cuda.is_available())"
+If GPU/driver setup is unavailable,choose CPU rather than changing model code.
+requirements.txt pins the smaller direct dependency set; requirements-common-lock.txt
+pins the existing non-Torch environment for repeatability. requirements-lock.txt and
+requirements-release-lock.txt record the original full CUDA environment; do NOT install
+their CUDA Torch entry into a deliberately CPU-only environment.
+
+5. LAUNCH THE GUI
+$env:SDI_PHASE2_OUTPUT = $null
+.\.venv\Scripts\python.exe -B -m streamlit run phase2\release\app.py --server.address 127.0.0.1 --server.port 8501 --server.headless true --browser.gatherUsageStats false --server.maxUploadSize 20 --client.toolbarMode minimal
+Open http://127.0.0.1:8501 in a browser. Stop with Ctrl+C in the owning terminal.
+The GUI selects CUDA when available and otherwise uses CPU; it exposes no model switch.
+The exact local K checkpoint is checked at load time. No network weights are downloaded.
+
+6. INSPECT AND EXPORT
+Upload phase2\release\demo_inputs\0007a71bf.jpg or000ccc2ac.jpg with the upload control,
+or expand Use an existing demo sample and select one. Click Inspect Image once.
+Show original,overlay,four binary class masks,predicted area percentages and processing time.
+Area means predicted pixels/total pixels; it is not confidence or accuracy.
+Download overlay PNG and JSON. Expand Download individual masks for all four native PNGs.
+No defect predicted does not guarantee defect-free steel; do not accept/reject products automatically.
+
+7. LIVE THRESHOLD EXPLORATION
+Expand Advanced: Explore Prediction Thresholds; enable Adjust thresholds; change Class3 to0.99.
+This rerenders cached probabilities,not a new network/training run. Exploration is not independently
+validated. Disable the toggle to restore exact defaults [0.949999988079071,0.9750000238418579,0.5,0.949999988079071].
+
+8. OFFLINE CPU INFERENCE CLI
+Use a fresh output directory every time:
+.\.venv\Scripts\python.exe -B -m phase2.release.inference --image phase2\release\demo_inputs\0007a71bf.jpg --device cpu --output demo_output_cpu_001
+The directory receives overlay.png,class_1.png through class_4.png,inspection.json and prediction.npz.
+Use --device auto for automatic CUDA/CPU selection,or --device cuda only when CUDA works.
+The offline CPU CLI is also the explicit CPU fallback if the GUI's automatic device choice is unsuitable.
+
+9. VERIFY CHECKPOINT AND PACKAGE
+Get-FileHash -Algorithm SHA256 -LiteralPath .\phase2\artifacts\final\model.pt
+Expected:0ce6c174d27fff24551faa7ce94f7a2ec7f9a98294a0eac7746a8c61b89eed59
+The application additionally checks lock.json and the exact default thresholds.
+.\.venv\Scripts\python.exe -B verify_clean.py
+.\.venv\Scripts\python.exe -B -m unittest phase2.release.test_release phase2.test_pipeline phase2.test_evaluation phase2.test_sampling -v
+These focused checks do not train or run full validation. They write fresh verification outputs.
+Archived research trial unit tests requiring the full dataset are separate and are not this smoke suite.
+
+10. STUDY AND VIVA
+Read CODE_NAVIGATION_FOR_VIVA.txt,ARCHITECTURE_AND_CODE_FLOW.txt,MATHEMATICS_FOR_VIVA.txt,
+FACULTY_VIVA_QA.txt,8_MINUTE_DEMO_SCRIPT.txt,LIVE_CODE_CHANGES.txt and FINAL_RESEARCH_SUMMARY.txt.
+Five source files first: phase2/model.py;phase2/patches.py;phase2/release/inference.py;
+phase2/data.py;phase2/train.py. GUI entry point:phase2/release/app.py.
+Source/contribution and AI disclosures and MODEL_CARD.md are retained.
+presentation/ contains the available10-slide deck; a PDF preview was not found.
+Some old notes describe earlier GUI versions; the current minimal app and code-navigation guide take precedence.
+
+11. TROUBLESHOOTING
+Missing package:use this project's .venv interpreter for both pip and Streamlit,then install
+requirements-common-lock.txt and run pip check. Do not mix global Python and the project venv.
+Python launcher absent:install the specified64-bit Python or use its full python.exe path for -m venv.
+No matching distribution:check that Python is64-bit3.14 and the environment matches the tested versions.
+Do not silently substitute new major versions; a second-device installation has not been tested here.
+CUDA error:check torch.cuda.is_available();use CPU setup/CLI if necessary. Auto handles unavailable
+CUDA and GPU-memory fallback; other driver errors remain visible rather than being hidden.
+Port8501 occupied:replace --server.port 8501 with --server.port 8502 and open the matching URL.
+Do not stop unrelated processes. Damaged upload:use an actual JPG/JPEG/PNG; extension/format,
+20MiB limit and dimensions are validated. Model hash mismatch:re-extract a verified ZIP;
+do not disable the integrity check. ZIP path too long:extract to a shorter writable folder.
+Do not run the historic test-selection or training commands during the viva.
+
+12. SCOPE AND PERMISSION
+This transfer is for the user's already authorized private academic/faculty demonstration.
+The two named samples were approved for that private use on20 November2026; this is not
+public redistribution permission or an industrial license. Keep this ZIP private.
+See REPRODUCIBILITY_LIMITATIONS.txt for dataset/state requirements and unresolved public rights.
+L/N/O/P are research comparisons only; K remains official. No score is certified accuracy on uploads.

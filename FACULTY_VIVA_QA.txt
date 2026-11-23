@@ -1,0 +1,161 @@
+FACULTY VIVA — 30 SHORT ANSWERS
+Aim for10–20 seconds each. In four minutes the panel will choose a subset.
+Follow-up mathematics: MATHEMATICS_FOR_VIVA.txt. Paths use the clean release.
+
+1. Why U-Net instead of YOLO?
+The task is pixel-level segmentation with RLE masks. U-Net directly predicts
+aligned masks and combines context with spatial detail. YOLO detection would
+produce boxes; YOLO segmentation variants exist, but were not benchmarked here.
+
+2. Why a lightweight U-Net?
+482,788 parameters and widths16/32/64/128 fit the6GB GPU and permit controlled
+pipeline comparisons with fixed architecture. Small size does not prove accuracy.
+
+3. How does convolution work?
+A shared learned kernel slides over local pixels, multiplies and sums across
+positions/channels. Our blocks use3x3,stride1,padding1, so spatial size stays.
+Open phase2/model.py:ConvBlock; first conv has3*16*3*3=432 weights.
+
+4. Why ReLU?
+max(0,z) adds nonlinearity cheaply. Its positive-side derivative is1 and
+negative-side derivative0. Our final logits are not passed through ReLU.
+
+5. Why max pooling?
+2x2 pooling with stride2 halves dimensions and increases contextual coverage,
+reducing compute while losing location detail. Encoder skips retain finer maps.
+
+6. What do skip connections do?
+torch.cat joins encoder features with same-resolution upsampled decoder maps.
+For dec3,64+64 becomes128 channels. It restores detail and aids gradient flow.
+
+7. What is the bottleneck?
+The deepest ConvBlock,128 channels at32x32 for a256-square patch. It combines
+compressed context before the decoder. It has no attention/pretrained component.
+
+8. How does output retain spatial dimensions?
+Padding preserves sizes within blocks; three pools halve, three stride2
+transposed convolutions double. The1x1 output convolution keeps256x256, emits4.
+Full256x1600 is recovered by probability stitching, not stretching one patch.
+
+9. What are backpropagation and the chain rule?
+Backprop computes loss derivatives through composed operations. The chain rule
+multiplies local derivatives and adds branch contributions. Example z=w*x,
+unweighted BCE gives dL/dw=(sigmoid(z)-y)*x before averaging. Adam applies them.
+
+10. How does Adam update weights?
+It keeps exponential gradient/gradient-square moments, corrects initial bias,
+and subtracts lr*mhat/(sqrt(vhat)+eps). Actual lr0.001,betas0.9/0.999,eps1e-8.
+K restores J's Adam state; it does not reset optimizer history.
+
+11. Why combine BCE and Dice?
+BCE supplies pixel-level supervision, including background; soft Dice emphasizes
+foreground overlap. Our baseline mixes them equally. Imbalance can still cause
+collapse; different Dice reductions and sampling were explicit experiments.
+
+12. What EXACT objective did final K use?
+0.5 unweighted BCE +0.5 inverse-training-positive-pair-frequency weighted Dice.
+GT-empty Dice terms are zero; the mean denominator is all batch*4 pairs.
+Smoothing1; weights are from training exposure only. It is not E's weighted BCE.
+Show phase2/objectives.py:balanced_present_dice_loss and K config.
+
+13. Why sigmoid rather than softmax?
+Four independent binary labels can overlap. Sigmoid converts each channel's
+logit independently. Softmax imposes one normalized category distribution.
+Background is implicit when all four predictions are below their thresholds.
+
+14. What is Dice?
+2TP/(2TP+FP+FN), computed per class after summing split-wide pixel counts.
+For TP6,FP2,FN4,Dice=2/3. Evaluation Dice is unsmoothed binary foreground F1.
+
+15. What is IoU?
+TP/(TP+FP+FN), overlap divided by union. The same example gives0.5.
+K macro IoU0.137937 is averaged per class; don't convert macro Dice nonlinearly.
+
+16. Why macro averaging?
+Each defect class contributes equally, exposing rare-class failure that a
+pixel-weighted aggregate can hide. All normal images still contribute FP counts.
+metrics.py uses int64 counts; undefined ratios are null, not free perfect scores.
+
+17. What is class imbalance, and why not pixel accuracy?
+Background and class3 dominate while class2 is rare. An all-background mask can
+have high pixel accuracy and zero defect recall. Use Dice/IoU,precision/recall,
+class-specific errors and normal-image alarms; crop/weighting interventions help
+exposure but do not automatically improve every metric.
+
+18. How were image-mask pairs and RLE prepared?
+Four RLE strings decode to native4x256x1600 masks before aligned image/mask
+cropping. RLE is one-based column-major: for height3,'3 2' crosses from row2
+of column0 to row0 of column1. dataset_utils.decode_rle uses reshape(order='F').
+Whole-image masks use nearest-neighbor resize; native patch masks are not resized.
+
+19. How did you avoid train/test leakage?
+Seed42 splits original-training exact-RGB duplicate groups; validation stays
+unchanged. New candidates use9048 train,2514 val,1006 test; training-only priors,
+val-only epoch/threshold selection and pre-test lock. Phase I saw future test
+images, so old weights are excluded as an independent test baseline. Near/coil
+duplicates remain unverified; the test is now opened and cannot tune new choices.
+
+20. Why overlapping patches?
+Keep native detail with bounded memory and multiple predictions near borders.
+Stride128 yields12 patches; final x1344 covers width1600. Training selects one
+crop/source/epoch; inference evaluates every patch without ground truth.
+
+21. How does weighted stitching work?
+Multiply each sigmoid map by outer(max(hann,0.01),max(hann,0.01)), accumulate
+at native coordinates, divide by summed positive weights, then threshold.
+Patch centers count more. Code: patches.weight_window and predict.
+
+22. What did ablations prove?
+Matched C patch-only Dice0.0918<B whole0.1239; F patch<G whole too. Patching
+alone failed at these budgets. Fixed C Hann/overlap variants test reconstruction;
+F/H/J isolate loss reduction/sampling/weighting, and K extends J's budget.
+K0.2340 exceeds B but changes objective,crops and9-vs3 epochs. Single-seed
+contrasts support limited findings, not a universal causal or literature claim.
+
+23. Why did the baseline underperform?
+Measured: B predicts mainly class3; rare-class recall is zero. Imbalance, short
+training and resized fine detail are plausible causes, not independently proven
+explanations. C also underperformed B, so resolution alone is not the answer.
+
+24. What are the final model's limitations and generalization evidence?
+K macro Dice0.233996/IoU0.137937 is modest. Class2 Dice0.082752 on20 positive
+test images;452/472 GT-empty images alarm at any pixel. One seed, limited
+budget, no external-domain/coil-group validation. It is a research prototype.
+
+25. What happens on a defect-free image?
+Ideally all masks are empty; this model often produces false alarms. Background
+is implicit, not a fifth output. Show the actual predictions; no target means
+unknown accuracy. A blank mask can also be a missed defect, not proof of clean steel.
+
+26. How would you reduce false alarms?
+Evaluate thresholds/calibration, component-size filtering or better negative
+training on validation, measuring recall tradeoffs. These controls are proposed,
+not enabled/validated fixes. Reserve a new untouched test for another final claim.
+Live threshold edits are exploratory and leave the locked model unchanged.
+
+27. Which file changes a preprocessing setting?
+Training RGB/resize/crops: phase2/data.py:TrainDataset.__getitem__. Matching
+inference geometry/scale: phase2/patches.py:predict. Upload validation limits:
+release/inference.py:decode_upload constants. A learned-input change must match
+training; don't silently normalize/resize differently or claim existing scores.
+
+28. What exactly is your independent contribution?
+Defend the controlled resolution-aware pipeline, native reconstruction,
+training-exposure investigation, experiments and honest error/runtime analysis
+you actually reviewed/executed/understand. U-Net/RLE and established methods
+are reused. Refer to the Source and Contribution Log; don't claim unaided
+authorship of AI-assisted implementation or inventing patch segmentation.
+
+29. Which parts used AI assistance?
+Codex assisted Phase II split/tiling/training/evaluation/inference, tests,
+packaging, analysis and preparation documents. The Phase I architecture/RLE
+were reused. Assistance is explicitly disclosed; I must personally understand
+the important code and answer independently. Faculty PDFs permit disclosed
+support, not submitting generated code without comprehension.
+
+30. What were epochs,batch,early stopping and learning-rate choices?
+Adam0.001,batch8,seed42,FP16-forward/FP32-loss,patience2; no scheduler,
+augmentation or gradient clipping. B/C cap3; K continues J from3 to9 total,
+best9. Select epoch by full-native val Dice at0.5, tune thresholds on validation
+then lock. There are8 completed run directories,7 fresh starts +1 continuation.
+One epoch has1131 attempted updates; K logged10179 attempts,10174 successes.

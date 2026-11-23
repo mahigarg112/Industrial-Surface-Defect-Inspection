@@ -1,0 +1,23 @@
+FINAL CLEAN RELEASE STATUS — 20 NOVEMBER 2026
+
+Official model: K_extended_patch,epoch9,482788 parameters,four independent sigmoid channels. L/N/O/P are NOT approved replacements.
+K SHA256:0ce6c174d27fff24551faa7ce94f7a2ec7f9a98294a0eac7746a8c61b89eed59
+Exact thresholds:[0.949999988079071,0.9750000238418579,0.5,0.949999988079071]. Lock and weights remain byte-identical. K historical test Dice0.233996/IoU0.137937; development validation Dice0.239229/IoU0.141876.
+New P development Dice0.256175 is not independent test accuracy and failed K normal-alarm/C4-small-object safeguards. No model promotion.
+39 duplicate copies removed after candidate testing.39 exact originals remain in the small external cleanup archive; original repository files were not removed. No dataset copied.
+Fresh actual release: 23 unit/AppTest cases PASS,0 failures/errors/skips; 7 integration groups PASS;6 additional reproduction-module imports PASS; own HTTP server shutdown/closed port PASS. The reduced candidate passed the same checks first.
+Verified: standalone imports without dataset,parent project source or parent weights;strict K load/hash/thresholds;four-channel native output;real bundled sample RGB/255 and crop reconstruction;CPU and CUDA inference;valid/corrupt/empty/mismatched uploads;EXIF orientation;four masks/overlay/counts/areas;threshold cache and restoration;PNG/JSON exports;visible errors;collapsed advanced controls;startup/shutdown.
+Test scope: backend upload validation and Streamlit AppTest interactions,plus fresh HTTP lifecycle. No new full browser automation was needed because GUI source was unchanged; previous real browser-upload/download evidence remains. GPU-OOM fallback uses an explicitly simulated unit fixture. No training or full-validation/test inference was run.
+Evidence:verification/final_freeze/verification.json,unit_tests.log/.json and the current integration record named there. Current frozen manifest is RELEASE_MANIFEST_SHA256.json; its independent recheck is verification/final_freeze/release_manifest_check.json.
+GUI preserved: minimal academic prototype,one Inspect Image action,original/overlay,four masks/affected areas,time,PNG/JSON and individual mask downloads. Threshold exploration is collapsed. No model switching,certified confidence or automated product acceptance/rejection.
+Limitations remain visible: Class2 weakness,normal-steel false alarms,missed/small defects,no calibrated confidence,no external manufacturing validation. Official separate Project02 brief/language integration requirements remain unresolved; see RUBRIC_REVIEW.txt. No licensing/faculty approval is invented.
+Dependencies: existing Python3.14.5 CUDA environment provides torch2.11.0+cu128,Streamlit,NumPy,Pillow,SciPy,Matplotlib. No dependencies installed. Existing environment requirements and reproduction instructions are retained. The dataset is an explicit external input only for training/full research reproduction.
+CPU/GPU numerical differences are expected from FP32 versus AMP. Cleanup changes no probability,mask,overlay or threshold algorithm; app/inference/model/training/evaluation sources match their pre-freeze bytes. No guarantee of identical CPU and CUDA masks is claimed.
+Original-preservation and byte-integrity results are in verification/final_freeze/integrity.json. All pre-existing original experiments,Phase I evidence,dataset references and current release sources outside the approved duplicate/doc list are checked against the freeze baseline.
+
+EXACT POWERSHELL LAUNCH (existing installed environment):
+# Run from the extracted project root (folder containing START_HERE.txt).
+$env:SDI_PHASE2_OUTPUT = $null
+.\.venv\Scripts\python.exe -B -m streamlit run phase2\release\app.py --server.address 127.0.0.1 --server.port 8501 --server.headless true --browser.gatherUsageStats false --server.maxUploadSize 20 --client.toolbarMode minimal
+Open http://127.0.0.1:8501;stop with Ctrl+C in its owning terminal. If8501 is busy,use8502 and matching URL;do not stop unrelated processes.
+First viva guide:CODE_NAVIGATION_FOR_VIVA.txt. Existing8-minute demo,mathematics,viva Q&A and SIMPLE_DEMO_COMMANDS remain.

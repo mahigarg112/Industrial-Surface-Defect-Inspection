@@ -1,0 +1,14 @@
+{
+  "seed": 42,
+  "dataset_root": "data/severstal-steel-defect-detection",
+  "prepared_dir": "experiments/severstal_segmentation/prepared",
+  "image_width": 512,
+  "image_height": 128,
+  "batch_size": 2,
+  "epochs": 1,
+  "learning_rate": 0.001,
+  "num_workers": 0,
+  "threshold": 0.5,
+  "base_channels": 16,
+  "device": "auto"
+}

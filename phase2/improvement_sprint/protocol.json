@@ -1,0 +1,191 @@
+{
+  "split": "val",
+  "images": 2514,
+  "partition_sha256": "97135138fcb09211c850dc2a16e0ae1deadd3088d342fdccf0c9f9d6b04559f0",
+  "postprocessing": [
+    {
+      "thresholds": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "min_area": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "min_mean_probability": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "name": "K_threshold_05"
+    },
+    {
+      "thresholds": [
+        0.949999988079071,
+        0.9750000238418579,
+        0.5,
+        0.949999988079071
+      ],
+      "min_area": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "min_mean_probability": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "name": "K_locked"
+    },
+    {
+      "thresholds": [
+        0.949999988079071,
+        0.9750000238418579,
+        0.5,
+        0.949999988079071
+      ],
+      "min_area": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "min_mean_probability": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "name": "K_area_16"
+    },
+    {
+      "thresholds": [
+        0.949999988079071,
+        0.9750000238418579,
+        0.5,
+        0.949999988079071
+      ],
+      "min_area": [
+        64,
+        64,
+        64,
+        64
+      ],
+      "min_mean_probability": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "name": "K_area_64"
+    },
+    {
+      "thresholds": [
+        0.949999988079071,
+        0.9750000238418579,
+        0.5,
+        0.949999988079071
+      ],
+      "min_area": [
+        256,
+        256,
+        256,
+        256
+      ],
+      "min_mean_probability": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "name": "K_area_256"
+    },
+    {
+      "thresholds": [
+        0.949999988079071,
+        0.9750000238418579,
+        0.5,
+        0.949999988079071
+      ],
+      "min_area": [
+        16,
+        16,
+        64,
+        64
+      ],
+      "min_mean_probability": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "name": "K_area_classwise"
+    },
+    {
+      "thresholds": [
+        0.949999988079071,
+        0.9750000238418579,
+        0.5,
+        0.949999988079071
+      ],
+      "min_area": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "min_mean_probability": [
+        0.9624999910593033,
+        0.9812500178813934,
+        0.625,
+        0.9624999910593033
+      ],
+      "name": "K_area16_component_probability"
+    }
+  ],
+  "connectivity": 8,
+  "small_component_definition": "GT area <=1024 native pixels; recovered >=10% means detected",
+  "ranking": "highest validation macro Dice among safeguards-passing candidates; first tie wins",
+  "safeguards_vs_original_K_locked": {
+    "minimum_macro_dice_gain": 0.002,
+    "maximum_class_pixel_recall_drop": 0.02,
+    "maximum_class2_recall_drop": 0.01,
+    "minimum_class2_precision_ratio": 1.0,
+    "maximum_small_object_recall_drop_each_class": 0.02,
+    "maximum_small_pixel_recall_drop_each_class": 0.02,
+    "maximum_normal_image_false_alarm_rate_increase": 0.005,
+    "maximum_localized_positive_image_recall_drop": 0.01
+  },
+  "finetune": {
+    "start": "K epoch9 weights + matching Adam/scaler states",
+    "lr": 0.0001,
+    "additional_epochs": 3,
+    "batch_size": 8,
+    "num_workers": 2,
+    "seed": 42,
+    "augmentation": null,
+    "objective": "0.5 unchanged BCE + 0.5 positive-pair Dice weighted by inverse training positive-pair frequency; mean over B*C; empty Dice terms zero; smoothing=1",
+    "class_weights": [
+      14.027906976744186,
+      51.11864406779661,
+      2.580964153275649,
+      15.68110918544194
+    ],
+    "crop_policy": "one sample per source image; choose its rarest present class by training image count, then a uniform native grid patch containing that class; negatives keep uniform grid sampling",
+    "epoch_selection": "maximum full native validation macro Dice using fixed K locked thresholds",
+    "also_report": "threshold0.5",
+    "patience": 2,
+    "useful_gain": 0.002,
+    "threshold_retuning": false,
+    "validation_loss": "same K objective over ALL 12 native grid patches per validation image, patch-count weighted mean"
+  },
+  "limitations": "Development validation reused extensively; no independent generalization claim; old test never evaluated here."
+}

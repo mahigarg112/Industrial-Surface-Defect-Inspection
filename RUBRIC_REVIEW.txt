@@ -1,0 +1,42 @@
+OFFICIAL EVALUATION DOCUMENTS — LOCAL REVIEW, 20 NOVEMBER 2026
+
+Located in C:/Users/shail/Downloads and copied to docs/:
+DL_Sem5_Evaluation_Guidelines_23_Nov_2026.pdf (2 pages)
+DL_Sem5_Evaluation_FAQs_23_Nov_2026.pdf (2 pages)
+Both were read directly from the local PDFs. No web lookup was needed.
+
+Confirmed requirements: strictly individual evaluation on Monday23 November2026,
+8 minutes demo +4 minutes viva; mathematical/model/training understanding,
+data preparation and leakage reasoning, authentic implementation, defensible
+baselines/metrics, honest limitations, reproducibility and code navigation.
+They recommend5–8 slides/poster but do not require slides or a GUI. Trained
+weights/records plus inference can be demonstrated without live retraining.
+AI/pretrained assistance is permitted as disclosed support; submitting generated
+code without understanding is insufficient. No pretrained encoder is used here.
+Individual reporting time/slot will be shared separately and is not provided.
+
+Mapped local evidence:
+- Architecture/forward shapes/gradient mathematics: model.py, architecture
+  document, MATHEMATICS_FOR_VIVA.txt and live hook table.
+- Actual training: train.py, objectives.py, data.py, K config/history and the
+  eight preserved run records. CPU/CUDA inference/GUI checks in verification/.
+- Baselines/ablation/negative outcomes: comparison.csv, ablations/, report,
+  exposure logs and MODEL_CARD.md. No fabricated novelty or compatible-paper
+  performance claim. Model limitations remain serious, explicitly disclosed.
+- Ownership and sources: SOURCE_AND_CONTRIBUTION_LOG.md plus clean addendum.
+  Personal understanding/viva performance and originality signature cannot be
+  supplied by automation. Student must review/sign the template personally.
+
+Separate Project02 requirement gap: the exact project-specific assignment brief
+is still unavailable. These two evaluation PDFs do not specify a mandatory
+C++/Java bridge. No such bridge is implemented; do not call it a confirmed
+requirement or claim project-specific compliance without the actual brief.
+Public licensing/redistribution rights are not established by general evaluation
+guidance or by the recorded private sample-demo approval.
+
+Prior copied research documents may retain the historical statement that general
+AI-policy guidance was unavailable. The two PDFs now confirm disclosed AI support
+for this evaluation, while personal compliance and full Project02 scope remain
+unverified. This file and root README are the current clean-release authority.
+No marks, faculty acceptance, institutional permission or industrial reliability
+are predicted or invented.

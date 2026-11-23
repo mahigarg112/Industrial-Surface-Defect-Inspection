@@ -1,0 +1,35 @@
+DEVELOPMENT-VALIDATION DIAGNOSIS (2514 images; no test tuning)
+Multilabel analysis uses a16x16 truth-set/prediction-set table, not a four-way argmax confusion matrix.
+
+K: Dice/IoU 0.239229/0.141876; normal alarms 1130/1180
+C1: FP=643159,FN=651300; FP on annotated background=239258, wrong-other-class=403901; FP distances <=3/3..16/>16/no-own-GT=[9741, 3227, 12496, 617695]; FN boundary/interior=[244870, 406430]
+  Background FP rates edge/interior=[9.777048247792715e-05, 0.0002635051148255891]; high/low local texture proxy=[0.0006375473277332944, 4.49475757374445e-05]
+C2: FP=470229,FN=154226; FP on annotated background=88072, wrong-other-class=382157; FP distances <=3/3..16/>16/no-own-GT=[432, 45, 1171, 468581]; FN boundary/interior=[69382, 84844]
+  Background FP rates edge/interior=[2.064182614841996e-05, 9.957965937884962e-05]; high/low local texture proxy=[0.00021084715234124268, 2.8208396268901632e-05]
+C3: FP=15630217,FN=14492538; FP on annotated background=14131083, wrong-other-class=1499134; FP distances <=3/3..16/>16/no-own-GT=[552802, 485340, 2937138, 11654937]; FN boundary/interior=[2644570, 11847968]
+  Background FP rates edge/interior=[0.010724381490769376, 0.014730392255316959]; high/low local texture proxy=[0.03637329983924143, 0.0032817562599127747]
+C4: FP=4796337,FN=3637780; FP on annotated background=4228138, wrong-other-class=568199; FP distances <=3/3..16/>16/no-own-GT=[58199, 82560, 207340, 4448238]; FN boundary/interior=[472927, 3164853]
+  Background FP rates edge/interior=[0.0024760176475929515, 0.004530745791424022]; high/low local texture proxy=[0.008193308581284291, 0.002298036358956629]
+Largest wrong-class overlap pair: GT C4 -> predicted C3: 978039 pixels. Pair counts can overlap across GT labels.
+GT multi-label pixels=0; predicted multi-label pixels=2376611, of which background=900112.
+
+L: Dice/IoU 0.255732/0.153225; normal alarms 1141/1180
+C1: FP=899759,FN=621281; FP on annotated background=341340, wrong-other-class=558419; FP distances <=3/3..16/>16/no-own-GT=[11635, 3840, 17959, 866325]; FN boundary/interior=[239165, 382116]
+  Background FP rates edge/interior=[0.0001564411177164955, 0.00037307971510515]; high/low local texture proxy=[0.0009172084347982474, 6.0384553844729305e-05]
+C2: FP=1449597,FN=109782; FP on annotated background=661420, wrong-other-class=788177; FP distances <=3/3..16/>16/no-own-GT=[3632, 1279, 6295, 1438391]; FN boundary/interior=[54170, 55612]
+  Background FP rates edge/interior=[0.0002772528299888011, 0.0007272776271999068]; high/low local texture proxy=[0.0012711741014273061, 0.00036464024738568123]
+C3: FP=20870557,FN=12442938; FP on annotated background=19339454, wrong-other-class=1531103; FP distances <=3/3..16/>16/no-own-GT=[850792, 779718, 4571423, 14668624]; FN boundary/interior=[2226351, 10216587]
+  Background FP rates edge/interior=[0.015041937959238904, 0.020098276947191726]; high/low local texture proxy=[0.045929171673147105, 0.006375272078603691]
+C4: FP=3296510,FN=3713670; FP on annotated background=2870258, wrong-other-class=426252; FP distances <=3/3..16/>16/no-own-GT=[56605, 65311, 120794, 3053800]; FN boundary/interior=[471040, 3242630]
+  Background FP rates edge/interior=[0.0017789526370795298, 0.003059175033561536]; high/low local texture proxy=[0.006234900379392563, 0.0012307786744542107]
+Largest wrong-class overlap pair: GT C4 -> predicted C3: 893250 pixels. Pair counts can overlap across GT labels.
+GT multi-label pixels=0; predicted multi-label pixels=3153950, of which background=1195246.
+
+Boundary bins use3/16-pixel native Euclidean distance. Image-edge band is16px; exposure-normalized background rates avoid confusing area with risk.
+Local std strata measure association with intensity variation only. They do not prove texture causes errors. Overlapping strata are not additive.
+All errors are relative to existing annotations. No annotation was changed or assumed wrong.
+
+EXISTING NINE FROZEN K/L/N EXAMPLES (all retained; no reselection)
+K: {'correct_overlap_with_remaining_errors': 7, 'false_alarm_on_GT_empty': 2}; TP/FP/FN class vectors=[[81, 880, 104771, 8078], [1953, 228, 34469, 4839], [4676, 9641, 72299, 9840]]
+L_matched: {'correct_overlap_with_remaining_errors': 7, 'false_alarm_on_GT_empty': 2}; TP/FP/FN class vectors=[[235, 3087, 119247, 8411], [3259, 1811, 48909, 2446], [4522, 7434, 57823, 9507]]
+N_bce75: {'correct_overlap_with_remaining_errors': 7, 'false_alarm_on_GT_empty': 2}; TP/FP/FN class vectors=[[57, 1188, 105897, 2112], [1024, 450, 36531, 20], [4700, 9333, 71173, 15806]]

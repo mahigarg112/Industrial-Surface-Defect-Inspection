@@ -1,0 +1,13 @@
+{
+  "status": "completed",
+  "epochs_completed": 5,
+  "best_epoch": 3,
+  "best_validation_macro_dice": 0.11825690418481827,
+  "checkpoint_selection": "highest validation macro Dice at default threshold",
+  "early_stopping_patience": 2,
+  "training_duration_seconds": 6850.008983373642,
+  "device": "cpu",
+  "training_images": 10054,
+  "validation_images": 2514,
+  "checkpoint_is_smoke_test": false
+}

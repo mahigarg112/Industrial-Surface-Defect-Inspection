@@ -1,0 +1,84 @@
+{
+  "checkpoint": "C:\\Users\\shail\\OneDrive\\Desktop\\Projects\\project_2\\experiments\\severstal_segmentation\\results\\best_model.pt",
+  "split": "val",
+  "examples": [
+    {
+      "image_id": "00ac8372f.jpg",
+      "true_class_ids": [
+        "1",
+        "2"
+      ],
+      "predicted_class_ids": []
+    },
+    {
+      "image_id": "0007a71bf.jpg",
+      "true_class_ids": [
+        "3"
+      ],
+      "predicted_class_ids": [
+        "3"
+      ]
+    },
+    {
+      "image_id": "012f26693.jpg",
+      "true_class_ids": [
+        "3",
+        "4"
+      ],
+      "predicted_class_ids": []
+    },
+    {
+      "image_id": "000418bfc.jpg",
+      "true_class_ids": [],
+      "predicted_class_ids": []
+    },
+    {
+      "image_id": "001982b08.jpg",
+      "true_class_ids": [],
+      "predicted_class_ids": []
+    },
+    {
+      "image_id": "002e73b3c.jpg",
+      "true_class_ids": [],
+      "predicted_class_ids": []
+    },
+    {
+      "image_id": "005d86c25.jpg",
+      "true_class_ids": [
+        "3"
+      ],
+      "predicted_class_ids": [
+        "3"
+      ]
+    },
+    {
+      "image_id": "008b9acf5.jpg",
+      "true_class_ids": [],
+      "predicted_class_ids": [
+        "3"
+      ]
+    }
+  ],
+  "palette": {
+    "1": [
+      255,
+      55,
+      55
+    ],
+    "2": [
+      55,
+      220,
+      80
+    ],
+    "3": [
+      55,
+      130,
+      255
+    ],
+    "4": [
+      255,
+      220,
+      45
+    ]
+  }
+}

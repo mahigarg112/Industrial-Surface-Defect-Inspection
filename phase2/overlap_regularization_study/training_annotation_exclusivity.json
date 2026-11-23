@@ -1,0 +1,49 @@
+{
+  "split": "train",
+  "images": 9048,
+  "native_shape": [
+    256,
+    1600
+  ],
+  "total_pixel_locations": 3706060800,
+  "overlapping_GT_pixels": 0,
+  "images_with_pixel_overlap": 0,
+  "multi_class_source_images": 307,
+  "negative_source_images": 4250,
+  "class_positive_pixels": [
+    2786280,
+    591741,
+    95339242,
+    20018374
+  ],
+  "unordered_class_pair_intersection_pixels_upper_triangle": [
+    [
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "offending_images": [],
+  "seconds": 263.2238302000005,
+  "partition_sha256": "97135138fcb09211c850dc2a16e0ae1deadd3088d342fdccf0c9f9d6b04559f0",
+  "scope": "Every original full-native training mask decoded with the actual training RLE decoder; no image or test reads. Every sampled crop is a subset of these masks."
+}

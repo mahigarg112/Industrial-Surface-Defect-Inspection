@@ -1,0 +1,53 @@
+{
+  "selected_candidate": "K_extended_patch",
+  "candidates": [
+    "B_whole",
+    "C_patch",
+    "E_weighted_patch",
+    "F_present_dice_patch",
+    "G_present_dice_whole",
+    "H_foreground_patch",
+    "J_balanced_dice_patch",
+    "K_extended_patch"
+  ],
+  "selection_split": "val",
+  "selection_metric": "highest validation macro Dice after per-class threshold tuning; earlier candidate order wins exact ties",
+  "checkpoint_sha256": "0ce6c174d27fff24551faa7ce94f7a2ec7f9a98294a0eac7746a8c61b89eed59",
+  "thresholds": [
+    0.949999988079071,
+    0.9750000238418579,
+    0.5,
+    0.949999988079071
+  ],
+  "threshold_file_sha256": "59549492e4f683d8a996f32d708b8aeef42e5c8f1e908c2524e1d289f3b2651c",
+  "partition_sha256": "97135138fcb09211c850dc2a16e0ae1deadd3088d342fdccf0c9f9d6b04559f0",
+  "stride": 128,
+  "blend": "hann",
+  "selected_validation_macro_dice": 0.23922878227237032,
+  "test_opened_at_selection": false,
+  "code_sha256": {
+    "phase2\\audit.py": "be6ff099dd97ea272f262e1bef3c25976d06fb53854a5a3d667f12f3a0745ee8",
+    "phase2\\common.py": "8aa2c63fc5b3934df8b550012cfdc1da95b5537db6fc7a82ba42f7cffc266a65",
+    "phase2\\data.py": "668775cceb520fe7e830017bbb74202b22e7cf34edcf004e251858a3bd17cf42",
+    "phase2\\evaluate.py": "c1fd556acee9cf2d3dc95ad78d48bde97303381291c16a06c8c56d45c05ae4f6",
+    "phase2\\finalize.py": "125ab89c665d8d42e2709729c7ee59021b94361e3cb4f7fc06da8f75e8ce35e5",
+    "phase2\\infer.py": "137a62971d38e174f44a33fdf5a7e3ca803dbfcc9884818f144786f0d15661e2",
+    "phase2\\inspect_architecture.py": "864d0f873f0d43ed342cd199630a12efabc78658cdac5841610e43485fc450b3",
+    "phase2\\metrics.py": "7096cac25bfd45b7d05f30514cd947a6dbe960fa98f56c35c60489f0ec7fdf11",
+    "phase2\\objectives.py": "dbc8e54060f1b136f0989f9d7509310dcff4c5c4446e963ca9c1829ba4676b3b",
+    "phase2\\patches.py": "9632d2e404de4035be51adcc1f83be7ebf42280fc8220aaa4f411729a9511dce",
+    "phase2\\phase1_eval.py": "e01b9f60e7b56143ccc3306e2f718bc5060191a13b7334127138031e7ce914bd",
+    "phase2\\profile_exposure.py": "85e69da2b74a8814cc052de7c2092e7bb8266db2a079cfe3b9200cf5a4b3e69f",
+    "phase2\\profile_histograms.py": "80522bbf60ae312c85c7eeff59cedc242f70618f9a1c5a8c99047f2629adf957",
+    "phase2\\report.py": "89bf47a82a88b13ce7d7156004074bdd142ffc0d92e671f53a62f2e7e6c9b473",
+    "phase2\\resume_smoke.py": "80e031cf78ed8473d1a2748b957874510a15df9bc4a056e5c4925bf491844dd6",
+    "phase2\\smoke.py": "9dc1f17dec8fc44d9185a314d26bef0636bc91a3bc6434ed6f2d750447d6b668",
+    "phase2\\test_evaluation.py": "fd514b90d3b1681263ca6a29a2953502d68ba89b81940921eb0ad7d6380f6d48",
+    "phase2\\test_pipeline.py": "3ef825aa9f746d941713a316ff9cba451cf15b7c60169be93b094411fc11e922",
+    "phase2\\test_sampling.py": "ef8b6b05ee94dd6ab8b341f62a667867664bc65eb1645e80d12ce0e04d29a2d2",
+    "phase2\\train.py": "77636afa1ec036010ed6425130e0e1a4c4897fb7624c29e7fdde2119cf33e14a",
+    "phase2\\verify_evidence.py": "fa29f40461999cbb642130626c2387a0bc3f91eeda0ff9473d356e2ddb7a10d9",
+    "phase2\\weighted_smoke.py": "c0808d1bfec222c7fe0ec55973b5d30e9d8dcd471ad4c7e29527d9d5b82bb8ed",
+    "phase2\\__init__.py": "621b6c4a4c9c963ba980c521754f70ddf4e711761d60e3b5ade5978038b7e9d6"
+  }
+}

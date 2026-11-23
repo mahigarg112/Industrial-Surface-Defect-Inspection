@@ -1,0 +1,34 @@
+ORIGINALITY / ASSISTANCE DECLARATION - TEMPLATE ONLY
+NOT SIGNED. REVIEW AND COMPLETE PERSONALLY UNDER THE ACTUAL COURSE POLICY.
+
+Student name: ____________________   Student ID: ____________________
+Course/project: __________________   Supervisor: ____________________
+Date: ____________________________
+
+My claimed contribution (describe actual work, experiments and understanding):
+____________________________________________________________________
+____________________________________________________________________
+
+Established sources used: Severstal dataset; U-Net; PyTorch/library documentation;
+foreground sampling/class weighting prior art; existing Phase I project source.
+External adaptations/weights and their required attribution (review source log):
+____________________________________________________________________
+
+AI assistance actually used: Codex-assisted audit, implementation, experiment
+orchestration, documentation and release/QA work, as described in the source logs.
+Explain what I reviewed, tested, understood and changed personally:
+____________________________________________________________________
+
+Faculty AI/data permission and applicable policy (attach proof; do not assume):
+____________________________________________________________________
+Dataset/source/derived-artifact publication rights (unresolved unless documented):
+____________________________________________________________________
+
+Review items (mark only after checking):
+[ ] Claims match recorded evidence, including failures and budget differences.
+[ ] I can explain the model, data split, losses, stitching and limitations.
+[ ] AI/external-source disclosures meet the actual individual-project policy.
+[ ] Required permissions and attribution are documented.
+[ ] No claim of inventing U-Net/patching or achieving industrial reliability.
+
+Student signature: __________________________  Date: _________________

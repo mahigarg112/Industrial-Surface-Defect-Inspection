@@ -1,0 +1,21 @@
+{
+  "model_selection_unchanged": true,
+  "checkpoint_lock_partition_and_test_metrics_unchanged": true,
+  "frozen_input_sha256": {
+    "final\\model.pt": "0ce6c174d27fff24551faa7ce94f7a2ec7f9a98294a0eac7746a8c61b89eed59",
+    "final\\lock.json": "e51bbf734f10a3269a435c571d0660a0b7efa25c991515605fcde038eabc312b",
+    "partition.csv": "97135138fcb09211c850dc2a16e0ae1deadd3088d342fdccf0c9f9d6b04559f0",
+    "B_whole\\test\\metrics.json": "f845657e6e5cdc2c03ba5b301246564671609cf1db79e01930ed41cf6f254eb8",
+    "C_patch\\test\\metrics.json": "c3204fc51c8f9534cd2304f54c6fd376d9ba066fad16774880bd60919988ea39",
+    "E_weighted_patch\\test\\metrics.json": "d37d73417886329cbc66b7fcfd7ed6d987b2d5f0494f46f49f4145ec24f2e553",
+    "F_present_dice_patch\\test\\metrics.json": "d14ceda44af702ed6fca498ef81fe4166f1db4cc7eeaca30f8b2a2f217019a7e",
+    "G_present_dice_whole\\test\\metrics.json": "0fac8383c71a1ee90d77694afdd2d576086c1bd5054538b2d4200c6a04375f23",
+    "H_foreground_patch\\test\\metrics.json": "a9dc10b5e60758fb57047bce06ddd7d9012333b72cfd4ae9ad51d97c09546afa",
+    "J_balanced_dice_patch\\test\\metrics.json": "94eefddb2d2047bd69ec64c3cc05d4bf93bb4b9a5c5e1050cbf2af1679dbc756",
+    "K_extended_patch\\test\\metrics.json": "78fa4b99c45835f417c12bcaff874c23ab9bfcea7bcef244b0f0fd238e2330f7",
+    "ablations\\C_hann_stride256\\metrics.json": "9cb05226816ec21477098e41d87c7e4fe4729297e2f8c4dc32c37d04777d02e3",
+    "ablations\\C_uniform_stride128\\metrics.json": "e93b36514e7997f39ed1449fa928ea6b1478257fffe5de0ac757e20840ea1a1c"
+  },
+  "post_review_source_sha256": "b0ac227cd8e432c29e9f1667fed1f275cf40fd102550e83f991e49036c8d55c7",
+  "review_inputs": "fixed held-out output panels and metrics; timing-only inputs from validation; no model selection or training"
+}

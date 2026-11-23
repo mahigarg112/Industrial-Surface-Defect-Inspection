@@ -1,0 +1,287 @@
+MATHEMATICS FOR THE ACTUAL PHASE II MODEL
+Notation: N=batch size; C=4 defect channels; H,W=spatial dimensions; i indexes
+pixels within one image/channel; n indexes images; c indexes defect channels;
+x=input; y=binary target; theta=learned parameters; z=logit; p=sigmoid(z).
+All examples are explanatory toy numbers, not additional experimental results.
+Training uses differentiable probabilities; evaluation uses thresholded masks.
+
+1. CONVOLUTION
+z[n,o,h,w] = b[o] + sum over k,a,b of K[o,k,a,b]*x[n,k,h+a-1,w+b-1].
+Here o is output channel, k input channel, a,b=0,1,2 are 3x3 kernel offsets,
+K is a learned weight and b[o] a bias when present. Out-of-image coordinates
+use zero padding. PyTorch Conv2d implements cross-correlation (no kernel flip),
+usually called convolution in deep learning. In block convs bias is disabled
+because BN supplies an affine shift. Kernel positions share weights everywhere.
+Output side = floor((L+2P-d*(k-1)-1)/s + 1), with input side L, padding P,
+dilation d, kernel width k and stride s. For L256,P1,d1,k3,s1 ->256.
+Toy: a2x2 patch [1,2;3,4] times kernel [1,0;0,-1] sums to-3 before activation.
+Actual first conv: 3 RGB ->16 maps, 3x3,stride1,padding1; 3*16*9=432 weights.
+Code: phase2/model.py:ConvBlock.__init__, enc1.layers[0].
+
+2. FEATURE MAPS AND BATCH NORMALIZATION
+A feature map is an HxW array of responses from one learned output filter.
+Sixteen maps do not mean sixteen classes: they are intermediate learned patterns.
+Early maps may respond to edges/texture, but named semantic meanings are not
+verified by a channel visualization. Later layers combine these responses.
+BN: u=gamma*(z-mu)/sqrt(v+epsilon)+beta. mu,v are channel statistics over batch
+and spatial positions during training; gamma,beta are learned; epsilon=1e-5.
+At evaluation, use running statistics instead of current-batch statistics.
+Example: z5,mu3,v4,gamma1,beta0 -> approximately1. Model BN momentum0.1
+updates the stored statistics toward the current batch. Code: ConvBlock,
+train.main:model.train()/model.eval(); common.load_model returns .eval().
+
+3. RELU
+ReLU(z)=max(0,z). z is one activation. [-2,0,3] -> [0,0,3].
+Derivative:0 for z<0,1 for z>0; PyTorch chooses0 at0. It supplies nonlinearity:
+stacked linear layers alone would still represent a linear transformation.
+It is inexpensive, but negative activations receive no local ReLU gradient.
+Actual: nn.ReLU(inplace=True), after each BN in every ConvBlock. Final output
+has no ReLU; negative logits must remain possible.
+
+4. MAX POOLING
+u[n,c,h,w]=max{x[n,c,2h+a,2w+b]:a,b in{0,1}}.
+u is the pooled map. [1,4;2,3] ->4. Kernel2,stride2 halves H and W.
+It reduces compute and expands the area of input influencing deeper activations,
+but loses exact locations. Backpropagation passes a pooling gradient through
+the selected maximum. Code: SmallUNet.pool, reused three times in forward.
+
+5. ENCODER, BOTTLENECK AND DECODER
+Encoder: e1=f1(x),e2=f2(pool(e1)),e3=f3(pool(e2)). f denotes a ConvBlock.
+Bottleneck: q=fb(pool(e3)), shape Nx128x32x32 for a256-square input.
+Decoder: d3=g3(cat(up3(q),e3)), then equivalent d2/d1 using e2/e1.
+up means learned ConvTranspose2d, cat is channel concatenation, g a ConvBlock.
+This learns where defects are using both context and detail.
+Transposed-conv output side=(L-1)*s-2P+d*(k-1)+output_padding+1.
+Actual k2,s2,P0,d1,output_padding0 doubles32 to64,64 to128,128 to256.
+It is a learned upsampling operation, not a mathematical inverse of pooling.
+Code: model.py:SmallUNet.forward. See exact table in architecture document.
+
+6. SKIP CONNECTIONS
+cat(A,B,dim=1) keeps H,W but adds channel counts. Nx64x64x64 concatenated
+with another Nx64x64x64 becomes Nx128x64x64. These are matching encoder and
+upsampled decoder maps. They carry fine details and offer a shorter gradient
+route to earlier features. This U-Net uses concatenation, not elementwise sum.
+There are no trainable parameters in cat. Code: three torch.cat calls in forward.
+
+7. FORWARD PROPAGATION
+z=f_theta(x) is the composition of conv,BN,ReLU,pool,upsampling,cat and output
+operations. theta includes conv kernels, BN scale/shift and biases where present.
+During training, calculate L(z,y); during inference, calculate sigmoid then masks.
+Toy layer: z=w*x+b, x2,w0.5,b-0.2 ->z0.8. Forward propagation calculates values;
+it does not update w. Code: train.main:logits=model(images); patches.predict.
+
+8. LOGITS
+Each z[n,c,h,w] is an unconstrained score before sigmoid. Equivalently, for
+0<p<1, z=log(p/(1-p)), the log odds. z0 ->p0.5; z=log3 ->p0.75.
+Four logits are produced independently by the1x1 conv; there is no probability
+sum constraint. Background means every class falls below its threshold.
+Code: model.py:SmallUNet.output/forward returns logits, not masks.
+
+9. SIGMOID AND THRESHOLDING
+p=sigma(z)=1/(1+exp(-z)); d p/d z=p*(1-p).
+For z0,p0.5, derivative0.25. For z2,p~0.8808. mask m[c,h,w]=1[p>=t_c],
+where t_c is a class cutoff and1[.] is an indicator. If p0.8,t0.95 ->negative;
+with t0.7 ->positive. Thresholding is discontinuous and is excluded from the
+training loss. Four sigmoid channels fit independent binary masks; softmax
+would force mutually exclusive categories and a sum of1 at each pixel.
+Code: patches.predict logits.float().sigmoid(); release/inference.render >=.
+
+10. BINARY CROSS-ENTROPY
+L_BCE=-(1/(N*C*H*W))*sum[n,c,i]{ y*log(p)+(1-y)*log(1-p) }.
+y is0/1, p predicted positive probability; logarithms are natural.
+Numerically stable logit form per pixel: max(z,0)-z*y+log(1+exp(-abs(z))).
+This is why the code uses binary_cross_entropy_with_logits(z,y) directly,
+rather than sigmoid followed by log. Default reduction is mean over all pixels.
+For y1,p0.8,loss=-log0.8~0.2231; y0,p0.8 gives-log0.2~1.6094.
+For ordinary unweighted BCE dL/dz=(p-y)/(N*C*H*W).
+Actual final K uses UNWEIGHTED BCE; E was a different weighted-BCE experiment.
+Code: objectives.balanced_present_dice_loss; baseline smoke.loss_fn.
+
+11. SOFT DICE AND THE BASELINE LOSS
+For one image/channel pair:
+D_nc=(2*sum_i(p_i*y_i)+s)/(sum_i p_i+sum_i y_i+s), with smoothing s=1.
+L_Dice_baseline=1-(1/(N*C))*sum_nc D_nc.
+Soft overlap uses probabilities, not thresholded masks. s avoids degenerate
+empty sums and changes small/empty-target behavior; it is not label smoothing.
+Toy p=[0.8,0.2],y=[1,0]: intersection0.8, predicted sum1, target sum1,
+D=(1.6+1)/(1+1+1)=0.8667 and loss0.1333.
+B/C baseline objective =0.5*L_BCE+0.5*L_Dice_baseline.
+Code: phase2/smoke.py:loss_fn, imported by train.py. Reductions cast to float32
+even under autocast to prevent FP16 spatial sums overflowing.
+
+12. ACTUAL FINAL K OBJECTIVE — DO NOT SUBSTITUTE A GENERIC BCE+DICE DESCRIPTION
+L_K=0.5*L_BCE + 0.5*(1/(N*C))*sum_nc [ w_c*a_nc*(1-D_nc) ].
+a_nc=1[sum_i y_nci>0] (positive target pair indicator); D is the same smoothed
+soft Dice above; w_c=T/P_c; T=27,144 training draws over H's3-epoch crop
+calibration; P_c=observed positive image/class pairs over those draws.
+Actual w=[14.027906976744186,51.11864406779661,2.580964153275649,
+15.68110918544194]. See artifacts/dice_pair_priors.json and K config.
+The denominator is ALL N*C pairs, not the number of positives or sum of weights.
+GT-empty pairs contribute zero Dice term; BCE still penalizes negative pixels.
+The weighted Dice component can exceed1. This is an inverse-frequency reduction
+variant of established methods, not an invented new loss.
+Toy verification example: N4,C4,all p0.5 on8x8 masks, each positive pair has
+16 target pixels. Positive-pair counts [4,1,2,1],weights[1,4,2,4] give weighted
+count16. D=(2*8+1)/(32+16+1)=17/49. Weighted mean Dice loss=32/49;
+L=0.5*log2+0.5*(32/49)~0.673104. These are toy weights, not K's actual weights.
+For an all-negative batch the K Dice component is0, leaving0.5*BCE.
+F/H instead divide positive-pair Dice sum by positive-pair count (clamped>=1).
+E changes BCE positive weighting; K does not use E's pos_weight.
+Code: objectives.balanced_present_dice_loss; train.main:present-dice +
+dice-class-weights dispatch. Targets and priors are training-only.
+
+13. BACKPROPAGATION
+Compute L forward, then propagate derivatives backward through the recorded
+operations to obtain dL/dtheta. Gradients describe how a small weight change
+locally changes loss. Backprop calculates gradients; the optimizer applies them.
+The GUI uses inference_mode and has no backward/optimizer step.
+Code: train.main:optimizer.zero_grad(set_to_none=True),
+scaler.scale(loss).backward(), scaler.step(optimizer), scaler.update().
+GradScaler scales the FP32 loss to help represent small FP16 gradients, unscales
+before updating, and skips nonfinite updates; it is not gradient accumulation.
+K logged10,179 attempted /10,174 successful updates,5 skipped AMP steps.
+
+14. GRADIENTS AND CHAIN RULE
+If z=w*x, p=sigma(z), L=L(p), then dL/dw=(dL/dp)*(dp/dz)*(dz/dw).
+Each term is a local derivative; chained operations multiply their influences
+and branches add gradient contributions. For unaveraged BCE, dL/dz=p-y.
+Toy: w0.5,x2 ->z1,p0.7311,y1; dL/dw=(0.7311-1)*2=-0.5379.
+Increasing w slightly would reduce that loss. This is a scalar intuition;
+the actual network has482,788 parameters and a combined BCE/Dice gradient.
+Code: PyTorch autograd triggered by backward; no manually coded full derivatives.
+
+15. ADAM
+For gradient g_t=dL/dtheta at step t:
+m_t=beta1*m_(t-1)+(1-beta1)*g_t
+v_t=beta2*v_(t-1)+(1-beta2)*g_t^2
+mhat_t=m_t/(1-beta1^t); vhat_t=v_t/(1-beta2^t)
+theta_t=theta_(t-1)-alpha*mhat_t/(sqrt(vhat_t)+epsilon).
+m=first moment, v=second moment, beta1/beta2=decays, alpha=learning rate,
+epsilon=numerical stabilizer; all operations are elementwise per parameter.
+Actual torch.optim.Adam defaults: betas(0.9,0.999),eps1e-8,weight_decay0,
+amsgradFalse; explicit lr0.001. Not AdamW, no weight decay/scheduler configured.
+First-step toy g0.2 gives m0.02,v0.00004; bias-corrected mhat0.2,vhat0.04,
+so update approximately-0.001. J->K restores these optimizer moments.
+Code: train.main optimizer construction and resume optimizer.load_state_dict.
+
+16. LEARNING RATE
+alpha controls update size. In basic gradient descent theta_new=theta-alpha*g;
+Adam scales by its moment estimate too. Large alpha can destabilize; very small
+alpha can make learning slow. Actual alpha0.001 stays constant; there is no
+ReduceLROnPlateau/cosine scheduler. No claim that0.001 is globally optimal.
+Code: train.main config['learning_rate']; K config scheduler=null.
+
+17. EPOCH AND BATCH SIZE
+An epoch is one pass through this training source-image list; each source gives
+one256-square crop, not every possible tile. Batch8 means up to8 image/mask
+pairs before an update. With9,048 sources and batch8,9,048/8=1,131 attempts
+per epoch;9 epochs=10,179 attempts. K's9 includes inherited J epochs1..3.
+Training draws total81,432; foreground crop positions can change with epoch
+through the seed42/epoch/index generator. Inference patch batching is separate
+from training batch size. Code: data.TrainDataset and train.main DataLoader.
+
+18. DICE COEFFICIENT (BINARY EVALUATION)
+Dice=2*TP/(2*TP+FP+FN). TP=correct positive pixels, FP=incorrect positives,
+FN=missed target positives. Example TP6,FP2,FN4 ->12/18=0.6667.
+Dice is foreground F1 and ignores true negatives; it differs from the smoothed
+training formula. Code: metrics.counts then summarize. Aggregate counts over
+the entire split per class; macro Dice=(D1+D2+D3+D4)/4. This equal class weight
+helps reveal rare-class failure even when class3 dominates foreground pixels.
+Do not average four per-class numbers from rounded values for exact checks.
+Undefined ratios become null; a completely absent evaluation class is not
+awarded Dice1. All four classes are present in the recorded full splits.
+
+19. INTERSECTION OVER UNION
+IoU=TP/(TP+FP+FN); intersection=TP, union includes predicted or target positives.
+Same toy:6/(6+2+4)=0.5. For one class with defined denominator,
+Dice=2*IoU/(1+IoU), and IoU=Dice/(2-Dice). This relation does NOT transform
+macro Dice into macro IoU because nonlinear transformation and averaging differ.
+Code: metrics.summarize. K macro Dice0.233996 and macro IoU0.137937 are
+computed separately from class totals, not by converting the macro score.
+
+20. PRECISION AND RECALL
+Precision=TP/(TP+FP): of predicted positive pixels, how many were correct?
+Recall=TP/(TP+FN): of actual positive pixels, how many were recovered?
+Toy TP6,FP2,FN4 ->precision0.75,recall0.6. A higher threshold typically reduces
+both predicted positives and recall while it may improve precision; precision
+improvement is not guaranteed on every sample. Zero-denominator rates=null.
+K class2 precision0.055592 and recall0.161799 show severe false positives and
+misses together. Code: metrics.summarize; inference.render implements cutoff.
+
+21. FALSE POSITIVES AND FALSE NEGATIVES
+For a binary pixel prediction m and target y: TP=m*y,FP=m*(1-y),FN=(1-m)*y.
+FP is marking clean pixels defective; FN is missing a real defect. A mask may
+have both. Image-level any-pixel alarm=1[any predicted class pixel>0]. These
+units differ: a single spurious pixel can alarm a GT-empty image.
+Recorded K452/472 GT-empty alarms ~95.76%; this is not pixel FPR (FP/(FP+TN)).
+Code: metrics.counts and evaluate.evaluate normal-image counters.
+
+22. CLASS IMBALANCE
+Foreground pixels/classes occur unequally. Training positive source counts
+C1..4=[645,177,3707,577] among9,048; source counts differ from patch-positive
+counts and pixel frequencies. Uniform native crops can omit source defects.
+K's training crop rule improves exposure; inverse positive-pair-frequency Dice
+balances expected pair contribution. BCE still includes all background pixels.
+These interventions are tested separately; weighting alone did not guarantee
+an improvement. Code: data.TrainDataset, objectives.prepare_pair_priors,
+balanced_present_dice_loss; records in training_target_exposure.csv.
+
+23. WHY PIXEL ACCURACY MISLEADS
+Accuracy=(TP+TN)/(TP+TN+FP+FN), TN=correct background pixels. If100 of10,000
+pixels are defects, predicting all background gets99% accuracy but recall0
+and Dice0. Thus use per-class Dice/IoU and FP/FN, not a background-dominated
+headline. GUI affected area=positive_pixels/(H*W)*100 has no target and is not
+accuracy. Code: metrics deliberately reports foreground overlap/rates.
+
+24. VALIDATION FLUCTUATION
+The fixed validation images do not change, but weights change after every
+epoch. Stochastic crop/order exposure, finite samples, rare classes and abrupt
+threshold0.5 mask changes can make Dice rise/fall despite smoother train loss.
+Different precision/BN train-versus-eval behavior can also affect predictions.
+Code: deterministic epoch-varying crops, train.main history.csv and model.eval.
+K default validation Dice0.180396 differs from tuned validation0.239229 and
+held-out test0.233996: operating point and split differ. Do not present them
+as repeated estimates of one identical procedure. Selecting on validation can
+overfit choices; the opened test cannot now guide new settings.
+
+25. OVERFITTING, UNDERFITTING AND EARLY STOPPING
+Overfitting: training performance improves while validation generalization
+worsens persistently. Underfitting: insufficient learning/capacity/optimization
+leaves both poor. One low validation score cannot diagnose the cause alone.
+The B baseline's rare-class collapse and short budget are measured; class
+imbalance, resized detail loss and limited training are plausible explanations,
+not uniquely proven causes. No assertion that B reached convergence.
+Actual early stopping: keep first epoch with highest native validation macro
+Dice at0.5; increment bad_epochs without improvement; stop when bad_epochs>=2.
+K completed all9, best9; early stopping did not terminate it earlier. Thresholds
+are selected separately on validation for the saved best epoch. No scheduler,
+augmentation, dropout or gradient clipping should be claimed as implemented.
+Code: train.main checkpoint/else/break blocks and config/run_info/history.
+
+26. OVERLAP/HANN RECONSTRUCTION EQUATION
+P_c(y,x)=sum_j[W_j(y,x)*p_jc(y,x)] / sum_j[W_j(y,x)], summing patches j that
+cover pixel(y,x). p_jc is a patch's sigmoid probability mapped to native
+coordinates; W_j is its cropped separable Hann weight. For axis index u,
+h(u)=0.5*(1-cos(2*pi*u/(L-1))),L256; axis=max(h,0.01),W=outer(axis,axis).
+The corner floor is0.0001 after multiplying the two axes, not0.01 in2D.
+Toy overlap probabilities0.8,0.4 with weights0.75,0.25 ->P0.7. Threshold only
+after normalization; thresholding patches first discards score information.
+CPU float32 rounding can differ slightly from CUDA inputs (observed max~6e-8
+in division by255); equality tests use a justified numerical tolerance.
+Code: patches.weight_window, blend and streamed predict.
+
+27. RLE AND LEAKAGE
+One-based column-major flat position s maps to row=(s-1)%H,
+column=floor((s-1)/H). Run(s,length) marks successive column-major positions.
+For H3,W5,run '3 2' marks(row2,col0) and(row0,col1). Decode into4 native
+channels before cropping. Code: dataset_utils.decode_rle reshape(order='F').
+Leakage prevention is a data protocol, not a loss formula: independent image
+groups/partitions, no test-based selection, training-only sampling/priors.
+Exact RGB duplicates were grouped; near/coil duplicates remain a limitation.
+Phase I weights saw the newly reserved test images, so cannot be used there
+as an independent model comparison. Phase II candidates trained on9,048 only.
+
+References and scope: existing project SOURCE_AND_CONTRIBUTION_LOG.md contains
+U-Net2015, official PyTorch BCE/AMP/optimizer-related library sources, Severstal
+and nnU-Net sampling prior art. This document explains inspected code and known
+mathematics; it introduces no unverified technique, retraining or new score.

@@ -1,0 +1,65 @@
+OVERLAP REGULARIZATION — ONE CONTROLLED EXPERIMENT
+
+Training exclusivity VERIFIED: all 9048 native training masks; 3706060800 pixel locations; 0 multilabel annotated pixels; 307 images contain multiple classes at distinct pixels; 4250 negative sources. No test masks decoded or test images loaded. Every sampled crop is a subset of verified masks.
+Unchanged baseline: 0.5 unweighted BCE-with-logits + 0.5 inverse-positive-pair-frequency weighted Dice; empty GT Dice terms zero, smoothing1, mean over B*C. BCE is NOT class-weighted in K.
+ONLY change: L_total=L_K+0.10*L_overlap, with L_overlap=(1/(6*B*H*W))*sum_{b,y,x}sum_{i<j}sigmoid(z_i)*sigmoid(z_j). Six unordered pairs, FP32 loss. Coefficient0.10 fixed before training; no sweep.
+The overlap term is in [0,1], so its weighted addition is at most0.10. Zero exactly for probability tensors with at most one nonzero channel at each pixel. Finite nonsaturated sigmoid logits give tiny positive inactive probabilities and therefore generally a small positive term, not exact zero.
+Independent sigmoid channels retained throughout training, evaluation and rendering. No softmax, winner-takes-all argmax, threshold retuning, filtering, augmentation or architecture change.
+K epoch9 full matching model/Adam/scaler/Torch+CUDA RNG restored; reduce LR to0.0001 as L. Seed42, batch8, workers2, 256x256 foreground-aware crops, one source per epoch including4250 negatives. Two additional epochs10-11;2262 attempts; same patience2/useful gain0.002 rule. BN trains normally and is eval-only for validation.
+Matched control already exists: L_low_lr first2 epochs; best within those epochs is11. Its initialization_provenance.json verifies actual K state SHA; an inherited J-origin config field is not the L initialization. No new control training needed.
+Candidate epochs=2, successful/skipped steps=2262/0; L=2262/0. Target-exposure counts exactly match L for both epochs.
+Candidate actual training-only seconds=185.621; matched L first2 training seconds=193.689; P total train+full-val/diagnostics seconds=1894.264; peak allocated/reserved bytes=423115776/513802240.
+Historical K combined epoch1-9 training-only history seconds=763.548; this is a different budget and is not a matched timing control. Timing differences across sessions include machine load; do not interpret them as a controlled speedup.
+Six pre-training unit tests PASS: disjoint zero, known products/pair symmetry, numerical gradcheck, analytical sigmoid chain rule/extremes, coefficient-zero equality/unchanged target, CUDA AMP finite backward. Independent best-checkpoint CPU/CUDA native inference and all9 panel counts PASS.
+
+VALIDATION: same2514 native images, original locked thresholds [0.949999988079071, 0.9750000238418579, 0.5, 0.949999988079071]. Aggregate int64 class pixel totals then equal-class macro. No test-based selection.
+Small GT objects:8-connected components<=1024 pixels; detected if>=10% correct-class GT pixels recovered. Normal alarm:any predicted pixel on an annotated-empty image. Pixel-class FP counts can double-count locations across predicted channels.
+K: Dice/IoU=0.239229/0.141876; normal alarms=1130/1180; predicted multi-channel locations=2376611 (on background=900112); localized image recall=0.974513
+  Background FP=[239258, 88072, 14131083, 4228138]; wrong-other-class FP=[403901, 382157, 1499134, 568199]; total FP/FN=21539942/18935844
+  C1: Dice=0.193465, IoU=0.107092, precision=0.194451, recall=0.192489, FP/FN=643159/651300, small-object=166/364 (0.45604395604395603), small-pixel recall=0.24740215347803796
+  C2: Dice=0.062291, IoU=0.032147, precision=0.042245, recall=0.118542, FP/FN=470229/154226, small-object=2/8 (0.25), small-pixel recall=0.08945880452342488
+  C3: Dice=0.410170, IoU=0.257996, precision=0.401231, recall=0.419515, FP/FN=15630217/14492538, small-object=355/435 (0.8160919540229885), small-pixel recall=0.6548804911080783
+  C4: Dice=0.290990, IoU=0.170268, precision=0.265164, recall=0.322388, FP/FN=4796337/3637780, small-object=17/36 (0.4722222222222222), small-pixel recall=0.2604003975578589
+  Wrong-class pair matrix (GT rows, predicted columns; requires predicted-class GT absent): [[0, 319, 443509, 44818], [971, 0, 77586, 0], [374519, 381489, 0, 523381], [28411, 349, 978039, 0]]
+L: Dice/IoU=0.255732/0.153225; normal alarms=1141/1180; predicted multi-channel locations=3153950 (on background=1195246); localized image recall=0.987256
+  Background FP=[341340, 661420, 19339454, 2870258]; wrong-other-class FP=[558419, 788177, 1531103, 426252]; total FP/FN=26516423/16887671
+  C1: Dice=0.195890, IoU=0.108580, precision=0.170752, recall=0.229707, FP/FN=899759/621281, small-object=191/364 (0.5247252747252747), small-pixel recall=0.2879037771321142
+  C2: Dice=0.077153, IoU=0.040125, precision=0.043033, recall=0.372556, FP/FN=1449597/109782, small-object=7/8 (0.875), small-pixel recall=0.593497576736672
+  C3: Dice=0.429174, IoU=0.273215, precision=0.375018, recall=0.501610, FP/FN=20870557/12442938, small-object=386/435 (0.8873563218390804), small-pixel recall=0.7520458479091826
+  C4: Dice=0.320712, IoU=0.190981, precision=0.334223, recall=0.308252, FP/FN=3296510/3713670, small-object=16/36 (0.4444444444444444), small-pixel recall=0.26820956978560273
+  Wrong-class pair matrix (GT rows, predicted columns; requires predicted-class GT absent): [[0, 4482, 519119, 32109], [1348, 0, 118734, 0], [511336, 782502, 0, 394143], [45735, 1193, 893250, 0]]
+P: Dice/IoU=0.256175/0.153501; normal alarms=1143/1180; predicted multi-channel locations=3042981 (on background=1146136); localized image recall=0.987256
+  Background FP=[342351, 651247, 19170970, 2862201]; wrong-other-class FP=[555441, 779145, 1475756, 417183]; total FP/FN=26254294/16941144
+  C1: Dice=0.196825, IoU=0.109155, precision=0.171648, recall=0.230657, FP/FN=897792/620515, small-object=191/364 (0.5247252747252747), small-pixel recall=0.28980943428473765
+  C2: Dice=0.077699, IoU=0.040420, precision=0.043395, recall=0.370859, FP/FN=1430392/110079, small-object=7/8 (0.875), small-pixel recall=0.5902665589660743
+  C3: Dice=0.429456, IoU=0.273444, precision=0.376596, recall=0.499579, FP/FN=20646726/12493647, small-object=386/435 (0.8873563218390804), small-pixel recall=0.7517843976971466
+  C4: Dice=0.320719, IoU=0.190986, precision=0.334947, recall=0.307650, FP/FN=3279384/3716903, small-object=16/36 (0.4444444444444444), small-pixel recall=0.26447063277959204
+  Wrong-class pair matrix (GT rows, predicted columns; requires predicted-class GT absent): [[0, 4444, 518602, 30531], [1363, 0, 117979, 0], [508765, 773521, 0, 386652], [45313, 1180, 839175, 0]]
+
+CHANGES AGAINST MATCHED L
+C1: Dice delta=+0.000935; precision delta=+0.000896; recall delta=+0.000950; FP delta=-1967; FN delta=-766.
+C2: Dice delta=+0.000545; precision delta=+0.000363; recall delta=-0.001697; FP delta=-19205; FN delta=+297.
+C3: Dice delta=+0.000282; precision delta=+0.001578; recall delta=-0.002031; FP delta=-223831; FN delta=+50709.
+C4: Dice delta=+0.000006; precision delta=+0.000724; recall delta=-0.000602; FP delta=-17126; FN delta=+3233.
+
+TRAINING LOSS COMPONENTS (raw auxiliary versus actual weighted addition)
+Epoch10: baseline=0.25179045810425943, raw overlap=0.009715140491285938, weighted overlap=0.0009715140491285939, total=0.2527619720157483; train seconds=92.97583049999957.
+Epoch11: baseline=0.24558172260010064, raw overlap=0.009368214876474162, weighted overlap=0.0009368214876474162, total=0.24651854418409178; train seconds=92.64540420000048.
+
+SAFETY AND RECOMMENDATION
+Prespecified safeguards: Dice gain>=0.002 vs K and Dice>=matched L; all-class pixel recall drop<=0.02(C2<=0.01), each small-object/pixel recall drop<=0.02, C2 precision nondecrease, normal alarm increase<=0.005, localized image recall drop<=0.01 versus both K and L. No post-hoc loosening.
+{'against_K': {'passed': False, 'reasons': ['class4 small object_recall loss', 'normal-image false-alarm rate increase']}, 'against_matched_L': {'passed': True, 'reasons': []}, 'at_least_matched_L_Dice': True, 'same_successful_update_budget': True}
+Recommendation: REJECT candidate; retain original official K.
+Best checkpoint epoch11: phase2\overlap_regularization_study\P_overlap010\best_model.pt; SHA256=c6320a8684bc639a5b6d2c4ad45011fa470f010d3d22bd5f7ed3b7ea9916a61b
+Fixed qualitative panels: fixed_validation_panels/ contains ALL9 earlier frozen examples, with original/GT/K/L/P rows and class-color legend. Partial true positives, false alarms and missed pixels remain unedited; manifest.json supplies exact TP/FP/FN. Examples are purposive coverage, not representative independent evidence.
+Exact per-class comparison:comparison.csv. Full multilabel16x16 and wrong-class4x4 diagnosis:best_validation.json and unchanged baseline diagnosis. Independent extra-channel errors are measured without argmax; cross-class pair totals may double-count multi-GT pixels in general, although verified GT here has no overlaps.
+All1210 protected file hashes unchanged: official checkpoint, historical experiments, architecture/loss source, clean GUI and submission. No dependencies installed or datasets/checkpoints copied. No promotion performed.
+LIMITATIONS: One coefficient and one seed; development validation has been reused extensively. Historical test had already been opened previously but was not evaluated or used in this study. No independent generalization claim. Annotation exclusivity is dataset-specific, not proof that physical defects never overlap. A uniform overlap penalty may suppress legitimate/uncertain responses and recall; safeguards take precedence over Dice or attractive panels.
+The auxiliary directly addresses simultaneous responses. A single wrong active channel can have almost no overlap penalty, whether it lies on background or on another GT class; the unchanged BCE/Dice supervision must still address those errors. Thresholded coactivation counts do not by themselves establish better segmentation or calibrated probabilities.
+Codex assisted new auxiliary implementation, tests and analysis; original network, K loss, sampler, tiler, rendering and metrics are reused. No novel segmentation algorithm is claimed.
+
+EXECUTED COMMANDS (repository root, existing CUDA environment; output guards prevent overwriting this study):
+.\.venv-phase2\Scripts\python.exe -B -m phase2.overlap_regularization_study.prepare
+.\.venv-phase2\Scripts\python.exe -B -m phase2.overlap_regularization_study.test_loss
+.\.venv-phase2\Scripts\python.exe -B -m phase2.overlap_regularization_study.train
+.\.venv-phase2\Scripts\python.exe -B -m phase2.overlap_regularization_study.finalize

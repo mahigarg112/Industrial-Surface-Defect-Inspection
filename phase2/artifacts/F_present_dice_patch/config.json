@@ -1,0 +1,32 @@
+{
+  "mode": "patch",
+  "seed": 42,
+  "base_channels": 16,
+  "batch_size": 8,
+  "num_workers": 2,
+  "epochs": 3,
+  "learning_rate": 0.001,
+  "optimizer": "Adam",
+  "amp": "float16 forward / float32 loss",
+  "loss": "0.5 unchanged BCE + 0.5 soft Dice over GT-positive image/class pairs only; smoothing=1; empty batch Dice term=0",
+  "early_stopping_patience": 2,
+  "augmentation": null,
+  "gradient_clipping": null,
+  "scheduler": null,
+  "training_images": 9048,
+  "validation_images": 2514,
+  "whole_size": [
+    128,
+    512
+  ],
+  "patch_size": [
+    256,
+    256
+  ],
+  "stride": 128,
+  "blend": "hann",
+  "train_sampling": "one sample per source image per epoch; uniform deterministic grid patch for patch mode",
+  "training_pixels_per_sample": 65536,
+  "partition_sha256": "97135138fcb09211c850dc2a16e0ae1deadd3088d342fdccf0c9f9d6b04559f0",
+  "selection": "highest full native-resolution validation macro Dice at threshold 0.5; first epoch wins ties"
+}

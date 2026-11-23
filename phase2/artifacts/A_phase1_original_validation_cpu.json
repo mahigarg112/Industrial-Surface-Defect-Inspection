@@ -1,0 +1,59 @@
+{
+  "macro_dice": 0.11825690352872202,
+  "macro_iou": 0.07744534519540393,
+  "per_class": {
+    "1": {
+      "dice": 0.0,
+      "iou": 0.0,
+      "precision": null,
+      "recall": 0.0,
+      "true_positive_pixels": 0,
+      "false_positive_pixels": 0,
+      "false_negative_pixels": 129177
+    },
+    "2": {
+      "dice": 0.0,
+      "iou": 0.0,
+      "precision": null,
+      "recall": 0.0,
+      "true_positive_pixels": 0,
+      "false_positive_pixels": 0,
+      "false_negative_pixels": 27727
+    },
+    "3": {
+      "dice": 0.4730276141148881,
+      "iou": 0.3097813807816157,
+      "precision": 0.41352330473509175,
+      "recall": 0.5525351599380453,
+      "true_positive_pixels": 2207473,
+      "false_positive_pixels": 3130734,
+      "false_negative_pixels": 1787699
+    },
+    "4": {
+      "dice": 0.0,
+      "iou": 0.0,
+      "precision": null,
+      "recall": 0.0,
+      "true_positive_pixels": 0,
+      "false_positive_pixels": 0,
+      "false_negative_pixels": 859080
+    }
+  },
+  "aggregation": "int64 pixel counts over entire split, then unweighted four-class macro; undefined ratios=null",
+  "phase": "Phase I",
+  "images": 2514,
+  "evaluation_size": [
+    128,
+    512
+  ],
+  "threshold": 0.5,
+  "checkpoint_sha256": "5edfa7f3269273a66052e0aabd5ffc7bba7f7e5754a1329aeb44e58f279ed661",
+  "original_reported_macro_dice": 0.11825690418481827,
+  "original_reported_macro_iou": 0.07744534313678741,
+  "device": "cpu",
+  "torch_version": "2.15.0+cpu",
+  "precision": "FP32",
+  "duration_seconds": 303.88698029999796,
+  "test_eligibility": "Original training images contaminate newly carved test; A is historical validation context only",
+  "absolute_difference_from_original_dice": 6.560962467760945e-10
+}

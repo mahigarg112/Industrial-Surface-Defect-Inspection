@@ -1,0 +1,84 @@
+{
+  "candidate": "O_photometric",
+  "reference": "phase2/improvement_sprint/L_low_lr epochs10-11; completed existing matched control, best retained epoch11",
+  "initial_checkpoint_sha256": "0ce6c174d27fff24551faa7ce94f7a2ec7f9a98294a0eac7746a8c61b89eed59",
+  "initial_state_sha256": "4a9388e7203cb8d3cdf05fc6c58562754dcfaf89057fb4f09e62852ff14ecc94",
+  "partition_sha256": "97135138fcb09211c850dc2a16e0ae1deadd3088d342fdccf0c9f9d6b04559f0",
+  "train_images": 9048,
+  "val_images": 2514,
+  "train_epoch_indices": [
+    9,
+    10
+  ],
+  "epochs_total": [
+    10,
+    11
+  ],
+  "max_additional_epochs": 2,
+  "attempted_updates": 2262,
+  "batch_size": 8,
+  "workers": 2,
+  "seed": 42,
+  "optimizer": "Adam restored K moments/scaler/RNG; LR0.0001, betas0.9/0.999, eps1e-8, weight_decay0",
+  "objective": "0.5 unchanged BCE + 0.5 positive-pair Dice weighted by inverse training positive-pair frequency; mean over B*C; empty Dice terms zero; smoothing=1",
+  "dice_class_weights": [
+    14.027906976744186,
+    51.11864406779661,
+    2.580964153275649,
+    15.68110918544194
+  ],
+  "crop_sampling": "one sample per source image; choose its rarest present class by training image count, then a uniform native grid patch containing that class; negatives keep uniform grid sampling",
+  "augmentation": {
+    "probability": 0.5,
+    "brightness_uniform": [
+      0.9,
+      1.1
+    ],
+    "contrast_uniform": [
+      0.9,
+      1.1
+    ],
+    "formula": "clamp(((RGB/255 - patch_mean)*contrast + patch_mean)*brightness,0,1)",
+    "rng": "independent stateless [42,epoch,index,1701]; original crop RNG unchanged",
+    "geometry": "none; horizontal flips skipped because acquisition symmetry is unverified",
+    "mask": "returned unchanged, binary, no interpolation"
+  },
+  "validation_augmentation": false,
+  "thresholds": [
+    0.949999988079071,
+    0.9750000238418579,
+    0.5,
+    0.949999988079071
+  ],
+  "stride": 128,
+  "blend": "hann",
+  "selection": "highest full-native val macro Dice at locked K thresholds; first exact tie wins",
+  "early_stopping": "same L rule: patience2 without >=0.002 useful gain above K anchor; two-epoch cap matches L first2 epochs",
+  "safeguards": "unchanged prior safeguards against K and matched L; no loosening after results; retain K if either fails",
+  "fixed_panel_ids": [
+    "00ac8372f.jpg",
+    "00bc01bfe.jpg",
+    "026183d85.jpg",
+    "0007a71bf.jpg",
+    "005d86c25.jpg",
+    "012f26693.jpg",
+    "01afbfa7a.jpg",
+    "000418bfc.jpg",
+    "001982b08.jpg"
+  ],
+  "diagnostic_definitions": {
+    "confusion": "16x16 GT label-set bitmask versus predicted label-set bitmask; four independent labels, never argmax",
+    "FP_partition": "prediction of c with GT c absent: background if every GT absent, otherwise wrong-other-class; disjoint per channel",
+    "cross_pairs": "GT row class i versus wrongly predicted column j, excluding pixels with GT j; multi-GT can contribute to multiple rows, so not additive/row-normalized",
+    "image_edge_width_pixels": 16,
+    "near_boundary_distance_pixels": 3,
+    "far_boundary_distance_pixels": 16,
+    "texture_proxy": "7x7 grayscale local standard deviation >=8 of255; association only, not proof of texture causation"
+  },
+  "test_use": "no historical held-out evaluation or selection",
+  "gpu": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+  "disk_free_bytes": 17538396160,
+  "python": "3.14.5 (tags/v3.14.5:5607950, May 10 2026, 10:43:50) [MSC v.1944 64 bit (AMD64)]",
+  "torch": "2.11.0+cu128",
+  "protected_files": 1161
+}

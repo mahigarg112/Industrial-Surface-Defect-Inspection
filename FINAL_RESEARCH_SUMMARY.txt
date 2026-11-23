@@ -1,0 +1,34 @@
+FINAL RESEARCH COMPARISON — FROZEN K RELEASE
+
+Saved measurements only. No new training or full-dataset evaluation during this freeze.
+Model | Validation Dice / IoU | Historical Phase II test Dice / IoU | Decision
+Phase I original | 0.118257 / 0.077445 | not evaluated / not comparable | Historical context
+B whole-image | 0.121780 / 0.080495 | 0.123897 / 0.082356 | Matched reference for C
+C patch-only | 0.088280 / 0.051900 | 0.091816 / 0.054641 | Underperformed B
+K official | 0.239229 / 0.141876 | 0.233996 / 0.137937 | Official
+L low LR | 0.255732 / 0.153225 | not evaluated / not comparable | Not approved
+N loss balance | 0.216051 / 0.127814 | not evaluated / not comparable | Rejected: recall losses
+O augmentation | 0.255040 / 0.152730 | not evaluated / not comparable | Rejected: no matched-control improvement/safeguards
+P overlap penalty | 0.256175 / 0.153501 | not evaluated / not comparable | Rejected: K reliability safeguards
+
+PROTOCOLS — DO NOT MIX THESE SCORES
+Phase I: original validation2514, resized GT128x512, threshold0.5, original training10054. Its old training overlaps the later carved test partition, so it is not an independent Phase II test baseline.
+B/C/K historical test:1006 identical native images, models/thresholds selected before historical test opening. That test has already been opened. The table repeats saved historical values; no fresh test claim or new test inference.
+B/C validation: native evaluation with each run's own validation-tuned thresholds. K/L/N/O/P: native development validation2514 with the exact fixed K thresholds. This validation has been used repeatedly; newer scores are development evidence, not independent generalization.
+L completed3 additional epochs overall; its retained best epoch11 is also best within the matched first2 epochs used for N/O/P comparison. K-to-new-model changes include extra training; only matched L comparisons isolate each intervention.
+
+NEGATIVE AND POSITIVE FINDINGS
+Matched3-epoch C patch-only underperformed B on historical test:0.091816 versus0.123897. Native patches alone did not improve aggregate quality under this budget. Random crops can omit foreground in positive source images and lose whole-image context; these are plausible mechanisms from the code, not a separately proven explanation.
+Phase II evolved through weighted BCE(E), present-target Dice(F/G), foreground-aware crops(H), training-frequency-weighted Dice(J), and extended training(K). Eight historical run directories,7 fresh starts plus K continuation. K shares J's first3 epochs and reaches9 total; no patching-only causal claim. Full historical table, ablations and configs remain under phase2/artifacts/.
+L improved development Dice but failed K reliability safeguards. N increased BCE proportion and reduced some false positives while losing genuine recall, especially C4. O brightness/contrast jitter did not beat matched L and failed safeguards.
+P added0.10 mean pairwise sigmoid overlap regularization. Its matched-L Dice gain is only0.000442; simultaneous active pixels dropped3.52%, but normal alarms rose1141->1143/1180 (K1130). C4 small-object detection remained16/36 versus K17/36. P failed the original K safeguards; it is not approved for the GUI.
+All9048 native training annotation masks were verified pixel-exclusive in the P study, although307 images contain distinct classes at different pixels. Independent sigmoid inference remains; no argmax enforcement.
+K Class2: development precision0.042245, recall0.118542, Dice0.062291; historical test Dice0.082752, precision0.055592, recall0.161799. These are different splits. Normal-image any-pixel alarms: validation1130/1180; historical test452/472. A few predicted pixels are not a reliable whole-product verdict.
+Small-object detection means >=10% correct-class pixels recovered in an8-connected GT component<=1024 pixels; it is not instance-IoU/AP. No calibrated confidence, external-domain accuracy, coil/acquisition separation or industrial acceptance reliability is established. Single seed, limited budgets and reused validation remain limitations.
+Contribution: implement and measure a resolution-aware native patch pipeline, positive-Hann reconstruction, training-only class exposure changes and controlled negative/positive comparisons. U-Net, patching, Hann windows and class weighting are established methods; no invented-algorithm or incompatible-paper superiority claim.
+
+EVIDENCE LOCATIONS (relative to original repository root; app never imports these parent paths)
+phase2/improvement_sprint/IMPROVEMENT_RESULTS.txt; phase2/precision_balance/FINAL_PREDICTION_IMPROVEMENT.txt;
+phase2/augmentation_study/AUGMENTATION_RESULTS.txt; phase2/overlap_regularization_study/OVERLAP_REGULARIZATION_RESULTS.txt.
+Their raw configs, checkpoints, histories, validation metrics and all frozen qualitative panels remain alongside each report. No experimental weights are duplicated into this clean release.
+Self-contained metric extracts/protocols/source SHA256: verification/final_freeze/research_comparison.json. Earlier complete B..K metrics, source snapshots, Phase I evidence and selected checkpoints remain inside this release.

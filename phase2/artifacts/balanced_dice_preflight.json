@@ -1,0 +1,74 @@
+{
+  "passed": true,
+  "objective": "balanced",
+  "mode": "patch",
+  "foreground_sampler": true,
+  "prior_sha256": null,
+  "partition_sha256": "97135138fcb09211c850dc2a16e0ae1deadd3088d342fdccf0c9f9d6b04559f0",
+  "successful_steps": 8,
+  "attempted_steps": 8,
+  "skipped_steps": 0,
+  "scales": [
+    {
+      "before": 65536.0,
+      "after": 65536.0,
+      "finite_gradients": true
+    },
+    {
+      "before": 65536.0,
+      "after": 65536.0,
+      "finite_gradients": true
+    },
+    {
+      "before": 65536.0,
+      "after": 65536.0,
+      "finite_gradients": true
+    },
+    {
+      "before": 65536.0,
+      "after": 65536.0,
+      "finite_gradients": true
+    },
+    {
+      "before": 65536.0,
+      "after": 65536.0,
+      "finite_gradients": true
+    },
+    {
+      "before": 65536.0,
+      "after": 65536.0,
+      "finite_gradients": true
+    },
+    {
+      "before": 65536.0,
+      "after": 65536.0,
+      "finite_gradients": true
+    },
+    {
+      "before": 65536.0,
+      "after": 65536.0,
+      "finite_gradients": true
+    }
+  ],
+  "all_four_classes_in_targets": true,
+  "losses": [
+    1.4325056076049805,
+    1.3817341327667236,
+    1.3348252773284912,
+    1.2888014316558838,
+    1.2490769624710083,
+    1.2335261106491089,
+    1.2044260501861572,
+    1.1897456645965576
+  ],
+  "batch_size": 8,
+  "amp": true,
+  "note": "Real positive crops exercise all four channels; present-objective mode also includes negative crops. Mechanical preflight, not an accuracy evaluation.",
+  "dice_prior_sha256": "fdce894cfe767ebff26bedf561fbc151350b7a4bcb869bc216d6f6993954e424",
+  "dice_class_weights": [
+    14.027906976744186,
+    51.11864406779661,
+    2.580964153275649,
+    15.68110918544194
+  ]
+}

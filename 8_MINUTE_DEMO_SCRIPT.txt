@@ -1,0 +1,125 @@
+8-MINUTE FACULTY DEMO — MONDAY 23 NOVEMBER 2026
+Rehearse once with a timer. Spoken text below is a cue, not a claim of unaided
+authorship. Have the app already loaded and code/plots open before the slot.
+
+BEFORE THE TIMER
+Launch using README.md, load the model, keep both sample images available.
+Open model.py, patches.py, inference.py, data.py, train.py/objectives.py in IDE.
+Keep architecture.png, comparison.csv, K config/history and a failure panel open.
+Use a suitable faculty-chosen upload if requested; bundled samples are rehearsed
+inputs, not independent unseen evaluation. Do not install packages or train live.
+
+0:00–0:45 — PROBLEM AND DATASET
+"My project locates steel surface defects at pixel level. The input is an RGB
+steel image and the output is four independent binary defect masks. I use
+Severstal:12,568 labeled images, normally256 by1600 pixels, with RLE masks.
+The Phase II partition contains9,048 training,2,514 validation and1,006 held-out
+images. Exact decoded-image duplicate grouping prevents exact-copy leakage;
+near-duplicate and steel-coil identity remain limitations."
+Show one image, not file menus. Call the anonymous classes1 through4.
+
+0:45–1:45 — REAL SMALL U-NET AND TENSOR FLOW
+Show architecture.png and SmallUNet.forward.
+"A native256-square RGB patch enters this482,788-parameter U-Net. The encoder
+has16,32 and64 channels with3-by3 convolution, batch normalization and ReLU.
+Pooling halves spatial size three times. The bottleneck is128 by32 by32.
+Learned transposed convolutions double spatial size; each decoder concatenates
+the matching encoder features to recover local detail. A1-by1 convolution gives
+four256-square logit channels. Independent sigmoid probabilities allow overlap.
+There is no fifth background channel and no pretrained encoder."
+Point to one conv and one torch.cat; explain their tensor dimensions aloud.
+
+1:45–2:30 — TRAINING AND PREPROCESSING
+Show K config and objectives.balanced_present_dice_loss.
+"Images become RGB tensors divided by255. K samples one native crop per source
+image per epoch, favoring the source's rarest present class. Validation/test
+inspect all patches without target-guided selection. Adam uses learning rate
+0.001,batch8 and seed42. K's loss combines unweighted BCE and positive-pair Dice
+weighted using training exposure only. Gradients come from backpropagation;
+the optimizer changes weights. K continued J to nine total epochs, with early
+stopping patience2. No augmentation or learning-rate scheduler was configured."
+
+2:30–3:30 — PHASE I, RESEARCH CONTRIBUTION AND CONTROLS
+Show B/C/K comparison and one reconstruction ablation.
+"Phase I resized whole images. Phase II studies native crops and overlapping
+full-resolution reconstruction using the same network. The contribution is an
+implemented and measured pipeline and controlled experiments, not inventing
+patch segmentation. Matched three-epoch patch-only C actually underperformed
+whole-image B:Dice0.0918 versus0.1239. Fixed C weights also let me compare
+Hann versus uniform blending and reduced overlap. Later experiments test loss,
+foreground exposure and budget. Final K reaches0.2340, but changes all three,
+so I cannot say patching alone caused its improvement. Phase I's old validation
+score is a different evaluation protocol and is shown only as historical context."
+
+3:30–5:30 — GENUINE LIVE INFERENCE
+Upload/load image -> Inspect image. Name actual device/time shown.
+"The decoder validates the file, then the backend extracts twelve256-square
+patches at stride128. The last starts at1344 to cover the right edge. Four
+sigmoid patch predictions are combined by positive Hann weights; normalization
+gives four masks at the original256-by1600 coordinates. Thresholding is last."
+Show original/overlay and all four individual masks. Briefly point out one
+plausible response and one doubtful/missed region without inventing ground truth.
+"Affected area is the percentage predicted positive, not upload accuracy.
+There is no ground-truth label for an arbitrary upload."
+Enable Adjust thresholds, move Class3 to0.99, show area/mask difference.
+"This redraws cached probabilities. There is no retraining or second network
+pass. Changed thresholds are exploratory."
+Disable adjustment to restore locked cutoffs. Download overlay PNG, one class
+mask PNG and JSON; show native size/settings. Avoid opening every download.
+If a new image/device is chosen, click Inspect image again.
+
+5:30–6:30 — RESULTS, PER-CLASS ERRORS AND ABLATIONS
+Show saved per-class chart and existing qualitative failure panel.
+"At the locked validation-selected thresholds, K's held-out macro Dice is
+0.233996 and macro IoU0.137937. Counts are summed per class across1,006 native
+images before equal-class averaging. Class Dice is approximately0.190,0.083,
+0.416 and0.247. Class2 is weak and has only20 positive test images.452 of472
+ground-truth-empty images raised an any-pixel alarm. Foreground sampling helped
+its matched comparison, class weighting at three epochs hurt the aggregate,
+and longer K training helped. These results show both gains and failures.
+The test is already opened and cannot select a new setting."
+
+6:30–7:15 — REAL CODE NAVIGATION
+Go directly to three already-open tabs:
+model.py:SmallUNet.forward -> trace enc1,pool,bottleneck,cat,output.
+patches.py:predict -> boxes, RGB/255, sigmoid, positive Hann total/count.
+release/inference.py:render -> >=thresholds, masks and overlay.
+"Training is separately in train.py; K's exact objective is in objectives.py.
+The GUI calls this inference code, and the checkpoint checksum is verified."
+If asked, perform only one safe exercise from LIVE_CODE_CHANGES.txt.
+
+7:15–8:00 — LIMITATIONS AND CONTRIBUTION
+"This remains a research prototype. False alarms, missed rare defects, one
+training seed, a modest budget and no external-domain validation limit use.
+Exact duplicate separation does not establish coil independence. I would test
+false-alarm controls on validation and reserve a new untouched test before any
+new performance claim. I reused the Phase I U-Net/RLE and established methods;
+Codex assisted code, analysis, testing and documentation, as disclosed. My viva
+defense is to explain the implemented pipeline and the evidence, including its
+negative results."
+Stop on time. Do not promise industrial acceptance or a literature leaderboard.
+
+IF THE LIVE DEMO FAILS
+Explain the actual error briefly. Select CPU if CUDA is unavailable, retry the
+valid bundled image, or use the CLI command in README. If unresolved, show the
+saved genuine outputs and verification record, clearly labeled saved evidence.
+Do not pretend prerecorded output is a live result. Never change model/lock.
+
+EXISTING 12-SLIDE DECK — RECOMMENDATION ONLY; NO POWERPOINT MODIFIED
+Found: Downloads/Severstal_Phase_I_Research_Contribution_12_Slides.pptx.
+Its slide XML was inspected; it describes an earlier research state. A concise
+8-slide selection/revision guide for your own optional editing is:
+1. Merge original1/title +2/problem into Problem/dataset.
+2. Merge3/compact prior work +4/DAMF-Net +5/comparability into research gap.
+3. Keep6/architecture, show the verified native256-square branch as well.
+4. Keep7/pipeline, correct its old512x128 tiles to actual256x256,stride128,Hann.
+5. Keep9/protocol, replace proposed validation study with actual9048/2514/1006,
+   eight runs and matched-control/budget caveats.
+6. Keep10/results, replace Phase I-only table with current B/C/K, per-class
+   failures and ablations; retain historical Phase I in a separate small note.
+7. Repurpose8/status to short live-demo steps; current inference is measured,
+   not the old "outcomes unverified" claim. GUI time remains two minutes.
+8. Merge11+12/contribution and conclusion, add actual limitations/AI disclosure.
+Do not show stale "not yet measured" claims. Older paper titles/results in the
+deck were not reverified here; use only references supported by existing source
+logs, and do not repeat unverified paper scores or novelty assertions.

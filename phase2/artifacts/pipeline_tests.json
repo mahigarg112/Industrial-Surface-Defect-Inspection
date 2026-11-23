@@ -1,0 +1,5 @@
+{
+  "passed": true,
+  "count": 6,
+  "output": "test_batched_prediction_coordinates (phase2.test_pipeline.PipelineTests.test_batched_prediction_coordinates) ... ok\ntest_four_class_metrics_and_large_int64 (phase2.test_pipeline.PipelineTests.test_four_class_metrics_and_large_int64) ... ok\ntest_native_crop_reconstruction_alignment_edges (phase2.test_pipeline.PipelineTests.test_native_crop_reconstruction_alignment_edges) ... ok\ntest_rle_independent_roundtrip_four_channels (phase2.test_pipeline.PipelineTests.test_rle_independent_roundtrip_four_channels) ... ok\ntest_rle_known_column_major_and_invalid (phase2.test_pipeline.PipelineTests.test_rle_known_column_major_and_invalid) ... ok\ntest_small_odd_images_coverage (phase2.test_pipeline.PipelineTests.test_small_odd_images_coverage) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 1.258s\n\nOK\n"
+}

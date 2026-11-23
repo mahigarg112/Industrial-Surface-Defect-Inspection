@@ -1,0 +1,53 @@
+{
+  "seed": 42,
+  "test_fraction_of_original_training_groups": 0.1,
+  "original_manifest_sha256": "3563d4c52ccb29acf59a002e3ff5c03a3b64d89a032e087074e473efdcb50c52",
+  "partition_sha256": "97135138fcb09211c850dc2a16e0ae1deadd3088d342fdccf0c9f9d6b04559f0",
+  "original_counts": {
+    "train": 10054,
+    "val": 2514
+  },
+  "phase2_counts": {
+    "val": 2514,
+    "test": 1006,
+    "train": 9048
+  },
+  "class_positive_images": {
+    "train": [
+      645,
+      177,
+      3707,
+      577
+    ],
+    "val": [
+      180,
+      50,
+      1031,
+      160
+    ],
+    "test": [
+      72,
+      20,
+      412,
+      64
+    ]
+  },
+  "native_dimensions": {
+    "(256, 1600, 3)": 12568
+  },
+  "duplicate_pixel_groups": 0,
+  "quarantined_original_training_images": [],
+  "phase1_original_best_validation": {
+    "checkpoint": "experiments/severstal_segmentation/dice_loss_v1/best_model.pt",
+    "macro_dice": 0.11825690418481827,
+    "macro_iou": 0.07744534313678741,
+    "threshold": 0.5,
+    "evaluation_size": [
+      128,
+      512
+    ]
+  },
+  "legacy_test_contamination": "Phase I models saw the original training partition, including the newly reserved test images. Their test scores cannot establish held-out generalization.",
+  "duplicate_scope": "Exact RGB pixel identity and file SHA256; perceptual/near duplicates and unknown steel-coil group identity are not verified.",
+  "patch_extension_audit": "No tiling/reconstruction implementation found in existing Python/model documentation search; added isolated phase2 implementation."
+}

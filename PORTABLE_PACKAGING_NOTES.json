@@ -1,0 +1,2120 @@
+{
+  "private_scope": true,
+  "presentation_included": "Daksh_Mishra_Final_Surface_Defect_Phase_II_Viva_Updated.pptx",
+  "presentation_sha256": "3abee7733ed9978ecdba5d7ef25caeab456a7c399f0a1258fd2664a8953cae1d",
+  "presentation_approval": "not documented",
+  "PDF_preview": "MISSING",
+  "official_model_sha256": "0ce6c174d27fff24551faa7ce94f7a2ec7f9a98294a0eac7746a8c61b89eed59",
+  "original_lock_sha256": "e51bbf734f10a3269a435c571d0660a0b7efa25c991515605fcde038eabc312b",
+  "original_thresholds_sha256": "59549492e4f683d8a996f32d708b8aeef42e5c8f1e908c2524e1d289f3b2651c",
+  "copied_files": [
+    {
+      "file": "8_MINUTE_DEMO_SCRIPT.txt",
+      "source": "Phase_II_Clean_Project\\8_MINUTE_DEMO_SCRIPT.txt",
+      "sha256": "2a8169cb8b28d218dfc639bd57703b56d7fc34062f877a68029f00f1f0b9152b"
+    },
+    {
+      "file": "ARCHITECTURE_AND_CODE_FLOW.txt",
+      "source": "Phase_II_Clean_Project\\ARCHITECTURE_AND_CODE_FLOW.txt",
+      "sha256": "ca5f9c1fb48a0bd5b95af979f4cb1ed0b71ad6fa3415b84fb81c1171039b9ad7"
+    },
+    {
+      "file": "CHECKPOINT_REFERENCES.json",
+      "source": "Phase_II_Clean_Project\\CHECKPOINT_REFERENCES.json",
+      "sha256": "633094b2d32bd024a94884d9213a0f72b3a2425a0b02ad719f9ae1e8faf634c0"
+    },
+    {
+      "file": "CLEANUP_MANIFEST.txt",
+      "source": "Phase_II_Clean_Project\\CLEANUP_MANIFEST.txt",
+      "sha256": "4f840d0810319bbca06a367db4d12162f60648f5d15c77f87bf3575f146cf618"
+    },
+    {
+      "file": "CLEANUP_SUMMARY.txt",
+      "source": "Phase_II_Clean_Project\\CLEANUP_SUMMARY.txt",
+      "sha256": "aed579e10262f8edd67d1097e40fd3437d95602c5aa8bfaf07a39900c9d19516"
+    },
+    {
+      "file": "CLEAN_PROJECT_VERIFICATION.txt",
+      "source": "Phase_II_Clean_Project\\CLEAN_PROJECT_VERIFICATION.txt",
+      "sha256": "54dd5d4d0326fdaba4b349a299f86b59929e4bbf72737aa2f3977bfb137ce9ce"
+    },
+    {
+      "file": "CODE_NAVIGATION_FOR_VIVA.txt",
+      "source": "Phase_II_Clean_Project\\CODE_NAVIGATION_FOR_VIVA.txt",
+      "sha256": "8b7ef380c7448188d8c47799091c98e4bfd1e319158ccf8931604373a065ef6d"
+    },
+    {
+      "file": "FACULTY_VIVA_QA.txt",
+      "source": "Phase_II_Clean_Project\\FACULTY_VIVA_QA.txt",
+      "sha256": "729941964f04dafc0b0d401eb7e3f96d48aecd025e350faf6954576cc3c1c74f"
+    },
+    {
+      "file": "FINAL_CLEAN_RELEASE_STATUS.txt",
+      "source": "Phase_II_Clean_Project\\FINAL_CLEAN_RELEASE_STATUS.txt",
+      "sha256": "6c2a52a6b67aa9ee2712463dd85ae0a15e9f4e4d50f5f0292187f2d28c6c2b92"
+    },
+    {
+      "file": "FINAL_RESEARCH_SUMMARY.txt",
+      "source": "Phase_II_Clean_Project\\FINAL_RESEARCH_SUMMARY.txt",
+      "sha256": "ca74f3e0833df654ccc413051b1546b24edfda3676a8e4350acaa36be77db4f5"
+    },
+    {
+      "file": "LINK_DATA_FOR_REPRODUCTION.ps1",
+      "source": "Phase_II_Clean_Project\\LINK_DATA_FOR_REPRODUCTION.ps1",
+      "sha256": "42406a56783ff6d6ce66d9156d32a799562b794c02e6e80781411cc60a938f3e"
+    },
+    {
+      "file": "LIVE_CODE_CHANGES.txt",
+      "source": "Phase_II_Clean_Project\\LIVE_CODE_CHANGES.txt",
+      "sha256": "55eec186b3a3719d0d0a79635c46ef316f41ae2be1bf9812c354b9284a91948b"
+    },
+    {
+      "file": "MATHEMATICS_FOR_VIVA.txt",
+      "source": "Phase_II_Clean_Project\\MATHEMATICS_FOR_VIVA.txt",
+      "sha256": "33fae195214a9c3e9999916fd1c99820c69e12248a93328a8f14f72fe9d22f2f"
+    },
+    {
+      "file": "MODEL_CARD.md",
+      "source": "Phase_II_Clean_Project\\MODEL_CARD.md",
+      "sha256": "e5a995832ca43816dc0874db93e0a23a35f4ebd475a8e5f268ab1b2eff3ed7cb"
+    },
+    {
+      "file": "ORIGINALITY_DECLARATION_TEMPLATE.txt",
+      "source": "Phase_II_Clean_Project\\ORIGINALITY_DECLARATION_TEMPLATE.txt",
+      "sha256": "2a54bda7bc3a63bfebd2abd6f4705873807d77e304dc698a00e558481a43a97c"
+    },
+    {
+      "file": "README.md",
+      "source": "Phase_II_Clean_Project\\README.md",
+      "sha256": "9becc0ccedace00decf404d6654dff79c3f7ad104173ea5722f3686754c4f396"
+    },
+    {
+      "file": "RELEASE_ENVIRONMENT.json",
+      "source": "Phase_II_Clean_Project\\RELEASE_ENVIRONMENT.json",
+      "sha256": "d78dd0dce3fcf499a7d6d19b00ba97431a1f233f5c1add58e3b191a32d7a72cb"
+    },
+    {
+      "file": "RELEASE_MANIFEST_SHA256.json",
+      "source": "Phase_II_Clean_Project\\RELEASE_MANIFEST_SHA256.json",
+      "sha256": "d24579e177b5cb21e06e969d01008d1ee0ac74187a5457c785c55d0c5cac172c"
+    },
+    {
+      "file": "requirements-app.txt",
+      "source": "Phase_II_Clean_Project\\requirements-app.txt",
+      "sha256": "36b0ba4ce277d0b0bd3d3e78315e91dadffd18d9df339fce79c626234c1ebb7e"
+    },
+    {
+      "file": "requirements-release-lock.txt",
+      "source": "Phase_II_Clean_Project\\requirements-release-lock.txt",
+      "sha256": "a3611a6b8b3101c7dc084f49219c75014c017d2d9148bdb639b2da95ca3c7c0b"
+    },
+    {
+      "file": "RUBRIC_REVIEW.txt",
+      "source": "Phase_II_Clean_Project\\RUBRIC_REVIEW.txt",
+      "sha256": "2e8b060242c9c009e5fb3a314831d0f86ed86bdee8db36313c653b863938b17a"
+    },
+    {
+      "file": "SIMPLE_DEMO_COMMANDS.txt",
+      "source": "Phase_II_Clean_Project\\SIMPLE_DEMO_COMMANDS.txt",
+      "sha256": "8e384e674dbf22bb09673529abea733ee6d9eac01a7d82cb324840a88ef7b409"
+    },
+    {
+      "file": "SIMPLE_GUI_VERIFICATION.txt",
+      "source": "Phase_II_Clean_Project\\SIMPLE_GUI_VERIFICATION.txt",
+      "sha256": "37bb83053b692634d0073f56f861685a6eac7d7f5931fa31fbd0cfbc1a9ebafa"
+    },
+    {
+      "file": "SOURCE_AND_CONTRIBUTION_LOG.md",
+      "source": "Phase_II_Clean_Project\\SOURCE_AND_CONTRIBUTION_LOG.md",
+      "sha256": "5ff70fa08c615fd6a58d117f9fec2eb6a01ca73ce28169d7dff8a491d157b7e7"
+    },
+    {
+      "file": "verify_clean.py",
+      "source": "Phase_II_Clean_Project\\verify_clean.py",
+      "sha256": "ef4243742caddcaac6b78a2ec719c9ef3506b012dda295b14c1653413d792c63"
+    },
+    {
+      "file": "docs/DL_Sem5_Evaluation_FAQs_23_Nov_2026.pdf",
+      "source": "Phase_II_Clean_Project\\docs\\DL_Sem5_Evaluation_FAQs_23_Nov_2026.pdf",
+      "sha256": "a2dbac28c4fb962a2cea2ff5bee602473c660dec859d66d43c02635d51f0c604"
+    },
+    {
+      "file": "docs/DL_Sem5_Evaluation_Guidelines_23_Nov_2026.pdf",
+      "source": "Phase_II_Clean_Project\\docs\\DL_Sem5_Evaluation_Guidelines_23_Nov_2026.pdf",
+      "sha256": "c8f59a9d3fde8662377476058e373436e2760ab0aa5fba5dd59c81945726d23f"
+    },
+    {
+      "file": "docs/HISTORICAL_LICENSING_REVIEW.md",
+      "source": "Phase_II_Clean_Project\\docs\\HISTORICAL_LICENSING_REVIEW.md",
+      "sha256": "03b3f66f77f66a0016dbb35c0221b73833efe4751df7cfbb1e1b54cb6d669f56"
+    },
+    {
+      "file": "phase2/architecture.md",
+      "source": "Phase_II_Clean_Project\\phase2\\architecture.md",
+      "sha256": "b408ed52155d7a1b9d41ad8b97c4dc6418f79955e69cf98684f8b112c8a325b7"
+    },
+    {
+      "file": "phase2/audit.py",
+      "source": "Phase_II_Clean_Project\\phase2\\audit.py",
+      "sha256": "be6ff099dd97ea272f262e1bef3c25976d06fb53854a5a3d667f12f3a0745ee8"
+    },
+    {
+      "file": "phase2/common.py",
+      "source": "Phase_II_Clean_Project\\phase2\\common.py",
+      "sha256": "f4da9e38682b6dfa9e4b63fbf49567c0918f6d5edef70d623050da3846d7aaa9"
+    },
+    {
+      "file": "phase2/data.py",
+      "source": "Phase_II_Clean_Project\\phase2\\data.py",
+      "sha256": "668775cceb520fe7e830017bbb74202b22e7cf34edcf004e251858a3bd17cf42"
+    },
+    {
+      "file": "phase2/dataset_utils.py",
+      "source": "Phase_II_Clean_Project\\phase2\\dataset_utils.py",
+      "sha256": "e39a8274aa86ca92f98d08ad10f8174270ab3574f43ca6561eca941c7afff147"
+    },
+    {
+      "file": "phase2/evaluate.py",
+      "source": "Phase_II_Clean_Project\\phase2\\evaluate.py",
+      "sha256": "c1fd556acee9cf2d3dc95ad78d48bde97303381291c16a06c8c56d45c05ae4f6"
+    },
+    {
+      "file": "phase2/EXPERIMENT_LOG.md",
+      "source": "Phase_II_Clean_Project\\phase2\\EXPERIMENT_LOG.md",
+      "sha256": "65a3c9113eb26babfdb648aafd6fbbbc418c80fa0d29f4d2afed47b0b5ba16ee"
+    },
+    {
+      "file": "phase2/finalize.py",
+      "source": "Phase_II_Clean_Project\\phase2\\finalize.py",
+      "sha256": "9ec7da0b0335e9533efbb5bb75805809eda12df373aa67df95e2ff7df153cf51"
+    },
+    {
+      "file": "phase2/infer.py",
+      "source": "Phase_II_Clean_Project\\phase2\\infer.py",
+      "sha256": "137a62971d38e174f44a33fdf5a7e3ca803dbfcc9884818f144786f0d15661e2"
+    },
+    {
+      "file": "phase2/inspect_architecture.py",
+      "source": "Phase_II_Clean_Project\\phase2\\inspect_architecture.py",
+      "sha256": "864d0f873f0d43ed342cd199630a12efabc78658cdac5841610e43485fc450b3"
+    },
+    {
+      "file": "phase2/metrics.py",
+      "source": "Phase_II_Clean_Project\\phase2\\metrics.py",
+      "sha256": "7096cac25bfd45b7d05f30514cd947a6dbe960fa98f56c35c60489f0ec7fdf11"
+    },
+    {
+      "file": "phase2/model.py",
+      "source": "Phase_II_Clean_Project\\phase2\\model.py",
+      "sha256": "825ddd155e88a3f80eb5de5087561c7e168ae027daee74cf5faec9e5aa1e298e"
+    },
+    {
+      "file": "phase2/objectives.py",
+      "source": "Phase_II_Clean_Project\\phase2\\objectives.py",
+      "sha256": "dbc8e54060f1b136f0989f9d7509310dcff4c5c4446e963ca9c1829ba4676b3b"
+    },
+    {
+      "file": "phase2/patches.py",
+      "source": "Phase_II_Clean_Project\\phase2\\patches.py",
+      "sha256": "9632d2e404de4035be51adcc1f83be7ebf42280fc8220aaa4f411729a9511dce"
+    },
+    {
+      "file": "phase2/phase1_eval.py",
+      "source": "Phase_II_Clean_Project\\phase2\\phase1_eval.py",
+      "sha256": "e01b9f60e7b56143ccc3306e2f718bc5060191a13b7334127138031e7ce914bd"
+    },
+    {
+      "file": "phase2/post_review.py",
+      "source": "Phase_II_Clean_Project\\phase2\\post_review.py",
+      "sha256": "1b7cc0eddd5957222efd528bde188538f1193603dc65817605d5d3e964bebdfb"
+    },
+    {
+      "file": "phase2/README.md",
+      "source": "Phase_II_Clean_Project\\phase2\\README.md",
+      "sha256": "adc798c6a28d1abf73972f91396a1b0605520016a1667e54be1468dd91626818"
+    },
+    {
+      "file": "phase2/report.py",
+      "source": "Phase_II_Clean_Project\\phase2\\report.py",
+      "sha256": "89bf47a82a88b13ce7d7156004074bdd142ffc0d92e671f53a62f2e7e6c9b473"
+    },
+    {
+      "file": "phase2/requirements-lock.txt",
+      "source": "Phase_II_Clean_Project\\phase2\\requirements-lock.txt",
+      "sha256": "761757d4adc0427b3ee6d5b536939d2cc7853abc4c54c6a371613bbb6223264e"
+    },
+    {
+      "file": "phase2/requirements.txt",
+      "source": "Phase_II_Clean_Project\\phase2\\requirements.txt",
+      "sha256": "d493c48968f730f3ef785624f3712ab16d7d95120c42c2bc5f39b48fdda28149"
+    },
+    {
+      "file": "phase2/RESEARCH_DESIGN.md",
+      "source": "Phase_II_Clean_Project\\phase2\\RESEARCH_DESIGN.md",
+      "sha256": "b8ca863c25e995f14243239ec76abd43e2de41f533221a713071152996c79aa4"
+    },
+    {
+      "file": "phase2/resume_smoke.py",
+      "source": "Phase_II_Clean_Project\\phase2\\resume_smoke.py",
+      "sha256": "80e031cf78ed8473d1a2748b957874510a15df9bc4a056e5c4925bf491844dd6"
+    },
+    {
+      "file": "phase2/smoke.py",
+      "source": "Phase_II_Clean_Project\\phase2\\smoke.py",
+      "sha256": "9dc1f17dec8fc44d9185a314d26bef0636bc91a3bc6434ed6f2d750447d6b668"
+    },
+    {
+      "file": "phase2/SOURCE_AND_CONTRIBUTION_LOG.md",
+      "source": "Phase_II_Clean_Project\\phase2\\SOURCE_AND_CONTRIBUTION_LOG.md",
+      "sha256": "6ef9b6d87ab3392c8dc11728759bdd5eb79989494fef909601e75edffbe43121"
+    },
+    {
+      "file": "phase2/test_evaluation.py",
+      "source": "Phase_II_Clean_Project\\phase2\\test_evaluation.py",
+      "sha256": "fd514b90d3b1681263ca6a29a2953502d68ba89b81940921eb0ad7d6380f6d48"
+    },
+    {
+      "file": "phase2/test_pipeline.py",
+      "source": "Phase_II_Clean_Project\\phase2\\test_pipeline.py",
+      "sha256": "3ef825aa9f746d941713a316ff9cba451cf15b7c60169be93b094411fc11e922"
+    },
+    {
+      "file": "phase2/test_sampling.py",
+      "source": "Phase_II_Clean_Project\\phase2\\test_sampling.py",
+      "sha256": "ef8b6b05ee94dd6ab8b341f62a667867664bc65eb1645e80d12ce0e04d29a2d2"
+    },
+    {
+      "file": "phase2/train.py",
+      "source": "Phase_II_Clean_Project\\phase2\\train.py",
+      "sha256": "77636afa1ec036010ed6425130e0e1a4c4897fb7624c29e7fdde2119cf33e14a"
+    },
+    {
+      "file": "phase2/verify_evidence.py",
+      "source": "Phase_II_Clean_Project\\phase2\\verify_evidence.py",
+      "sha256": "fa29f40461999cbb642130626c2387a0bc3f91eeda0ff9473d356e2ddb7a10d9"
+    },
+    {
+      "file": "phase2/weighted_smoke.py",
+      "source": "Phase_II_Clean_Project\\phase2\\weighted_smoke.py",
+      "sha256": "c0808d1bfec222c7fe0ec55973b5d30e9d8dcd471ad4c7e29527d9d5b82bb8ed"
+    },
+    {
+      "file": "phase2/__init__.py",
+      "source": "Phase_II_Clean_Project\\phase2\\__init__.py",
+      "sha256": "621b6c4a4c9c963ba980c521754f70ddf4e711761d60e3b5ade5978038b7e9d6"
+    },
+    {
+      "file": "verification/run_browser_check.py",
+      "source": "Phase_II_Clean_Project\\verification\\run_browser_check.py",
+      "sha256": "290f19c1bb8e6402495ceff5723dbe98898d84906cbbd023171a33e5b0327896"
+    },
+    {
+      "file": "verification/final_freeze/file_classification.csv",
+      "source": "Phase_II_Clean_Project\\verification\\final_freeze\\file_classification.csv",
+      "sha256": "d8ad49b820ed2b9d71678549384a30f1b8da428e12b8df7932d56b91ff1e1a78"
+    },
+    {
+      "file": "verification/final_freeze/integrity.json",
+      "source": "Phase_II_Clean_Project\\verification\\final_freeze\\integrity.json",
+      "sha256": "4f025a4a980b2a090d831b7a576c1a00fd218024c6ff494e1083588edd658859"
+    },
+    {
+      "file": "verification/final_freeze/research_comparison.json",
+      "source": "Phase_II_Clean_Project\\verification\\final_freeze\\research_comparison.json",
+      "sha256": "6dd920f13601154f34adbda9e1de1ea29fa79dd7b7240a11642094f5f24eca38"
+    },
+    {
+      "file": "verification/final_freeze/verification.json",
+      "source": "Phase_II_Clean_Project\\verification\\final_freeze\\verification.json",
+      "sha256": "c18be611e47aa868d422db8e8f4070ce4cfce5e7aa4746bd46eb937f92f14918"
+    },
+    {
+      "file": "verification/run_20261120T105823_408642Z/verified_layers.json",
+      "source": "Phase_II_Clean_Project\\verification\\run_20261120T105823_408642Z\\verified_layers.json",
+      "sha256": "f3c4ae7fabe9ecae6f3cd701746684583d5945c6c83649338a0cb16745ac820c"
+    },
+    {
+      "file": "verification/run_20261120T105823_408642Z/VERIFIED_LAYER_TABLE.txt",
+      "source": "Phase_II_Clean_Project\\verification\\run_20261120T105823_408642Z\\VERIFIED_LAYER_TABLE.txt",
+      "sha256": "66c152755dba2514ffcf747e567792f12e7547fc67b9249c6ca37884b0e77201"
+    },
+    {
+      "file": "verification/simple_gui/fixed_validation_input_gt_K_prediction.png",
+      "source": "Phase_II_Clean_Project\\verification\\simple_gui\\fixed_validation_input_gt_K_prediction.png",
+      "sha256": "62973746cd27da93d6c0e9fd8ed81a4ed17bb1916b8e57a0ce1e40217e6b745f"
+    },
+    {
+      "file": "verification/simple_gui/mechanical.json",
+      "source": "Phase_II_Clean_Project\\verification\\simple_gui\\mechanical.json",
+      "sha256": "6ae39339e3b63ec2bf04a4b4783577c235b4a05cf68370e5d7a2b000afc44569"
+    },
+    {
+      "file": "verification/simple_gui/unit_tests.json",
+      "source": "Phase_II_Clean_Project\\verification\\simple_gui\\unit_tests.json",
+      "sha256": "05c6c4ebe37104221325e5354f6cb5706eb31a8a36f229b8076b1dba5c087805"
+    },
+    {
+      "file": "phase2/artifacts/architecture.png",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\architecture.png",
+      "sha256": "6ca2b6be654789edd93b9b8244f138aba97c7d387712c4ad12ca8b2519bbeaad"
+    },
+    {
+      "file": "phase2/artifacts/architecture_verified.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\architecture_verified.json",
+      "sha256": "5967c99b40ef5575daf3c9a91a79ae53ffa52dc90ea417e9be1be22d4bdbf9bd"
+    },
+    {
+      "file": "phase2/artifacts/A_phase1_original_validation.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\A_phase1_original_validation.json",
+      "sha256": "fa9b7dcb3265d95eb988388356694b120d0ec91e73529cfed28e23cc8db28f91"
+    },
+    {
+      "file": "phase2/artifacts/A_phase1_original_validation_cpu.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\A_phase1_original_validation_cpu.json",
+      "sha256": "ce4f030f303c4c07de196151c6c10fe62de3ff148e14a3e34cf6fc638b4616da"
+    },
+    {
+      "file": "phase2/artifacts/balanced_dice_preflight.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\balanced_dice_preflight.json",
+      "sha256": "8e2ff17f0ac93d855733d53db8609fa0b78c3b305162969eca87a2981957de19"
+    },
+    {
+      "file": "phase2/artifacts/B_C_config_differences.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\B_C_config_differences.json",
+      "sha256": "3219b6e513d10b6016b2d640726a474b079627ac8a682fa6b72957c7aa3bdfe5"
+    },
+    {
+      "file": "phase2/artifacts/comparison.csv",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\comparison.csv",
+      "sha256": "91e48df13777c5382f0556b17f79a0243a0b085e2dcb3fe60715f626f80b1907"
+    },
+    {
+      "file": "phase2/artifacts/continuation_plan.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\continuation_plan.json",
+      "sha256": "226a415c845e80ef0d93904571ff33a1c4f53e34ace0a2603bba23d84da2699a"
+    },
+    {
+      "file": "phase2/artifacts/C_E_config_differences.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\C_E_config_differences.json",
+      "sha256": "6da60d83ad2e454952318cceccca908528cfdc299f49123f319d9bc148b66853"
+    },
+    {
+      "file": "phase2/artifacts/C_F_config_differences.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\C_F_config_differences.json",
+      "sha256": "9fd35c9ecdc1290646c7cdb0f8ab008cda7995eead2abea3c6b31d8bc66742ff"
+    },
+    {
+      "file": "phase2/artifacts/dataset_audit.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\dataset_audit.json",
+      "sha256": "6b4fcbe2d3410ec2ba4749788c72449ff94ce7b7e3a88b3642c88e32edf207ab"
+    },
+    {
+      "file": "phase2/artifacts/dice_pair_priors.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\dice_pair_priors.json",
+      "sha256": "fdce894cfe767ebff26bedf561fbc151350b7a4bcb869bc216d6f6993954e424"
+    },
+    {
+      "file": "phase2/artifacts/environment.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\environment.json",
+      "sha256": "3bc026ca58601353732ad85c43e8dbde7b4a5b1537f34de99c90011efc5087a8"
+    },
+    {
+      "file": "phase2/artifacts/evaluation_tests.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\evaluation_tests.json",
+      "sha256": "7b5d6301c2f0f022c46a5622b7aad196de55d2d59bdccab61e9cac9919dcca63"
+    },
+    {
+      "file": "phase2/artifacts/evidence_verification.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\evidence_verification.json",
+      "sha256": "bbcb6c6102f0ec5dbd5a79f5bc268acc152566fc0cec0f46c703bfaf6227390c"
+    },
+    {
+      "file": "phase2/artifacts/E_weighted_patch_training_curves.png",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\E_weighted_patch_training_curves.png",
+      "sha256": "4da674d61e5e970386348bf8ef5ea02a7d2d16dc73145e43b4dc972d3df9df89"
+    },
+    {
+      "file": "phase2/artifacts/foreground_preflight.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\foreground_preflight.json",
+      "sha256": "52636c755e613b09150c99ff2ee3ccbd33c34a4bbdbabdbab075a95863ed49ba"
+    },
+    {
+      "file": "phase2/artifacts/foreground_sampling_tests.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\foreground_sampling_tests.json",
+      "sha256": "9c4573e86a5bd9da14d758cba40cc569e3c56c3f3a34bf5c3cd196873adde97e"
+    },
+    {
+      "file": "phase2/artifacts/F_present_dice_patch_training_curves.png",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\F_present_dice_patch_training_curves.png",
+      "sha256": "16bd301e6a5f0eec1556ffcd1f7a35421c5fb23a2768e2f434dc6909f94416c6"
+    },
+    {
+      "file": "phase2/artifacts/G_present_dice_whole_training_curves.png",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\G_present_dice_whole_training_curves.png",
+      "sha256": "8a7b76ff54673323ee46a8f70063d76ff4e45bd96c059b2ced3e81ef037aaab0"
+    },
+    {
+      "file": "phase2/artifacts/H_foreground_patch_training_curves.png",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\H_foreground_patch_training_curves.png",
+      "sha256": "1151c37586803ff34a3f9c1d46f2309b8032c1690da7d9a0e6f08e44bb1440bc"
+    },
+    {
+      "file": "phase2/artifacts/image_level_errors.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\image_level_errors.json",
+      "sha256": "53d33d869db1119060d3fefe9a11899acc4de828b6636a3fb08813c9a700126b"
+    },
+    {
+      "file": "phase2/artifacts/J_balanced_dice_patch_training_curves.png",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\J_balanced_dice_patch_training_curves.png",
+      "sha256": "811015e4f9ca6ba8009324cba0346a34ddd9f9ee8de4912e87be40ed05e85ce6"
+    },
+    {
+      "file": "phase2/artifacts/K_extended_patch_training_curves.png",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\K_extended_patch_training_curves.png",
+      "sha256": "a9dca348328628b9f489aaf0bbd0d60caf6e4ae57847667e22c03760f7f25629"
+    },
+    {
+      "file": "phase2/artifacts/new_image_novelty.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\new_image_novelty.json",
+      "sha256": "488698498ea9e678f9a263f029fa703a3ebdd275dc5823aedba3abccac8b2152"
+    },
+    {
+      "file": "phase2/artifacts/paired_uncertainty.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\paired_uncertainty.json",
+      "sha256": "fbd53a20b0e91c8c85e5e2ba6cc5acf15be2f51962346336faece660cf45ccac"
+    },
+    {
+      "file": "phase2/artifacts/paired_uncertainty_class_balance.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\paired_uncertainty_class_balance.json",
+      "sha256": "a98d29c61d028ae0cc19e3df2f75e5bedd745031101c111710dcd29a3d6cbe04"
+    },
+    {
+      "file": "phase2/artifacts/paired_uncertainty_foreground_sampling.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\paired_uncertainty_foreground_sampling.json",
+      "sha256": "3a4c95a2be031dccafdca2bb3106efe17b5dcb6b0d9055f50f804a17932b8d47"
+    },
+    {
+      "file": "phase2/artifacts/paired_uncertainty_objective.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\paired_uncertainty_objective.json",
+      "sha256": "435a424898bb51fd89c9b93edace347647490c4fd400a0f3cec831546bbab850"
+    },
+    {
+      "file": "phase2/artifacts/paired_uncertainty_present_dice.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\paired_uncertainty_present_dice.json",
+      "sha256": "45681b43d91f57289f310234b7c6674f78736b37e78bf7c5e95b77d1c1f73946"
+    },
+    {
+      "file": "phase2/artifacts/paired_uncertainty_representation_present.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\paired_uncertainty_representation_present.json",
+      "sha256": "bee9b056c73911eb38fa7337da8907023f7b35987058bdeaafc8aea40e796b6f"
+    },
+    {
+      "file": "phase2/artifacts/paired_uncertainty_training_budget.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\paired_uncertainty_training_budget.json",
+      "sha256": "8d5252778c95fb967a4e487d7f2cc170a89c536aaccac8d74b91a85f386e2921"
+    },
+    {
+      "file": "phase2/artifacts/partition.csv",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\partition.csv",
+      "sha256": "97135138fcb09211c850dc2a16e0ae1deadd3088d342fdccf0c9f9d6b04559f0"
+    },
+    {
+      "file": "phase2/artifacts/pipeline_tests.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\pipeline_tests.json",
+      "sha256": "b96c37fe4f938f29e41c1ee0c13e28d769d09187cc79670c2b0191c167235a54"
+    },
+    {
+      "file": "phase2/artifacts/present_preflight.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\present_preflight.json",
+      "sha256": "77673374df0096b22a4574e4ebe5387c1bbcd7c6214f210033628eee75085c4f"
+    },
+    {
+      "file": "phase2/artifacts/present_whole_preflight.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\present_whole_preflight.json",
+      "sha256": "d2f8cb8484add3c2043a7c2f7a71d8f95010977bb8e64df3c4a8632d5f58a4fc"
+    },
+    {
+      "file": "phase2/artifacts/RESEARCH_REPORT.md",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\RESEARCH_REPORT.md",
+      "sha256": "878a229bfec91c085b50c90543dec6ebd742daf4ea22e4f716838732e0d4f054"
+    },
+    {
+      "file": "phase2/artifacts/resume_preflight.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\resume_preflight.json",
+      "sha256": "b26be1034e7b9f8dd07dacd40935557972c4da78948cb3c1baf2df1f947654e7"
+    },
+    {
+      "file": "phase2/artifacts/smoke_results.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\smoke_results.json",
+      "sha256": "f4e1fcb3a1183a02acba2426b9a6e2141d11732e10124e62bc1616b58bad47fd"
+    },
+    {
+      "file": "phase2/artifacts/STATUS.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\STATUS.json",
+      "sha256": "063b39b55bd506175e38490c80f270095134e0c7b6fb7c0c2725b9d2eafdb3cc"
+    },
+    {
+      "file": "phase2/artifacts/test_image_ids.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\test_image_ids.json",
+      "sha256": "7455ba1f8ea5685b9d33a619f12d697bf8b11924a828db09ad41bcdae37cd75c"
+    },
+    {
+      "file": "phase2/artifacts/training_class_priors.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\training_class_priors.json",
+      "sha256": "128da1e4c4c72c4bf8818834fa8dc425a40550a6d7e2e2e46e674238f007f4e0"
+    },
+    {
+      "file": "phase2/artifacts/training_curves.png",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\training_curves.png",
+      "sha256": "f99232a841a38b377c84c47e619e4497228810f1627e2e6b1c65dbefade03934"
+    },
+    {
+      "file": "phase2/artifacts/training_target_exposure.csv",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\training_target_exposure.csv",
+      "sha256": "5011c25334ded9c8e9e5043c0a2c7255f550c8950963a7f9895884d3d8c0df40"
+    },
+    {
+      "file": "phase2/artifacts/validation_comparison.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\validation_comparison.json",
+      "sha256": "c9f65df5503e47fbc41f276ae0bc0523b630b58e54f41a5ad6b29f52e1b07773"
+    },
+    {
+      "file": "phase2/artifacts/weighted_preflight.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\weighted_preflight.json",
+      "sha256": "09a0cbe1c92c5faa2e6a50147ae36a4f3c9a28d3f4765e3bca74e33cebeed030"
+    },
+    {
+      "file": "phase2/release/app.py",
+      "source": "Phase_II_Clean_Project\\phase2\\release\\app.py",
+      "sha256": "68a64c0d06ea3ec51b444b0150c7d14cb436e3acc7ff0836a7c072f43ceb581b"
+    },
+    {
+      "file": "phase2/release/browser_smoke.py",
+      "source": "Phase_II_Clean_Project\\phase2\\release\\browser_smoke.py",
+      "sha256": "710da5201185dd25dfb12aa34bd9c5a6e45b65a8f43a203badd631f427a75f21"
+    },
+    {
+      "file": "phase2/release/inference.py",
+      "source": "Phase_II_Clean_Project\\phase2\\release\\inference.py",
+      "sha256": "4b7b5fec46dd8cd26d69b64b793697186e8b8d4d757bb68d1943c7cc476ef032"
+    },
+    {
+      "file": "phase2/release/test_release.py",
+      "source": "Phase_II_Clean_Project\\phase2\\release\\test_release.py",
+      "sha256": "ddae9394babe833ac6e4df305fca58b1d1945ce55a7f0773fece66718b7af2aa"
+    },
+    {
+      "file": "phase2/release/__init__.py",
+      "source": "Phase_II_Clean_Project\\phase2\\release\\__init__.py",
+      "sha256": "a47b19bdd533db3494b311fdc96d5223c7f816bc3a8b86d5fed339aa3eb5263a"
+    },
+    {
+      "file": "phase2/release/demo_inputs/0007a71bf.jpg",
+      "source": "Phase_II_Clean_Project\\phase2\\release\\demo_inputs\\0007a71bf.jpg",
+      "sha256": "3bb6d39d4b4c2c60c2333d37804a389314899ea20dc976c1aca1d8bc0047ebc6"
+    },
+    {
+      "file": "phase2/release/demo_inputs/000ccc2ac.jpg",
+      "source": "Phase_II_Clean_Project\\phase2\\release\\demo_inputs\\000ccc2ac.jpg",
+      "sha256": "efd56fdadad77b5d1dab0937b3f9025c9f61ba4d0cd19df15073de1564a1890c"
+    },
+    {
+      "file": "phase2/release/demo_inputs/provenance.json",
+      "source": "Phase_II_Clean_Project\\phase2\\release\\demo_inputs\\provenance.json",
+      "sha256": "448ecae8bae7c166e3dfad32c856af633ef382257d1f46ec77a79c6a08fce3c3"
+    },
+    {
+      "file": "phase2/artifacts/B_whole/config.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\B_whole\\config.json",
+      "sha256": "8f989a404b9ca6b9aa4e725e0b4e1972d4fdc87f6f56cbfed7a999714cc36ebe"
+    },
+    {
+      "file": "phase2/artifacts/B_whole/epoch_1_target_exposure.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\B_whole\\epoch_1_target_exposure.json",
+      "sha256": "0af4265d0786801415453649667a0dc91c56aa027eedb5b56af60a72ef998c1f"
+    },
+    {
+      "file": "phase2/artifacts/B_whole/epoch_2_target_exposure.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\B_whole\\epoch_2_target_exposure.json",
+      "sha256": "0af4265d0786801415453649667a0dc91c56aa027eedb5b56af60a72ef998c1f"
+    },
+    {
+      "file": "phase2/artifacts/B_whole/epoch_3_target_exposure.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\B_whole\\epoch_3_target_exposure.json",
+      "sha256": "0af4265d0786801415453649667a0dc91c56aa027eedb5b56af60a72ef998c1f"
+    },
+    {
+      "file": "phase2/artifacts/B_whole/history.csv",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\B_whole\\history.csv",
+      "sha256": "4d4c7aedb5ce57b81ae997bc6d2d41610596172d57ee85311c3c0d28a149fa8b"
+    },
+    {
+      "file": "phase2/artifacts/B_whole/run_info.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\B_whole\\run_info.json",
+      "sha256": "cc951e35f12a15ed8e67d811219a30fa2bb4e3bd5fa31752d280dc836b8c705d"
+    },
+    {
+      "file": "phase2/artifacts/B_whole/thresholds.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\B_whole\\thresholds.json",
+      "sha256": "46cfcbb1bb2aaba9cf3d830a83a71200d7b25a9bef01f82dcec506439bf6a6c0"
+    },
+    {
+      "file": "phase2/artifacts/C_patch/config.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\C_patch\\config.json",
+      "sha256": "903cc711984da43133d095742573441abe11f7fafccf7f6e4af23b593756007f"
+    },
+    {
+      "file": "phase2/artifacts/C_patch/epoch_1_target_exposure.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\C_patch\\epoch_1_target_exposure.json",
+      "sha256": "39101ee9894d1590585633b5870a40e28fbacb9244701a7b3273e5c901efb616"
+    },
+    {
+      "file": "phase2/artifacts/C_patch/epoch_2_target_exposure.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\C_patch\\epoch_2_target_exposure.json",
+      "sha256": "0c64ae036ea37b3409737b89976691a7ea2c2bae95836871817e3b57e21a0c18"
+    },
+    {
+      "file": "phase2/artifacts/C_patch/epoch_3_target_exposure.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\C_patch\\epoch_3_target_exposure.json",
+      "sha256": "7def708cad22fa9c93bf1263c544527ab70676c0f00f79fe48e19c0e87d57926"
+    },
+    {
+      "file": "phase2/artifacts/C_patch/history.csv",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\C_patch\\history.csv",
+      "sha256": "7bb9e15b18f5ed497aef518056ad24b86459c630e49b120d1357f65cfd992e49"
+    },
+    {
+      "file": "phase2/artifacts/C_patch/run_info.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\C_patch\\run_info.json",
+      "sha256": "29475557a52e641c6bb8f4d4ab3b2ce653bd4d486e210d5a2f861dd397b7ca6f"
+    },
+    {
+      "file": "phase2/artifacts/C_patch/thresholds.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\C_patch\\thresholds.json",
+      "sha256": "4a2b15af9ffe054825bc07fadbb3d4faedef38c8a0aea007f28508eb047cba79"
+    },
+    {
+      "file": "phase2/artifacts/E_weighted_patch/config.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\E_weighted_patch\\config.json",
+      "sha256": "3ed0bf1d8a32b51bad2f963c9465f12e170f8880207e72d7aa4d36e2870bdf46"
+    },
+    {
+      "file": "phase2/artifacts/E_weighted_patch/epoch_1_target_exposure.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\E_weighted_patch\\epoch_1_target_exposure.json",
+      "sha256": "39101ee9894d1590585633b5870a40e28fbacb9244701a7b3273e5c901efb616"
+    },
+    {
+      "file": "phase2/artifacts/E_weighted_patch/epoch_2_target_exposure.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\E_weighted_patch\\epoch_2_target_exposure.json",
+      "sha256": "0c64ae036ea37b3409737b89976691a7ea2c2bae95836871817e3b57e21a0c18"
+    },
+    {
+      "file": "phase2/artifacts/E_weighted_patch/epoch_3_target_exposure.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\E_weighted_patch\\epoch_3_target_exposure.json",
+      "sha256": "7def708cad22fa9c93bf1263c544527ab70676c0f00f79fe48e19c0e87d57926"
+    },
+    {
+      "file": "phase2/artifacts/E_weighted_patch/history.csv",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\E_weighted_patch\\history.csv",
+      "sha256": "d479c2e293260b58902607be02c67d2b7899c88875001198378d40637a580a67"
+    },
+    {
+      "file": "phase2/artifacts/E_weighted_patch/run_info.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\E_weighted_patch\\run_info.json",
+      "sha256": "2c2f78fbea78b53cd714436d9199df95e41a5ca175d4df58f471a1cfd3b60912"
+    },
+    {
+      "file": "phase2/artifacts/E_weighted_patch/thresholds.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\E_weighted_patch\\thresholds.json",
+      "sha256": "7abe57c7cee268b87ea69bd4f8331b3e593c88a979e841127898bb9197ed221e"
+    },
+    {
+      "file": "phase2/artifacts/final/lock.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\final\\lock.json",
+      "sha256": "e51bbf734f10a3269a435c571d0660a0b7efa25c991515605fcde038eabc312b"
+    },
+    {
+      "file": "phase2/artifacts/final/model.pt",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\final\\model.pt",
+      "sha256": "0ce6c174d27fff24551faa7ce94f7a2ec7f9a98294a0eac7746a8c61b89eed59"
+    },
+    {
+      "file": "phase2/artifacts/F_present_dice_patch/config.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\F_present_dice_patch\\config.json",
+      "sha256": "46ff6a847671523388f5649ef023cf9ef245bed90c435ca66e2c367dd02223ee"
+    },
+    {
+      "file": "phase2/artifacts/F_present_dice_patch/epoch_1_target_exposure.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\F_present_dice_patch\\epoch_1_target_exposure.json",
+      "sha256": "39101ee9894d1590585633b5870a40e28fbacb9244701a7b3273e5c901efb616"
+    },
+    {
+      "file": "phase2/artifacts/F_present_dice_patch/epoch_2_target_exposure.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\F_present_dice_patch\\epoch_2_target_exposure.json",
+      "sha256": "0c64ae036ea37b3409737b89976691a7ea2c2bae95836871817e3b57e21a0c18"
+    },
+    {
+      "file": "phase2/artifacts/F_present_dice_patch/epoch_3_target_exposure.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\F_present_dice_patch\\epoch_3_target_exposure.json",
+      "sha256": "7def708cad22fa9c93bf1263c544527ab70676c0f00f79fe48e19c0e87d57926"
+    },
+    {
+      "file": "phase2/artifacts/F_present_dice_patch/history.csv",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\F_present_dice_patch\\history.csv",
+      "sha256": "32979332917837c8f01687f1b4229db8bcf84a58732f5258560b6c05dfa9539a"
+    },
+    {
+      "file": "phase2/artifacts/F_present_dice_patch/run_info.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\F_present_dice_patch\\run_info.json",
+      "sha256": "28423f64356cff62dfe3266706b0cd3363264815293e61c7ef53b5c812a3b912"
+    },
+    {
+      "file": "phase2/artifacts/F_present_dice_patch/thresholds.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\F_present_dice_patch\\thresholds.json",
+      "sha256": "c68ebeb7582bb990d12a5a563d92e373b1e92e96060ed686770f89cb870da2ca"
+    },
+    {
+      "file": "phase2/artifacts/G_present_dice_whole/config.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\G_present_dice_whole\\config.json",
+      "sha256": "a72f0ecb3c1e52c8d5e3827ed96c23e37936ea1149b59f5fbb7a661caf9ff29c"
+    },
+    {
+      "file": "phase2/artifacts/G_present_dice_whole/epoch_1_target_exposure.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\G_present_dice_whole\\epoch_1_target_exposure.json",
+      "sha256": "0af4265d0786801415453649667a0dc91c56aa027eedb5b56af60a72ef998c1f"
+    },
+    {
+      "file": "phase2/artifacts/G_present_dice_whole/epoch_2_target_exposure.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\G_present_dice_whole\\epoch_2_target_exposure.json",
+      "sha256": "0af4265d0786801415453649667a0dc91c56aa027eedb5b56af60a72ef998c1f"
+    },
+    {
+      "file": "phase2/artifacts/G_present_dice_whole/epoch_3_target_exposure.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\G_present_dice_whole\\epoch_3_target_exposure.json",
+      "sha256": "0af4265d0786801415453649667a0dc91c56aa027eedb5b56af60a72ef998c1f"
+    },
+    {
+      "file": "phase2/artifacts/G_present_dice_whole/history.csv",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\G_present_dice_whole\\history.csv",
+      "sha256": "9129ed6cf6f13175a1bc334f08e6de11abe34097d777ec81d2a8fe12618503f8"
+    },
+    {
+      "file": "phase2/artifacts/G_present_dice_whole/run_info.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\G_present_dice_whole\\run_info.json",
+      "sha256": "27dfc6f22cd2d6ae3e0a209d0dca0dad2dcae793889f7262001d547ae0445f17"
+    },
+    {
+      "file": "phase2/artifacts/G_present_dice_whole/thresholds.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\G_present_dice_whole\\thresholds.json",
+      "sha256": "53f7ac687761440de602586d09efb0db422d1742359c315d711cd635a7b4ab88"
+    },
+    {
+      "file": "phase2/artifacts/H_foreground_patch/config.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\H_foreground_patch\\config.json",
+      "sha256": "bb1a89e2bb76c31c77796b47f83233e73fd48e1f6d9d31d5cf0f5c185b84764b"
+    },
+    {
+      "file": "phase2/artifacts/H_foreground_patch/epoch_1_target_exposure.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\H_foreground_patch\\epoch_1_target_exposure.json",
+      "sha256": "847982e117ddd4f2411b7ca189de79499ebadea14daac57c6b74ffda008043ff"
+    },
+    {
+      "file": "phase2/artifacts/H_foreground_patch/epoch_2_target_exposure.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\H_foreground_patch\\epoch_2_target_exposure.json",
+      "sha256": "bb0bbe9988a7ddaba630f6a4ea35f2ba016ca12bff5deff1e85081e16a8e29b5"
+    },
+    {
+      "file": "phase2/artifacts/H_foreground_patch/epoch_3_target_exposure.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\H_foreground_patch\\epoch_3_target_exposure.json",
+      "sha256": "c1621486c7a7ded08baf891c68193d4b9184b9bb6a9e7acd4b860704e2a693a5"
+    },
+    {
+      "file": "phase2/artifacts/H_foreground_patch/history.csv",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\H_foreground_patch\\history.csv",
+      "sha256": "ac35d69d3a3f9ee576adebb39016dec24f24be7043f4827353656f849a777efd"
+    },
+    {
+      "file": "phase2/artifacts/H_foreground_patch/run_info.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\H_foreground_patch\\run_info.json",
+      "sha256": "58d8085e367b353bb69bd66f846f0351f304d229ec92dd861a6e8f437e1de56c"
+    },
+    {
+      "file": "phase2/artifacts/H_foreground_patch/thresholds.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\H_foreground_patch\\thresholds.json",
+      "sha256": "f2de6380aebbc730860f439ae9fc05b6ca183d124263f0fbfae266074ec2acc1"
+    },
+    {
+      "file": "phase2/artifacts/J_balanced_dice_patch/config.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\J_balanced_dice_patch\\config.json",
+      "sha256": "8cdee23d68efc0809272873ffe37f502f20ce0c9348a7db427afebe7f4f3eb9d"
+    },
+    {
+      "file": "phase2/artifacts/J_balanced_dice_patch/epoch_1_target_exposure.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\J_balanced_dice_patch\\epoch_1_target_exposure.json",
+      "sha256": "847982e117ddd4f2411b7ca189de79499ebadea14daac57c6b74ffda008043ff"
+    },
+    {
+      "file": "phase2/artifacts/J_balanced_dice_patch/epoch_2_target_exposure.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\J_balanced_dice_patch\\epoch_2_target_exposure.json",
+      "sha256": "bb0bbe9988a7ddaba630f6a4ea35f2ba016ca12bff5deff1e85081e16a8e29b5"
+    },
+    {
+      "file": "phase2/artifacts/J_balanced_dice_patch/epoch_3_target_exposure.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\J_balanced_dice_patch\\epoch_3_target_exposure.json",
+      "sha256": "c1621486c7a7ded08baf891c68193d4b9184b9bb6a9e7acd4b860704e2a693a5"
+    },
+    {
+      "file": "phase2/artifacts/J_balanced_dice_patch/history.csv",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\J_balanced_dice_patch\\history.csv",
+      "sha256": "0d273569553dfd817bf13b1404c301c0d86a52e63d4275a2e82e20afb4168ffd"
+    },
+    {
+      "file": "phase2/artifacts/J_balanced_dice_patch/run_info.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\J_balanced_dice_patch\\run_info.json",
+      "sha256": "81c33da07bde45d3458634e36d40b451bcd6b6809a08226ba650d6ae13e34f88"
+    },
+    {
+      "file": "phase2/artifacts/J_balanced_dice_patch/thresholds.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\J_balanced_dice_patch\\thresholds.json",
+      "sha256": "48a350b2f662f16ea2c8d3ca748b2de453593cc5683c71ba5d4ea4a307f79517"
+    },
+    {
+      "file": "phase2/artifacts/K_extended_patch/config.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\K_extended_patch\\config.json",
+      "sha256": "f6fb4aebac081086a310d7de728ba4dd871e9a6aea228c13eee85d3f409c9bf3"
+    },
+    {
+      "file": "phase2/artifacts/K_extended_patch/epoch_1_target_exposure.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\K_extended_patch\\epoch_1_target_exposure.json",
+      "sha256": "847982e117ddd4f2411b7ca189de79499ebadea14daac57c6b74ffda008043ff"
+    },
+    {
+      "file": "phase2/artifacts/K_extended_patch/epoch_2_target_exposure.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\K_extended_patch\\epoch_2_target_exposure.json",
+      "sha256": "bb0bbe9988a7ddaba630f6a4ea35f2ba016ca12bff5deff1e85081e16a8e29b5"
+    },
+    {
+      "file": "phase2/artifacts/K_extended_patch/epoch_3_target_exposure.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\K_extended_patch\\epoch_3_target_exposure.json",
+      "sha256": "c1621486c7a7ded08baf891c68193d4b9184b9bb6a9e7acd4b860704e2a693a5"
+    },
+    {
+      "file": "phase2/artifacts/K_extended_patch/epoch_4_target_exposure.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\K_extended_patch\\epoch_4_target_exposure.json",
+      "sha256": "02e555c74b9f3cd8b594eeab915cd846a458f4493d8a7b255912551d0e7e9eb6"
+    },
+    {
+      "file": "phase2/artifacts/K_extended_patch/epoch_5_target_exposure.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\K_extended_patch\\epoch_5_target_exposure.json",
+      "sha256": "a188b8df529156345a74c928e19c8d9205bce7255861a1cdb508db953934820f"
+    },
+    {
+      "file": "phase2/artifacts/K_extended_patch/epoch_6_target_exposure.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\K_extended_patch\\epoch_6_target_exposure.json",
+      "sha256": "a52f44cca45a687a9c6cba1d7d64d6024f0f4f9df57f4af9a040a06d787b9b57"
+    },
+    {
+      "file": "phase2/artifacts/K_extended_patch/epoch_7_target_exposure.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\K_extended_patch\\epoch_7_target_exposure.json",
+      "sha256": "6c9e70edebf5212e0287f147aec2257e8dc5e332577733e4a205408171a3ef0a"
+    },
+    {
+      "file": "phase2/artifacts/K_extended_patch/epoch_8_target_exposure.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\K_extended_patch\\epoch_8_target_exposure.json",
+      "sha256": "d01ab2fb90ab547e46b45c14b34aa33d9777df4dd3666767a894a94c06289c9d"
+    },
+    {
+      "file": "phase2/artifacts/K_extended_patch/epoch_9_target_exposure.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\K_extended_patch\\epoch_9_target_exposure.json",
+      "sha256": "7f9dac05c7af0b259d1d2167d07520f20bef5306909c58f8dd6b1ed7872f6aea"
+    },
+    {
+      "file": "phase2/artifacts/K_extended_patch/history.csv",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\K_extended_patch\\history.csv",
+      "sha256": "2ab318b602425756f4328e72b86a96b7fd283bec6933e30f27c183731541e9c9"
+    },
+    {
+      "file": "phase2/artifacts/K_extended_patch/run_info.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\K_extended_patch\\run_info.json",
+      "sha256": "aa59f1e47cca2c5b2880c5c8fb3a94d6c275100e1a323b4a826cac2721f75325"
+    },
+    {
+      "file": "phase2/artifacts/K_extended_patch/thresholds.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\K_extended_patch\\thresholds.json",
+      "sha256": "59549492e4f683d8a996f32d708b8aeef42e5c8f1e908c2524e1d289f3b2651c"
+    },
+    {
+      "file": "phase2/artifacts/new_image_inference/class_1.png",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\new_image_inference\\class_1.png",
+      "sha256": "374246e01843d2c86fd2f911a9fa2d34f513b8bdbc0df0adccf86a6296e8a94a"
+    },
+    {
+      "file": "phase2/artifacts/new_image_inference/class_2.png",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\new_image_inference\\class_2.png",
+      "sha256": "5241bc0b0103ee9b7ee782d737c2a394bdd84d3b7750107da5417ff2125015ee"
+    },
+    {
+      "file": "phase2/artifacts/new_image_inference/class_3.png",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\new_image_inference\\class_3.png",
+      "sha256": "f1ddd0564e4ed29597bab6875c033fa95250100bebb4ac180f44e316645aad37"
+    },
+    {
+      "file": "phase2/artifacts/new_image_inference/class_4.png",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\new_image_inference\\class_4.png",
+      "sha256": "5241bc0b0103ee9b7ee782d737c2a394bdd84d3b7750107da5417ff2125015ee"
+    },
+    {
+      "file": "phase2/artifacts/new_image_inference/inference.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\new_image_inference\\inference.json",
+      "sha256": "27f918f3320057b016595d7d406fb5636566f1f80e3d0cae52e0b1c8a41ad89e"
+    },
+    {
+      "file": "phase2/artifacts/new_image_inference/overlay.png",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\new_image_inference\\overlay.png",
+      "sha256": "97abebedac365998f3f7c3dd49221197579513ee253cbaccb365e1cdfd3bfcf0"
+    },
+    {
+      "file": "phase2/artifacts/new_image_inference/prediction.npz",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\new_image_inference\\prediction.npz",
+      "sha256": "dc131c2d758b396ff36836709f2398769dc3a4dd38133c92ffe877f535d5fb8a"
+    },
+    {
+      "file": "phase2/artifacts/post_review/heldout_per_class_reviewed.png",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\post_review\\heldout_per_class_reviewed.png",
+      "sha256": "ed74a9e507ac9bb76a1face857a9005bfe2c763a075132836a24f4e27d3fbac1"
+    },
+    {
+      "file": "phase2/artifacts/post_review/interleaved_runtime.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\post_review\\interleaved_runtime.json",
+      "sha256": "ed027a7353b1c2a22cbb6bc9a0d924de74b66c84386341cfd60a549b33704797"
+    },
+    {
+      "file": "phase2/artifacts/post_review/post_review.py",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\post_review\\post_review.py",
+      "sha256": "b0ac227cd8e432c29e9f1667fed1f275cf40fd102550e83f991e49036c8d55c7"
+    },
+    {
+      "file": "phase2/artifacts/post_review/QUALITATIVE_ERROR_ANALYSIS.md",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\post_review\\QUALITATIVE_ERROR_ANALYSIS.md",
+      "sha256": "d7d75be11bc3db03028d413cce3461a65c1e905ebec30498c0c067da918583f0"
+    },
+    {
+      "file": "phase2/artifacts/post_review/reproduction_guard_update.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\post_review\\reproduction_guard_update.json",
+      "sha256": "b467b412cbc88840d8f7dfbbfe6639f6a12d7189a1860fc2cf51e0b159053174"
+    },
+    {
+      "file": "phase2/artifacts/post_review/RESEARCH_REPORT_before_review.md",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\post_review\\RESEARCH_REPORT_before_review.md",
+      "sha256": "ceba427f08247f3671838990e0af26ed9e14d708a52ea3a9205d313d01c568d6"
+    },
+    {
+      "file": "phase2/artifacts/post_review/review_provenance.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\post_review\\review_provenance.json",
+      "sha256": "3f7060cec1810c400a96e482f3c7f25495273fbbafb92b8d62cc42ee780af7b0"
+    },
+    {
+      "file": "phase2/artifacts/K_extended_patch/test/examples.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\K_extended_patch\\test\\examples.json",
+      "sha256": "6c037f63099ab8e8df0a12d31a42d775b2e5a94f6ad016cd4ae5e2e143ec5f36"
+    },
+    {
+      "file": "phase2/artifacts/K_extended_patch/test/metrics.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\K_extended_patch\\test\\metrics.json",
+      "sha256": "78fa4b99c45835f417c12bcaff874c23ab9bfcea7bcef244b0f0fd238e2330f7"
+    },
+    {
+      "file": "phase2/artifacts/K_extended_patch/test/per_image_errors.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\K_extended_patch\\test\\per_image_errors.json",
+      "sha256": "d16a6b96b0bdb60e909a1f7dbe81a3296e38922dfe634b333e246cf2388f1087"
+    },
+    {
+      "file": "phase2/artifacts/J_balanced_dice_patch/test/examples.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\J_balanced_dice_patch\\test\\examples.json",
+      "sha256": "1d361da40853296cda21b6117babee8445556a192e2459b70c69c78a16007df1"
+    },
+    {
+      "file": "phase2/artifacts/J_balanced_dice_patch/test/metrics.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\J_balanced_dice_patch\\test\\metrics.json",
+      "sha256": "94eefddb2d2047bd69ec64c3cc05d4bf93bb4b9a5c5e1050cbf2af1679dbc756"
+    },
+    {
+      "file": "phase2/artifacts/J_balanced_dice_patch/test/per_image_errors.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\J_balanced_dice_patch\\test\\per_image_errors.json",
+      "sha256": "df982498bbeac28a0e287687998568cc53ed1066360b9e5f015ee2dfcbcdcfdb"
+    },
+    {
+      "file": "phase2/artifacts/H_foreground_patch/test/examples.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\H_foreground_patch\\test\\examples.json",
+      "sha256": "b54c1937a0f00f683a95be72f913f08556987d4b6e79057c031fc39bbfaf0a94"
+    },
+    {
+      "file": "phase2/artifacts/H_foreground_patch/test/metrics.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\H_foreground_patch\\test\\metrics.json",
+      "sha256": "a9dc10b5e60758fb57047bce06ddd7d9012333b72cfd4ae9ad51d97c09546afa"
+    },
+    {
+      "file": "phase2/artifacts/H_foreground_patch/test/per_image_errors.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\H_foreground_patch\\test\\per_image_errors.json",
+      "sha256": "ef7b38168be74bd73e18edbb2f7c68967d64073e6d42babaebb3620629213c20"
+    },
+    {
+      "file": "phase2/artifacts/G_present_dice_whole/test/examples.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\G_present_dice_whole\\test\\examples.json",
+      "sha256": "cb13c7caece64427148e239760d93944ac615d60d946576120209620970201c9"
+    },
+    {
+      "file": "phase2/artifacts/G_present_dice_whole/test/metrics.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\G_present_dice_whole\\test\\metrics.json",
+      "sha256": "0fac8383c71a1ee90d77694afdd2d576086c1bd5054538b2d4200c6a04375f23"
+    },
+    {
+      "file": "phase2/artifacts/G_present_dice_whole/test/per_image_errors.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\G_present_dice_whole\\test\\per_image_errors.json",
+      "sha256": "b239e9fedf3767c6bf347648ea53be425e866b219ad77d2056307e418eb0d8ae"
+    },
+    {
+      "file": "phase2/artifacts/F_present_dice_patch/test/examples.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\F_present_dice_patch\\test\\examples.json",
+      "sha256": "24d21a6e3b7d55440f3180bea06768237d628f6621d7464ebda0d22ee29c4612"
+    },
+    {
+      "file": "phase2/artifacts/F_present_dice_patch/test/metrics.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\F_present_dice_patch\\test\\metrics.json",
+      "sha256": "d14ceda44af702ed6fca498ef81fe4166f1db4cc7eeaca30f8b2a2f217019a7e"
+    },
+    {
+      "file": "phase2/artifacts/F_present_dice_patch/test/per_image_errors.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\F_present_dice_patch\\test\\per_image_errors.json",
+      "sha256": "4f9e6e62af98dbd3efb05f9a56f9e9803d504aa54cd7f47235e9fbe4da8634a5"
+    },
+    {
+      "file": "phase2/artifacts/final/source/architecture.md",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\final\\source\\architecture.md",
+      "sha256": "b408ed52155d7a1b9d41ad8b97c4dc6418f79955e69cf98684f8b112c8a325b7"
+    },
+    {
+      "file": "phase2/artifacts/final/source/audit.py",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\final\\source\\audit.py",
+      "sha256": "be6ff099dd97ea272f262e1bef3c25976d06fb53854a5a3d667f12f3a0745ee8"
+    },
+    {
+      "file": "phase2/artifacts/final/source/common.py",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\final\\source\\common.py",
+      "sha256": "8aa2c63fc5b3934df8b550012cfdc1da95b5537db6fc7a82ba42f7cffc266a65"
+    },
+    {
+      "file": "phase2/artifacts/final/source/data.py",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\final\\source\\data.py",
+      "sha256": "668775cceb520fe7e830017bbb74202b22e7cf34edcf004e251858a3bd17cf42"
+    },
+    {
+      "file": "phase2/artifacts/final/source/evaluate.py",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\final\\source\\evaluate.py",
+      "sha256": "c1fd556acee9cf2d3dc95ad78d48bde97303381291c16a06c8c56d45c05ae4f6"
+    },
+    {
+      "file": "phase2/artifacts/final/source/EXPERIMENT_LOG.md",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\final\\source\\EXPERIMENT_LOG.md",
+      "sha256": "adcf154b97b53eeb90af76301a2563c594f5bd68b6657ebc002d5a793c0b41f4"
+    },
+    {
+      "file": "phase2/artifacts/final/source/finalize.py",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\final\\source\\finalize.py",
+      "sha256": "125ab89c665d8d42e2709729c7ee59021b94361e3cb4f7fc06da8f75e8ce35e5"
+    },
+    {
+      "file": "phase2/artifacts/final/source/infer.py",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\final\\source\\infer.py",
+      "sha256": "137a62971d38e174f44a33fdf5a7e3ca803dbfcc9884818f144786f0d15661e2"
+    },
+    {
+      "file": "phase2/artifacts/final/source/inspect_architecture.py",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\final\\source\\inspect_architecture.py",
+      "sha256": "864d0f873f0d43ed342cd199630a12efabc78658cdac5841610e43485fc450b3"
+    },
+    {
+      "file": "phase2/artifacts/final/source/metrics.py",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\final\\source\\metrics.py",
+      "sha256": "7096cac25bfd45b7d05f30514cd947a6dbe960fa98f56c35c60489f0ec7fdf11"
+    },
+    {
+      "file": "phase2/artifacts/final/source/objectives.py",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\final\\source\\objectives.py",
+      "sha256": "dbc8e54060f1b136f0989f9d7509310dcff4c5c4446e963ca9c1829ba4676b3b"
+    },
+    {
+      "file": "phase2/artifacts/final/source/patches.py",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\final\\source\\patches.py",
+      "sha256": "9632d2e404de4035be51adcc1f83be7ebf42280fc8220aaa4f411729a9511dce"
+    },
+    {
+      "file": "phase2/artifacts/final/source/phase1_eval.py",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\final\\source\\phase1_eval.py",
+      "sha256": "e01b9f60e7b56143ccc3306e2f718bc5060191a13b7334127138031e7ce914bd"
+    },
+    {
+      "file": "phase2/artifacts/final/source/profile_exposure.py",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\final\\source\\profile_exposure.py",
+      "sha256": "85e69da2b74a8814cc052de7c2092e7bb8266db2a079cfe3b9200cf5a4b3e69f"
+    },
+    {
+      "file": "phase2/artifacts/final/source/profile_histograms.py",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\final\\source\\profile_histograms.py",
+      "sha256": "80522bbf60ae312c85c7eeff59cedc242f70618f9a1c5a8c99047f2629adf957"
+    },
+    {
+      "file": "phase2/artifacts/final/source/README.md",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\final\\source\\README.md",
+      "sha256": "cf6a4165cea225b2d3ca42e597c50c65076b4491a04a6751e5bd08b0a3a56a8f"
+    },
+    {
+      "file": "phase2/artifacts/final/source/report.py",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\final\\source\\report.py",
+      "sha256": "89bf47a82a88b13ce7d7156004074bdd142ffc0d92e671f53a62f2e7e6c9b473"
+    },
+    {
+      "file": "phase2/artifacts/final/source/requirements-lock.txt",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\final\\source\\requirements-lock.txt",
+      "sha256": "761757d4adc0427b3ee6d5b536939d2cc7853abc4c54c6a371613bbb6223264e"
+    },
+    {
+      "file": "phase2/artifacts/final/source/requirements.txt",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\final\\source\\requirements.txt",
+      "sha256": "d493c48968f730f3ef785624f3712ab16d7d95120c42c2bc5f39b48fdda28149"
+    },
+    {
+      "file": "phase2/artifacts/final/source/RESEARCH_DESIGN.md",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\final\\source\\RESEARCH_DESIGN.md",
+      "sha256": "b8ca863c25e995f14243239ec76abd43e2de41f533221a713071152996c79aa4"
+    },
+    {
+      "file": "phase2/artifacts/final/source/resume_smoke.py",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\final\\source\\resume_smoke.py",
+      "sha256": "80e031cf78ed8473d1a2748b957874510a15df9bc4a056e5c4925bf491844dd6"
+    },
+    {
+      "file": "phase2/artifacts/final/source/smoke.py",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\final\\source\\smoke.py",
+      "sha256": "9dc1f17dec8fc44d9185a314d26bef0636bc91a3bc6434ed6f2d750447d6b668"
+    },
+    {
+      "file": "phase2/artifacts/final/source/SOURCE_AND_CONTRIBUTION_LOG.md",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\final\\source\\SOURCE_AND_CONTRIBUTION_LOG.md",
+      "sha256": "ed7aeac8c02c09ad728228d49ffa93cbf3a7b0981866968efd567c1578c63c1f"
+    },
+    {
+      "file": "phase2/artifacts/final/source/test_evaluation.py",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\final\\source\\test_evaluation.py",
+      "sha256": "fd514b90d3b1681263ca6a29a2953502d68ba89b81940921eb0ad7d6380f6d48"
+    },
+    {
+      "file": "phase2/artifacts/final/source/test_pipeline.py",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\final\\source\\test_pipeline.py",
+      "sha256": "3ef825aa9f746d941713a316ff9cba451cf15b7c60169be93b094411fc11e922"
+    },
+    {
+      "file": "phase2/artifacts/final/source/test_sampling.py",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\final\\source\\test_sampling.py",
+      "sha256": "ef8b6b05ee94dd6ab8b341f62a667867664bc65eb1645e80d12ce0e04d29a2d2"
+    },
+    {
+      "file": "phase2/artifacts/final/source/train.py",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\final\\source\\train.py",
+      "sha256": "77636afa1ec036010ed6425130e0e1a4c4897fb7624c29e7fdde2119cf33e14a"
+    },
+    {
+      "file": "phase2/artifacts/final/source/verify_evidence.py",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\final\\source\\verify_evidence.py",
+      "sha256": "fa29f40461999cbb642130626c2387a0bc3f91eeda0ff9473d356e2ddb7a10d9"
+    },
+    {
+      "file": "phase2/artifacts/final/source/weighted_smoke.py",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\final\\source\\weighted_smoke.py",
+      "sha256": "c0808d1bfec222c7fe0ec55973b5d30e9d8dcd471ad4c7e29527d9d5b82bb8ed"
+    },
+    {
+      "file": "phase2/artifacts/final/source/__init__.py",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\final\\source\\__init__.py",
+      "sha256": "621b6c4a4c9c963ba980c521754f70ddf4e711761d60e3b5ade5978038b7e9d6"
+    },
+    {
+      "file": "phase2/artifacts/E_weighted_patch/test/examples.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\E_weighted_patch\\test\\examples.json",
+      "sha256": "9587c06a4e30db437340270d338e37a1ca064f0b8b8286e972caf4b1b1043764"
+    },
+    {
+      "file": "phase2/artifacts/E_weighted_patch/test/metrics.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\E_weighted_patch\\test\\metrics.json",
+      "sha256": "d37d73417886329cbc66b7fcfd7ed6d987b2d5f0494f46f49f4145ec24f2e553"
+    },
+    {
+      "file": "phase2/artifacts/E_weighted_patch/test/per_image_errors.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\E_weighted_patch\\test\\per_image_errors.json",
+      "sha256": "7d7166b75c670203e17405f44a00ed65d65e90a7cca9420c5276c5f7335a266f"
+    },
+    {
+      "file": "phase2/artifacts/C_patch/test/examples.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\C_patch\\test\\examples.json",
+      "sha256": "09c72b0e29051f3b1fd8a55ef5d56733ec1836c7f6876f432b7351f7a092c3c1"
+    },
+    {
+      "file": "phase2/artifacts/C_patch/test/metrics.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\C_patch\\test\\metrics.json",
+      "sha256": "c3204fc51c8f9534cd2304f54c6fd376d9ba066fad16774880bd60919988ea39"
+    },
+    {
+      "file": "phase2/artifacts/C_patch/test/per_image_errors.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\C_patch\\test\\per_image_errors.json",
+      "sha256": "4e0117d935798005954de39303b5dd4182db0fcb277450cd05804e608db4ff35"
+    },
+    {
+      "file": "phase2/artifacts/B_whole/test/examples.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\B_whole\\test\\examples.json",
+      "sha256": "dbfa29dc56fd35e0c07fa67488c15a1f6d11d32095a9d13c8a2951934727c4e7"
+    },
+    {
+      "file": "phase2/artifacts/B_whole/test/metrics.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\B_whole\\test\\metrics.json",
+      "sha256": "f845657e6e5cdc2c03ba5b301246564671609cf1db79e01930ed41cf6f254eb8"
+    },
+    {
+      "file": "phase2/artifacts/B_whole/test/per_image_errors.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\B_whole\\test\\per_image_errors.json",
+      "sha256": "d56e499a2fd3986e447be9f3c719818bc45f8459f32807b32bd0c651568bce33"
+    },
+    {
+      "file": "phase2/artifacts/ablations/C_hann_stride256/metrics.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\ablations\\C_hann_stride256\\metrics.json",
+      "sha256": "9cb05226816ec21477098e41d87c7e4fe4729297e2f8c4dc32c37d04777d02e3"
+    },
+    {
+      "file": "phase2/artifacts/ablations/C_hann_stride256/per_image_errors.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\ablations\\C_hann_stride256\\per_image_errors.json",
+      "sha256": "7a8302855b5b6fcbf5807d8e4c6507961a7d187cb79d851d808fa776050acc18"
+    },
+    {
+      "file": "phase2/artifacts/ablations/C_uniform_stride128/metrics.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\ablations\\C_uniform_stride128\\metrics.json",
+      "sha256": "e93b36514e7997f39ed1449fa928ea6b1478257fffe5de0ac757e20840ea1a1c"
+    },
+    {
+      "file": "phase2/artifacts/ablations/C_uniform_stride128/per_image_errors.json",
+      "source": "Phase_II_Clean_Project\\phase2\\artifacts\\ablations\\C_uniform_stride128\\per_image_errors.json",
+      "sha256": "db2dd98f400120c584a85dc000f365afb84ecc1a928b592a4dbac9ef8aaeab97"
+    },
+    {
+      "file": "experiments/severstal_segmentation/APPLICATION_INTEGRATION_PLAN.md",
+      "source": "Phase_II_Clean_Project\\experiments\\severstal_segmentation\\APPLICATION_INTEGRATION_PLAN.md",
+      "sha256": "99be44fadfeb68e071ae5b54541636009c26688ca4a0ebed32492bc96b42f3fe"
+    },
+    {
+      "file": "experiments/severstal_segmentation/config.json",
+      "source": "Phase_II_Clean_Project\\experiments\\severstal_segmentation\\config.json",
+      "sha256": "85dd719488aa19f5f25d545d6eba7961f6d0204948fed7a899c790077d540fb0"
+    },
+    {
+      "file": "experiments/severstal_segmentation/dataset.py",
+      "source": "Phase_II_Clean_Project\\experiments\\severstal_segmentation\\dataset.py",
+      "sha256": "e39a8274aa86ca92f98d08ad10f8174270ab3574f43ca6561eca941c7afff147"
+    },
+    {
+      "file": "experiments/severstal_segmentation/DATASET_PREPARATION.md",
+      "source": "Phase_II_Clean_Project\\experiments\\severstal_segmentation\\DATASET_PREPARATION.md",
+      "sha256": "a50af0112e1842920470391ef6fc1ff6b8c75feb743705878ccecf2a64dcbb0e"
+    },
+    {
+      "file": "experiments/severstal_segmentation/EXPERIMENT_README.md",
+      "source": "Phase_II_Clean_Project\\experiments\\severstal_segmentation\\EXPERIMENT_README.md",
+      "sha256": "e0dd7681cc626a95a00f062062c9cb9763c6ac169b2d38488351a73b82acefe8"
+    },
+    {
+      "file": "experiments/severstal_segmentation/model.py",
+      "source": "Phase_II_Clean_Project\\experiments\\severstal_segmentation\\model.py",
+      "sha256": "825ddd155e88a3f80eb5de5087561c7e168ae027daee74cf5faec9e5aa1e298e"
+    },
+    {
+      "file": "experiments/severstal_segmentation/MODEL_EVALUATION_REPORT.md",
+      "source": "Phase_II_Clean_Project\\experiments\\severstal_segmentation\\MODEL_EVALUATION_REPORT.md",
+      "sha256": "05f9f3f990e446e5f2313ee80be19a74eab0c86a58737109263087dac40ed249"
+    },
+    {
+      "file": "experiments/severstal_segmentation/MODEL_EXPLANATION_FOR_VIVA.md",
+      "source": "Phase_II_Clean_Project\\experiments\\severstal_segmentation\\MODEL_EXPLANATION_FOR_VIVA.md",
+      "sha256": "abdaf4fd5b82a39e21be82c3b31077c497068923e590f40bfc159a49f99d2927"
+    },
+    {
+      "file": "experiments/severstal_segmentation/PREDICTION_VISUALIZATION_GUIDE.md",
+      "source": "Phase_II_Clean_Project\\experiments\\severstal_segmentation\\PREDICTION_VISUALIZATION_GUIDE.md",
+      "sha256": "f99196cd57ffd0c9ca3868297e5fc9858a7b0c4061810a3990ecbb2faad47755"
+    },
+    {
+      "file": "experiments/severstal_segmentation/prepare_data.py",
+      "source": "Phase_II_Clean_Project\\experiments\\severstal_segmentation\\prepare_data.py",
+      "sha256": "333e5d159aae71c37b75d5a16589fd2fa5503eb26a9bdf27d0bcbbc4667f766e"
+    },
+    {
+      "file": "experiments/severstal_segmentation/README.md",
+      "source": "Phase_II_Clean_Project\\experiments\\severstal_segmentation\\README.md",
+      "sha256": "14ea19612b1615fff3a18811607c804ca2c78ce74a882cbc849ec1548ed65642"
+    },
+    {
+      "file": "experiments/severstal_segmentation/train.py",
+      "source": "Phase_II_Clean_Project\\experiments\\severstal_segmentation\\train.py",
+      "sha256": "782f5fff207fd75adb0776c18f1dd48a693b0b4d73520c37d2560bfbf00ddb57"
+    },
+    {
+      "file": "experiments/severstal_segmentation/TRAINING_RESULTS.md",
+      "source": "Phase_II_Clean_Project\\experiments\\severstal_segmentation\\TRAINING_RESULTS.md",
+      "sha256": "4f9ea5feea79013ca71b2cceb3deceb6f4a7473c04e24be07437cd7b83368a66"
+    },
+    {
+      "file": "experiments/severstal_segmentation/validate.py",
+      "source": "Phase_II_Clean_Project\\experiments\\severstal_segmentation\\validate.py",
+      "sha256": "55d77abe6e65411c7ad8e50ae004aeac799bed8af6ee1e6e409e91bd2da75fc5"
+    },
+    {
+      "file": "experiments/severstal_segmentation/visualize_predictions.py",
+      "source": "Phase_II_Clean_Project\\experiments\\severstal_segmentation\\visualize_predictions.py",
+      "sha256": "01919a342416b16007c71d7e56ab09fa1331458b74f2f97f6532d79d4e0a19f5"
+    },
+    {
+      "file": "experiments/severstal_segmentation/dice_loss_v1/best_model.pt",
+      "source": "Phase_II_Clean_Project\\experiments\\severstal_segmentation\\dice_loss_v1\\best_model.pt",
+      "sha256": "5edfa7f3269273a66052e0aabd5ffc7bba7f7e5754a1329aeb44e58f279ed661"
+    },
+    {
+      "file": "experiments/severstal_segmentation/dice_loss_v1/config.json",
+      "source": "Phase_II_Clean_Project\\experiments\\severstal_segmentation\\dice_loss_v1\\config.json",
+      "sha256": "1e0988421c36bee6c89e7e570921807042916cb44e6ad4313e31449bd40e3626"
+    },
+    {
+      "file": "experiments/severstal_segmentation/dice_loss_v1/MODEL_EVALUATION_REPORT.md",
+      "source": "Phase_II_Clean_Project\\experiments\\severstal_segmentation\\dice_loss_v1\\MODEL_EVALUATION_REPORT.md",
+      "sha256": "c706d98f350d24dcf5f6223caa336131fefdb9cf695d6204fd895a6143c81332"
+    },
+    {
+      "file": "experiments/severstal_segmentation/dice_loss_v1/README.md",
+      "source": "Phase_II_Clean_Project\\experiments\\severstal_segmentation\\dice_loss_v1\\README.md",
+      "sha256": "8629eddf38e9aa1c47b4f7121a5e15cc8f494e5ff1125c1769d228739a4df72b"
+    },
+    {
+      "file": "experiments/severstal_segmentation/dice_loss_v1/run_config.json",
+      "source": "Phase_II_Clean_Project\\experiments\\severstal_segmentation\\dice_loss_v1\\run_config.json",
+      "sha256": "a1298e41a237143322529caed9a6fb31ffaa588bf67473e4b38b7bca38016f57"
+    },
+    {
+      "file": "experiments/severstal_segmentation/dice_loss_v1/training_history.csv",
+      "source": "Phase_II_Clean_Project\\experiments\\severstal_segmentation\\dice_loss_v1\\training_history.csv",
+      "sha256": "d354e277bf2afa65083136f78359be6d696600749a4b8a95d4455de73cfbd9bb"
+    },
+    {
+      "file": "experiments/severstal_segmentation/dice_loss_v1/training_run_info.json",
+      "source": "Phase_II_Clean_Project\\experiments\\severstal_segmentation\\dice_loss_v1\\training_run_info.json",
+      "sha256": "28d895159271f27424576996162dcbb71d57e1d1b6b7d7f2bc27a8dc11275a1b"
+    },
+    {
+      "file": "experiments/severstal_segmentation/prepared/manifest.csv",
+      "source": "Phase_II_Clean_Project\\experiments\\severstal_segmentation\\prepared\\manifest.csv",
+      "sha256": "3563d4c52ccb29acf59a002e3ff5c03a3b64d89a032e087074e473efdcb50c52"
+    },
+    {
+      "file": "experiments/severstal_segmentation/rare_class_sampling_v1/config.json",
+      "source": "Phase_II_Clean_Project\\experiments\\severstal_segmentation\\rare_class_sampling_v1\\config.json",
+      "sha256": "9814807aab8783c294875d73dd02d0d27b12ce74b9dacc463b9889e916732d08"
+    },
+    {
+      "file": "experiments/severstal_segmentation/rare_class_sampling_v1/MODEL_EVALUATION_REPORT.md",
+      "source": "Phase_II_Clean_Project\\experiments\\severstal_segmentation\\rare_class_sampling_v1\\MODEL_EVALUATION_REPORT.md",
+      "sha256": "88ae4f95db15e75c4b5ce253b4e5f98aaa8ee79b2f8e2a40828ede32002cba9b"
+    },
+    {
+      "file": "experiments/severstal_segmentation/rare_class_sampling_v1/README.md",
+      "source": "Phase_II_Clean_Project\\experiments\\severstal_segmentation\\rare_class_sampling_v1\\README.md",
+      "sha256": "cb4f12544a5955a2d48eb61c8fc9f46f5f47c93fa6a16ef6b389eb8845cef782"
+    },
+    {
+      "file": "experiments/severstal_segmentation/rare_class_sampling_v1/run_config.json",
+      "source": "Phase_II_Clean_Project\\experiments\\severstal_segmentation\\rare_class_sampling_v1\\run_config.json",
+      "sha256": "cf22ead6627574551719622410912ae8d13a79e2a7f6f16d8739d259eb8c0fb8"
+    },
+    {
+      "file": "experiments/severstal_segmentation/rare_class_sampling_v1/sampling_history.csv",
+      "source": "Phase_II_Clean_Project\\experiments\\severstal_segmentation\\rare_class_sampling_v1\\sampling_history.csv",
+      "sha256": "c4893d4a71851faf5f4706dd052d4303605fcd850f2dd4c785376b1d09bf55bd"
+    },
+    {
+      "file": "experiments/severstal_segmentation/rare_class_sampling_v1/sampling_preflight.json",
+      "source": "Phase_II_Clean_Project\\experiments\\severstal_segmentation\\rare_class_sampling_v1\\sampling_preflight.json",
+      "sha256": "051b6eb3fda03371f8cca3321ba4184a795f1a855cdbfb2584e9db7fc406ab2a"
+    },
+    {
+      "file": "experiments/severstal_segmentation/rare_class_sampling_v1/training_history.csv",
+      "source": "Phase_II_Clean_Project\\experiments\\severstal_segmentation\\rare_class_sampling_v1\\training_history.csv",
+      "sha256": "dc69f88a3eaa742944715f6faa84994718fab5955c4346e5abe49d82bbd09870"
+    },
+    {
+      "file": "experiments/severstal_segmentation/rare_class_sampling_v1/training_run_info.json",
+      "source": "Phase_II_Clean_Project\\experiments\\severstal_segmentation\\rare_class_sampling_v1\\training_run_info.json",
+      "sha256": "72aef8bad6a956e6063d57a1b498d8f661ba8fccd571a1e4432dfd453d4e9efe"
+    },
+    {
+      "file": "experiments/severstal_segmentation/results/run_config.json",
+      "source": "Phase_II_Clean_Project\\experiments\\severstal_segmentation\\results\\run_config.json",
+      "sha256": "6200047f90490e11099584084503807cb9711b9b2826353dcbb52f68e79af65b"
+    },
+    {
+      "file": "experiments/severstal_segmentation/results/training_history.csv",
+      "source": "Phase_II_Clean_Project\\experiments\\severstal_segmentation\\results\\training_history.csv",
+      "sha256": "d326c4020e2986dc0658dc32e0a57503a4f951a8d0ea8ad923004089f019c519"
+    },
+    {
+      "file": "experiments/severstal_segmentation/results/training_run_info.json",
+      "source": "Phase_II_Clean_Project\\experiments\\severstal_segmentation\\results\\training_run_info.json",
+      "sha256": "468fd5ccddff158e4973f134453d0110c24928acc39ac2c87840930a1952e5a9"
+    },
+    {
+      "file": "experiments/severstal_segmentation/results/validation_metrics.json",
+      "source": "Phase_II_Clean_Project\\experiments\\severstal_segmentation\\results\\validation_metrics.json",
+      "sha256": "c80eb253502d880eb51bc6cb2bf8db0b8ebce0216111fe180f17c9c9acf8195e"
+    },
+    {
+      "file": "experiments/severstal_segmentation/results/visualization_manifest.json",
+      "source": "Phase_II_Clean_Project\\experiments\\severstal_segmentation\\results\\visualization_manifest.json",
+      "sha256": "ac10bc309ced001d2bcce7bdb6c80129ad6fb3202a21725784ed5c056b08cf24"
+    },
+    {
+      "file": "experiments/severstal_segmentation/rare_class_sampling_v1/evaluation/validation_metrics_default.json",
+      "source": "Phase_II_Clean_Project\\experiments\\severstal_segmentation\\rare_class_sampling_v1\\evaluation\\validation_metrics_default.json",
+      "sha256": "3d68a6126bb4ee85e744392a499515601b3858e100fdeabf98eb4cf84763f913"
+    },
+    {
+      "file": "experiments/severstal_segmentation/rare_class_sampling_v1/evaluation/validation_metrics_tuned.json",
+      "source": "Phase_II_Clean_Project\\experiments\\severstal_segmentation\\rare_class_sampling_v1\\evaluation\\validation_metrics_tuned.json",
+      "sha256": "2566ab53ce9e87454dcbce039a1ce2f4a2ca42b39c4ace136c85778bf9b1c97c"
+    },
+    {
+      "file": "experiments/severstal_segmentation/dice_loss_v1/evaluation/validation_metrics_default.json",
+      "source": "Phase_II_Clean_Project\\experiments\\severstal_segmentation\\dice_loss_v1\\evaluation\\validation_metrics_default.json",
+      "sha256": "d177b810239acfcae2c80f34db0209dcb298c3bbf40ccff0ed6592f5d4972112"
+    },
+    {
+      "file": "experiments/severstal_segmentation/dice_loss_v1/evaluation/validation_metrics_tuned.json",
+      "source": "Phase_II_Clean_Project\\experiments\\severstal_segmentation\\dice_loss_v1\\evaluation\\validation_metrics_tuned.json",
+      "sha256": "cfa5a1ec7a9fe496ef3cd5d1e01115e115af3ecdcbbf0a342c82376e830f5c3d"
+    },
+    {
+      "file": "phase2/improvement_sprint/sprint.py",
+      "source": "phase2/improvement_sprint/sprint.py",
+      "sha256": "cea2531d2d9b6fd8841227edde253199defcc5d6c5ab3f83a84f91367771ec8c"
+    },
+    {
+      "file": "phase2/improvement_sprint/rare_sampling.py",
+      "source": "phase2/improvement_sprint/rare_sampling.py",
+      "sha256": "d36c4e7668f1c526cbf24a27672b8cc823a39f3f4c6d2a714f364fdae7417c71"
+    },
+    {
+      "file": "phase2/improvement_sprint/IMPROVEMENT_RESULTS.txt",
+      "source": "phase2/improvement_sprint/IMPROVEMENT_RESULTS.txt",
+      "sha256": "6462742dfe1cf8256a5ce9cb3ba6c47675d7b3faac3adf43774f5ee334200717"
+    },
+    {
+      "file": "phase2/improvement_sprint/protocol.json",
+      "source": "phase2/improvement_sprint/protocol.json",
+      "sha256": "a2bec6745d3de993001c3173f57ef3a03dd775cf9fd3157ace8ae726d83aa9ca"
+    },
+    {
+      "file": "phase2/improvement_sprint/class2_protocol.json",
+      "source": "phase2/improvement_sprint/class2_protocol.json",
+      "sha256": "fa742e4fb8f7b7a76a84dd17ccbce0004f272bd11d913c545613412ba6a07d7b"
+    },
+    {
+      "file": "phase2/improvement_sprint/comparison.csv",
+      "source": "phase2/improvement_sprint/comparison.csv",
+      "sha256": "938254a7de41d2e457a844730c8decfcd7223d2553ed3c24806b0093890180a5"
+    },
+    {
+      "file": "phase2/improvement_sprint/L_low_lr/best_validation.json",
+      "source": "phase2/improvement_sprint/L_low_lr/best_validation.json",
+      "sha256": "ebddbb9402acb0301ecbd9fabde5beca13df077ea84434be382073ac7a32c320"
+    },
+    {
+      "file": "phase2/improvement_sprint/L_low_lr/config.json",
+      "source": "phase2/improvement_sprint/L_low_lr/config.json",
+      "sha256": "a6104121b8711dc3618424519be9110210a331c15233a6c1b65a77b246b237f8"
+    },
+    {
+      "file": "phase2/improvement_sprint/L_low_lr/epoch_10_target_exposure.json",
+      "source": "phase2/improvement_sprint/L_low_lr/epoch_10_target_exposure.json",
+      "sha256": "de3afec9dd5b0d5528657a99e9c9ff15f7919d448a4e646f5f6b1962a2ce413d"
+    },
+    {
+      "file": "phase2/improvement_sprint/L_low_lr/epoch_11_target_exposure.json",
+      "source": "phase2/improvement_sprint/L_low_lr/epoch_11_target_exposure.json",
+      "sha256": "0c096736fda713d3fb0099e5fa353b529a9be1cd389105de8a7ecaf7cef3dac1"
+    },
+    {
+      "file": "phase2/improvement_sprint/L_low_lr/epoch_12_target_exposure.json",
+      "source": "phase2/improvement_sprint/L_low_lr/epoch_12_target_exposure.json",
+      "sha256": "182cdc815820db78926e595cddff29572b7c7f22bb7b49a56c8b9dba9db1f4bd"
+    },
+    {
+      "file": "phase2/improvement_sprint/L_low_lr/history.csv",
+      "source": "phase2/improvement_sprint/L_low_lr/history.csv",
+      "sha256": "4e39b5b173c7184f2fdf6e3a11d3881a16f48cf3895cbb09049c3a8caf055898"
+    },
+    {
+      "file": "phase2/improvement_sprint/L_low_lr/initialization_provenance.json",
+      "source": "phase2/improvement_sprint/L_low_lr/initialization_provenance.json",
+      "sha256": "b3766e3735cc3a117e04c4ce79ef45501ba1a07648cd2f9f7142ecf06c282140"
+    },
+    {
+      "file": "phase2/improvement_sprint/L_low_lr/run_info.json",
+      "source": "phase2/improvement_sprint/L_low_lr/run_info.json",
+      "sha256": "8c4315d7aeb0a92694396c023a2ed81848eb1c8d0052a16f227cfb1b54605fce"
+    },
+    {
+      "file": "phase2/precision_balance/experiment.py",
+      "source": "phase2/precision_balance/experiment.py",
+      "sha256": "0c2020cf45a152e62a6f3aa2e6bf99ae3419ce20dd03a654c696ee7d646978bd"
+    },
+    {
+      "file": "phase2/precision_balance/FINAL_PREDICTION_IMPROVEMENT.txt",
+      "source": "phase2/precision_balance/FINAL_PREDICTION_IMPROVEMENT.txt",
+      "sha256": "6a380352c2184381458b69b921778214593377222a127f819fc204d667362e65"
+    },
+    {
+      "file": "phase2/precision_balance/protocol.json",
+      "source": "phase2/precision_balance/protocol.json",
+      "sha256": "ebe091d4177b4cc7e9efe8e375f2277dce1ed5afebbd8afde4bbd8296dda7eaf"
+    },
+    {
+      "file": "phase2/precision_balance/comparison.csv",
+      "source": "phase2/precision_balance/comparison.csv",
+      "sha256": "7ef45a21e0c73c5c9d637ecd95edee45f95b084c91b479ec657b0f0394bb029b"
+    },
+    {
+      "file": "phase2/precision_balance/selection.json",
+      "source": "phase2/precision_balance/selection.json",
+      "sha256": "4a4809b873ec3d7b0f21517405216f26abb533c4d515055a3900a38798e4510e"
+    },
+    {
+      "file": "phase2/precision_balance/N_bce75_dice25/best_validation.json",
+      "source": "phase2/precision_balance/N_bce75_dice25/best_validation.json",
+      "sha256": "26f589b2d0268359f8a369520770aff7a08672b23f1f85419ba34b5d1e4374f4"
+    },
+    {
+      "file": "phase2/precision_balance/N_bce75_dice25/config.json",
+      "source": "phase2/precision_balance/N_bce75_dice25/config.json",
+      "sha256": "3fc534b0f4fb08300f9020a1592e8246310d85bbcfc55d27ec8925e861800651"
+    },
+    {
+      "file": "phase2/precision_balance/N_bce75_dice25/epoch_10_target_exposure.json",
+      "source": "phase2/precision_balance/N_bce75_dice25/epoch_10_target_exposure.json",
+      "sha256": "de3afec9dd5b0d5528657a99e9c9ff15f7919d448a4e646f5f6b1962a2ce413d"
+    },
+    {
+      "file": "phase2/precision_balance/N_bce75_dice25/epoch_11_target_exposure.json",
+      "source": "phase2/precision_balance/N_bce75_dice25/epoch_11_target_exposure.json",
+      "sha256": "0c096736fda713d3fb0099e5fa353b529a9be1cd389105de8a7ecaf7cef3dac1"
+    },
+    {
+      "file": "phase2/precision_balance/N_bce75_dice25/history.csv",
+      "source": "phase2/precision_balance/N_bce75_dice25/history.csv",
+      "sha256": "61dd1d15eaa84917e1cc3c205d19e892f40d98491157291d0ef877eca26db600"
+    },
+    {
+      "file": "phase2/precision_balance/N_bce75_dice25/run_info.json",
+      "source": "phase2/precision_balance/N_bce75_dice25/run_info.json",
+      "sha256": "9dcc48656fa7c78236307b9e2a23c6b67736b768d9f31f101ff27f0bed5a9a95"
+    },
+    {
+      "file": "phase2/augmentation_study/augmentation.py",
+      "source": "phase2/augmentation_study/augmentation.py",
+      "sha256": "2f4160947c942d74629f434b00344b0b5278240c57961133d4832bd890e94241"
+    },
+    {
+      "file": "phase2/augmentation_study/train.py",
+      "source": "phase2/augmentation_study/train.py",
+      "sha256": "3d691856858b773da9a3a9e1d95ac590090653ba66fa2e2f6f82e8b97a3d4f38"
+    },
+    {
+      "file": "phase2/augmentation_study/diagnostics.py",
+      "source": "phase2/augmentation_study/diagnostics.py",
+      "sha256": "307f68f2b63026e98eb04e1dee5abfbf4c60c14281780be22b81fab835fcae63"
+    },
+    {
+      "file": "phase2/augmentation_study/test_augmentation.py",
+      "source": "phase2/augmentation_study/test_augmentation.py",
+      "sha256": "4951b5a8aee4cad2ff8e020d1a4c5f286851aff1b6a41177c24cfe3e7f0bbfdc"
+    },
+    {
+      "file": "phase2/augmentation_study/AUGMENTATION_RESULTS.txt",
+      "source": "phase2/augmentation_study/AUGMENTATION_RESULTS.txt",
+      "sha256": "2c00c3e504f2114ceab5d906918c1d5060765daf1e303d7af6bef59a90ab5d97"
+    },
+    {
+      "file": "phase2/augmentation_study/DIAGNOSIS.txt",
+      "source": "phase2/augmentation_study/DIAGNOSIS.txt",
+      "sha256": "1948da7474e966d0eaf251d0dc7d56024baa3fc4561d4ed8dccc018debce01b0"
+    },
+    {
+      "file": "phase2/augmentation_study/protocol.json",
+      "source": "phase2/augmentation_study/protocol.json",
+      "sha256": "31f9d3dce36eac93c7832f4a4c7f49917b5540fb41dcb92f9f2aecf1aa1b5e5b"
+    },
+    {
+      "file": "phase2/augmentation_study/baseline_diagnosis.json",
+      "source": "phase2/augmentation_study/baseline_diagnosis.json",
+      "sha256": "da3d3a203c7c1218124c9a4821e78e397f7b2595c6714710027c9bb988cfa02d"
+    },
+    {
+      "file": "phase2/augmentation_study/augmentation_tests.json",
+      "source": "phase2/augmentation_study/augmentation_tests.json",
+      "sha256": "1e4111d29fbf261c7088737d0236be25b22247f4ef274a54147d1ba7315fda59"
+    },
+    {
+      "file": "phase2/augmentation_study/diagnostic_tests.json",
+      "source": "phase2/augmentation_study/diagnostic_tests.json",
+      "sha256": "931bd28c698a2e0f49afc6f86fb24bc37c38604f8414bde5bb7bbfc20c4927ba"
+    },
+    {
+      "file": "phase2/augmentation_study/comparison.csv",
+      "source": "phase2/augmentation_study/comparison.csv",
+      "sha256": "dc0aab1455907e46efbbb405271baaa8c92998ed56ab58d357e6a0cce123739f"
+    },
+    {
+      "file": "phase2/augmentation_study/selection.json",
+      "source": "phase2/augmentation_study/selection.json",
+      "sha256": "1b04187a8e57f1d1ab2121d168f587c9d86777f5ea1f167400514fc6340c13a4"
+    },
+    {
+      "file": "phase2/augmentation_study/O_photometric/best_validation.json",
+      "source": "phase2/augmentation_study/O_photometric/best_validation.json",
+      "sha256": "19a8a243b240fe1205e0a09c73452df741f837ad63fe15b93c17d398fe8e0274"
+    },
+    {
+      "file": "phase2/augmentation_study/O_photometric/config.json",
+      "source": "phase2/augmentation_study/O_photometric/config.json",
+      "sha256": "2b5f1d9a9ef983fad7ac49c674a831047a761d5353c8e91da6783fed74026b60"
+    },
+    {
+      "file": "phase2/augmentation_study/O_photometric/epoch_10_target_exposure.json",
+      "source": "phase2/augmentation_study/O_photometric/epoch_10_target_exposure.json",
+      "sha256": "de3afec9dd5b0d5528657a99e9c9ff15f7919d448a4e646f5f6b1962a2ce413d"
+    },
+    {
+      "file": "phase2/augmentation_study/O_photometric/epoch_11_target_exposure.json",
+      "source": "phase2/augmentation_study/O_photometric/epoch_11_target_exposure.json",
+      "sha256": "0c096736fda713d3fb0099e5fa353b529a9be1cd389105de8a7ecaf7cef3dac1"
+    },
+    {
+      "file": "phase2/augmentation_study/O_photometric/history.csv",
+      "source": "phase2/augmentation_study/O_photometric/history.csv",
+      "sha256": "f0ce09cd6bcd04e7de6bcfee96d42aec1f384ae1ce7559a33178d5152402ff81"
+    },
+    {
+      "file": "phase2/augmentation_study/O_photometric/run_info.json",
+      "source": "phase2/augmentation_study/O_photometric/run_info.json",
+      "sha256": "85e8817302d6f3a38ff2599b7cfdcd47b53184290cdbbce02f78356d517129ef"
+    },
+    {
+      "file": "phase2/overlap_regularization_study/loss.py",
+      "source": "phase2/overlap_regularization_study/loss.py",
+      "sha256": "c73305f46dd7e3b8a41319379cfab41991d5a76d28b8743c5df24bff820717c5"
+    },
+    {
+      "file": "phase2/overlap_regularization_study/train.py",
+      "source": "phase2/overlap_regularization_study/train.py",
+      "sha256": "04c1a6564ec06e30cb6369405b1e3760e2872f056d48118142d10e9de0d486a9"
+    },
+    {
+      "file": "phase2/overlap_regularization_study/test_loss.py",
+      "source": "phase2/overlap_regularization_study/test_loss.py",
+      "sha256": "77832f28fb7289808ac82bd40eac730bd43a46ba835b2c4ce5cd6d7671627d23"
+    },
+    {
+      "file": "phase2/overlap_regularization_study/OVERLAP_REGULARIZATION_RESULTS.txt",
+      "source": "phase2/overlap_regularization_study/OVERLAP_REGULARIZATION_RESULTS.txt",
+      "sha256": "0b0cefcc6c950a7b6ad09d698a8e174fa11332f633147bd6934af1f71b75f980"
+    },
+    {
+      "file": "phase2/overlap_regularization_study/protocol.json",
+      "source": "phase2/overlap_regularization_study/protocol.json",
+      "sha256": "ea5fd688f3d3c2e4eb43e4b5b7355cf21b4a6c25e821306c86af69d822d6d364"
+    },
+    {
+      "file": "phase2/overlap_regularization_study/training_annotation_exclusivity.json",
+      "source": "phase2/overlap_regularization_study/training_annotation_exclusivity.json",
+      "sha256": "5ae39464794f484568d7600d1de85acdd5b8f210115b6e8aa9ef4bc4be4f01bb"
+    },
+    {
+      "file": "phase2/overlap_regularization_study/unit_tests.json",
+      "source": "phase2/overlap_regularization_study/unit_tests.json",
+      "sha256": "8ee5c5e47745cc8241bd6da28956a12ccff552fff6cc867a5b003a672da3576c"
+    },
+    {
+      "file": "phase2/overlap_regularization_study/comparison.csv",
+      "source": "phase2/overlap_regularization_study/comparison.csv",
+      "sha256": "5de0217797893458fc8dfbe82902be71aa8a66b5e0b26b8e7169ad7915f2c28e"
+    },
+    {
+      "file": "phase2/overlap_regularization_study/selection.json",
+      "source": "phase2/overlap_regularization_study/selection.json",
+      "sha256": "86e08f3800c52a560484b92a305c13154339242714cb856547388117f609387e"
+    },
+    {
+      "file": "phase2/overlap_regularization_study/P_overlap010/best_validation.json",
+      "source": "phase2/overlap_regularization_study/P_overlap010/best_validation.json",
+      "sha256": "40d4ea8ae4579c5f453ac0239c1b9958028aa7c22995df7b99fd77f6b5b9dad9"
+    },
+    {
+      "file": "phase2/overlap_regularization_study/P_overlap010/config.json",
+      "source": "phase2/overlap_regularization_study/P_overlap010/config.json",
+      "sha256": "36f686ed0be2ba0ec6c574c1d27e30f672ce9049b123c08c20b34fcc22288042"
+    },
+    {
+      "file": "phase2/overlap_regularization_study/P_overlap010/epoch_10_target_exposure.json",
+      "source": "phase2/overlap_regularization_study/P_overlap010/epoch_10_target_exposure.json",
+      "sha256": "de3afec9dd5b0d5528657a99e9c9ff15f7919d448a4e646f5f6b1962a2ce413d"
+    },
+    {
+      "file": "phase2/overlap_regularization_study/P_overlap010/epoch_11_target_exposure.json",
+      "source": "phase2/overlap_regularization_study/P_overlap010/epoch_11_target_exposure.json",
+      "sha256": "0c096736fda713d3fb0099e5fa353b529a9be1cd389105de8a7ecaf7cef3dac1"
+    },
+    {
+      "file": "phase2/overlap_regularization_study/P_overlap010/history.csv",
+      "source": "phase2/overlap_regularization_study/P_overlap010/history.csv",
+      "sha256": "9fbc739fccb5ea6ae9c48bd72c13f91e3b56f167ffdf8cd4eef1761cf0f118d8"
+    },
+    {
+      "file": "phase2/overlap_regularization_study/P_overlap010/run_info.json",
+      "source": "phase2/overlap_regularization_study/P_overlap010/run_info.json",
+      "sha256": "99fbaedc8273ed028b4cf19623fbfe8751a1f69d40e185992d7eb79067ca3248"
+    }
+  ],
+  "exclusions": [
+    {
+      "file": "verification/app_launch_20261120_165319.log",
+      "reason": "repeated historical QA output; compact results and layer/qualitative evidence retained"
+    },
+    {
+      "file": "verification/CHECKPOINT_INVENTORY.json",
+      "reason": "repeated historical QA output; compact results and layer/qualitative evidence retained"
+    },
+    {
+      "file": "verification/COPY_PROVENANCE.json",
+      "reason": "repeated historical QA output; compact results and layer/qualitative evidence retained"
+    },
+    {
+      "file": "verification/cuda_recheck.json",
+      "reason": "repeated historical QA output; compact results and layer/qualitative evidence retained"
+    },
+    {
+      "file": "verification/final_verification.json",
+      "reason": "repeated historical QA output; compact results and layer/qualitative evidence retained"
+    },
+    {
+      "file": "verification/integration_console.log",
+      "reason": "repeated historical QA output; compact results and layer/qualitative evidence retained"
+    },
+    {
+      "file": "verification/latest_integration.txt",
+      "reason": "repeated historical QA output; compact results and layer/qualitative evidence retained"
+    },
+    {
+      "file": "verification/live_exercises.json",
+      "reason": "repeated historical QA output; compact results and layer/qualitative evidence retained"
+    },
+    {
+      "file": "verification/ORIGINAL_PRESERVATION_BASELINE.json",
+      "reason": "repeated historical QA output; compact results and layer/qualitative evidence retained"
+    },
+    {
+      "file": "verification/original_preservation_result.json",
+      "reason": "repeated historical QA output; compact results and layer/qualitative evidence retained"
+    },
+    {
+      "file": "verification/release_manifest_check.json",
+      "reason": "repeated historical QA output; compact results and layer/qualitative evidence retained"
+    },
+    {
+      "file": "verification/unit_tests.json",
+      "reason": "repeated historical QA output; compact results and layer/qualitative evidence retained"
+    },
+    {
+      "file": "verification/unit_tests.log",
+      "reason": "repeated historical QA output; compact results and layer/qualitative evidence retained"
+    },
+    {
+      "file": "verification/final_freeze/integration_console.log",
+      "reason": "repeated historical QA output; compact results and layer/qualitative evidence retained"
+    },
+    {
+      "file": "verification/final_freeze/release_manifest_check.json",
+      "reason": "repeated historical QA output; compact results and layer/qualitative evidence retained"
+    },
+    {
+      "file": "verification/final_freeze/unit_tests.json",
+      "reason": "repeated historical QA output; compact results and layer/qualitative evidence retained"
+    },
+    {
+      "file": "verification/final_freeze/unit_tests.log",
+      "reason": "repeated historical QA output; compact results and layer/qualitative evidence retained"
+    },
+    {
+      "file": "verification/run_20261120T105823_408642Z/integration.json",
+      "reason": "repeated historical QA output; compact results and layer/qualitative evidence retained"
+    },
+    {
+      "file": "verification/run_20261120T105823_408642Z/saved_evidence_check.json",
+      "reason": "repeated historical QA output; compact results and layer/qualitative evidence retained"
+    },
+    {
+      "file": "verification/run_20261120T105823_408642Z/streamlit_startup.log",
+      "reason": "repeated historical QA output; compact results and layer/qualitative evidence retained"
+    },
+    {
+      "file": "verification/run_20261120T175655_520876Z/class_1.png",
+      "reason": "repeated historical QA output; compact results and layer/qualitative evidence retained"
+    },
+    {
+      "file": "verification/run_20261120T175655_520876Z/class_2.png",
+      "reason": "repeated historical QA output; compact results and layer/qualitative evidence retained"
+    },
+    {
+      "file": "verification/run_20261120T175655_520876Z/class_3.png",
+      "reason": "repeated historical QA output; compact results and layer/qualitative evidence retained"
+    },
+    {
+      "file": "verification/run_20261120T175655_520876Z/class_4.png",
+      "reason": "repeated historical QA output; compact results and layer/qualitative evidence retained"
+    },
+    {
+      "file": "verification/run_20261120T175655_520876Z/inspection.json",
+      "reason": "repeated historical QA output; compact results and layer/qualitative evidence retained"
+    },
+    {
+      "file": "verification/run_20261120T175655_520876Z/integration.json",
+      "reason": "repeated historical QA output; compact results and layer/qualitative evidence retained"
+    },
+    {
+      "file": "verification/run_20261120T175655_520876Z/overlay.png",
+      "reason": "repeated historical QA output; compact results and layer/qualitative evidence retained"
+    },
+    {
+      "file": "verification/run_20261120T175655_520876Z/saved_evidence_check.json",
+      "reason": "repeated historical QA output; compact results and layer/qualitative evidence retained"
+    },
+    {
+      "file": "verification/run_20261120T175655_520876Z/streamlit_startup.log",
+      "reason": "repeated historical QA output; compact results and layer/qualitative evidence retained"
+    },
+    {
+      "file": "verification/run_20261120T175655_520876Z/verified_layers.json",
+      "reason": "repeated historical QA output; compact results and layer/qualitative evidence retained"
+    },
+    {
+      "file": "verification/run_20261120T175655_520876Z/VERIFIED_LAYER_TABLE.txt",
+      "reason": "repeated historical QA output; compact results and layer/qualitative evidence retained"
+    },
+    {
+      "file": "verification/simple_gui/0007a71bf_cpu.json",
+      "reason": "repeated historical QA output; compact results and layer/qualitative evidence retained"
+    },
+    {
+      "file": "verification/simple_gui/0007a71bf_cuda.json",
+      "reason": "repeated historical QA output; compact results and layer/qualitative evidence retained"
+    },
+    {
+      "file": "verification/simple_gui/000ccc2ac_cpu.json",
+      "reason": "repeated historical QA output; compact results and layer/qualitative evidence retained"
+    },
+    {
+      "file": "verification/simple_gui/000ccc2ac_cuda.json",
+      "reason": "repeated historical QA output; compact results and layer/qualitative evidence retained"
+    },
+    {
+      "file": "verification/simple_gui/download_change_recheck.json",
+      "reason": "repeated historical QA output; compact results and layer/qualitative evidence retained"
+    },
+    {
+      "file": "verification/simple_gui/download_change_recheck.log",
+      "reason": "repeated historical QA output; compact results and layer/qualitative evidence retained"
+    },
+    {
+      "file": "verification/simple_gui/final_integrity.json",
+      "reason": "repeated historical QA output; compact results and layer/qualitative evidence retained"
+    },
+    {
+      "file": "verification/simple_gui/manifest_check.json",
+      "reason": "repeated historical QA output; compact results and layer/qualitative evidence retained"
+    },
+    {
+      "file": "verification/simple_gui/unit_tests.log",
+      "reason": "repeated historical QA output; compact results and layer/qualitative evidence retained"
+    },
+    {
+      "file": "phase2/artifacts/A_console.log",
+      "reason": "temporary console/QA log (training histories/configs remain)"
+    },
+    {
+      "file": "phase2/artifacts/A_cpu_console.log",
+      "reason": "temporary console/QA log (training histories/configs remain)"
+    },
+    {
+      "file": "phase2/artifacts/B_console.log",
+      "reason": "temporary console/QA log (training histories/configs remain)"
+    },
+    {
+      "file": "phase2/artifacts/C_console.log",
+      "reason": "temporary console/QA log (training histories/configs remain)"
+    },
+    {
+      "file": "phase2/artifacts/E_console.log",
+      "reason": "temporary console/QA log (training histories/configs remain)"
+    },
+    {
+      "file": "phase2/artifacts/final_test_console.log",
+      "reason": "temporary console/QA log (training histories/configs remain)"
+    },
+    {
+      "file": "phase2/artifacts/final_validation_console.log",
+      "reason": "temporary console/QA log (training histories/configs remain)"
+    },
+    {
+      "file": "phase2/artifacts/foreground_smoke_console.log",
+      "reason": "temporary console/QA log (training histories/configs remain)"
+    },
+    {
+      "file": "phase2/artifacts/F_console.log",
+      "reason": "temporary console/QA log (training histories/configs remain)"
+    },
+    {
+      "file": "phase2/artifacts/G_console.log",
+      "reason": "temporary console/QA log (training histories/configs remain)"
+    },
+    {
+      "file": "phase2/artifacts/H_console.log",
+      "reason": "temporary console/QA log (training histories/configs remain)"
+    },
+    {
+      "file": "phase2/artifacts/J_console.log",
+      "reason": "temporary console/QA log (training histories/configs remain)"
+    },
+    {
+      "file": "phase2/artifacts/K_console.log",
+      "reason": "temporary console/QA log (training histories/configs remain)"
+    },
+    {
+      "file": "phase2/artifacts/post_review_console.log",
+      "reason": "temporary console/QA log (training histories/configs remain)"
+    },
+    {
+      "file": "phase2/artifacts/present_smoke_console.log",
+      "reason": "temporary console/QA log (training histories/configs remain)"
+    },
+    {
+      "file": "phase2/artifacts/present_whole_smoke_console.log",
+      "reason": "temporary console/QA log (training histories/configs remain)"
+    },
+    {
+      "file": "phase2/artifacts/weighted_smoke_console.log",
+      "reason": "temporary console/QA log (training histories/configs remain)"
+    },
+    {
+      "file": "phase2/release/evidence/browser_20261120T151903_525747Z/application.png",
+      "reason": "historical browser QA; representative authorized GT panel retained instead"
+    },
+    {
+      "file": "phase2/release/evidence/browser_20261120T151903_525747Z/application_locked.png",
+      "reason": "historical browser QA; representative authorized GT panel retained instead"
+    },
+    {
+      "file": "phase2/release/evidence/browser_20261120T151903_525747Z/application_second.png",
+      "reason": "historical browser QA; representative authorized GT panel retained instead"
+    },
+    {
+      "file": "phase2/release/evidence/browser_20261120T151903_525747Z/browser_console.log",
+      "reason": "historical browser QA; representative authorized GT panel retained instead"
+    },
+    {
+      "file": "phase2/release/evidence/browser_20261120T151903_525747Z/browser_driver.log",
+      "reason": "historical browser QA; representative authorized GT panel retained instead"
+    },
+    {
+      "file": "phase2/release/evidence/browser_20261120T151903_525747Z/browser_smoke.json",
+      "reason": "historical browser QA; representative authorized GT panel retained instead"
+    },
+    {
+      "file": "phase2/release/evidence/browser_20261120T151903_525747Z/download_events.json",
+      "reason": "historical browser QA; representative authorized GT panel retained instead"
+    },
+    {
+      "file": "phase2/release/evidence/browser_20261120T151903_525747Z/lifecycle.json",
+      "reason": "historical browser QA; representative authorized GT panel retained instead"
+    },
+    {
+      "file": "phase2/release/evidence/browser_20261120T151903_525747Z/server.log",
+      "reason": "historical browser QA; representative authorized GT panel retained instead"
+    },
+    {
+      "file": "phase2/release/evidence/browser_20261120T151903_525747Z/browser_downloads/empty.jpg",
+      "reason": "historical browser QA; representative authorized GT panel retained instead"
+    },
+    {
+      "file": "phase2/release/evidence/browser_20261120T151903_525747Z/browser_downloads/invalid.jpg",
+      "reason": "historical browser QA; representative authorized GT panel retained instead"
+    },
+    {
+      "file": "phase2/release/evidence/browser_20261120T151903_525747Z/browser_downloads/steel_class_1.png",
+      "reason": "historical browser QA; representative authorized GT panel retained instead"
+    },
+    {
+      "file": "phase2/release/evidence/browser_20261120T151903_525747Z/browser_downloads/steel_class_2.png",
+      "reason": "historical browser QA; representative authorized GT panel retained instead"
+    },
+    {
+      "file": "phase2/release/evidence/browser_20261120T151903_525747Z/browser_downloads/steel_class_3.png",
+      "reason": "historical browser QA; representative authorized GT panel retained instead"
+    },
+    {
+      "file": "phase2/release/evidence/browser_20261120T151903_525747Z/browser_downloads/steel_class_4.png",
+      "reason": "historical browser QA; representative authorized GT panel retained instead"
+    },
+    {
+      "file": "phase2/release/evidence/browser_20261120T151903_525747Z/browser_downloads/steel_inspection.json",
+      "reason": "historical browser QA; representative authorized GT panel retained instead"
+    },
+    {
+      "file": "phase2/release/evidence/browser_20261120T151903_525747Z/browser_downloads/steel_overlay.png",
+      "reason": "historical browser QA; representative authorized GT panel retained instead"
+    },
+    {
+      "file": "phase2/artifacts/K_extended_patch/test/class_1_best_69205724f.png",
+      "reason": "additional historical raw-image panel outside the two named demo samples; aggregate metrics/errors remain"
+    },
+    {
+      "file": "phase2/artifacts/K_extended_patch/test/class_2_best_2959d7fb1.png",
+      "reason": "additional historical raw-image panel outside the two named demo samples; aggregate metrics/errors remain"
+    },
+    {
+      "file": "phase2/artifacts/K_extended_patch/test/class_2_worst_268446e17.png",
+      "reason": "additional historical raw-image panel outside the two named demo samples; aggregate metrics/errors remain"
+    },
+    {
+      "file": "phase2/artifacts/K_extended_patch/test/class_3_best_5f5e1e310.png",
+      "reason": "additional historical raw-image panel outside the two named demo samples; aggregate metrics/errors remain"
+    },
+    {
+      "file": "phase2/artifacts/K_extended_patch/test/class_4_worst_aeda5b216.png",
+      "reason": "additional historical raw-image panel outside the two named demo samples; aggregate metrics/errors remain"
+    },
+    {
+      "file": "phase2/artifacts/K_extended_patch/test/normal_false_alarm_1_7f9df7221.png",
+      "reason": "additional historical raw-image panel outside the two named demo samples; aggregate metrics/errors remain"
+    }
+  ],
+  "environment_wheels_bundled": false
+}

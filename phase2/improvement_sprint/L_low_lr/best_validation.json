@@ -1,0 +1,252 @@
+{
+  "results": {
+    "L_low_lr_05": {
+      "macro_dice": 0.19649735817946923,
+      "macro_iou": 0.11719455428355957,
+      "per_class": {
+        "1": {
+          "dice": 0.09511874167819079,
+          "iou": 0.049934210472515186,
+          "precision": 0.05312119980553444,
+          "recall": 0.45424101607831857,
+          "true_positive_pixels": 366369,
+          "false_positive_pixels": 6530482,
+          "false_negative_pixels": 440183
+        },
+        "2": {
+          "dice": 0.03518478777084039,
+          "iou": 0.01790742841965371,
+          "precision": 0.018082629959794788,
+          "recall": 0.6489052221276012,
+          "true_positive_pixels": 113537,
+          "false_positive_pixels": 6165251,
+          "false_negative_pixels": 61430
+        },
+        "3": {
+          "dice": 0.42917374534337493,
+          "iou": 0.27321528658635147,
+          "precision": 0.37501841280773796,
+          "recall": 0.5016097728069439,
+          "true_positive_pixels": 12523318,
+          "false_positive_pixels": 20870557,
+          "false_negative_pixels": 12442938
+        },
+        "4": {
+          "dice": 0.2265121579254707,
+          "iou": 0.12772129165571788,
+          "precision": 0.13795495518185208,
+          "recall": 0.6325889954978364,
+          "true_positive_pixels": 3396073,
+          "false_positive_pixels": 21221187,
+          "false_negative_pixels": 1972457
+        }
+      },
+      "aggregation": "int64 pixel counts over entire split, then unweighted four-class macro; undefined ratios=null",
+      "policy": {
+        "thresholds": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "min_area": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "min_mean_probability": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "name": "L_low_lr_05"
+      },
+      "images": 2514,
+      "normal_images": 1180,
+      "false_alarm_images": 1145,
+      "normal_false_alarm_rate": 0.9703389830508474,
+      "positive_images": 1334,
+      "image_defect_recall_any_alarm": 1.0,
+      "image_defect_recall_localized": 0.9947526236881559,
+      "class_positive_images": [
+        180,
+        50,
+        1031,
+        160
+      ],
+      "class_localized_positive_images": [
+        174,
+        50,
+        1028,
+        159
+      ],
+      "small_defects": {
+        "1": {
+          "objects": 364,
+          "detected": 262,
+          "object_recall": 0.7197802197802198,
+          "gt_pixels": 234040,
+          "recovered_pixels": 118113,
+          "pixel_recall": 0.5046701418560929
+        },
+        "2": {
+          "objects": 8,
+          "detected": 8,
+          "object_recall": 1.0,
+          "gt_pixels": 4952,
+          "recovered_pixels": 4451,
+          "pixel_recall": 0.8988287560581584
+        },
+        "3": {
+          "objects": 435,
+          "detected": 386,
+          "object_recall": 0.8873563218390804,
+          "gt_pixels": 191241,
+          "recovered_pixels": 143822,
+          "pixel_recall": 0.7520458479091826
+        },
+        "4": {
+          "objects": 36,
+          "detected": 33,
+          "object_recall": 0.9166666666666666,
+          "gt_pixels": 21129,
+          "recovered_pixels": 15902,
+          "pixel_recall": 0.7526148894883808
+        }
+      },
+      "partition_sha256": "97135138fcb09211c850dc2a16e0ae1deadd3088d342fdccf0c9f9d6b04559f0",
+      "metric_scope": "validation native pixel totals per class, then equal-class macro; image recall localized requires at least one correct-class TP pixel"
+    },
+    "L_low_lr_locked": {
+      "macro_dice": 0.25573240678445297,
+      "macro_iou": 0.15322524580998953,
+      "per_class": {
+        "1": {
+          "dice": 0.1958900010678892,
+          "iou": 0.10857985443450813,
+          "precision": 0.1707519607752781,
+          "recall": 0.2297074460171198,
+          "true_positive_pixels": 185271,
+          "false_positive_pixels": 899759,
+          "false_negative_pixels": 621281
+        },
+        "2": {
+          "dice": 0.07715347072257478,
+          "iou": 0.040124611895868675,
+          "precision": 0.04303259478921719,
+          "recall": 0.3725559676967657,
+          "true_positive_pixels": 65185,
+          "false_positive_pixels": 1449597,
+          "false_negative_pixels": 109782
+        },
+        "3": {
+          "dice": 0.42917374534337493,
+          "iou": 0.27321528658635147,
+          "precision": 0.37501841280773796,
+          "recall": 0.5016097728069439,
+          "true_positive_pixels": 12523318,
+          "false_positive_pixels": 20870557,
+          "false_negative_pixels": 12442938
+        },
+        "4": {
+          "dice": 0.3207124100039729,
+          "iou": 0.1909812303232299,
+          "precision": 0.3342226494889293,
+          "recall": 0.30825197959217887,
+          "true_positive_pixels": 1654860,
+          "false_positive_pixels": 3296510,
+          "false_negative_pixels": 3713670
+        }
+      },
+      "aggregation": "int64 pixel counts over entire split, then unweighted four-class macro; undefined ratios=null",
+      "policy": {
+        "thresholds": [
+          0.949999988079071,
+          0.9750000238418579,
+          0.5,
+          0.949999988079071
+        ],
+        "min_area": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "min_mean_probability": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "name": "L_low_lr_locked"
+      },
+      "images": 2514,
+      "normal_images": 1180,
+      "false_alarm_images": 1141,
+      "normal_false_alarm_rate": 0.9669491525423729,
+      "positive_images": 1334,
+      "image_defect_recall_any_alarm": 0.9985007496251874,
+      "image_defect_recall_localized": 0.987256371814093,
+      "class_positive_images": [
+        180,
+        50,
+        1031,
+        160
+      ],
+      "class_localized_positive_images": [
+        165,
+        48,
+        1028,
+        154
+      ],
+      "small_defects": {
+        "1": {
+          "objects": 364,
+          "detected": 191,
+          "object_recall": 0.5247252747252747,
+          "gt_pixels": 234040,
+          "recovered_pixels": 67381,
+          "pixel_recall": 0.2879037771321142
+        },
+        "2": {
+          "objects": 8,
+          "detected": 7,
+          "object_recall": 0.875,
+          "gt_pixels": 4952,
+          "recovered_pixels": 2939,
+          "pixel_recall": 0.593497576736672
+        },
+        "3": {
+          "objects": 435,
+          "detected": 386,
+          "object_recall": 0.8873563218390804,
+          "gt_pixels": 191241,
+          "recovered_pixels": 143822,
+          "pixel_recall": 0.7520458479091826
+        },
+        "4": {
+          "objects": 36,
+          "detected": 16,
+          "object_recall": 0.4444444444444444,
+          "gt_pixels": 21129,
+          "recovered_pixels": 5667,
+          "pixel_recall": 0.26820956978560273
+        }
+      },
+      "partition_sha256": "97135138fcb09211c850dc2a16e0ae1deadd3088d342fdccf0c9f9d6b04559f0",
+      "metric_scope": "validation native pixel totals per class, then equal-class macro; image recall localized requires at least one correct-class TP pixel",
+      "safeguards": {
+        "passed": false,
+        "reasons": [
+          "class4 small object_recall loss",
+          "normal-image false-alarm rate increase"
+        ]
+      }
+    }
+  },
+  "validation_loss": 0.09686595002636827,
+  "validation_patch_count": 30168,
+  "seconds": 516.6223987000012
+}

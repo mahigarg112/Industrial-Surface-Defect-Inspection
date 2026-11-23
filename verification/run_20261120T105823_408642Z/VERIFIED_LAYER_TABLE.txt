@@ -1,0 +1,51 @@
+Layer name | Input shape (N=1) | Operation | Output shape | Purpose
+-----------|-------------------|-----------|--------------|--------
+enc1.layers.0 | [1, 3, 256, 256] | Conv2d(3, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False) | [1, 16, 256, 256] | Learn local features
+enc1.layers.1 | [1, 16, 256, 256] | BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True) | [1, 16, 256, 256] | Normalize channels
+enc1.layers.2 | [1, 16, 256, 256] | ReLU(inplace=True) | [1, 16, 256, 256] | Nonlinear activation
+enc1.layers.3 | [1, 16, 256, 256] | Conv2d(16, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False) | [1, 16, 256, 256] | Learn local features
+enc1.layers.4 | [1, 16, 256, 256] | BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True) | [1, 16, 256, 256] | Normalize channels
+enc1.layers.5 | [1, 16, 256, 256] | ReLU(inplace=True) | [1, 16, 256, 256] | Nonlinear activation
+pool | [1, 16, 256, 256] | MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False) | [1, 16, 128, 128] | Downsample by two
+enc2.layers.0 | [1, 16, 128, 128] | Conv2d(16, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False) | [1, 32, 128, 128] | Learn local features
+enc2.layers.1 | [1, 32, 128, 128] | BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True) | [1, 32, 128, 128] | Normalize channels
+enc2.layers.2 | [1, 32, 128, 128] | ReLU(inplace=True) | [1, 32, 128, 128] | Nonlinear activation
+enc2.layers.3 | [1, 32, 128, 128] | Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False) | [1, 32, 128, 128] | Learn local features
+enc2.layers.4 | [1, 32, 128, 128] | BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True) | [1, 32, 128, 128] | Normalize channels
+enc2.layers.5 | [1, 32, 128, 128] | ReLU(inplace=True) | [1, 32, 128, 128] | Nonlinear activation
+pool | [1, 32, 128, 128] | MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False) | [1, 32, 64, 64] | Downsample by two
+enc3.layers.0 | [1, 32, 64, 64] | Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False) | [1, 64, 64, 64] | Learn local features
+enc3.layers.1 | [1, 64, 64, 64] | BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True) | [1, 64, 64, 64] | Normalize channels
+enc3.layers.2 | [1, 64, 64, 64] | ReLU(inplace=True) | [1, 64, 64, 64] | Nonlinear activation
+enc3.layers.3 | [1, 64, 64, 64] | Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False) | [1, 64, 64, 64] | Learn local features
+enc3.layers.4 | [1, 64, 64, 64] | BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True) | [1, 64, 64, 64] | Normalize channels
+enc3.layers.5 | [1, 64, 64, 64] | ReLU(inplace=True) | [1, 64, 64, 64] | Nonlinear activation
+pool | [1, 64, 64, 64] | MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False) | [1, 64, 32, 32] | Downsample by two
+bottleneck.layers.0 | [1, 64, 32, 32] | Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False) | [1, 128, 32, 32] | Learn local features
+bottleneck.layers.1 | [1, 128, 32, 32] | BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True) | [1, 128, 32, 32] | Normalize channels
+bottleneck.layers.2 | [1, 128, 32, 32] | ReLU(inplace=True) | [1, 128, 32, 32] | Nonlinear activation
+bottleneck.layers.3 | [1, 128, 32, 32] | Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False) | [1, 128, 32, 32] | Learn local features
+bottleneck.layers.4 | [1, 128, 32, 32] | BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True) | [1, 128, 32, 32] | Normalize channels
+bottleneck.layers.5 | [1, 128, 32, 32] | ReLU(inplace=True) | [1, 128, 32, 32] | Nonlinear activation
+up3 | [1, 128, 32, 32] | ConvTranspose2d(128, 64, kernel_size=(2, 2), stride=(2, 2)) | [1, 64, 64, 64] | Restore spatial size
+dec3.layers.0 | [1, 128, 64, 64] | Conv2d(128, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False) | [1, 64, 64, 64] | Learn local features
+dec3.layers.1 | [1, 64, 64, 64] | BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True) | [1, 64, 64, 64] | Normalize channels
+dec3.layers.2 | [1, 64, 64, 64] | ReLU(inplace=True) | [1, 64, 64, 64] | Nonlinear activation
+dec3.layers.3 | [1, 64, 64, 64] | Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False) | [1, 64, 64, 64] | Learn local features
+dec3.layers.4 | [1, 64, 64, 64] | BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True) | [1, 64, 64, 64] | Normalize channels
+dec3.layers.5 | [1, 64, 64, 64] | ReLU(inplace=True) | [1, 64, 64, 64] | Nonlinear activation
+up2 | [1, 64, 64, 64] | ConvTranspose2d(64, 32, kernel_size=(2, 2), stride=(2, 2)) | [1, 32, 128, 128] | Restore spatial size
+dec2.layers.0 | [1, 64, 128, 128] | Conv2d(64, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False) | [1, 32, 128, 128] | Learn local features
+dec2.layers.1 | [1, 32, 128, 128] | BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True) | [1, 32, 128, 128] | Normalize channels
+dec2.layers.2 | [1, 32, 128, 128] | ReLU(inplace=True) | [1, 32, 128, 128] | Nonlinear activation
+dec2.layers.3 | [1, 32, 128, 128] | Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False) | [1, 32, 128, 128] | Learn local features
+dec2.layers.4 | [1, 32, 128, 128] | BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True) | [1, 32, 128, 128] | Normalize channels
+dec2.layers.5 | [1, 32, 128, 128] | ReLU(inplace=True) | [1, 32, 128, 128] | Nonlinear activation
+up1 | [1, 32, 128, 128] | ConvTranspose2d(32, 16, kernel_size=(2, 2), stride=(2, 2)) | [1, 16, 256, 256] | Restore spatial size
+dec1.layers.0 | [1, 32, 256, 256] | Conv2d(32, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False) | [1, 16, 256, 256] | Learn local features
+dec1.layers.1 | [1, 16, 256, 256] | BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True) | [1, 16, 256, 256] | Normalize channels
+dec1.layers.2 | [1, 16, 256, 256] | ReLU(inplace=True) | [1, 16, 256, 256] | Nonlinear activation
+dec1.layers.3 | [1, 16, 256, 256] | Conv2d(16, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False) | [1, 16, 256, 256] | Learn local features
+dec1.layers.4 | [1, 16, 256, 256] | BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True) | [1, 16, 256, 256] | Normalize channels
+dec1.layers.5 | [1, 16, 256, 256] | ReLU(inplace=True) | [1, 16, 256, 256] | Nonlinear activation
+output | [1, 16, 256, 256] | Conv2d(16, 4, kernel_size=(1, 1), stride=(1, 1)) | [1, 4, 256, 256] | Learn four logits

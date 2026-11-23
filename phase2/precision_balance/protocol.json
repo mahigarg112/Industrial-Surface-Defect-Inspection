@@ -1,0 +1,83 @@
+{
+  "change": "BCE coefficient0.5->0.75; existing class-weighted positive-pair Dice coefficient0.5->0.25; no other training setting change",
+  "hypothesis": "More relative pixel-BCE supervision may suppress false positive pixels; recall may regress, so measure safeguards",
+  "reference": "phase2/improvement_sprint/L_low_lr",
+  "reference_exists_and_completed": true,
+  "initial_weights": "phase2/artifacts/final/model.pt",
+  "initial_weights_sha256": "0ce6c174d27fff24551faa7ce94f7a2ec7f9a98294a0eac7746a8c61b89eed59",
+  "initial_state": "phase2/artifacts/K_extended_patch/last_training_state.pt",
+  "initial_state_sha256": "4a9388e7203cb8d3cdf05fc6c58562754dcfaf89057fb4f09e62852ff14ecc94",
+  "partition_sha256": "97135138fcb09211c850dc2a16e0ae1deadd3088d342fdccf0c9f9d6b04559f0",
+  "architecture_parameters": 482788,
+  "epochs": [
+    10,
+    11,
+    12
+  ],
+  "maximum_additional_epochs": 3,
+  "early_stopping": "same L rule: patience2 without useful >=0.002 gain at fixed K locked thresholds; original K validation is useful-progress anchor",
+  "batch_size": 8,
+  "workers": 2,
+  "lr": 0.0001,
+  "optimizer": "Adam with matching K moments/scaler/RNG retained; same as L",
+  "seed": 42,
+  "crop": "unchanged K foreground-aware grid crop per source per epoch; same epoch/index RNG",
+  "augmentation": null,
+  "thresholds": [
+    0.949999988079071,
+    0.9750000238418579,
+    0.5,
+    0.949999988079071
+  ],
+  "postprocessing": "none",
+  "selection": "highest full native validation macro Dice at fixed locked K thresholds; first ties",
+  "safeguards": "reuse prior prespecified minority recall/small sensitivity/normal alarm safeguards against K; also report against L at equal epochs and best-vs-best",
+  "fixed_panel_ids": [
+    "00ac8372f.jpg",
+    "00bc01bfe.jpg",
+    "026183d85.jpg",
+    "0007a71bf.jpg",
+    "005d86c25.jpg",
+    "012f26693.jpg",
+    "01afbfa7a.jpg",
+    "000418bfc.jpg",
+    "001982b08.jpg"
+  ],
+  "fixed_panel_roles": {
+    "00ac8372f.jpg": [
+      "first-two-ID-positive-class-1",
+      "first-two-ID-positive-class-2"
+    ],
+    "00bc01bfe.jpg": [
+      "first-two-ID-positive-class-1"
+    ],
+    "026183d85.jpg": [
+      "first-two-ID-positive-class-2"
+    ],
+    "0007a71bf.jpg": [
+      "first-two-ID-positive-class-3"
+    ],
+    "005d86c25.jpg": [
+      "first-two-ID-positive-class-3"
+    ],
+    "012f26693.jpg": [
+      "first-two-ID-positive-class-4"
+    ],
+    "01afbfa7a.jpg": [
+      "first-two-ID-positive-class-4"
+    ],
+    "000418bfc.jpg": [
+      "first-two-ID-GT-empty"
+    ],
+    "001982b08.jpg": [
+      "first-two-ID-GT-empty"
+    ]
+  },
+  "panel_policy": "all listed examples saved; chosen by labels and sorted IDs BEFORE candidate predictions, not model appearance; purposive coverage, not representative or independent validation",
+  "test_use": "no old held-out test images/results for selection; existing unlabeled GUI demo image only for functional checks",
+  "cuda": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+  "disk_free_bytes": 19307229184,
+  "python": "3.14.5 (tags/v3.14.5:5607950, May 10 2026, 10:43:50) [MSC v.1944 64 bit (AMD64)]",
+  "torch": "2.11.0+cu128",
+  "recall_safeguards_vs_matched_reference": "same prior recall and small-component tolerances against the matched L best within executed epochs, in addition to K safeguards; no post-hoc loosening"
+}

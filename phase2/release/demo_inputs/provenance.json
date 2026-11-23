@@ -1,0 +1,14 @@
+[
+  {
+    "file": "0007a71bf.jpg",
+    "source": "data\\severstal-steel-defect-detection\\train_images\\0007a71bf.jpg",
+    "sha256": "3bb6d39d4b4c2c60c2333d37804a389314899ea20dc976c1aca1d8bc0047ebc6",
+    "role": "existing validation sample"
+  },
+  {
+    "file": "000ccc2ac.jpg",
+    "source": "data\\severstal-steel-defect-detection\\test_images\\000ccc2ac.jpg",
+    "sha256": "efd56fdadad77b5d1dab0937b3f9025c9f61ba4d0cd19df15073de1564a1890c",
+    "role": "different unlabeled Severstal input for this release; not the previous 0000f269f demo; full prior usage not verified"
+  }
+]

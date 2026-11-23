@@ -1,0 +1,50 @@
+{
+  "B_whole": {
+    "original_workspace_checkpoint": "C:\\Users\\shail\\OneDrive\\Desktop\\Projects\\Surface-Defect-Inspection\\phase2\\artifacts\\B_whole\\best_model.pt",
+    "sha256": "71ad391d4e9579bf72dccbdac5bb2949c99adadda1b3b81ae6646fbc2b47063e",
+    "copied_in_submission_as_final_model": false,
+    "note": "Other candidate weights remain preserved in the original workspace; full retraining uses fresh outputs and the authorized dataset."
+  },
+  "C_patch": {
+    "original_workspace_checkpoint": "C:\\Users\\shail\\OneDrive\\Desktop\\Projects\\Surface-Defect-Inspection\\phase2\\artifacts\\C_patch\\best_model.pt",
+    "sha256": "f891e5d5d0558ca40fd94f518b885d7e22aba87f324d2e5ad6ab955d5eebf877",
+    "copied_in_submission_as_final_model": false,
+    "note": "Other candidate weights remain preserved in the original workspace; full retraining uses fresh outputs and the authorized dataset."
+  },
+  "E_weighted_patch": {
+    "original_workspace_checkpoint": "C:\\Users\\shail\\OneDrive\\Desktop\\Projects\\Surface-Defect-Inspection\\phase2\\artifacts\\E_weighted_patch\\best_model.pt",
+    "sha256": "9f7b3ecf2f8a84995a830b63d63a684da38818b6f39ec53daf65a8ebc2ff0878",
+    "copied_in_submission_as_final_model": false,
+    "note": "Other candidate weights remain preserved in the original workspace; full retraining uses fresh outputs and the authorized dataset."
+  },
+  "F_present_dice_patch": {
+    "original_workspace_checkpoint": "C:\\Users\\shail\\OneDrive\\Desktop\\Projects\\Surface-Defect-Inspection\\phase2\\artifacts\\F_present_dice_patch\\best_model.pt",
+    "sha256": "ebe3f72e5f4bce798c083d35e12f00f8396511a244ccc6f7fb7ecb7582f06f2a",
+    "copied_in_submission_as_final_model": false,
+    "note": "Other candidate weights remain preserved in the original workspace; full retraining uses fresh outputs and the authorized dataset."
+  },
+  "G_present_dice_whole": {
+    "original_workspace_checkpoint": "C:\\Users\\shail\\OneDrive\\Desktop\\Projects\\Surface-Defect-Inspection\\phase2\\artifacts\\G_present_dice_whole\\best_model.pt",
+    "sha256": "7128afa81474aa3fce7d73b5e162107088e60be5e0bc34ff77b239ba529d95cd",
+    "copied_in_submission_as_final_model": false,
+    "note": "Other candidate weights remain preserved in the original workspace; full retraining uses fresh outputs and the authorized dataset."
+  },
+  "H_foreground_patch": {
+    "original_workspace_checkpoint": "C:\\Users\\shail\\OneDrive\\Desktop\\Projects\\Surface-Defect-Inspection\\phase2\\artifacts\\H_foreground_patch\\best_model.pt",
+    "sha256": "7d6c6370fc0fbbc6b7066e0ecc18e22efe5b8f9eb9f84397263a83f60ef657ac",
+    "copied_in_submission_as_final_model": false,
+    "note": "Other candidate weights remain preserved in the original workspace; full retraining uses fresh outputs and the authorized dataset."
+  },
+  "J_balanced_dice_patch": {
+    "original_workspace_checkpoint": "C:\\Users\\shail\\OneDrive\\Desktop\\Projects\\Surface-Defect-Inspection\\phase2\\artifacts\\J_balanced_dice_patch\\best_model.pt",
+    "sha256": "ef2ee0119230fd960ac4758fb085fb2f4a9aca49471819eeeedbdd5aee3715ec",
+    "copied_in_submission_as_final_model": false,
+    "note": "Other candidate weights remain preserved in the original workspace; full retraining uses fresh outputs and the authorized dataset."
+  },
+  "K_extended_patch": {
+    "original_workspace_checkpoint": "C:\\Users\\shail\\OneDrive\\Desktop\\Projects\\Surface-Defect-Inspection\\phase2\\artifacts\\K_extended_patch\\best_model.pt",
+    "sha256": "0ce6c174d27fff24551faa7ce94f7a2ec7f9a98294a0eac7746a8c61b89eed59",
+    "copied_in_submission_as_final_model": true,
+    "note": "Other candidate weights remain preserved in the original workspace; full retraining uses fresh outputs and the authorized dataset."
+  }
+}

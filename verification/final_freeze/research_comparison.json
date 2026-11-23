@@ -1,0 +1,591 @@
+[
+  {
+    "name": "Phase I original",
+    "macro_dice": 0.11825690418481827,
+    "macro_iou": 0.07744534313678741,
+    "protocol": "2514 original validation, resized GT128x512, threshold0.5",
+    "historical_test_macro_dice": null,
+    "historical_test_macro_iou": null,
+    "decision": "Historical context",
+    "source": "experiments/severstal_segmentation/dice_loss_v1/evaluation/validation_metrics_default.json",
+    "source_sha256": "d177b810239acfcae2c80f34db0209dcb298c3bbf40ccff0ed6592f5d4972112",
+    "per_class": {
+      "1": {
+        "name": "class_1",
+        "threshold": 0.5,
+        "dice": 0.0,
+        "iou": 0.0,
+        "precision": null,
+        "recall": 0.0,
+        "true_positive_pixels": 0,
+        "false_positive_pixels": 0,
+        "missed_defect_pixels": 129177
+      },
+      "2": {
+        "name": "class_2",
+        "threshold": 0.5,
+        "dice": 0.0,
+        "iou": 0.0,
+        "precision": null,
+        "recall": 0.0,
+        "true_positive_pixels": 0,
+        "false_positive_pixels": 0,
+        "missed_defect_pixels": 27727
+      },
+      "3": {
+        "name": "class_3",
+        "threshold": 0.5,
+        "dice": 0.47302761673927307,
+        "iou": 0.30978137254714966,
+        "precision": 0.4135233163833618,
+        "recall": 0.5525351762771606,
+        "true_positive_pixels": 2207473,
+        "false_positive_pixels": 3130734,
+        "missed_defect_pixels": 1787699
+      },
+      "4": {
+        "name": "class_4",
+        "threshold": 0.5,
+        "dice": 0.0,
+        "iou": 0.0,
+        "precision": null,
+        "recall": 0.0,
+        "true_positive_pixels": 0,
+        "false_positive_pixels": 0,
+        "missed_defect_pixels": 859080
+      }
+    },
+    "small_defects": null,
+    "normal_alarms": null,
+    "normal_images": null
+  },
+  {
+    "name": "B whole-image",
+    "macro_dice": 0.12177965211075963,
+    "macro_iou": 0.08049517483021702,
+    "protocol": "2514 native validation, own validation-tuned thresholds; 3 epochs",
+    "historical_test_macro_dice": 0.1238967504433864,
+    "historical_test_macro_iou": 0.082355543716684,
+    "decision": "Matched reference for C",
+    "source": "phase2/artifacts/B_whole/thresholds.json",
+    "source_sha256": "46cfcbb1bb2aaba9cf3d830a83a71200d7b25a9bef01f82dcec506439bf6a6c0",
+    "per_class": {
+      "1": {
+        "dice": 0.0,
+        "iou": 0.0,
+        "precision": null,
+        "recall": 0.0,
+        "true_positive_pixels": 0,
+        "false_positive_pixels": 0,
+        "false_negative_pixels": 806552
+      },
+      "2": {
+        "dice": 0.0,
+        "iou": 0.0,
+        "precision": null,
+        "recall": 0.0,
+        "true_positive_pixels": 0,
+        "false_positive_pixels": 0,
+        "false_negative_pixels": 174967
+      },
+      "3": {
+        "dice": 0.4871186084430385,
+        "iou": 0.3219806993208681,
+        "precision": 0.4576292458281232,
+        "recall": 0.5206702999440525,
+        "true_positive_pixels": 12999188,
+        "false_positive_pixels": 15406313,
+        "false_negative_pixels": 11967068
+      },
+      "4": {
+        "dice": 0.0,
+        "iou": 0.0,
+        "precision": null,
+        "recall": 0.0,
+        "true_positive_pixels": 0,
+        "false_positive_pixels": 0,
+        "false_negative_pixels": 5368530
+      }
+    },
+    "small_defects": null,
+    "normal_alarms": null,
+    "normal_images": null
+  },
+  {
+    "name": "C patch-only",
+    "macro_dice": 0.08828045190376875,
+    "macro_iou": 0.05190003228006029,
+    "protocol": "2514 native validation, own validation-tuned thresholds; 3 epochs",
+    "historical_test_macro_dice": 0.09181573527692939,
+    "historical_test_macro_iou": 0.054641378664068936,
+    "decision": "Underperformed B",
+    "source": "phase2/artifacts/C_patch/thresholds.json",
+    "source_sha256": "4a2b15af9ffe054825bc07fadbb3d4faedef38c8a0aea007f28508eb047cba79",
+    "per_class": {
+      "1": {
+        "dice": 0.005639672729165889,
+        "iou": 0.002827810326975092,
+        "precision": 0.0028848233148585775,
+        "recall": 0.12517481823862567,
+        "true_positive_pixels": 100960,
+        "false_positive_pixels": 34895984,
+        "false_negative_pixels": 705592
+      },
+      "2": {
+        "dice": 0.001081034399910198,
+        "iou": 0.0005408095168008293,
+        "precision": 0.0005442587134605462,
+        "recall": 0.07862625523670178,
+        "true_positive_pixels": 13757,
+        "false_positive_pixels": 25262825,
+        "false_negative_pixels": 161210
+      },
+      "3": {
+        "dice": 0.3219249543529348,
+        "iou": 0.19184181016695867,
+        "precision": 0.2588244341626771,
+        "recall": 0.42571212920351376,
+        "true_positive_pixels": 10628438,
+        "false_positive_pixels": 30435838,
+        "false_negative_pixels": 14337818
+      },
+      "4": {
+        "dice": 0.024476146133064147,
+        "iou": 0.012389699109506562,
+        "precision": 0.013064851967286413,
+        "recall": 0.19338738909906436,
+        "true_positive_pixels": 1038206,
+        "false_positive_pixels": 78427371,
+        "false_negative_pixels": 4330324
+      }
+    },
+    "small_defects": null,
+    "normal_alarms": null,
+    "normal_images": null
+  },
+  {
+    "name": "K official",
+    "macro_dice": 0.23922878227237032,
+    "macro_iou": 0.1418755293173221,
+    "protocol": "2514 native development validation; locked K thresholds; epoch9",
+    "historical_test_macro_dice": 0.23399563084730005,
+    "historical_test_macro_iou": 0.137936994497851,
+    "decision": "Official",
+    "source": "phase2/augmentation_study/baseline_diagnosis.json",
+    "source_sha256": "da3d3a203c7c1218124c9a4821e78e397f7b2595c6714710027c9bb988cfa02d",
+    "per_class": {
+      "1": {
+        "dice": 0.19346489607548586,
+        "iou": 0.10709168930911057,
+        "precision": 0.19445122875311086,
+        "recall": 0.19248851902915126,
+        "true_positive_pixels": 155252,
+        "false_positive_pixels": 643159,
+        "false_negative_pixels": 651300
+      },
+      "2": {
+        "dice": 0.062291177693986066,
+        "iou": 0.03214682050105704,
+        "precision": 0.04224494368291341,
+        "recall": 0.11854235370098361,
+        "true_positive_pixels": 20741,
+        "false_positive_pixels": 470229,
+        "false_negative_pixels": 154226
+      },
+      "3": {
+        "dice": 0.410169525310763,
+        "iou": 0.25799576234122606,
+        "precision": 0.40123138522985136,
+        "recall": 0.4195149645185085,
+        "true_positive_pixels": 10473718,
+        "false_positive_pixels": 15630217,
+        "false_negative_pixels": 14492538
+      },
+      "4": {
+        "dice": 0.29098953000924627,
+        "iou": 0.1702678451178948,
+        "precision": 0.2651642302301164,
+        "recall": 0.32238806526181285,
+        "true_positive_pixels": 1730750,
+        "false_positive_pixels": 4796337,
+        "false_negative_pixels": 3637780
+      }
+    },
+    "small_defects": {
+      "1": {
+        "objects": 364,
+        "detected": 166,
+        "object_recall": 0.45604395604395603,
+        "gt_pixels": 234040,
+        "recovered_pixels": 57902,
+        "pixel_recall": 0.24740215347803796
+      },
+      "2": {
+        "objects": 8,
+        "detected": 2,
+        "object_recall": 0.25,
+        "gt_pixels": 4952,
+        "recovered_pixels": 443,
+        "pixel_recall": 0.08945880452342488
+      },
+      "3": {
+        "objects": 435,
+        "detected": 355,
+        "object_recall": 0.8160919540229885,
+        "gt_pixels": 191241,
+        "recovered_pixels": 125240,
+        "pixel_recall": 0.6548804911080783
+      },
+      "4": {
+        "objects": 36,
+        "detected": 17,
+        "object_recall": 0.4722222222222222,
+        "gt_pixels": 21129,
+        "recovered_pixels": 5502,
+        "pixel_recall": 0.2604003975578589
+      }
+    },
+    "normal_alarms": 1130,
+    "normal_images": 1180
+  },
+  {
+    "name": "L low LR",
+    "macro_dice": 0.25573240678445297,
+    "macro_iou": 0.15322524580998953,
+    "protocol": "Same2514; K thresholds; K9+2 matched reference epochs; best11",
+    "historical_test_macro_dice": null,
+    "historical_test_macro_iou": null,
+    "decision": "Not approved",
+    "source": "phase2/improvement_sprint/L_low_lr/best_validation.json",
+    "source_sha256": "ebddbb9402acb0301ecbd9fabde5beca13df077ea84434be382073ac7a32c320",
+    "per_class": {
+      "1": {
+        "dice": 0.1958900010678892,
+        "iou": 0.10857985443450813,
+        "precision": 0.1707519607752781,
+        "recall": 0.2297074460171198,
+        "true_positive_pixels": 185271,
+        "false_positive_pixels": 899759,
+        "false_negative_pixels": 621281
+      },
+      "2": {
+        "dice": 0.07715347072257478,
+        "iou": 0.040124611895868675,
+        "precision": 0.04303259478921719,
+        "recall": 0.3725559676967657,
+        "true_positive_pixels": 65185,
+        "false_positive_pixels": 1449597,
+        "false_negative_pixels": 109782
+      },
+      "3": {
+        "dice": 0.42917374534337493,
+        "iou": 0.27321528658635147,
+        "precision": 0.37501841280773796,
+        "recall": 0.5016097728069439,
+        "true_positive_pixels": 12523318,
+        "false_positive_pixels": 20870557,
+        "false_negative_pixels": 12442938
+      },
+      "4": {
+        "dice": 0.3207124100039729,
+        "iou": 0.1909812303232299,
+        "precision": 0.3342226494889293,
+        "recall": 0.30825197959217887,
+        "true_positive_pixels": 1654860,
+        "false_positive_pixels": 3296510,
+        "false_negative_pixels": 3713670
+      }
+    },
+    "small_defects": {
+      "1": {
+        "objects": 364,
+        "detected": 191,
+        "object_recall": 0.5247252747252747,
+        "gt_pixels": 234040,
+        "recovered_pixels": 67381,
+        "pixel_recall": 0.2879037771321142
+      },
+      "2": {
+        "objects": 8,
+        "detected": 7,
+        "object_recall": 0.875,
+        "gt_pixels": 4952,
+        "recovered_pixels": 2939,
+        "pixel_recall": 0.593497576736672
+      },
+      "3": {
+        "objects": 435,
+        "detected": 386,
+        "object_recall": 0.8873563218390804,
+        "gt_pixels": 191241,
+        "recovered_pixels": 143822,
+        "pixel_recall": 0.7520458479091826
+      },
+      "4": {
+        "objects": 36,
+        "detected": 16,
+        "object_recall": 0.4444444444444444,
+        "gt_pixels": 21129,
+        "recovered_pixels": 5667,
+        "pixel_recall": 0.26820956978560273
+      }
+    },
+    "normal_alarms": 1141,
+    "normal_images": 1180
+  },
+  {
+    "name": "N loss balance",
+    "macro_dice": 0.216050891293249,
+    "macro_iou": 0.12781384624029618,
+    "protocol": "Same2514; K thresholds; 2 completed epochs; best11",
+    "historical_test_macro_dice": null,
+    "historical_test_macro_iou": null,
+    "decision": "Rejected: recall losses",
+    "source": "phase2/precision_balance/N_bce75_dice25/best_validation.json",
+    "source_sha256": "26f589b2d0268359f8a369520770aff7a08672b23f1f85419ba34b5d1e4374f4",
+    "per_class": {
+      "1": {
+        "dice": 0.18315018315018314,
+        "iou": 0.10080645161290322,
+        "precision": 0.27617543263318906,
+        "recall": 0.1370029458732977,
+        "true_positive_pixels": 110500,
+        "false_positive_pixels": 289608,
+        "false_negative_pixels": 696052
+      },
+      "2": {
+        "dice": 0.10512526653920537,
+        "iou": 0.05547874204180497,
+        "precision": 0.06925345505031714,
+        "recall": 0.21809255459600954,
+        "true_positive_pixels": 38159,
+        "false_positive_pixels": 512846,
+        "false_negative_pixels": 136808
+      },
+      "3": {
+        "dice": 0.43999558429853025,
+        "iou": 0.282047653115573,
+        "precision": 0.43053666217927683,
+        "recall": 0.4498794693124992,
+        "true_positive_pixels": 11231806,
+        "false_positive_pixels": 14856114,
+        "false_negative_pixels": 13734450
+      },
+      "4": {
+        "dice": 0.13593253118507723,
+        "iou": 0.07292253819090361,
+        "precision": 0.6603185477521295,
+        "recall": 0.07576468791270609,
+        "true_positive_pixels": 406745,
+        "false_positive_pixels": 209238,
+        "false_negative_pixels": 4961785
+      }
+    },
+    "small_defects": {
+      "1": {
+        "objects": 364,
+        "detected": 140,
+        "object_recall": 0.38461538461538464,
+        "gt_pixels": 234040,
+        "recovered_pixels": 44265,
+        "pixel_recall": 0.1891343360109383
+      },
+      "2": {
+        "objects": 8,
+        "detected": 7,
+        "object_recall": 0.875,
+        "gt_pixels": 4952,
+        "recovered_pixels": 1471,
+        "pixel_recall": 0.29705169628432954
+      },
+      "3": {
+        "objects": 435,
+        "detected": 368,
+        "object_recall": 0.8459770114942529,
+        "gt_pixels": 191241,
+        "recovered_pixels": 133232,
+        "pixel_recall": 0.696670692999932
+      },
+      "4": {
+        "objects": 36,
+        "detected": 4,
+        "object_recall": 0.1111111111111111,
+        "gt_pixels": 21129,
+        "recovered_pixels": 1039,
+        "pixel_recall": 0.04917412087652042
+      }
+    },
+    "normal_alarms": 1128,
+    "normal_images": 1180
+  },
+  {
+    "name": "O augmentation",
+    "macro_dice": 0.25503979571472113,
+    "macro_iou": 0.15273042492317124,
+    "protocol": "Same2514; K thresholds; 2 additional epochs; best11",
+    "historical_test_macro_dice": null,
+    "historical_test_macro_iou": null,
+    "decision": "Rejected: no matched-control improvement/safeguards",
+    "source": "phase2/augmentation_study/O_photometric/best_validation.json",
+    "source_sha256": "19a8a243b240fe1205e0a09c73452df741f837ad63fe15b93c17d398fe8e0274",
+    "per_class": {
+      "1": {
+        "dice": 0.19562314880002665,
+        "iou": 0.10841590473183607,
+        "precision": 0.16863974918838165,
+        "recall": 0.2328864102996459,
+        "true_positive_pixels": 187835,
+        "false_positive_pixels": 925989,
+        "false_negative_pixels": 618717
+      },
+      "2": {
+        "dice": 0.07670578621845899,
+        "iou": 0.03988250246312636,
+        "precision": 0.04274305557827166,
+        "recall": 0.3734075568535781,
+        "true_positive_pixels": 65334,
+        "false_positive_pixels": 1463195,
+        "false_negative_pixels": 109633
+      },
+      "3": {
+        "dice": 0.42802724066916037,
+        "iou": 0.2722866780791824,
+        "precision": 0.3726301925733947,
+        "recall": 0.5027717812394458,
+        "true_positive_pixels": 12552329,
+        "false_positive_pixels": 21133425,
+        "false_negative_pixels": 12413927
+      },
+      "4": {
+        "dice": 0.31980300717123855,
+        "iou": 0.1903366144185401,
+        "precision": 0.3291632875868529,
+        "recall": 0.31096035600061844,
+        "true_positive_pixels": 1669400,
+        "false_positive_pixels": 3402247,
+        "false_negative_pixels": 3699130
+      }
+    },
+    "small_defects": {
+      "1": {
+        "objects": 364,
+        "detected": 193,
+        "object_recall": 0.5302197802197802,
+        "gt_pixels": 234040,
+        "recovered_pixels": 68706,
+        "pixel_recall": 0.29356520252948215
+      },
+      "2": {
+        "objects": 8,
+        "detected": 7,
+        "object_recall": 0.875,
+        "gt_pixels": 4952,
+        "recovered_pixels": 2912,
+        "pixel_recall": 0.5880452342487884
+      },
+      "3": {
+        "objects": 435,
+        "detected": 387,
+        "object_recall": 0.8896551724137931,
+        "gt_pixels": 191241,
+        "recovered_pixels": 144667,
+        "pixel_recall": 0.7564643564925931
+      },
+      "4": {
+        "objects": 36,
+        "detected": 16,
+        "object_recall": 0.4444444444444444,
+        "gt_pixels": 21129,
+        "recovered_pixels": 5684,
+        "pixel_recall": 0.269014151166643
+      }
+    },
+    "normal_alarms": 1145,
+    "normal_images": 1180
+  },
+  {
+    "name": "P overlap penalty",
+    "macro_dice": 0.2561745846573493,
+    "macro_iou": 0.1535010253139508,
+    "protocol": "Same2514; K thresholds; 2 additional epochs; best11",
+    "historical_test_macro_dice": null,
+    "historical_test_macro_iou": null,
+    "decision": "Rejected: K reliability safeguards",
+    "source": "phase2/overlap_regularization_study/P_overlap010/best_validation.json",
+    "source_sha256": "40d4ea8ae4579c5f453ac0239c1b9958028aa7c22995df7b99fd77f6b5b9dad9",
+    "per_class": {
+      "1": {
+        "dice": 0.19682487286954323,
+        "iou": 0.10915460728585309,
+        "precision": 0.17164792601046844,
+        "recall": 0.2306571677957528,
+        "true_positive_pixels": 186037,
+        "false_positive_pixels": 897792,
+        "false_negative_pixels": 620515
+      },
+      "2": {
+        "dice": 0.0776986876791277,
+        "iou": 0.04041961953681388,
+        "precision": 0.043395216949333904,
+        "recall": 0.37085850474660936,
+        "true_positive_pixels": 64888,
+        "false_positive_pixels": 1430392,
+        "false_negative_pixels": 110079
+      },
+      "3": {
+        "dice": 0.4294562140204444,
+        "iou": 0.27344427952550876,
+        "precision": 0.3765959974739831,
+        "recall": 0.49957867130738387,
+        "true_positive_pixels": 12472609,
+        "false_positive_pixels": 20646726,
+        "false_negative_pixels": 12493647
+      },
+      "4": {
+        "dice": 0.32071856406028193,
+        "iou": 0.19098559490762743,
+        "precision": 0.3349469307612577,
+        "recall": 0.3076497663233697,
+        "true_positive_pixels": 1651627,
+        "false_positive_pixels": 3279384,
+        "false_negative_pixels": 3716903
+      }
+    },
+    "small_defects": {
+      "1": {
+        "objects": 364,
+        "detected": 191,
+        "object_recall": 0.5247252747252747,
+        "gt_pixels": 234040,
+        "recovered_pixels": 67827,
+        "pixel_recall": 0.28980943428473765
+      },
+      "2": {
+        "objects": 8,
+        "detected": 7,
+        "object_recall": 0.875,
+        "gt_pixels": 4952,
+        "recovered_pixels": 2923,
+        "pixel_recall": 0.5902665589660743
+      },
+      "3": {
+        "objects": 435,
+        "detected": 386,
+        "object_recall": 0.8873563218390804,
+        "gt_pixels": 191241,
+        "recovered_pixels": 143772,
+        "pixel_recall": 0.7517843976971466
+      },
+      "4": {
+        "objects": 36,
+        "detected": 16,
+        "object_recall": 0.4444444444444444,
+        "gt_pixels": 21129,
+        "recovered_pixels": 5588,
+        "pixel_recall": 0.26447063277959204
+      }
+    },
+    "normal_alarms": 1143,
+    "normal_images": 1180
+  }
+]

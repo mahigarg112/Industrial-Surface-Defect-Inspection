@@ -1,0 +1,7 @@
+{
+  "actual_initial_checkpoint": "phase2/artifacts/final/model.pt",
+  "actual_initial_training_state": "phase2/artifacts/K_extended_patch/last_training_state.pt",
+  "actual_initial_training_state_sha256": "4a9388e7203cb8d3cdf05fc6c58562754dcfaf89057fb4f09e62852ff14ecc94",
+  "source_sha256": "f426f30bb8ecc1ee41fba5ebb8af5abf4176c2902ad1bbbac6a49eaa633df2b0",
+  "note": "K config copied for unchanged loss/crop settings retains historical J continuation_state_sha256; that inherited field describes K original origin, not this sprint initialization. Actual direct K state path/hash are explicit here and in preflight.json. Adam/scaler retained; only LR changed."
+}

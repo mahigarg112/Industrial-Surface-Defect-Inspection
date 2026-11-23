@@ -1,0 +1,754 @@
+{
+  "B_whole": {
+    "thresholds": [
+      0.9990000128746033,
+      0.9990000128746033,
+      0.4000000059604645,
+      0.9990000128746033
+    ],
+    "default": {
+      "macro_dice": 0.1213525351406882,
+      "macro_iou": 0.0801223739777165,
+      "per_class": {
+        "1": {
+          "dice": 0.0,
+          "iou": 0.0,
+          "precision": null,
+          "recall": 0.0,
+          "true_positive_pixels": 0,
+          "false_positive_pixels": 0,
+          "false_negative_pixels": 806552
+        },
+        "2": {
+          "dice": 0.0,
+          "iou": 0.0,
+          "precision": null,
+          "recall": 0.0,
+          "true_positive_pixels": 0,
+          "false_positive_pixels": 0,
+          "false_negative_pixels": 174967
+        },
+        "3": {
+          "dice": 0.4854101405627528,
+          "iou": 0.320489495910866,
+          "precision": 0.4966314540853197,
+          "recall": 0.4746847104347564,
+          "true_positive_pixels": 11851100,
+          "false_positive_pixels": 12011867,
+          "false_negative_pixels": 13115156
+        },
+        "4": {
+          "dice": 0.0,
+          "iou": 0.0,
+          "precision": null,
+          "recall": 0.0,
+          "true_positive_pixels": 0,
+          "false_positive_pixels": 0,
+          "false_negative_pixels": 5368530
+        }
+      },
+      "aggregation": "int64 pixel counts over entire split, then unweighted four-class macro; undefined ratios=null"
+    },
+    "tuned": {
+      "macro_dice": 0.12177965211075963,
+      "macro_iou": 0.08049517483021702,
+      "per_class": {
+        "1": {
+          "dice": 0.0,
+          "iou": 0.0,
+          "precision": null,
+          "recall": 0.0,
+          "true_positive_pixels": 0,
+          "false_positive_pixels": 0,
+          "false_negative_pixels": 806552
+        },
+        "2": {
+          "dice": 0.0,
+          "iou": 0.0,
+          "precision": null,
+          "recall": 0.0,
+          "true_positive_pixels": 0,
+          "false_positive_pixels": 0,
+          "false_negative_pixels": 174967
+        },
+        "3": {
+          "dice": 0.4871186084430385,
+          "iou": 0.3219806993208681,
+          "precision": 0.4576292458281232,
+          "recall": 0.5206702999440525,
+          "true_positive_pixels": 12999188,
+          "false_positive_pixels": 15406313,
+          "false_negative_pixels": 11967068
+        },
+        "4": {
+          "dice": 0.0,
+          "iou": 0.0,
+          "precision": null,
+          "recall": 0.0,
+          "true_positive_pixels": 0,
+          "false_positive_pixels": 0,
+          "false_negative_pixels": 5368530
+        }
+      },
+      "aggregation": "int64 pixel counts over entire split, then unweighted four-class macro; undefined ratios=null"
+    }
+  },
+  "C_patch": {
+    "thresholds": [
+      0.009999999776482582,
+      0.004999999888241291,
+      0.699999988079071,
+      0.02500000037252903
+    ],
+    "default": {
+      "macro_dice": 0.053840499370655846,
+      "macro_iou": 0.030168862982133886,
+      "per_class": {
+        "1": {
+          "dice": 0.0,
+          "iou": 0.0,
+          "precision": null,
+          "recall": 0.0,
+          "true_positive_pixels": 0,
+          "false_positive_pixels": 0,
+          "false_negative_pixels": 806552
+        },
+        "2": {
+          "dice": 0.0,
+          "iou": 0.0,
+          "precision": null,
+          "recall": 0.0,
+          "true_positive_pixels": 0,
+          "false_positive_pixels": 0,
+          "false_negative_pixels": 174967
+        },
+        "3": {
+          "dice": 0.21536199748262339,
+          "iou": 0.12067545192853554,
+          "precision": 0.1286790826476032,
+          "recall": 0.6598836445480653,
+          "true_positive_pixels": 16474824,
+          "false_positive_pixels": 111555495,
+          "false_negative_pixels": 8491432
+        },
+        "4": {
+          "dice": 0.0,
+          "iou": 0.0,
+          "precision": null,
+          "recall": 0.0,
+          "true_positive_pixels": 0,
+          "false_positive_pixels": 0,
+          "false_negative_pixels": 5368530
+        }
+      },
+      "aggregation": "int64 pixel counts over entire split, then unweighted four-class macro; undefined ratios=null"
+    },
+    "tuned": {
+      "macro_dice": 0.08828045190376875,
+      "macro_iou": 0.05190003228006029,
+      "per_class": {
+        "1": {
+          "dice": 0.005639672729165889,
+          "iou": 0.002827810326975092,
+          "precision": 0.0028848233148585775,
+          "recall": 0.12517481823862567,
+          "true_positive_pixels": 100960,
+          "false_positive_pixels": 34895984,
+          "false_negative_pixels": 705592
+        },
+        "2": {
+          "dice": 0.001081034399910198,
+          "iou": 0.0005408095168008293,
+          "precision": 0.0005442587134605462,
+          "recall": 0.07862625523670178,
+          "true_positive_pixels": 13757,
+          "false_positive_pixels": 25262825,
+          "false_negative_pixels": 161210
+        },
+        "3": {
+          "dice": 0.3219249543529348,
+          "iou": 0.19184181016695867,
+          "precision": 0.2588244341626771,
+          "recall": 0.42571212920351376,
+          "true_positive_pixels": 10628438,
+          "false_positive_pixels": 30435838,
+          "false_negative_pixels": 14337818
+        },
+        "4": {
+          "dice": 0.024476146133064147,
+          "iou": 0.012389699109506562,
+          "precision": 0.013064851967286413,
+          "recall": 0.19338738909906436,
+          "true_positive_pixels": 1038206,
+          "false_positive_pixels": 78427371,
+          "false_negative_pixels": 4330324
+        }
+      },
+      "aggregation": "int64 pixel counts over entire split, then unweighted four-class macro; undefined ratios=null"
+    }
+  },
+  "E_weighted_patch": {
+    "thresholds": [
+      0.800000011920929,
+      0.20000000298023224,
+      0.800000011920929,
+      0.8999999761581421
+    ],
+    "default": {
+      "macro_dice": 0.05899570989598462,
+      "macro_iou": 0.03191861036795952,
+      "per_class": {
+        "1": {
+          "dice": 0.00815844299351794,
+          "iou": 0.004095929701245504,
+          "precision": 0.004101045788234267,
+          "recall": 0.7665345817752606,
+          "true_positive_pixels": 618250,
+          "false_positive_pixels": 150135980,
+          "false_negative_pixels": 188302
+        },
+        "2": {
+          "dice": 0.0,
+          "iou": 0.0,
+          "precision": null,
+          "recall": 0.0,
+          "true_positive_pixels": 0,
+          "false_positive_pixels": 0,
+          "false_negative_pixels": 174967
+        },
+        "3": {
+          "dice": 0.1822333106189878,
+          "iou": 0.10025121028103011,
+          "precision": 0.1026976815193657,
+          "recall": 0.8080000060882176,
+          "true_positive_pixels": 20172735,
+          "false_positive_pixels": 176255604,
+          "false_negative_pixels": 4793521
+        },
+        "4": {
+          "dice": 0.04559108597143275,
+          "iou": 0.02332730148956246,
+          "precision": 0.023433862775023857,
+          "recall": 0.8368652126373514,
+          "true_positive_pixels": 4492736,
+          "false_positive_pixels": 187227086,
+          "false_negative_pixels": 875794
+        }
+      },
+      "aggregation": "int64 pixel counts over entire split, then unweighted four-class macro; undefined ratios=null"
+    },
+    "tuned": {
+      "macro_dice": 0.08006600140739872,
+      "macro_iou": 0.0445336826346934,
+      "per_class": {
+        "1": {
+          "dice": 0.009979546370822419,
+          "iou": 0.005014795879420653,
+          "precision": 0.005053713148813407,
+          "recall": 0.3943837471111596,
+          "true_positive_pixels": 318091,
+          "false_positive_pixels": 62623946,
+          "false_negative_pixels": 488461
+        },
+        "2": {
+          "dice": 0.0013228190573964962,
+          "iou": 0.0006618472807963097,
+          "precision": 0.0006628218047273486,
+          "recall": 0.31041853606680114,
+          "true_positive_pixels": 54313,
+          "false_positive_pixels": 81887771,
+          "false_negative_pixels": 120654
+        },
+        "3": {
+          "dice": 0.24342754472644626,
+          "iou": 0.13858098707834793,
+          "precision": 0.15687776157813432,
+          "recall": 0.543003924977778,
+          "true_positive_pixels": 13556775,
+          "false_positive_pixels": 72859393,
+          "false_negative_pixels": 11409481
+        },
+        "4": {
+          "dice": 0.06553409547492975,
+          "iou": 0.0338771003002087,
+          "precision": 0.03655219544355788,
+          "recall": 0.3164229314169801,
+          "true_positive_pixels": 1698726,
+          "false_positive_pixels": 44775254,
+          "false_negative_pixels": 3669804
+        }
+      },
+      "aggregation": "int64 pixel counts over entire split, then unweighted four-class macro; undefined ratios=null"
+    }
+  },
+  "F_present_dice_patch": {
+    "thresholds": [
+      0.6000000238418579,
+      0.009999999776482582,
+      0.8999999761581421,
+      0.6000000238418579
+    ],
+    "default": {
+      "macro_dice": 0.10513505623913721,
+      "macro_iou": 0.06157580365583663,
+      "per_class": {
+        "1": {
+          "dice": 0.015268043879010325,
+          "iou": 0.007692748550716428,
+          "precision": 0.007867149249873341,
+          "recall": 0.25761885160535214,
+          "true_positive_pixels": 207783,
+          "false_positive_pixels": 26203690,
+          "false_negative_pixels": 598769
+        },
+        "2": {
+          "dice": 0.0,
+          "iou": 0.0,
+          "precision": null,
+          "recall": 0.0,
+          "true_positive_pixels": 0,
+          "false_positive_pixels": 0,
+          "false_negative_pixels": 174967
+        },
+        "3": {
+          "dice": 0.34028196671607,
+          "iou": 0.2050239618369306,
+          "precision": 0.23703079982790426,
+          "recall": 0.6029117061044316,
+          "true_positive_pixels": 15052448,
+          "false_positive_pixels": 48451738,
+          "false_negative_pixels": 9913808
+        },
+        "4": {
+          "dice": 0.06499021436146854,
+          "iou": 0.03358650423569951,
+          "precision": 0.03647425010275689,
+          "recall": 0.29786179829487774,
+          "true_positive_pixels": 1599080,
+          "false_positive_pixels": 42242260,
+          "false_negative_pixels": 3769450
+        }
+      },
+      "aggregation": "int64 pixel counts over entire split, then unweighted four-class macro; undefined ratios=null"
+    },
+    "tuned": {
+      "macro_dice": 0.11883922218581319,
+      "macro_iou": 0.07166961341448883,
+      "per_class": {
+        "1": {
+          "dice": 0.015488063062617645,
+          "iou": 0.007804469589898134,
+          "precision": 0.008137357998474419,
+          "recall": 0.16021285670359753,
+          "true_positive_pixels": 129220,
+          "false_positive_pixels": 15750627,
+          "false_negative_pixels": 677332
+        },
+        "2": {
+          "dice": 0.002500895624767705,
+          "iou": 0.0012520133897881884,
+          "precision": 0.0012662652549176674,
+          "recall": 0.10010459115147428,
+          "true_positive_pixels": 17515,
+          "false_positive_pixels": 13814500,
+          "false_negative_pixels": 157452
+        },
+        "3": {
+          "dice": 0.3922197026181331,
+          "iou": 0.24395105678109716,
+          "precision": 0.3417618273225807,
+          "recall": 0.4601575822982829,
+          "true_positive_pixels": 11488412,
+          "false_positive_pixels": 22126846,
+          "false_negative_pixels": 13477844
+        },
+        "4": {
+          "dice": 0.0651482274377343,
+          "iou": 0.033670913897171806,
+          "precision": 0.04224092855317486,
+          "recall": 0.14233859175603006,
+          "true_positive_pixels": 764149,
+          "false_positive_pixels": 17326102,
+          "false_negative_pixels": 4604381
+        }
+      },
+      "aggregation": "int64 pixel counts over entire split, then unweighted four-class macro; undefined ratios=null"
+    }
+  },
+  "G_present_dice_whole": {
+    "thresholds": [
+      0.800000011920929,
+      0.5,
+      0.30000001192092896,
+      0.800000011920929
+    ],
+    "default": {
+      "macro_dice": 0.1571062073247449,
+      "macro_iou": 0.09460829384887376,
+      "per_class": {
+        "1": {
+          "dice": 0.056301007399560975,
+          "iou": 0.028965908617484486,
+          "precision": 0.032211965195514954,
+          "recall": 0.22326520794691476,
+          "true_positive_pixels": 180075,
+          "false_positive_pixels": 5410239,
+          "false_negative_pixels": 626477
+        },
+        "2": {
+          "dice": 0.005706783701375239,
+          "iou": 0.002861556994094848,
+          "precision": 0.003065009049639498,
+          "recall": 0.041327793241011164,
+          "true_positive_pixels": 7231,
+          "false_positive_pixels": 2351979,
+          "false_negative_pixels": 167736
+        },
+        "3": {
+          "dice": 0.42794226452720846,
+          "iou": 0.27221790578735083,
+          "precision": 0.439453078421912,
+          "recall": 0.41701907566757307,
+          "true_positive_pixels": 10411405,
+          "false_positive_pixels": 13280328,
+          "false_negative_pixels": 14554851
+        },
+        "4": {
+          "dice": 0.138474773670835,
+          "iou": 0.07438780399656487,
+          "precision": 0.08585537300059895,
+          "recall": 0.3577089072800189,
+          "true_positive_pixels": 1920371,
+          "false_positive_pixels": 20447140,
+          "false_negative_pixels": 3448159
+        }
+      },
+      "aggregation": "int64 pixel counts over entire split, then unweighted four-class macro; undefined ratios=null"
+    },
+    "tuned": {
+      "macro_dice": 0.16178736594517837,
+      "macro_iou": 0.09728870791960284,
+      "per_class": {
+        "1": {
+          "dice": 0.06747900997267484,
+          "iou": 0.03491760778842599,
+          "precision": 0.0479543539615636,
+          "recall": 0.11382155149327011,
+          "true_positive_pixels": 91803,
+          "false_positive_pixels": 1822580,
+          "false_negative_pixels": 714749
+        },
+        "2": {
+          "dice": 0.005706783701375239,
+          "iou": 0.002861556994094848,
+          "precision": 0.003065009049639498,
+          "recall": 0.041327793241011164,
+          "true_positive_pixels": 7231,
+          "false_positive_pixels": 2351979,
+          "false_negative_pixels": 167736
+        },
+        "3": {
+          "dice": 0.429675567569656,
+          "iou": 0.27362216284482055,
+          "precision": 0.4089863234052781,
+          "recall": 0.45256954026266494,
+          "true_positive_pixels": 11298967,
+          "false_positive_pixels": 16327793,
+          "false_negative_pixels": 13667289
+        },
+        "4": {
+          "dice": 0.14428810253700744,
+          "iou": 0.07775350405106993,
+          "precision": 0.10098422540799157,
+          "recall": 0.2526132852009768,
+          "true_positive_pixels": 1356162,
+          "false_positive_pixels": 12073282,
+          "false_negative_pixels": 4012368
+        }
+      },
+      "aggregation": "int64 pixel counts over entire split, then unweighted four-class macro; undefined ratios=null"
+    }
+  },
+  "H_foreground_patch": {
+    "thresholds": [
+      0.800000011920929,
+      0.5,
+      0.800000011920929,
+      0.699999988079071
+    ],
+    "default": {
+      "macro_dice": 0.14010437687515914,
+      "macro_iou": 0.08285079586935468,
+      "per_class": {
+        "1": {
+          "dice": 0.037622622291765995,
+          "iou": 0.01917196086702938,
+          "precision": 0.020002932656576097,
+          "recall": 0.315772572630159,
+          "true_positive_pixels": 254687,
+          "false_positive_pixels": 12477796,
+          "false_negative_pixels": 551865
+        },
+        "2": {
+          "dice": 0.00874744657272322,
+          "iou": 0.004392936776235345,
+          "precision": 0.004551957977769843,
+          "recall": 0.11170106362914149,
+          "true_positive_pixels": 19544,
+          "false_positive_pixels": 4273993,
+          "false_negative_pixels": 155423
+        },
+        "3": {
+          "dice": 0.38740211650237827,
+          "iou": 0.24023479161595318,
+          "precision": 0.3064324385436736,
+          "recall": 0.5265285271447989,
+          "true_positive_pixels": 13145446,
+          "false_positive_pixels": 29752904,
+          "false_negative_pixels": 11820810
+        },
+        "4": {
+          "dice": 0.12664532213376914,
+          "iou": 0.06760349421820079,
+          "precision": 0.07354989625489013,
+          "recall": 0.45538946415499215,
+          "true_positive_pixels": 2444772,
+          "false_positive_pixels": 30794867,
+          "false_negative_pixels": 2923758
+        }
+      },
+      "aggregation": "int64 pixel counts over entire split, then unweighted four-class macro; undefined ratios=null"
+    },
+    "tuned": {
+      "macro_dice": 0.15085076644980633,
+      "macro_iou": 0.08981056510961848,
+      "per_class": {
+        "1": {
+          "dice": 0.05265307366877123,
+          "iou": 0.027038363301791733,
+          "precision": 0.03087247172669225,
+          "recall": 0.1787894642874855,
+          "true_positive_pixels": 144203,
+          "false_positive_pixels": 4526722,
+          "false_negative_pixels": 662349
+        },
+        "2": {
+          "dice": 0.00874744657272322,
+          "iou": 0.004392936776235345,
+          "precision": 0.004551957977769843,
+          "recall": 0.11170106362914149,
+          "true_positive_pixels": 19544,
+          "false_positive_pixels": 4273993,
+          "false_negative_pixels": 155423
+        },
+        "3": {
+          "dice": 0.4066742337249548,
+          "iou": 0.2552360868899382,
+          "precision": 0.36606596206571534,
+          "recall": 0.45741612198481024,
+          "true_positive_pixels": 11419968,
+          "false_positive_pixels": 19776508,
+          "false_negative_pixels": 13546288
+        },
+        "4": {
+          "dice": 0.13532831183277602,
+          "iou": 0.07257487347050863,
+          "precision": 0.0843394267316135,
+          "recall": 0.3422286920255638,
+          "true_positive_pixels": 1837265,
+          "false_positive_pixels": 19946912,
+          "false_negative_pixels": 3531265
+        }
+      },
+      "aggregation": "int64 pixel counts over entire split, then unweighted four-class macro; undefined ratios=null"
+    }
+  },
+  "J_balanced_dice_patch": {
+    "thresholds": [
+      0.800000011920929,
+      0.9950000047683716,
+      0.699999988079071,
+      0.699999988079071
+    ],
+    "default": {
+      "macro_dice": 0.11893523273217219,
+      "macro_iou": 0.06794057123826974,
+      "per_class": {
+        "1": {
+          "dice": 0.028784657381186046,
+          "iou": 0.01460249256326548,
+          "precision": 0.01490035358180575,
+          "recall": 0.42212653368908637,
+          "true_positive_pixels": 340467,
+          "false_positive_pixels": 22509125,
+          "false_negative_pixels": 466085
+        },
+        "2": {
+          "dice": 0.010953269439841987,
+          "iou": 0.005506793415938152,
+          "precision": 0.005524722693688355,
+          "recall": 0.6291986488880761,
+          "true_positive_pixels": 110089,
+          "false_positive_pixels": 19816522,
+          "false_negative_pixels": 64878
+        },
+        "3": {
+          "dice": 0.31723369930728484,
+          "iou": 0.18851916583823597,
+          "precision": 0.236454470000183,
+          "recall": 0.4818449350194919,
+          "true_positive_pixels": 12029864,
+          "false_positive_pixels": 38846163,
+          "false_negative_pixels": 12936392
+        },
+        "4": {
+          "dice": 0.11876930480037586,
+          "iou": 0.06313383313563933,
+          "precision": 0.06730688828205786,
+          "recall": 0.5045288002488577,
+          "true_positive_pixels": 2708578,
+          "false_positive_pixels": 37533633,
+          "false_negative_pixels": 2659952
+        }
+      },
+      "aggregation": "int64 pixel counts over entire split, then unweighted four-class macro; undefined ratios=null"
+    },
+    "tuned": {
+      "macro_dice": 0.13258602691760307,
+      "macro_iou": 0.07558976862456408,
+      "per_class": {
+        "1": {
+          "dice": 0.03894759413117364,
+          "iou": 0.01986055753258581,
+          "precision": 0.02115601229662222,
+          "recall": 0.24490795385790376,
+          "true_positive_pixels": 197531,
+          "false_positive_pixels": 9139342,
+          "false_negative_pixels": 609021
+        },
+        "2": {
+          "dice": 0.03628407704480953,
+          "iou": 0.01847725356843149,
+          "precision": 0.02036071953790323,
+          "recall": 0.16648853783856385,
+          "true_positive_pixels": 29130,
+          "false_positive_pixels": 1401566,
+          "false_negative_pixels": 145837
+        },
+        "3": {
+          "dice": 0.3278570367614961,
+          "iou": 0.19606997964248388,
+          "precision": 0.29042547766133325,
+          "recall": 0.3763649223175473,
+          "true_positive_pixels": 9396423,
+          "false_positive_pixels": 22957567,
+          "false_negative_pixels": 15569833
+        },
+        "4": {
+          "dice": 0.12725539973293298,
+          "iou": 0.06795128375475516,
+          "precision": 0.07630997364876843,
+          "recall": 0.382851544091213,
+          "true_positive_pixels": 2055350,
+          "false_positive_pixels": 24878875,
+          "false_negative_pixels": 3313180
+        }
+      },
+      "aggregation": "int64 pixel counts over entire split, then unweighted four-class macro; undefined ratios=null"
+    }
+  },
+  "K_extended_patch": {
+    "thresholds": [
+      0.949999988079071,
+      0.9750000238418579,
+      0.5,
+      0.949999988079071
+    ],
+    "default": {
+      "macro_dice": 0.18039617383726703,
+      "macro_iou": 0.10631365650824658,
+      "per_class": {
+        "1": {
+          "dice": 0.09885578559456124,
+          "iou": 0.05199804667394854,
+          "precision": 0.05667760866208874,
+          "recall": 0.3864226981025402,
+          "true_positive_pixels": 311670,
+          "false_positive_pixels": 5187327,
+          "false_negative_pixels": 494882
+        },
+        "2": {
+          "dice": 0.03476686513084682,
+          "iou": 0.01769096221408949,
+          "precision": 0.018114423379192796,
+          "recall": 0.4307726599873119,
+          "true_positive_pixels": 75371,
+          "false_positive_pixels": 4085457,
+          "false_negative_pixels": 99596
+        },
+        "3": {
+          "dice": 0.410169525310763,
+          "iou": 0.25799576234122606,
+          "precision": 0.40123138522985136,
+          "recall": 0.4195149645185085,
+          "true_positive_pixels": 10473718,
+          "false_positive_pixels": 15630217,
+          "false_negative_pixels": 14492538
+        },
+        "4": {
+          "dice": 0.17779251931289705,
+          "iou": 0.0975698548037222,
+          "precision": 0.10190385506700077,
+          "recall": 0.6964293763842243,
+          "true_positive_pixels": 3738802,
+          "false_positive_pixels": 32950703,
+          "false_negative_pixels": 1629728
+        }
+      },
+      "aggregation": "int64 pixel counts over entire split, then unweighted four-class macro; undefined ratios=null"
+    },
+    "tuned": {
+      "macro_dice": 0.23922878227237032,
+      "macro_iou": 0.1418755293173221,
+      "per_class": {
+        "1": {
+          "dice": 0.19346489607548586,
+          "iou": 0.10709168930911057,
+          "precision": 0.19445122875311086,
+          "recall": 0.19248851902915126,
+          "true_positive_pixels": 155252,
+          "false_positive_pixels": 643159,
+          "false_negative_pixels": 651300
+        },
+        "2": {
+          "dice": 0.062291177693986066,
+          "iou": 0.03214682050105704,
+          "precision": 0.04224494368291341,
+          "recall": 0.11854235370098361,
+          "true_positive_pixels": 20741,
+          "false_positive_pixels": 470229,
+          "false_negative_pixels": 154226
+        },
+        "3": {
+          "dice": 0.410169525310763,
+          "iou": 0.25799576234122606,
+          "precision": 0.40123138522985136,
+          "recall": 0.4195149645185085,
+          "true_positive_pixels": 10473718,
+          "false_positive_pixels": 15630217,
+          "false_negative_pixels": 14492538
+        },
+        "4": {
+          "dice": 0.29098953000924627,
+          "iou": 0.1702678451178948,
+          "precision": 0.2651642302301164,
+          "recall": 0.32238806526181285,
+          "true_positive_pixels": 1730750,
+          "false_positive_pixels": 4796337,
+          "false_negative_pixels": 3637780
+        }
+      },
+      "aggregation": "int64 pixel counts over entire split, then unweighted four-class macro; undefined ratios=null"
+    }
+  }
+}

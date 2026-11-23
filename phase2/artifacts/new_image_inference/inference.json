@@ -1,0 +1,24 @@
+{
+  "image": "C:\\Users\\shail\\OneDrive\\Desktop\\Projects\\Surface-Defect-Inspection\\data\\severstal-steel-defect-detection\\test_images\\0000f269f.jpg",
+  "image_sha256": "599bf7f7c5ac55245185a2ce1e474c52594e183046528b8876798925f1646694",
+  "native_probability_shape": [
+    4,
+    256,
+    1600
+  ],
+  "thresholds": [
+    0.949999988079071,
+    0.9750000238418579,
+    0.5,
+    0.949999988079071
+  ],
+  "checkpoint_sha256": "0ce6c174d27fff24551faa7ce94f7a2ec7f9a98294a0eac7746a8c61b89eed59",
+  "positive_pixels_by_class": [
+    556,
+    0,
+    10070,
+    0
+  ],
+  "ground_truth_available": false,
+  "note": "Successful inference demonstrates execution, not accuracy on this unlabeled image."
+}

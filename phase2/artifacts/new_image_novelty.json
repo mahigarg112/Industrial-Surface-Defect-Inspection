@@ -1,0 +1,8 @@
+{
+  "image": "C:\\Users\\shail\\OneDrive\\Desktop\\Projects\\Surface-Defect-Inspection\\data\\severstal-steel-defect-detection\\test_images\\0000f269f.jpg",
+  "file_sha256": "599bf7f7c5ac55245185a2ce1e474c52594e183046528b8876798925f1646694",
+  "pixel_sha256": "0a6083622865bd9d85cd537ebdfc518878dfa06cdd72b7a0fd15d20a1da27d70",
+  "byte_and_pixel_distinct_from_all_labeled_images": true,
+  "labeled_images_checked": 12568,
+  "near_duplicates_not_checked": true
+}

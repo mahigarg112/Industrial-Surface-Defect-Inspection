@@ -1,0 +1,331 @@
+ACTUAL SMALL U-NET AND EXECUTION FLOW
+Prepared 20 November 2026 for the 23 November individual evaluation.
+All paths below are relative to Phase_II_Clean_Project, unless labeled ORIGINAL.
+
+AUTHORITY AND SOURCE REUSE
+Original running GUI: phase2/release/app.py, not notebooks/SDI/app.py and not
+phase2/finalize.py. finalize.main is a research selection/evaluation orchestrator,
+not the interactive app. Do not run it during the demonstration.
+Original GUI -> release/inference.py -> common.load_model -> dynamically loaded
+experiments/severstal_segmentation/model.py:SmallUNet -> patches.predict.
+Clean GUI uses the same chain except common imports phase2/model.py directly.
+model.py is byte-identical to that original model; dataset_utils.py similarly
+copies the original dataset.py. Their historical copies remain in experiments/.
+No new network, learned weights or normalization is introduced by relocation.
+
+1. STREAMLIT STARTS
+File: phase2/release/app.py, module body + get_inspector(device).
+Input: streamlit run command, Device preference (Auto by default).
+Output: page/sidebar, cached Inspector resource, or a visible loading error.
+Parameters: package ROOT/phase2/artifacts/final; device auto/cpu/cuda.
+app inserts its own release root into sys.path, sets up widgets and calls
+get_inspector through st.cache_resource. Inspector.__init__ in inference.py reads
+lock.json, verifies checkpoint SHA256 and exact thresholds, and common.load_model
+strictly loads class mapping/state dict. model.to(device).eval() freezes BN running
+statistics for inference. CPU fallback exists for unavailable CUDA in Auto.
+Why: load the genuine local model once per cached device rather than per slider.
+Student explanation: start the screen and restore the already trained weights.
+
+2. UPLOAD OR SAMPLE SELECTION
+File: phase2/release/app.py, module body: st.file_uploader / Load sample.
+Input: JPG/JPEG/PNG bytes and filename; bundled sample is a separate UI route.
+Output: source_input=(bytes,name). getvalue() reads an upload; sample_input is
+session state. An uploaded file takes precedence over a sample.
+Parameters: file types jpg/jpeg/png; server upload limit 20 MiB.
+Why: both input routes feed the exact same decoding and inference backend.
+Student explanation: the model receives pixels from the chosen image, not its name.
+
+3. VALIDATION AND PREPROCESSING
+Files: inference.py:decode_upload; patches.py:predict.
+Input: file bytes/name -> uint8 RGB HxWx3 -> patch float32 NCHW /255.
+Output: decoded array plus metadata (hash/name/size/dimensions); model tensor.
+Checks: nonempty, <=20 MiB, extension matches actual JPEG/PNG format, sides
+16..8192, <=4 million pixels, decodable. Convert grayscale/RGBA to RGB.
+No ImageNet mean/std, test-time augmentation or image-level contrast change.
+No whole-image resize in selected patch mode. Unusual geometry is warned as
+unverified; functional padding support is not validated accuracy on that geometry.
+Why: reject corrupt/inappropriate files and match the training pixel scale.
+Student explanation: ensure it is a real image, arrange RGB channels and divide
+each byte by 255, e.g. 128 becomes approximately 0.502.
+
+4. NATIVE PATCH EXTRACTION
+File: patches.py:starts, boxes, predict.
+Input: HxWx3 RGB; patch=256, stride=128.
+Output: half-open boxes (y,x,bottom,right); batches of at most 8 GPU / 2 CPU
+patches. Small edge crops use NumPy edge padding to 256-square and are cropped
+back during reconstruction. Standard 256x1600 requires no padding.
+x starts: 0,128,256,384,512,640,768,896,1024,1152,1280,1344 (12 patches); y=0.
+Why: preserve local defect detail, bound memory and cover the last image column.
+Student explanation: slide a square window across the long image with overlap.
+
+5. PATCH ENTERS THE NETWORK
+Files: patches.py:predict -> model.py:SmallUNet.forward.
+Input: N x 3 x 256 x 256, N<=8 CUDA / N<=2 CPU in GUI.
+Output: encoder feature tensor e1, eventually four raw logits per patch pixel.
+torch.inference_mode disables gradient storage. CUDA autocast is enabled, then
+logits are promoted to float32 for sigmoid. CPU uses float32.
+Why: use the same learned mapping efficiently without a training update.
+Student explanation: each patch becomes a tensor and passes through learned layers.
+
+6. ENCODER FEATURE EXTRACTION
+File: model.py:ConvBlock.__init__/forward, SmallUNet.forward.
+Input: RGB patch. Output: e1=Nx16x256x256, e2=Nx32x128x128,
+e3=Nx64x64x64. self.pool is reused before enc2 and enc3.
+Each block: Conv2d(3x3,stride1,padding1,bias=False), BN, ReLU(inplace=True),
+another Conv2d with same spatial settings, BN, ReLU.
+MaxPool2d(kernel2,stride2,padding0) halves H and W.
+Why: learn increasingly contextual patterns while retaining earlier tensors.
+Student explanation: first detect local patterns, then combine them at coarser scales.
+
+7. BOTTLENECK
+File: model.py:SmallUNet.bottleneck / forward.
+Input: pooled e3=Nx64x32x32. Output: center=Nx128x32x32.
+Same two conv/BN/ReLU operations. No transformer, attention or pretrained encoder.
+Why: widest feature representation at the lowest spatial resolution.
+Student explanation: combine the encoder's compressed evidence before expansion.
+
+8. DECODER AND SKIPS
+File: model.py:SmallUNet.forward, up3/dec3, up2/dec2, up1/dec1.
+Input: center and saved e3/e2/e1. Output: d1=Nx16x256x256.
+up3=ConvTranspose2d(128,64,kernel2,stride2,padding0), output Nx64x64x64;
+torch.cat([up3(center),e3],dim=1) -> Nx128x64x64; dec3 -> Nx64x64x64.
+up2:64->32 at128x128; concat e2 ->64 channels; dec2 ->32 channels.
+up1:32->16 at256x256; concat e1 ->32 channels; dec1 ->16 channels.
+Transposed convolutions have learnable weights/biases; concatenation has none.
+Each decoder block uses two 3x3 conv/BN/ReLU operations.
+Why: recover spatial detail using coarse context plus matching encoder features.
+Student explanation: enlarge the maps and bring back precise earlier locations.
+
+9. FOUR OUTPUT CHANNELS
+File: model.py:SmallUNet.output and final return in forward.
+Input: d1=Nx16x256x256. Operation: Conv2d(16,4,kernel1,stride1,padding0,bias=True).
+Output: Nx4x256x256 raw logits. This layer has 16*4+4=68 parameters.
+Why: mix the 16 features into a separate defect score for each class/pixel.
+Student explanation: four answers per pixel; all four can be negative or overlap.
+
+10. SIGMOID
+File: patches.py:predict, logits.float().sigmoid().cpu().numpy().
+Input: logits, unconstrained real values. Output: four probabilities per patch
+pixel in [0,1]. sigmoid(z)=1/(1+exp(-z)). It is outside SmallUNet.forward.
+Why: independent binary channel probabilities matching BCE training.
+Student explanation: translate each raw score into a thresholdable number.
+Scores are not calibrated confidence; no softmax or explicit background class.
+
+11. WEIGHTED STITCHING
+File: patches.py:weight_window and predict (streamed accumulation).
+blend implements equivalent reconstruction for supplied patch arrays/tests.
+Input: patch probabilities + original coordinates. Output: 4xHxW probabilities.
+Window W(i,j)=max(hann256(i),0.01)*max(hann256(j),0.01).
+Accumulate probability*W into total and W into count at native coordinates;
+return total/count[None]. Every count must be positive. Accumulation is CPU
+float32 as each GPU batch completes, not a full-image GPU activation tensor.
+Why: reduce unreliable patch-border influence and preserve complete coverage.
+Student explanation: overlapping answers are averaged, favoring patch centers.
+
+12. BINARY THRESHOLDING
+File: release/inference.py:render.
+Input: 4xHxW probability and four thresholds. Output: bool masks 4xHxW.
+Operation: probability >= thresholds[:,None,None], AFTER reconstruction.
+Exact defaults: [0.949999988079071,0.9750000238418579,0.5,0.949999988079071].
+render validates threshold shape/range/finite values and probability geometry.
+Why: validation chose different operating points for differently behaving classes.
+Student explanation: keep a class at a pixel if its probability reaches its cutoff.
+
+13. GUI PREDICTIONS
+Files: inference.py:render; app.py:module result-render block.
+Input: original RGB + masks. Output: overlay, four grayscale masks, affected
+areas, device/time and result controls. Colors are averaged if classes overlap;
+OVERLAY_ALPHA=0.4 colors foreground, background stays original. mask sum/(H*W)*100
+is affected area, NOT Dice or accuracy. Percentages can sum beyond 100.
+Inspector.probabilities stores timing; app processing time includes decode,
+inference/reconstruction and rendering, excludes cold loading/browser transfer.
+Why: show both location and per-class prediction without fabricated accuracy.
+Student explanation: paint predicted pixels and show each mask separately.
+
+14. THRESHOLD CHANGES
+File: app.py:Adjust thresholds toggle, st.slider, cache_key and session_state.
+Input: new slider values. Output: rerendered masks/areas/exports using cached
+probabilities; Inspector.probabilities is only called by Inspect image.
+cache_key=(image SHA256,device preference). Image/device changes clear results.
+With adjustment disabled, exact original float thresholds are restored. Sliders
+are rounded display values and exploratory; JSON flags a changed operating point.
+Why: change the decision rule cheaply without changing learned weights.
+Student explanation: reuse model scores and redraw the cutoff, not retrain.
+
+15. PNG AND JSON EXPORT
+Files: inference.py:png_bytes, render, inspection_report, report_bytes, main;
+app.py:st.download_button calls (six controls in clean release).
+Input: current masks/overlay, metadata, thresholds, timing.
+Output: native overlay PNG, four binary PNGs (0/255), JSON with model hash,
+device/time, exact active thresholds, areas, exploratory/locked flag and unknown
+upload accuracy. GUI uses bytes in memory; CLI main saves these files plus NPZ
+probabilities/masks in a new directory and refuses to overwrite an existing one.
+Why: make the actual result portable and its settings traceable.
+Student explanation: save what is currently displayed with the settings that made it.
+
+NETWORK SUMMARY — VERIFIED STAGE INPUTS/OUTPUTS (N=batch)
+Layer | Input shape | Operation | Output shape | Purpose
+enc1 | Nx3x256x256 | 2*(3x3 conv/BN/ReLU),3->16->16 | Nx16x256x256 | local detail
+pool#1 | Nx16x256x256 | max2,stride2 | Nx16x128x128 | spatial reduction
+enc2 | Nx16x128x128 | 2*(conv/BN/ReLU),16->32->32 | Nx32x128x128 | richer patterns
+pool#2 | Nx32x128x128 | max2,stride2 | Nx32x64x64 | spatial reduction
+enc3 | Nx32x64x64 | 2*(conv/BN/ReLU),32->64->64 | Nx64x64x64 | contextual features
+pool#3 | Nx64x64x64 | max2,stride2 | Nx64x32x32 | compressed representation
+bottleneck | Nx64x32x32 | 2*(conv/BN/ReLU),64->128->128 | Nx128x32x32 | deepest features
+up3 | Nx128x32x32 | transposed conv2,stride2,128->64 | Nx64x64x64 | learned upsample
+cat3 | 2 tensors Nx64x64x64 | concatenate up3 and e3,dim1 | Nx128x64x64 | skip detail
+dec3 | Nx128x64x64 | 2*(conv/BN/ReLU),128->64->64 | Nx64x64x64 | refine fusion
+up2 | Nx64x64x64 | transposed conv2,stride2,64->32 | Nx32x128x128 | learned upsample
+cat2 | 2 tensors Nx32x128x128 | concatenate up2 and e2,dim1 | Nx64x128x128 | skip detail
+dec2 | Nx64x128x128 | 2*(conv/BN/ReLU),64->32->32 | Nx32x128x128 | refine fusion
+up1 | Nx32x128x128 | transposed conv2,stride2,32->16 | Nx16x256x256 | learned upsample
+cat1 | 2 tensors Nx16x256x256 | concatenate up1 and e1,dim1 | Nx32x256x256 | fine detail
+dec1 | Nx32x256x256 | 2*(conv/BN/ReLU),32->16->16 | Nx16x256x256 | refine boundary
+output | Nx16x256x256 | 1x1 conv,16->4,bias | Nx4x256x256 | independent logits
+
+All ordinary block convolutions use padding1,stride1,dilation1,groups1 and no
+bias. BN has eps=1e-5,momentum=0.1, affine gamma/beta and tracked running stats.
+ReLU is in-place. Transposed convs: padding0,output_padding0,dilation1,bias=True.
+Pooling uses default ceil_mode=False. Same-padding convs retain spatial sizes;
+three learned doublings undo three pool halvings on the 256-square tensor.
+
+Parameter breakdown (includes BN trainable scale/shift, not running buffers):
+enc1 2,800; enc2 13,952; enc3 55,552; bottleneck 221,696;
+up3 32,832; dec3 110,848; up2 8,224; dec2 27,776;
+up1 2,064; dec1 6,976; output 68. Total 482,788.
+The deepest width is only 128, starting from 16 and using three pool levels.
+FP32 parameter values alone occupy 1,931,152 bytes (~1.84 MiB); activations,
+gradients, Adam states and CUDA workspace require additional memory. Compact
+does not imply accurate or industrially reliable. No larger model benchmark is
+invented; lightweight describes this explicitly measured model size.
+
+DIAGRAM OF THE REAL FORWARD PATH (shapes omit N)
+3x256x256 -> enc1:16x256x256 -----------------------------> cat1
+                 | pool                                      ^
+             enc2:32x128x128 ----------------------> cat2      |
+                 | pool                              ^        |
+             enc3:64x64x64 ----------------> cat3     |        |
+                 | pool                      ^       |        |
+         bottleneck:128x32x32 --up3--> 64x64x64       |        |
+                                      cat3:128 -> dec3:64     |
+                                                  | up2       |
+                                             cat2:64 -> dec2:32
+                                                           | up1
+                                                    cat1:32 -> dec1:16
+                                                              | 1x1
+                                                      4x256x256 logits
+                                                              | sigmoid
+12 patch probabilities -> positive Hann sums / coverage -> 4x256x1600
+                                                              | four cutoffs
+                                                      4x256x1600 masks
+
+Existing exportable diagram: phase2/artifacts/architecture.png. It was generated
+from inspect_architecture.py using this model's real module names and tested
+shapes, and is reused unchanged. Stage shapes also exist in
+phase2/artifacts/architecture_verified.json. Fresh per-leaf forward-hook shapes
+are in verification/run_*/verified_layers.json and appended below. The shared
+pool appears three times; concatenation inputs are visible at decoder convs.
+
+TRAINING AND DATA PATH TO EXPLAIN
+phase2/audit.py:prepare -> partition.csv (duplicate-aware split, seed42).
+data.records -> native -> dataset_utils.decode_rle -> TrainDataset.__getitem__.
+Full native masks decode before one aligned crop; foreground conditioning is
+training-only. Patch RGB/255 -> train.main model.train -> objective -> scaled
+backward -> Adam step -> scaler update. model.eval + predict evaluates every
+native validation image. metrics.counts/summarize accumulate pixel counts.
+Checkpoints selected at threshold0.5; evaluate.tune_from_histograms tunes class
+cutoffs from validation only. finalize.main locks candidate then opens test.
+GUI imports neither training nor finalize for an update; it only runs inference.
+
+RESEARCH CONTRIBUTION AND NEGATIVE FINDINGS
+Defensible statement: "I implemented and studied a resolution-aware inspection
+pipeline using the unchanged lightweight U-Net: native crops, weighted full-image
+reconstruction, training-exposure diagnostics and controlled loss/sampling/budget
+ablations, with locked validation selection and explicit four-class error analysis."
+Disclose AI assistance and qualify personal implementation ownership using the
+Source and Contribution Log. U-Net, patching, Hann windows and weighting are
+established techniques. No adaptive selector/multiscale fusion/new algorithm claim.
+
+Recorded common-test Dice:
+B whole 0.123897; C patch 0.091816; E weighted BCE 0.079376;
+F present Dice patch 0.117008; G present Dice whole 0.155507;
+H foreground patch 0.144306; J balanced Dice patch 0.131488;
+K extended patch 0.233996. All have 482,788 parameters and the same frozen test.
+B/C match seed, original source-image order, 65,536 input pixels/sample, Adam,
+batch8 and 3-epoch cap. Patch selection/detail/field of view still change together.
+C<B and F<G: patching alone did not improve the aggregate result at these budgets.
+E<C: positive-weighted BCE worsened aggregate performance, with heavy false alarms.
+F-C +0.025192 tests Dice reduction. H-F +0.027298 tests foreground sampling.
+J-H -0.012818 tests Dice class weights at three epochs. K-J +0.102507 tests
+extension to nine total epochs; K restores J rather than a new independent seed.
+There is one training seed; these are measured contrasts, not robust causal proof
+across all settings/seeds. K vs B bundles objective, sampling and compute changes.
+
+Fixed C weights and locked thresholds: stride128 Hann Dice0.091816;
+stride128 uniform0.088497; stride256 Hann0.086718. Differences +0.003318 and
++0.005098 support overlap/blending tradeoffs on this model. Stride256 still has
+edge overlap (last tile x1344), so do not call it strictly non-overlapping.
+All test contrasts were computed after model lock; do not use them to retune.
+Evidence: comparison.csv, ablations/, paired_uncertainty*.json, configs/history,
+training_target_exposure.csv and per-epoch exposure records. No rerun was needed.
+
+LIMITATIONS
+K macro Dice0.233996/IoU0.137937 are aggregate held-out scores, not GUI accuracy.
+Only20 class2-positive test images; Dice0.082752, precision0.055592. Any-pixel
+alarms on452/472 GT-empty images. No outside-Severstal or coil-independent proof.
+Phase I original validation result is historical and not a paired native-test
+improvement baseline. No claims of beating literature with incompatible protocols.
+
+FRESH VERIFIED LEAF-LAYER TABLE FOLLOWS
+
+Layer name | Input shape (N=1) | Operation | Output shape | Purpose
+-----------|-------------------|-----------|--------------|--------
+enc1.layers.0 | [1, 3, 256, 256] | Conv2d(3, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False) | [1, 16, 256, 256] | Learn local features
+enc1.layers.1 | [1, 16, 256, 256] | BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True) | [1, 16, 256, 256] | Normalize channels
+enc1.layers.2 | [1, 16, 256, 256] | ReLU(inplace=True) | [1, 16, 256, 256] | Nonlinear activation
+enc1.layers.3 | [1, 16, 256, 256] | Conv2d(16, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False) | [1, 16, 256, 256] | Learn local features
+enc1.layers.4 | [1, 16, 256, 256] | BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True) | [1, 16, 256, 256] | Normalize channels
+enc1.layers.5 | [1, 16, 256, 256] | ReLU(inplace=True) | [1, 16, 256, 256] | Nonlinear activation
+pool | [1, 16, 256, 256] | MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False) | [1, 16, 128, 128] | Downsample by two
+enc2.layers.0 | [1, 16, 128, 128] | Conv2d(16, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False) | [1, 32, 128, 128] | Learn local features
+enc2.layers.1 | [1, 32, 128, 128] | BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True) | [1, 32, 128, 128] | Normalize channels
+enc2.layers.2 | [1, 32, 128, 128] | ReLU(inplace=True) | [1, 32, 128, 128] | Nonlinear activation
+enc2.layers.3 | [1, 32, 128, 128] | Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False) | [1, 32, 128, 128] | Learn local features
+enc2.layers.4 | [1, 32, 128, 128] | BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True) | [1, 32, 128, 128] | Normalize channels
+enc2.layers.5 | [1, 32, 128, 128] | ReLU(inplace=True) | [1, 32, 128, 128] | Nonlinear activation
+pool | [1, 32, 128, 128] | MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False) | [1, 32, 64, 64] | Downsample by two
+enc3.layers.0 | [1, 32, 64, 64] | Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False) | [1, 64, 64, 64] | Learn local features
+enc3.layers.1 | [1, 64, 64, 64] | BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True) | [1, 64, 64, 64] | Normalize channels
+enc3.layers.2 | [1, 64, 64, 64] | ReLU(inplace=True) | [1, 64, 64, 64] | Nonlinear activation
+enc3.layers.3 | [1, 64, 64, 64] | Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False) | [1, 64, 64, 64] | Learn local features
+enc3.layers.4 | [1, 64, 64, 64] | BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True) | [1, 64, 64, 64] | Normalize channels
+enc3.layers.5 | [1, 64, 64, 64] | ReLU(inplace=True) | [1, 64, 64, 64] | Nonlinear activation
+pool | [1, 64, 64, 64] | MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False) | [1, 64, 32, 32] | Downsample by two
+bottleneck.layers.0 | [1, 64, 32, 32] | Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False) | [1, 128, 32, 32] | Learn local features
+bottleneck.layers.1 | [1, 128, 32, 32] | BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True) | [1, 128, 32, 32] | Normalize channels
+bottleneck.layers.2 | [1, 128, 32, 32] | ReLU(inplace=True) | [1, 128, 32, 32] | Nonlinear activation
+bottleneck.layers.3 | [1, 128, 32, 32] | Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False) | [1, 128, 32, 32] | Learn local features
+bottleneck.layers.4 | [1, 128, 32, 32] | BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True) | [1, 128, 32, 32] | Normalize channels
+bottleneck.layers.5 | [1, 128, 32, 32] | ReLU(inplace=True) | [1, 128, 32, 32] | Nonlinear activation
+up3 | [1, 128, 32, 32] | ConvTranspose2d(128, 64, kernel_size=(2, 2), stride=(2, 2)) | [1, 64, 64, 64] | Restore spatial size
+dec3.layers.0 | [1, 128, 64, 64] | Conv2d(128, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False) | [1, 64, 64, 64] | Learn local features
+dec3.layers.1 | [1, 64, 64, 64] | BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True) | [1, 64, 64, 64] | Normalize channels
+dec3.layers.2 | [1, 64, 64, 64] | ReLU(inplace=True) | [1, 64, 64, 64] | Nonlinear activation
+dec3.layers.3 | [1, 64, 64, 64] | Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False) | [1, 64, 64, 64] | Learn local features
+dec3.layers.4 | [1, 64, 64, 64] | BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True) | [1, 64, 64, 64] | Normalize channels
+dec3.layers.5 | [1, 64, 64, 64] | ReLU(inplace=True) | [1, 64, 64, 64] | Nonlinear activation
+up2 | [1, 64, 64, 64] | ConvTranspose2d(64, 32, kernel_size=(2, 2), stride=(2, 2)) | [1, 32, 128, 128] | Restore spatial size
+dec2.layers.0 | [1, 64, 128, 128] | Conv2d(64, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False) | [1, 32, 128, 128] | Learn local features
+dec2.layers.1 | [1, 32, 128, 128] | BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True) | [1, 32, 128, 128] | Normalize channels
+dec2.layers.2 | [1, 32, 128, 128] | ReLU(inplace=True) | [1, 32, 128, 128] | Nonlinear activation
+dec2.layers.3 | [1, 32, 128, 128] | Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False) | [1, 32, 128, 128] | Learn local features
+dec2.layers.4 | [1, 32, 128, 128] | BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True) | [1, 32, 128, 128] | Normalize channels
+dec2.layers.5 | [1, 32, 128, 128] | ReLU(inplace=True) | [1, 32, 128, 128] | Nonlinear activation
+up1 | [1, 32, 128, 128] | ConvTranspose2d(32, 16, kernel_size=(2, 2), stride=(2, 2)) | [1, 16, 256, 256] | Restore spatial size
+dec1.layers.0 | [1, 32, 256, 256] | Conv2d(32, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False) | [1, 16, 256, 256] | Learn local features
+dec1.layers.1 | [1, 16, 256, 256] | BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True) | [1, 16, 256, 256] | Normalize channels
+dec1.layers.2 | [1, 16, 256, 256] | ReLU(inplace=True) | [1, 16, 256, 256] | Nonlinear activation
+dec1.layers.3 | [1, 16, 256, 256] | Conv2d(16, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False) | [1, 16, 256, 256] | Learn local features
+dec1.layers.4 | [1, 16, 256, 256] | BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True) | [1, 16, 256, 256] | Normalize channels
+dec1.layers.5 | [1, 16, 256, 256] | ReLU(inplace=True) | [1, 16, 256, 256] | Nonlinear activation
+output | [1, 16, 256, 256] | Conv2d(16, 4, kernel_size=(1, 1), stride=(1, 1)) | [1, 4, 256, 256] | Learn four logits

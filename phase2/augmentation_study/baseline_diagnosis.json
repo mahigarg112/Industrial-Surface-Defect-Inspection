@@ -1,0 +1,1804 @@
+{
+  "images": 2514,
+  "seconds": 708.8487992000009,
+  "models": {
+    "K": {
+      "metrics": {
+        "macro_dice": 0.23922878227237032,
+        "macro_iou": 0.1418755293173221,
+        "per_class": {
+          "1": {
+            "dice": 0.19346489607548586,
+            "iou": 0.10709168930911057,
+            "precision": 0.19445122875311086,
+            "recall": 0.19248851902915126,
+            "true_positive_pixels": 155252,
+            "false_positive_pixels": 643159,
+            "false_negative_pixels": 651300
+          },
+          "2": {
+            "dice": 0.062291177693986066,
+            "iou": 0.03214682050105704,
+            "precision": 0.04224494368291341,
+            "recall": 0.11854235370098361,
+            "true_positive_pixels": 20741,
+            "false_positive_pixels": 470229,
+            "false_negative_pixels": 154226
+          },
+          "3": {
+            "dice": 0.410169525310763,
+            "iou": 0.25799576234122606,
+            "precision": 0.40123138522985136,
+            "recall": 0.4195149645185085,
+            "true_positive_pixels": 10473718,
+            "false_positive_pixels": 15630217,
+            "false_negative_pixels": 14492538
+          },
+          "4": {
+            "dice": 0.29098953000924627,
+            "iou": 0.1702678451178948,
+            "precision": 0.2651642302301164,
+            "recall": 0.32238806526181285,
+            "true_positive_pixels": 1730750,
+            "false_positive_pixels": 4796337,
+            "false_negative_pixels": 3637780
+          }
+        },
+        "aggregation": "int64 pixel counts over entire split, then unweighted four-class macro; undefined ratios=null",
+        "policy": {
+          "thresholds": [
+            0.949999988079071,
+            0.9750000238418579,
+            0.5,
+            0.949999988079071
+          ],
+          "min_area": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "min_mean_probability": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "K"
+        },
+        "images": 2514,
+        "normal_images": 1180,
+        "false_alarm_images": 1130,
+        "normal_false_alarm_rate": 0.9576271186440678,
+        "positive_images": 1334,
+        "image_defect_recall_any_alarm": 0.9962518740629686,
+        "image_defect_recall_localized": 0.974512743628186,
+        "class_positive_images": [
+          180,
+          50,
+          1031,
+          160
+        ],
+        "class_localized_positive_images": [
+          163,
+          38,
+          1020,
+          155
+        ],
+        "small_defects": {
+          "1": {
+            "objects": 364,
+            "detected": 166,
+            "object_recall": 0.45604395604395603,
+            "gt_pixels": 234040,
+            "recovered_pixels": 57902,
+            "pixel_recall": 0.24740215347803796
+          },
+          "2": {
+            "objects": 8,
+            "detected": 2,
+            "object_recall": 0.25,
+            "gt_pixels": 4952,
+            "recovered_pixels": 443,
+            "pixel_recall": 0.08945880452342488
+          },
+          "3": {
+            "objects": 435,
+            "detected": 355,
+            "object_recall": 0.8160919540229885,
+            "gt_pixels": 191241,
+            "recovered_pixels": 125240,
+            "pixel_recall": 0.6548804911080783
+          },
+          "4": {
+            "objects": 36,
+            "detected": 17,
+            "object_recall": 0.4722222222222222,
+            "gt_pixels": 21129,
+            "recovered_pixels": 5502,
+            "pixel_recall": 0.2604003975578589
+          }
+        },
+        "partition_sha256": "97135138fcb09211c850dc2a16e0ae1deadd3088d342fdccf0c9f9d6b04559f0",
+        "metric_scope": "validation native pixel totals per class, then equal-class macro; image recall localized requires at least one correct-class TP pixel"
+      },
+      "diagnosis": {
+        "label_set_confusion_16x16": [
+          [
+            980658768,
+            0,
+            513,
+            0,
+            13230971,
+            212146,
+            87559,
+            0,
+            3627731,
+            0,
+            0,
+            0,
+            573295,
+            27112,
+            0,
+            0
+          ],
+          [
+            360919,
+            0,
+            0,
+            0,
+            278881,
+            121615,
+            319,
+            0,
+            2124,
+            0,
+            0,
+            0,
+            9057,
+            33637,
+            0,
+            0
+          ],
+          [
+            97329,
+            0,
+            52,
+            0,
+            55926,
+            971,
+            20689,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            14120847,
+            0,
+            210,
+            0,
+            9599234,
+            341305,
+            381279,
+            0,
+            371481,
+            0,
+            0,
+            0,
+            118686,
+            33214,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            3064958,
+            0,
+            0,
+            0,
+            562312,
+            10161,
+            349,
+            0,
+            1325533,
+            0,
+            0,
+            0,
+            386967,
+            18250,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "pixel_locations": 1029734400,
+        "label_set_axis": {
+          "0": [],
+          "1": [
+            1
+          ],
+          "2": [
+            2
+          ],
+          "3": [
+            1,
+            2
+          ],
+          "4": [
+            3
+          ],
+          "5": [
+            1,
+            3
+          ],
+          "6": [
+            2,
+            3
+          ],
+          "7": [
+            1,
+            2,
+            3
+          ],
+          "8": [
+            4
+          ],
+          "9": [
+            1,
+            4
+          ],
+          "10": [
+            2,
+            4
+          ],
+          "11": [
+            1,
+            2,
+            4
+          ],
+          "12": [
+            3,
+            4
+          ],
+          "13": [
+            1,
+            3,
+            4
+          ],
+          "14": [
+            2,
+            3,
+            4
+          ],
+          "15": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "axis_definition": "rows GT label set; columns predicted label set;0=background. Exclusive set-pair bins, no argmax.",
+        "background_false_positive_pixels_by_class": [
+          239258,
+          88072,
+          14131083,
+          4228138
+        ],
+        "other_defect_false_positive_pixels_by_class": [
+          403901,
+          382157,
+          1499134,
+          568199
+        ],
+        "wrong_cross_class_pairs_GT_rows_predicted_columns": [
+          [
+            0,
+            319,
+            443509,
+            44818
+          ],
+          [
+            971,
+            0,
+            77586,
+            0
+          ],
+          [
+            374519,
+            381489,
+            0,
+            523381
+          ],
+          [
+            28411,
+            349,
+            978039,
+            0
+          ]
+        ],
+        "cross_pair_caution": "Requires target predicted class absent. Multiple GT labels may contribute to multiple rows; pair totals are not additive unique FP counts.",
+        "fp_distance_to_same_class_GT_le3_3to16_gt16_class_absent": [
+          [
+            9741,
+            3227,
+            12496,
+            617695
+          ],
+          [
+            432,
+            45,
+            1171,
+            468581
+          ],
+          [
+            552802,
+            485340,
+            2937138,
+            11654937
+          ],
+          [
+            58199,
+            82560,
+            207340,
+            4448238
+          ]
+        ],
+        "fn_boundary_le3_and_interior_gt3": [
+          [
+            244870,
+            406430
+          ],
+          [
+            69382,
+            84844
+          ],
+          [
+            2644570,
+            11847968
+          ],
+          [
+            472927,
+            3164853
+          ]
+        ],
+        "edge16_background_exposure_edge_interior": [
+          143785728,
+          854632367
+        ],
+        "edge16_background_FP_by_class_edge_interior": [
+          [
+            14058,
+            225200
+          ],
+          [
+            2968,
+            85104
+          ],
+          [
+            1542013,
+            12589070
+          ],
+          [
+            356016,
+            3872122
+          ]
+        ],
+        "edge16_background_FP_rates_by_class_edge_interior": [
+          [
+            9.777048247792715e-05,
+            0.0002635051148255891
+          ],
+          [
+            2.064182614841996e-05,
+            9.957965937884962e-05
+          ],
+          [
+            0.010724381490769376,
+            0.014730392255316959
+          ],
+          [
+            0.0024760176475929515,
+            0.004530745791424022
+          ]
+        ],
+        "texture_background_exposure_high_low": [
+          328014864,
+          670403231
+        ],
+        "texture_background_FP_by_class_high_low": [
+          [
+            209125,
+            30133
+          ],
+          [
+            69161,
+            18911
+          ],
+          [
+            11930983,
+            2200100
+          ],
+          [
+            2687527,
+            1540611
+          ]
+        ],
+        "texture_background_FP_rates_by_class_high_low": [
+          [
+            0.0006375473277332944,
+            4.49475757374445e-05
+          ],
+          [
+            0.00021084715234124268,
+            2.8208396268901632e-05
+          ],
+          [
+            0.03637329983924143,
+            0.0032817562599127747
+          ],
+          [
+            0.008193308581284291,
+            0.002298036358956629
+          ]
+        ],
+        "texture_definition": "7x7 grayscale local std>=8/255; prespecified association proxy, not a causal/semantic texture label",
+        "GT_multi_label_pixels": 0,
+        "predicted_multi_label_pixels": 2376611,
+        "predicted_multi_label_pixels_on_GT_background": 900112,
+        "annotation_caution": "Errors are relative to supplied masks. Disagreement does not establish incorrect annotation."
+      },
+      "fixed_examples": {
+        "000418bfc.jpg": {
+          "tp": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "fp": [
+            0,
+            0,
+            2375,
+            44
+          ],
+          "fn": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "background_fp": [
+            0,
+            0,
+            2375,
+            44
+          ],
+          "ground_truth_empty": true
+        },
+        "0007a71bf.jpg": {
+          "tp": [
+            0,
+            0,
+            5317,
+            0
+          ],
+          "fp": [
+            225,
+            6,
+            1238,
+            0
+          ],
+          "fn": [
+            0,
+            0,
+            1580,
+            0
+          ],
+          "background_fp": [
+            0,
+            0,
+            1238,
+            0
+          ],
+          "ground_truth_empty": false
+        },
+        "001982b08.jpg": {
+          "tp": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "fp": [
+            111,
+            0,
+            3280,
+            594
+          ],
+          "fn": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "background_fp": [
+            111,
+            0,
+            3280,
+            594
+          ],
+          "ground_truth_empty": true
+        },
+        "005d86c25.jpg": {
+          "tp": [
+            0,
+            0,
+            95708,
+            0
+          ],
+          "fp": [
+            99,
+            0,
+            1666,
+            43
+          ],
+          "fn": [
+            0,
+            0,
+            67325,
+            0
+          ],
+          "background_fp": [
+            96,
+            0,
+            1666,
+            0
+          ],
+          "ground_truth_empty": false
+        },
+        "00ac8372f.jpg": {
+          "tp": [
+            0,
+            129,
+            0,
+            0
+          ],
+          "fp": [
+            0,
+            0,
+            4411,
+            538
+          ],
+          "fn": [
+            1232,
+            8180,
+            0,
+            0
+          ],
+          "background_fp": [
+            0,
+            0,
+            1329,
+            538
+          ],
+          "ground_truth_empty": false
+        },
+        "00bc01bfe.jpg": {
+          "tp": [
+            81,
+            0,
+            0,
+            0
+          ],
+          "fp": [
+            0,
+            0,
+            2985,
+            0
+          ],
+          "fn": [
+            3444,
+            0,
+            0,
+            0
+          ],
+          "background_fp": [
+            0,
+            0,
+            1557,
+            0
+          ],
+          "ground_truth_empty": false
+        },
+        "012f26693.jpg": {
+          "tp": [
+            0,
+            0,
+            3746,
+            5574
+          ],
+          "fp": [
+            1223,
+            222,
+            15046,
+            445
+          ],
+          "fn": [
+            0,
+            0,
+            3394,
+            8067
+          ],
+          "background_fp": [
+            979,
+            134,
+            11166,
+            283
+          ],
+          "ground_truth_empty": false
+        },
+        "01afbfa7a.jpg": {
+          "tp": [
+            0,
+            0,
+            0,
+            2504
+          ],
+          "fp": [
+            0,
+            0,
+            799,
+            3172
+          ],
+          "fn": [
+            0,
+            0,
+            0,
+            1773
+          ],
+          "background_fp": [
+            0,
+            0,
+            770,
+            3172
+          ],
+          "ground_truth_empty": false
+        },
+        "026183d85.jpg": {
+          "tp": [
+            0,
+            751,
+            0,
+            0
+          ],
+          "fp": [
+            295,
+            0,
+            2669,
+            3
+          ],
+          "fn": [
+            0,
+            1461,
+            0,
+            0
+          ],
+          "background_fp": [
+            295,
+            0,
+            858,
+            3
+          ],
+          "ground_truth_empty": false
+        }
+      },
+      "runtime_ms": {
+        "mean": 73.63981201275973,
+        "median": 72.70044999859238,
+        "p95": 80.84712000036234,
+        "scope": "resident model native RGB to probabilities; CPU prep/GPU/transfer/stitch,3 warmups; excludes image/GT loading and diagnostics"
+      }
+    },
+    "L": {
+      "metrics": {
+        "macro_dice": 0.25573240678445297,
+        "macro_iou": 0.15322524580998953,
+        "per_class": {
+          "1": {
+            "dice": 0.1958900010678892,
+            "iou": 0.10857985443450813,
+            "precision": 0.1707519607752781,
+            "recall": 0.2297074460171198,
+            "true_positive_pixels": 185271,
+            "false_positive_pixels": 899759,
+            "false_negative_pixels": 621281
+          },
+          "2": {
+            "dice": 0.07715347072257478,
+            "iou": 0.040124611895868675,
+            "precision": 0.04303259478921719,
+            "recall": 0.3725559676967657,
+            "true_positive_pixels": 65185,
+            "false_positive_pixels": 1449597,
+            "false_negative_pixels": 109782
+          },
+          "3": {
+            "dice": 0.42917374534337493,
+            "iou": 0.27321528658635147,
+            "precision": 0.37501841280773796,
+            "recall": 0.5016097728069439,
+            "true_positive_pixels": 12523318,
+            "false_positive_pixels": 20870557,
+            "false_negative_pixels": 12442938
+          },
+          "4": {
+            "dice": 0.3207124100039729,
+            "iou": 0.1909812303232299,
+            "precision": 0.3342226494889293,
+            "recall": 0.30825197959217887,
+            "true_positive_pixels": 1654860,
+            "false_positive_pixels": 3296510,
+            "false_negative_pixels": 3713670
+          }
+        },
+        "aggregation": "int64 pixel counts over entire split, then unweighted four-class macro; undefined ratios=null",
+        "policy": {
+          "thresholds": [
+            0.949999988079071,
+            0.9750000238418579,
+            0.5,
+            0.949999988079071
+          ],
+          "min_area": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "min_mean_probability": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "L"
+        },
+        "images": 2514,
+        "normal_images": 1180,
+        "false_alarm_images": 1141,
+        "normal_false_alarm_rate": 0.9669491525423729,
+        "positive_images": 1334,
+        "image_defect_recall_any_alarm": 0.9985007496251874,
+        "image_defect_recall_localized": 0.987256371814093,
+        "class_positive_images": [
+          180,
+          50,
+          1031,
+          160
+        ],
+        "class_localized_positive_images": [
+          165,
+          48,
+          1028,
+          154
+        ],
+        "small_defects": {
+          "1": {
+            "objects": 364,
+            "detected": 191,
+            "object_recall": 0.5247252747252747,
+            "gt_pixels": 234040,
+            "recovered_pixels": 67381,
+            "pixel_recall": 0.2879037771321142
+          },
+          "2": {
+            "objects": 8,
+            "detected": 7,
+            "object_recall": 0.875,
+            "gt_pixels": 4952,
+            "recovered_pixels": 2939,
+            "pixel_recall": 0.593497576736672
+          },
+          "3": {
+            "objects": 435,
+            "detected": 386,
+            "object_recall": 0.8873563218390804,
+            "gt_pixels": 191241,
+            "recovered_pixels": 143822,
+            "pixel_recall": 0.7520458479091826
+          },
+          "4": {
+            "objects": 36,
+            "detected": 16,
+            "object_recall": 0.4444444444444444,
+            "gt_pixels": 21129,
+            "recovered_pixels": 5667,
+            "pixel_recall": 0.26820956978560273
+          }
+        },
+        "partition_sha256": "97135138fcb09211c850dc2a16e0ae1deadd3088d342fdccf0c9f9d6b04559f0",
+        "metric_scope": "validation native pixel totals per class, then equal-class macro; image recall localized requires at least one correct-class TP pixel"
+      },
+      "diagnosis": {
+        "label_set_confusion_16x16": [
+          [
+            976425526,
+            0,
+            48708,
+            0,
+            18144208,
+            316683,
+            612712,
+            0,
+            2604407,
+            0,
+            0,
+            0,
+            241194,
+            24657,
+            0,
+            0
+          ],
+          [
+            286079,
+            0,
+            202,
+            0,
+            321285,
+            162597,
+            4280,
+            0,
+            1152,
+            0,
+            0,
+            0,
+            8283,
+            22674,
+            0,
+            0
+          ],
+          [
+            54691,
+            0,
+            1542,
+            0,
+            53743,
+            1348,
+            63643,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            12165914,
+            0,
+            5564,
+            0,
+            11145439,
+            478258,
+            776938,
+            0,
+            271460,
+            0,
+            0,
+            0,
+            89605,
+            33078,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            3114799,
+            0,
+            26,
+            0,
+            575250,
+            22428,
+            1167,
+            0,
+            1360455,
+            0,
+            0,
+            0,
+            271098,
+            23307,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "pixel_locations": 1029734400,
+        "label_set_axis": {
+          "0": [],
+          "1": [
+            1
+          ],
+          "2": [
+            2
+          ],
+          "3": [
+            1,
+            2
+          ],
+          "4": [
+            3
+          ],
+          "5": [
+            1,
+            3
+          ],
+          "6": [
+            2,
+            3
+          ],
+          "7": [
+            1,
+            2,
+            3
+          ],
+          "8": [
+            4
+          ],
+          "9": [
+            1,
+            4
+          ],
+          "10": [
+            2,
+            4
+          ],
+          "11": [
+            1,
+            2,
+            4
+          ],
+          "12": [
+            3,
+            4
+          ],
+          "13": [
+            1,
+            3,
+            4
+          ],
+          "14": [
+            2,
+            3,
+            4
+          ],
+          "15": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "axis_definition": "rows GT label set; columns predicted label set;0=background. Exclusive set-pair bins, no argmax.",
+        "background_false_positive_pixels_by_class": [
+          341340,
+          661420,
+          19339454,
+          2870258
+        ],
+        "other_defect_false_positive_pixels_by_class": [
+          558419,
+          788177,
+          1531103,
+          426252
+        ],
+        "wrong_cross_class_pairs_GT_rows_predicted_columns": [
+          [
+            0,
+            4482,
+            519119,
+            32109
+          ],
+          [
+            1348,
+            0,
+            118734,
+            0
+          ],
+          [
+            511336,
+            782502,
+            0,
+            394143
+          ],
+          [
+            45735,
+            1193,
+            893250,
+            0
+          ]
+        ],
+        "cross_pair_caution": "Requires target predicted class absent. Multiple GT labels may contribute to multiple rows; pair totals are not additive unique FP counts.",
+        "fp_distance_to_same_class_GT_le3_3to16_gt16_class_absent": [
+          [
+            11635,
+            3840,
+            17959,
+            866325
+          ],
+          [
+            3632,
+            1279,
+            6295,
+            1438391
+          ],
+          [
+            850792,
+            779718,
+            4571423,
+            14668624
+          ],
+          [
+            56605,
+            65311,
+            120794,
+            3053800
+          ]
+        ],
+        "fn_boundary_le3_and_interior_gt3": [
+          [
+            239165,
+            382116
+          ],
+          [
+            54170,
+            55612
+          ],
+          [
+            2226351,
+            10216587
+          ],
+          [
+            471040,
+            3242630
+          ]
+        ],
+        "edge16_background_exposure_edge_interior": [
+          143785728,
+          854632367
+        ],
+        "edge16_background_FP_by_class_edge_interior": [
+          [
+            22494,
+            318846
+          ],
+          [
+            39865,
+            621555
+          ],
+          [
+            2162816,
+            17176638
+          ],
+          [
+            255788,
+            2614470
+          ]
+        ],
+        "edge16_background_FP_rates_by_class_edge_interior": [
+          [
+            0.0001564411177164955,
+            0.00037307971510515
+          ],
+          [
+            0.0002772528299888011,
+            0.0007272776271999068
+          ],
+          [
+            0.015041937959238904,
+            0.020098276947191726
+          ],
+          [
+            0.0017789526370795298,
+            0.003059175033561536
+          ]
+        ],
+        "texture_background_exposure_high_low": [
+          328014864,
+          670403231
+        ],
+        "texture_background_FP_by_class_high_low": [
+          [
+            300858,
+            40482
+          ],
+          [
+            416964,
+            244456
+          ],
+          [
+            15065451,
+            4274003
+          ],
+          [
+            2045140,
+            825118
+          ]
+        ],
+        "texture_background_FP_rates_by_class_high_low": [
+          [
+            0.0009172084347982474,
+            6.0384553844729305e-05
+          ],
+          [
+            0.0012711741014273061,
+            0.00036464024738568123
+          ],
+          [
+            0.045929171673147105,
+            0.006375272078603691
+          ],
+          [
+            0.006234900379392563,
+            0.0012307786744542107
+          ]
+        ],
+        "texture_definition": "7x7 grayscale local std>=8/255; prespecified association proxy, not a causal/semantic texture label",
+        "GT_multi_label_pixels": 0,
+        "predicted_multi_label_pixels": 3153950,
+        "predicted_multi_label_pixels_on_GT_background": 1195246,
+        "annotation_caution": "Errors are relative to supplied masks. Disagreement does not establish incorrect annotation."
+      },
+      "fixed_examples": {
+        "000418bfc.jpg": {
+          "tp": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "fp": [
+            0,
+            6,
+            3370,
+            27
+          ],
+          "fn": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "background_fp": [
+            0,
+            6,
+            3370,
+            27
+          ],
+          "ground_truth_empty": true
+        },
+        "0007a71bf.jpg": {
+          "tp": [
+            0,
+            0,
+            5956,
+            0
+          ],
+          "fp": [
+            482,
+            0,
+            3052,
+            0
+          ],
+          "fn": [
+            0,
+            0,
+            941,
+            0
+          ],
+          "background_fp": [
+            0,
+            0,
+            3052,
+            0
+          ],
+          "ground_truth_empty": false
+        },
+        "001982b08.jpg": {
+          "tp": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "fp": [
+            297,
+            0,
+            4335,
+            110
+          ],
+          "fn": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "background_fp": [
+            297,
+            0,
+            4335,
+            110
+          ],
+          "ground_truth_empty": true
+        },
+        "005d86c25.jpg": {
+          "tp": [
+            0,
+            0,
+            108394,
+            0
+          ],
+          "fp": [
+            87,
+            0,
+            2713,
+            0
+          ],
+          "fn": [
+            0,
+            0,
+            54639,
+            0
+          ],
+          "background_fp": [
+            87,
+            0,
+            2713,
+            0
+          ],
+          "ground_truth_empty": false
+        },
+        "00ac8372f.jpg": {
+          "tp": [
+            0,
+            1621,
+            0,
+            0
+          ],
+          "fp": [
+            0,
+            209,
+            7436,
+            40
+          ],
+          "fn": [
+            1232,
+            6688,
+            0,
+            0
+          ],
+          "background_fp": [
+            0,
+            209,
+            2377,
+            40
+          ],
+          "ground_truth_empty": false
+        },
+        "00bc01bfe.jpg": {
+          "tp": [
+            235,
+            0,
+            0,
+            0
+          ],
+          "fp": [
+            0,
+            420,
+            5766,
+            0
+          ],
+          "fn": [
+            3290,
+            0,
+            0,
+            0
+          ],
+          "background_fp": [
+            0,
+            420,
+            3842,
+            0
+          ],
+          "ground_truth_empty": false
+        },
+        "012f26693.jpg": {
+          "tp": [
+            0,
+            0,
+            4897,
+            5938
+          ],
+          "fp": [
+            2079,
+            1098,
+            16684,
+            46
+          ],
+          "fn": [
+            0,
+            0,
+            2243,
+            7703
+          ],
+          "background_fp": [
+            1485,
+            815,
+            13644,
+            18
+          ],
+          "ground_truth_empty": false
+        },
+        "01afbfa7a.jpg": {
+          "tp": [
+            0,
+            0,
+            0,
+            2473
+          ],
+          "fp": [
+            22,
+            0,
+            1692,
+            2223
+          ],
+          "fn": [
+            0,
+            0,
+            0,
+            1804
+          ],
+          "background_fp": [
+            22,
+            0,
+            1227,
+            2223
+          ],
+          "ground_truth_empty": false
+        },
+        "026183d85.jpg": {
+          "tp": [
+            0,
+            1466,
+            0,
+            0
+          ],
+          "fp": [
+            292,
+            78,
+            3861,
+            0
+          ],
+          "fn": [
+            0,
+            746,
+            0,
+            0
+          ],
+          "background_fp": [
+            292,
+            78,
+            1699,
+            0
+          ],
+          "ground_truth_empty": false
+        }
+      },
+      "runtime_ms": {
+        "mean": 73.68245942723469,
+        "median": 72.64204999955837,
+        "p95": 81.39978500075813,
+        "scope": "resident model native RGB to probabilities; CPU prep/GPU/transfer/stitch,3 warmups; excludes image/GT loading and diagnostics"
+      }
+    }
+  }
+}

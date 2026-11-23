@@ -1,0 +1,30 @@
+{
+  "seed": 42,
+  "training_draws": 10054,
+  "defect_positive_draws": 6535,
+  "defect_free_draws": 3519,
+  "unique_positive_images": 5332,
+  "unique_defect_free_images_drawn": 3519,
+  "unique_source_images_used": 8851,
+  "repeat_draws_beyond_first_use": 1203,
+  "maximum_appearances_of_any_source_image": 2,
+  "maximum_appearances_allowed": 2,
+  "source_positive_image_counts_by_class": {
+    "1": 717,
+    "2": 197,
+    "3": 4119,
+    "4": 641
+  },
+  "sampled_positive_image_draws_by_class": {
+    "1": 961,
+    "2": 306,
+    "3": 4855,
+    "4": 846
+  },
+  "per_class_rarity_weight_n_to_negative_power": {
+    "1": 0.03734568434866355,
+    "2": 0.07124704998790965,
+    "3": 0.015581314872270009,
+    "4": 0.03949762527666822
+  }
+}

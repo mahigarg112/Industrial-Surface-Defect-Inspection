@@ -1,0 +1,11 @@
+{
+  "decided_before_J_epoch_3_validation": true,
+  "preferred_parent": "J_balanced_dice_patch",
+  "fallback_parent": "H_foreground_patch only if J has already met unchanged patience-2 early stopping",
+  "total_epoch_cap": 9,
+  "early_stopping_patience": 2,
+  "only_changed_training_setting": "total epoch budget; same architecture, loss, crops, Adam, learning rate and state",
+  "reason": "J validation Dice increased 0.083959 to approximately 0.111418 after two epochs; rare class 2 Dice rose to 0.014687 but remained weak. Test underfitting of the class-balanced model before opening held-out test.",
+  "selection_inputs": "training curves and validation only; no held-out model metrics inspected",
+  "requires": "exact-parent real-GPU resume equivalence preflight"
+}

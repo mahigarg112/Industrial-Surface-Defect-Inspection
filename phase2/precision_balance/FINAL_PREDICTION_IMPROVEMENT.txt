@@ -1,0 +1,36 @@
+FINAL PREDICTION IMPROVEMENT - ONE CONTROLLED LOSS EXPERIMENT
+
+Intervention:0.75 unweighted BCE +0.25 existing weighted positive-pair Dice, versus0.5+0.5. Dice formula/weights/smoothing and sampling unchanged.
+Existing matched reference:L_low_lr, same K epoch9 weights and full Adam/scaler/RNG state, LR0.0001,batch8,seed42,foreground crops,3-epoch cap,patience2. No new control needed.
+Candidate completed2 additional epochs; best total epoch11. Reference comparison uses only the same executed epoch window; per-epoch records retained.
+Same2514 native validation images, fixed K thresholds and no filtering/tuning. Previously opened test not evaluated. Development validation is reused, not independent generalization.
+
+K: Dice/IoU=0.239229/0.141876; normal alarms=1130/1180; localized image recall=0.974513
+Matched L: Dice/IoU=0.255732/0.153225; normal alarms=1141/1180; localized image recall=0.987256
+N: Dice/IoU=0.216051/0.127814; normal alarms=1128/1180; localized image recall=0.966267
+Class1 L->N: Dice 0.195890->0.183150; precision 0.1707519607752781->0.27617543263318906; recall 0.229707->0.137003; FP 899759->289608; small sensitivity {'objects': 364, 'detected': 191, 'object_recall': 0.5247252747252747, 'gt_pixels': 234040, 'recovered_pixels': 67381, 'pixel_recall': 0.2879037771321142} -> {'objects': 364, 'detected': 140, 'object_recall': 0.38461538461538464, 'gt_pixels': 234040, 'recovered_pixels': 44265, 'pixel_recall': 0.1891343360109383}
+Class2 L->N: Dice 0.077153->0.105125; precision 0.04303259478921719->0.06925345505031714; recall 0.372556->0.218093; FP 1449597->512846; small sensitivity {'objects': 8, 'detected': 7, 'object_recall': 0.875, 'gt_pixels': 4952, 'recovered_pixels': 2939, 'pixel_recall': 0.593497576736672} -> {'objects': 8, 'detected': 7, 'object_recall': 0.875, 'gt_pixels': 4952, 'recovered_pixels': 1471, 'pixel_recall': 0.29705169628432954}
+Class3 L->N: Dice 0.429174->0.439996; precision 0.37501841280773796->0.43053666217927683; recall 0.501610->0.449879; FP 20870557->14856114; small sensitivity {'objects': 435, 'detected': 386, 'object_recall': 0.8873563218390804, 'gt_pixels': 191241, 'recovered_pixels': 143822, 'pixel_recall': 0.7520458479091826} -> {'objects': 435, 'detected': 368, 'object_recall': 0.8459770114942529, 'gt_pixels': 191241, 'recovered_pixels': 133232, 'pixel_recall': 0.696670692999932}
+Class4 L->N: Dice 0.320712->0.135933; precision 0.3342226494889293->0.6603185477521295; recall 0.308252->0.075765; FP 3296510->209238; small sensitivity {'objects': 36, 'detected': 16, 'object_recall': 0.4444444444444444, 'gt_pixels': 21129, 'recovered_pixels': 5667, 'pixel_recall': 0.26820956978560273} -> {'objects': 36, 'detected': 4, 'object_recall': 0.1111111111111111, 'gt_pixels': 21129, 'recovered_pixels': 1039, 'pixel_recall': 0.04917412087652042}
+
+K safeguards:{'passed': False, 'reasons': ['macro Dice gain below0.002', 'class1 pixel recall loss', 'class1 small object_recall loss', 'class1 small pixel_recall loss', 'class4 pixel recall loss', 'class4 small object_recall loss', 'class4 small pixel_recall loss']}
+Matched L safeguards:{'passed': False, 'reasons': ['class1 pixel recall loss', 'class1 small object_recall loss', 'class1 small pixel_recall loss', 'class2 pixel recall loss', 'class2 small pixel_recall loss', 'class3 pixel recall loss', 'class3 small object_recall loss', 'class3 small pixel_recall loss', 'class4 pixel recall loss', 'class4 small object_recall loss', 'class4 small pixel_recall loss', 'localized positive-image recall loss']}
+Recommendation:Keep original K; candidate fails safeguards. No GUI checkpoint changed.
+Checkpoint:phase2\precision_balance\N_bce75_dice25\best_model.pt; SHA256:4bc6d198df6d4777d3d068e5a12e477c57491b61e4ee5f72c4b5aee4ca3b0e17
+CPU/CUDA strict reload/native checks passed. All9 fixed labeled panels saved, including genuine overlaps, misses and false alarms; no samples hidden or improved masks fabricated.
+GPU peak allocated/reserved:400058368/476053504 bytes; total train+validation seconds:1230.64; attempts/successes/skips:2262/2262/0.
+history.csv records train seconds, validation seconds and per-epoch metrics. Train losses have different coefficients and must not be compared as accuracy. Auxiliary validation loss retains original K formula for comparability.
+One seed and repeatedly reused validation limit causal/generalization claims. Equal epoch caps/stopping rules can produce different executed budgets; matched epoch-window comparison is reported. AMP skip differences are recorded.
+All670 protected historical hashes unchanged. Prior GUI sources were preserved in gui_before; clean GUI simplification is a separate presentation change. Codex assisted implementation/testing; student review/disclosure remains required.
+
+Reproduce from repository root, before output directory exists:
+.\.venv-phase2\Scripts\python.exe -B -m phase2.precision_balance.experiment
+.\.venv-phase2\Scripts\python.exe -B phase2/precision_balance/finalize_experiment.py
+Existing run guards prevent overwrite. Preserve this directory; another reproduction needs a fresh experiment-directory copy of source/protocol with identical initial paths and settings. No dataset copy or new packages required.
+
+Fresh reproduction setup in PowerShell (from repository root):
+New-Item -ItemType Directory phase2/precision_balance_reproduction_001
+Copy-Item phase2/precision_balance/experiment.py,phase2/precision_balance/finalize_experiment.py,phase2/precision_balance/protocol.json,phase2/precision_balance/protected_originals.json phase2/precision_balance_reproduction_001/
+.\.venv-phase2\Scripts\python.exe -B phase2/precision_balance_reproduction_001/experiment.py
+.\.venv-phase2\Scripts\python.exe -B phase2/precision_balance_reproduction_001/finalize_experiment.py
+Use an unused directory. GUI checks ran concurrently during part of training; wall time is not a throughput comparison.
